@@ -136,6 +136,8 @@ export interface Query {
     allUserPoints: (UserPointsConnection | null)
     /** Reads and enables pagination through a set of `Version`. */
     allVersions: (VersionsConnection | null)
+    /** Reads and enables pagination through a set of `Vote`. */
+    allVotes: (VotesConnection | null)
     /** Reads and enables pagination through a set of `WorldRecordDaily`. */
     allWorldRecordDailies: (WorldRecordDailiesConnection | null)
     /** Reads and enables pagination through a set of `WorldRecordGlobal`. */
@@ -173,6 +175,7 @@ export interface Query {
     userById: (User | null)
     userPointById: (UserPoint | null)
     versionById: (Version | null)
+    voteById: (Vote | null)
     worldRecordDailyById: (WorldRecordDaily | null)
     worldRecordGlobalById: (WorldRecordGlobal | null)
     worldRecordMonthlyById: (WorldRecordMonthly | null)
@@ -229,6 +232,8 @@ export interface Query {
     userPoint: (UserPoint | null)
     /** Reads a single `Version` using its globally unique `ID`. */
     version: (Version | null)
+    /** Reads a single `Vote` using its globally unique `ID`. */
+    vote: (Vote | null)
     /** Reads a single `WorldRecordDaily` using its globally unique `ID`. */
     worldRecordDaily: (WorldRecordDaily | null)
     /** Reads a single `WorldRecordGlobal` using its globally unique `ID`. */
@@ -246,7 +251,7 @@ export interface Query {
 
 
 /** An object with a globally unique `ID`. */
-export type Node = (Query | Favorite | User | PersonalBestGlobal | Record | Level | LevelPoint | LevelItem | LevelMetadatum | StatsGlobal | Upvote | WorldRecordGlobal | PersonalBestYearly | PersonalBestMonthly | PersonalBestWeekly | PersonalBestDaily | WorldRecordMonthly | WorldRecordYearly | WorldRecordWeekly | WorldRecordDaily | StatsMonthly | StatsYearly | StatsWeekly | StatsDaily | PersonalBestQuarterly | StatsQuarterly | WorldRecordQuarterly | RecordMedia | UserPoint | LevelRequest | Version) & { __isUnion?: true }
+export type Node = (Query | Favorite | User | PersonalBestGlobal | Record | Level | LevelPoint | LevelItem | LevelMetadatum | StatsGlobal | Upvote | WorldRecordGlobal | PersonalBestYearly | PersonalBestMonthly | PersonalBestWeekly | PersonalBestDaily | WorldRecordMonthly | WorldRecordYearly | WorldRecordWeekly | WorldRecordDaily | StatsMonthly | StatsYearly | StatsWeekly | StatsDaily | PersonalBestQuarterly | StatsQuarterly | WorldRecordQuarterly | Vote | RecordMedia | UserPoint | LevelRequest | Version) & { __isUnion?: true }
 
 
 /** A connection to a list of `Favorite` values. */
@@ -319,6 +324,8 @@ export interface User {
     personalBestQuarterliesByIdUser: PersonalBestQuarterliesConnection
     /** Reads and enables pagination through a set of `StatsQuarterly`. */
     statsQuarterliesByIdUser: StatsQuarterliesConnection
+    /** Reads and enables pagination through a set of `Vote`. */
+    votesByIdUser: VotesConnection
     __typename: 'User'
 }
 
@@ -460,6 +467,8 @@ export interface Level {
     statsQuarterliesByIdLevel: StatsQuarterliesConnection
     /** Reads and enables pagination through a set of `WorldRecordQuarterly`. */
     worldRecordQuarterliesByIdLevel: WorldRecordQuarterliesConnection
+    /** Reads and enables pagination through a set of `Vote`. */
+    votesByIdLevel: VotesConnection
     __typename: 'Level'
 }
 
@@ -1476,6 +1485,50 @@ export interface WorldRecordQuarterliesEdge {
 
 /** Methods to use when ordering `WorldRecordQuarterly`. */
 export type WorldRecordQuarterliesOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'ID_RECORD_ASC' | 'ID_RECORD_DESC' | 'ID_LEVEL_ASC' | 'ID_LEVEL_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'YEAR_ASC' | 'YEAR_DESC' | 'QUARTER_ASC' | 'QUARTER_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
+
+
+/** A connection to a list of `Vote` values. */
+export interface VotesConnection {
+    /** A list of `Vote` objects. */
+    nodes: (Vote | null)[]
+    /** A list of edges which contains the `Vote` and cursor to aid in pagination. */
+    edges: VotesEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `Vote` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'VotesConnection'
+}
+
+export interface Vote {
+    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+    nodeId: Scalars['ID']
+    id: Scalars['Int']
+    idUser: Scalars['Int']
+    idLevel: Scalars['Int']
+    value: Scalars['Int']
+    dateCreated: Scalars['Datetime']
+    dateUpdated: (Scalars['Datetime'] | null)
+    /** Reads a single `User` that is related to this `Vote`. */
+    userByIdUser: (User | null)
+    /** Reads a single `Level` that is related to this `Vote`. */
+    levelByIdLevel: (Level | null)
+    __typename: 'Vote'
+}
+
+
+/** A `Vote` edge in the connection. */
+export interface VotesEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `Vote` at the end of the edge. */
+    node: (Vote | null)
+    __typename: 'VotesEdge'
+}
+
+
+/** Methods to use when ordering `Vote`. */
+export type VotesOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'ID_USER_ASC' | 'ID_USER_DESC' | 'ID_LEVEL_ASC' | 'ID_LEVEL_DESC' | 'VALUE_ASC' | 'VALUE_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
 
 
 /** A connection to a list of `RecordMedia` values. */
@@ -4117,6 +4170,27 @@ export interface QueryGenqlSelection{
     condition?: (VersionCondition | null), 
     /** A filter to be used in determining which values should be returned by the collection. */
     filter?: (VersionFilter | null)} })
+    /** Reads and enables pagination through a set of `Vote`. */
+    allVotes?: (VotesConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `Vote`. */
+    orderBy?: (VotesOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (VoteCondition | null), 
+    /** A filter to be used in determining which values should be returned by the collection. */
+    filter?: (VoteFilter | null)} })
     /** Reads and enables pagination through a set of `WorldRecordDaily`. */
     allWorldRecordDailies?: (WorldRecordDailiesConnectionGenqlSelection & { __args?: {
     /** Only read the first `n` values of the set. */
@@ -4268,6 +4342,7 @@ export interface QueryGenqlSelection{
     userById?: (UserGenqlSelection & { __args: {id: Scalars['Int']} })
     userPointById?: (UserPointGenqlSelection & { __args: {id: Scalars['Int']} })
     versionById?: (VersionGenqlSelection & { __args: {id: Scalars['Int']} })
+    voteById?: (VoteGenqlSelection & { __args: {id: Scalars['Int']} })
     worldRecordDailyById?: (WorldRecordDailyGenqlSelection & { __args: {id: Scalars['Int']} })
     worldRecordGlobalById?: (WorldRecordGlobalGenqlSelection & { __args: {id: Scalars['Int']} })
     worldRecordMonthlyById?: (WorldRecordMonthlyGenqlSelection & { __args: {id: Scalars['Int']} })
@@ -4387,6 +4462,10 @@ export interface QueryGenqlSelection{
     version?: (VersionGenqlSelection & { __args: {
     /** The globally unique `ID` to be used in selecting a single `Version`. */
     nodeId: Scalars['ID']} })
+    /** Reads a single `Vote` using its globally unique `ID`. */
+    vote?: (VoteGenqlSelection & { __args: {
+    /** The globally unique `ID` to be used in selecting a single `Vote`. */
+    nodeId: Scalars['ID']} })
     /** Reads a single `WorldRecordDaily` using its globally unique `ID`. */
     worldRecordDaily?: (WorldRecordDailyGenqlSelection & { __args: {
     /** The globally unique `ID` to be used in selecting a single `WorldRecordDaily`. */
@@ -4447,6 +4526,7 @@ export interface NodeGenqlSelection{
     on_PersonalBestQuarterly?: PersonalBestQuarterlyGenqlSelection
     on_StatsQuarterly?: StatsQuarterlyGenqlSelection
     on_WorldRecordQuarterly?: WorldRecordQuarterlyGenqlSelection
+    on_Vote?: VoteGenqlSelection
     on_RecordMedia?: RecordMediaGenqlSelection
     on_UserPoint?: UserPointGenqlSelection
     on_LevelRequest?: LevelRequestGenqlSelection
@@ -4832,6 +4912,27 @@ export interface UserGenqlSelection{
     condition?: (StatsQuarterlyCondition | null), 
     /** A filter to be used in determining which values should be returned by the collection. */
     filter?: (StatsQuarterlyFilter | null)} })
+    /** Reads and enables pagination through a set of `Vote`. */
+    votesByIdUser?: (VotesConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `Vote`. */
+    orderBy?: (VotesOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (VoteCondition | null), 
+    /** A filter to be used in determining which values should be returned by the collection. */
+    filter?: (VoteFilter | null)} })
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -5010,6 +5111,10 @@ personalBestQuarterliesByIdUserExist?: (Scalars['Boolean'] | null),
 statsQuarterliesByIdUser?: (UserToManyStatsQuarterlyFilter | null),
 /** Some related `statsQuarterliesByIdUser` exist. */
 statsQuarterliesByIdUserExist?: (Scalars['Boolean'] | null),
+/** Filter by the object’s `votesByIdUser` relation. */
+votesByIdUser?: (UserToManyVoteFilter | null),
+/** Some related `votesByIdUser` exist. */
+votesByIdUserExist?: (Scalars['Boolean'] | null),
 /** Checks for all expressions in this list. */
 and?: (UserFilter[] | null),
 /** Checks for any expressions in this list. */
@@ -5534,6 +5639,10 @@ statsQuarterliesByIdLevelExist?: (Scalars['Boolean'] | null),
 worldRecordQuarterliesByIdLevel?: (LevelToManyWorldRecordQuarterlyFilter | null),
 /** Some related `worldRecordQuarterliesByIdLevel` exist. */
 worldRecordQuarterliesByIdLevelExist?: (Scalars['Boolean'] | null),
+/** Filter by the object’s `votesByIdLevel` relation. */
+votesByIdLevel?: (LevelToManyVoteFilter | null),
+/** Some related `votesByIdLevel` exist. */
+votesByIdLevelExist?: (Scalars['Boolean'] | null),
 /** Checks for all expressions in this list. */
 and?: (LevelFilter[] | null),
 /** Checks for any expressions in this list. */
@@ -6438,6 +6547,42 @@ or?: (WorldRecordQuarterlyFilter[] | null),
 not?: (WorldRecordQuarterlyFilter | null)}
 
 
+/** A filter to be used against many `Vote` object types. All fields are combined with a logical ‘and.’ */
+export interface LevelToManyVoteFilter {
+/** Every related `Vote` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+every?: (VoteFilter | null),
+/** Some related `Vote` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+some?: (VoteFilter | null),
+/** No related `Vote` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+none?: (VoteFilter | null)}
+
+
+/** A filter to be used against `Vote` object types. All fields are combined with a logical ‘and.’ */
+export interface VoteFilter {
+/** Filter by the object’s `id` field. */
+id?: (IntFilter | null),
+/** Filter by the object’s `idUser` field. */
+idUser?: (IntFilter | null),
+/** Filter by the object’s `idLevel` field. */
+idLevel?: (IntFilter | null),
+/** Filter by the object’s `value` field. */
+value?: (IntFilter | null),
+/** Filter by the object’s `dateCreated` field. */
+dateCreated?: (DatetimeFilter | null),
+/** Filter by the object’s `dateUpdated` field. */
+dateUpdated?: (DatetimeFilter | null),
+/** Filter by the object’s `userByIdUser` relation. */
+userByIdUser?: (UserFilter | null),
+/** Filter by the object’s `levelByIdLevel` relation. */
+levelByIdLevel?: (LevelFilter | null),
+/** Checks for all expressions in this list. */
+and?: (VoteFilter[] | null),
+/** Checks for any expressions in this list. */
+or?: (VoteFilter[] | null),
+/** Negates the expression. */
+not?: (VoteFilter | null)}
+
+
 /** A filter to be used against many `PersonalBestYearly` object types. All fields are combined with a logical ‘and.’ */
 export interface RecordToManyPersonalBestYearlyFilter {
 /** Every related `PersonalBestYearly` matches the filter criteria. All fields are combined with a logical ‘and.’ */
@@ -6702,6 +6847,16 @@ every?: (StatsQuarterlyFilter | null),
 some?: (StatsQuarterlyFilter | null),
 /** No related `StatsQuarterly` matches the filter criteria. All fields are combined with a logical ‘and.’ */
 none?: (StatsQuarterlyFilter | null)}
+
+
+/** A filter to be used against many `Vote` object types. All fields are combined with a logical ‘and.’ */
+export interface UserToManyVoteFilter {
+/** Every related `Vote` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+every?: (VoteFilter | null),
+/** Some related `Vote` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+some?: (VoteFilter | null),
+/** No related `Vote` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+none?: (VoteFilter | null)}
 
 
 /** A connection to a list of `PersonalBestGlobal` values. */
@@ -7543,6 +7698,27 @@ export interface LevelGenqlSelection{
     condition?: (WorldRecordQuarterlyCondition | null), 
     /** A filter to be used in determining which values should be returned by the collection. */
     filter?: (WorldRecordQuarterlyFilter | null)} })
+    /** Reads and enables pagination through a set of `Vote`. */
+    votesByIdLevel?: (VotesConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `Vote`. */
+    orderBy?: (VotesOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (VoteCondition | null), 
+    /** A filter to be used in determining which values should be returned by the collection. */
+    filter?: (VoteFilter | null)} })
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -9055,6 +9231,65 @@ dateUpdated?: (Scalars['Datetime'] | null),
 year?: (Scalars['Int'] | null),
 /** Checks for equality with the object’s `quarter` field. */
 quarter?: (Scalars['Int'] | null)}
+
+
+/** A connection to a list of `Vote` values. */
+export interface VotesConnectionGenqlSelection{
+    /** A list of `Vote` objects. */
+    nodes?: VoteGenqlSelection
+    /** A list of edges which contains the `Vote` and cursor to aid in pagination. */
+    edges?: VotesEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `Vote` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface VoteGenqlSelection{
+    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+    nodeId?: boolean | number
+    id?: boolean | number
+    idUser?: boolean | number
+    idLevel?: boolean | number
+    value?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    /** Reads a single `User` that is related to this `Vote`. */
+    userByIdUser?: UserGenqlSelection
+    /** Reads a single `Level` that is related to this `Vote`. */
+    levelByIdLevel?: LevelGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `Vote` edge in the connection. */
+export interface VotesEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `Vote` at the end of the edge. */
+    node?: VoteGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A condition to be used against `Vote` object types. All fields are tested for equality and combined with a logical ‘and.’ */
+export interface VoteCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idUser` field. */
+idUser?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idLevel` field. */
+idLevel?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `value` field. */
+value?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null)}
 
 
 /** A connection to a list of `RecordMedia` values. */
@@ -12162,7 +12397,7 @@ clientMutationId?: (Scalars['String'] | null)}
     
 
 
-    const Node_possibleTypes: string[] = ['Query','Favorite','User','PersonalBestGlobal','Record','Level','LevelPoint','LevelItem','LevelMetadatum','StatsGlobal','Upvote','WorldRecordGlobal','PersonalBestYearly','PersonalBestMonthly','PersonalBestWeekly','PersonalBestDaily','WorldRecordMonthly','WorldRecordYearly','WorldRecordWeekly','WorldRecordDaily','StatsMonthly','StatsYearly','StatsWeekly','StatsDaily','PersonalBestQuarterly','StatsQuarterly','WorldRecordQuarterly','RecordMedia','UserPoint','LevelRequest','Version']
+    const Node_possibleTypes: string[] = ['Query','Favorite','User','PersonalBestGlobal','Record','Level','LevelPoint','LevelItem','LevelMetadatum','StatsGlobal','Upvote','WorldRecordGlobal','PersonalBestYearly','PersonalBestMonthly','PersonalBestWeekly','PersonalBestDaily','WorldRecordMonthly','WorldRecordYearly','WorldRecordWeekly','WorldRecordDaily','StatsMonthly','StatsYearly','StatsWeekly','StatsDaily','PersonalBestQuarterly','StatsQuarterly','WorldRecordQuarterly','Vote','RecordMedia','UserPoint','LevelRequest','Version']
     export const isNode = (obj?: { __typename?: any } | null): obj is Node => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isNode"')
       return Node_possibleTypes.includes(obj.__typename)
@@ -12750,6 +12985,30 @@ clientMutationId?: (Scalars['String'] | null)}
     export const isWorldRecordQuarterliesEdge = (obj?: { __typename?: any } | null): obj is WorldRecordQuarterliesEdge => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isWorldRecordQuarterliesEdge"')
       return WorldRecordQuarterliesEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const VotesConnection_possibleTypes: string[] = ['VotesConnection']
+    export const isVotesConnection = (obj?: { __typename?: any } | null): obj is VotesConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isVotesConnection"')
+      return VotesConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const Vote_possibleTypes: string[] = ['Vote']
+    export const isVote = (obj?: { __typename?: any } | null): obj is Vote => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isVote"')
+      return Vote_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const VotesEdge_possibleTypes: string[] = ['VotesEdge']
+    export const isVotesEdge = (obj?: { __typename?: any } | null): obj is VotesEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isVotesEdge"')
+      return VotesEdge_possibleTypes.includes(obj.__typename)
     }
     
 
@@ -14173,6 +14432,24 @@ export const enumWorldRecordQuarterliesOrderBy = {
    YEAR_DESC: 'YEAR_DESC' as const,
    QUARTER_ASC: 'QUARTER_ASC' as const,
    QUARTER_DESC: 'QUARTER_DESC' as const,
+   PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
+   PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const
+}
+
+export const enumVotesOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   ID_USER_ASC: 'ID_USER_ASC' as const,
+   ID_USER_DESC: 'ID_USER_DESC' as const,
+   ID_LEVEL_ASC: 'ID_LEVEL_ASC' as const,
+   ID_LEVEL_DESC: 'ID_LEVEL_DESC' as const,
+   VALUE_ASC: 'VALUE_ASC' as const,
+   VALUE_DESC: 'VALUE_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
    PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
    PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const
 }

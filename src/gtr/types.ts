@@ -1,10 +1,10 @@
 export default {
     scalars: [
-        2, 5, 6, 8, 9, 10, 11, 12, 26, 42, 113, 118, 123, 125, 129, 134, 139,
-        144, 149, 154, 159, 164, 169, 174, 179, 184, 189, 194, 199, 204, 209,
-        214, 219, 224, 230, 235, 240, 246, 252, 258, 264, 270, 276, 282, 288,
-        294, 300, 306, 312, 318, 324, 330, 336, 342, 348, 354, 360, 366, 372,
-        378, 384, 390, 396, 402, 408, 414, 420, 425, 430, 435
+        2, 5, 6, 8, 9, 10, 11, 12, 26, 42, 116, 121, 126, 128, 132, 137, 142,
+        147, 152, 157, 162, 167, 172, 177, 182, 187, 192, 197, 202, 207, 212,
+        217, 222, 227, 232, 238, 243, 248, 254, 260, 266, 272, 278, 284, 290,
+        296, 302, 308, 314, 320, 326, 332, 338, 344, 350, 356, 362, 368, 374,
+        380, 386, 392, 398, 404, 410, 416, 422, 428, 433, 438, 443
     ],
     types: {
         Query: {
@@ -30,769 +30,782 @@ export default {
                 }
             ],
             allLevels: [
-                233,
+                241,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [235, '[LevelsOrderBy!]'],
-                    condition: [236],
+                    orderBy: [243, '[LevelsOrderBy!]'],
+                    condition: [244],
                     filter: [33]
                 }
             ],
             allLevelItems: [
-                115,
+                118,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [118, '[LevelItemsOrderBy!]'],
-                    condition: [119],
+                    orderBy: [121, '[LevelItemsOrderBy!]'],
+                    condition: [122],
                     filter: [38]
                 }
             ],
             allLevelMetadata: [
-                120,
+                123,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [123, '[LevelMetadataOrderBy!]'],
-                    condition: [124],
+                    orderBy: [126, '[LevelMetadataOrderBy!]'],
+                    condition: [127],
                     filter: [40]
                 }
             ],
             allLevelPoints: [
-                109,
+                112,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [113, '[LevelPointsOrderBy!]'],
-                    condition: [114],
+                    orderBy: [116, '[LevelPointsOrderBy!]'],
+                    condition: [117],
                     filter: [36]
                 }
             ],
             allLevelRequests: [
-                237,
+                245,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [240, '[LevelRequestsOrderBy!]'],
-                    condition: [241],
-                    filter: [242]
+                    orderBy: [248, '[LevelRequestsOrderBy!]'],
+                    condition: [249],
+                    filter: [250]
                 }
             ],
             allPersonalBestDailies: [
-                161,
+                164,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [164, '[PersonalBestDailiesOrderBy!]'],
-                    condition: [165],
+                    orderBy: [167, '[PersonalBestDailiesOrderBy!]'],
+                    condition: [168],
                     filter: [57]
                 }
             ],
             allPersonalBestGlobals: [
-                105,
+                108,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [125, '[PersonalBestGlobalsOrderBy!]'],
-                    condition: [126],
+                    orderBy: [128, '[PersonalBestGlobalsOrderBy!]'],
+                    condition: [129],
                     filter: [23]
                 }
             ],
             allPersonalBestMonthlies: [
-                151,
+                154,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [154, '[PersonalBestMonthliesOrderBy!]'],
-                    condition: [155],
+                    orderBy: [157, '[PersonalBestMonthliesOrderBy!]'],
+                    condition: [158],
                     filter: [53]
                 }
             ],
             allPersonalBestQuarterlies: [
-                206,
+                209,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [209, '[PersonalBestQuarterliesOrderBy!]'],
-                    condition: [210],
+                    orderBy: [212, '[PersonalBestQuarterliesOrderBy!]'],
+                    condition: [213],
                     filter: [75]
                 }
             ],
             allPersonalBestWeeklies: [
-                156,
+                159,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [159, '[PersonalBestWeekliesOrderBy!]'],
-                    condition: [160],
+                    orderBy: [162, '[PersonalBestWeekliesOrderBy!]'],
+                    condition: [163],
                     filter: [55]
                 }
             ],
             allPersonalBestYearlies: [
-                146,
+                149,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [149, '[PersonalBestYearliesOrderBy!]'],
-                    condition: [150],
+                    orderBy: [152, '[PersonalBestYearliesOrderBy!]'],
+                    condition: [153],
                     filter: [51]
                 }
             ],
             allRecords: [
-                127,
+                130,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [129, '[RecordsOrderBy!]'],
-                    condition: [130],
+                    orderBy: [132, '[RecordsOrderBy!]'],
+                    condition: [133],
                     filter: [24]
                 }
             ],
             allRecordMedias: [
-                221,
+                229,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [224, '[RecordMediasOrderBy!]'],
-                    condition: [225],
+                    orderBy: [232, '[RecordMediasOrderBy!]'],
+                    condition: [233],
                     filter: [29]
                 }
             ],
             allSampledFavorites: [
-                243,
+                251,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [246, '[SampledFavoritesOrderBy!]'],
-                    condition: [247],
-                    filter: [248]
+                    orderBy: [254, '[SampledFavoritesOrderBy!]'],
+                    condition: [255],
+                    filter: [256]
                 }
             ],
             allSampledLevels: [
-                249,
+                257,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [252, '[SampledLevelsOrderBy!]'],
-                    condition: [253],
-                    filter: [254]
+                    orderBy: [260, '[SampledLevelsOrderBy!]'],
+                    condition: [261],
+                    filter: [262]
                 }
             ],
             allSampledLevelItems: [
-                255,
+                263,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [258, '[SampledLevelItemsOrderBy!]'],
-                    condition: [259],
-                    filter: [260]
+                    orderBy: [266, '[SampledLevelItemsOrderBy!]'],
+                    condition: [267],
+                    filter: [268]
                 }
             ],
             allSampledLevelMetadata: [
-                261,
+                269,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [264, '[SampledLevelMetadataOrderBy!]'],
-                    condition: [265],
-                    filter: [266]
+                    orderBy: [272, '[SampledLevelMetadataOrderBy!]'],
+                    condition: [273],
+                    filter: [274]
                 }
             ],
             allSampledLevelPoints: [
-                267,
+                275,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [270, '[SampledLevelPointsOrderBy!]'],
-                    condition: [271],
-                    filter: [272]
+                    orderBy: [278, '[SampledLevelPointsOrderBy!]'],
+                    condition: [279],
+                    filter: [280]
                 }
             ],
             allSampledLevelRequests: [
-                273,
+                281,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [276, '[SampledLevelRequestsOrderBy!]'],
-                    condition: [277],
-                    filter: [278]
+                    orderBy: [284, '[SampledLevelRequestsOrderBy!]'],
+                    condition: [285],
+                    filter: [286]
                 }
             ],
             allSampledPersonalBestDailies: [
-                279,
+                287,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [282, '[SampledPersonalBestDailiesOrderBy!]'],
-                    condition: [283],
-                    filter: [284]
+                    orderBy: [290, '[SampledPersonalBestDailiesOrderBy!]'],
+                    condition: [291],
+                    filter: [292]
                 }
             ],
             allSampledPersonalBestGlobals: [
-                285,
+                293,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [288, '[SampledPersonalBestGlobalsOrderBy!]'],
-                    condition: [289],
-                    filter: [290]
+                    orderBy: [296, '[SampledPersonalBestGlobalsOrderBy!]'],
+                    condition: [297],
+                    filter: [298]
                 }
             ],
             allSampledPersonalBestMonthlies: [
-                291,
+                299,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [294, '[SampledPersonalBestMonthliesOrderBy!]'],
-                    condition: [295],
-                    filter: [296]
+                    orderBy: [302, '[SampledPersonalBestMonthliesOrderBy!]'],
+                    condition: [303],
+                    filter: [304]
                 }
             ],
             allSampledPersonalBestQuarterlies: [
-                297,
+                305,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [300, '[SampledPersonalBestQuarterliesOrderBy!]'],
-                    condition: [301],
-                    filter: [302]
+                    orderBy: [308, '[SampledPersonalBestQuarterliesOrderBy!]'],
+                    condition: [309],
+                    filter: [310]
                 }
             ],
             allSampledPersonalBestWeeklies: [
-                303,
+                311,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [306, '[SampledPersonalBestWeekliesOrderBy!]'],
-                    condition: [307],
-                    filter: [308]
+                    orderBy: [314, '[SampledPersonalBestWeekliesOrderBy!]'],
+                    condition: [315],
+                    filter: [316]
                 }
             ],
             allSampledPersonalBestYearlies: [
-                309,
+                317,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [312, '[SampledPersonalBestYearliesOrderBy!]'],
-                    condition: [313],
-                    filter: [314]
+                    orderBy: [320, '[SampledPersonalBestYearliesOrderBy!]'],
+                    condition: [321],
+                    filter: [322]
                 }
             ],
             allSampledRecords: [
-                315,
+                323,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [318, '[SampledRecordsOrderBy!]'],
-                    condition: [319],
-                    filter: [320]
+                    orderBy: [326, '[SampledRecordsOrderBy!]'],
+                    condition: [327],
+                    filter: [328]
                 }
             ],
             allSampledRecordMedias: [
-                321,
+                329,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [324, '[SampledRecordMediasOrderBy!]'],
-                    condition: [325],
-                    filter: [326]
+                    orderBy: [332, '[SampledRecordMediasOrderBy!]'],
+                    condition: [333],
+                    filter: [334]
                 }
             ],
             allSampledStatsDailies: [
-                327,
+                335,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [330, '[SampledStatsDailiesOrderBy!]'],
-                    condition: [331],
-                    filter: [332]
+                    orderBy: [338, '[SampledStatsDailiesOrderBy!]'],
+                    condition: [339],
+                    filter: [340]
                 }
             ],
             allSampledStatsGlobals: [
-                333,
+                341,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [336, '[SampledStatsGlobalsOrderBy!]'],
-                    condition: [337],
-                    filter: [338]
+                    orderBy: [344, '[SampledStatsGlobalsOrderBy!]'],
+                    condition: [345],
+                    filter: [346]
                 }
             ],
             allSampledStatsMonthlies: [
-                339,
+                347,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [342, '[SampledStatsMonthliesOrderBy!]'],
-                    condition: [343],
-                    filter: [344]
+                    orderBy: [350, '[SampledStatsMonthliesOrderBy!]'],
+                    condition: [351],
+                    filter: [352]
                 }
             ],
             allSampledStatsQuarterlies: [
-                345,
+                353,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [348, '[SampledStatsQuarterliesOrderBy!]'],
-                    condition: [349],
-                    filter: [350]
+                    orderBy: [356, '[SampledStatsQuarterliesOrderBy!]'],
+                    condition: [357],
+                    filter: [358]
                 }
             ],
             allSampledStatsWeeklies: [
-                351,
+                359,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [354, '[SampledStatsWeekliesOrderBy!]'],
-                    condition: [355],
-                    filter: [356]
+                    orderBy: [362, '[SampledStatsWeekliesOrderBy!]'],
+                    condition: [363],
+                    filter: [364]
                 }
             ],
             allSampledStatsYearlies: [
-                357,
+                365,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [360, '[SampledStatsYearliesOrderBy!]'],
-                    condition: [361],
-                    filter: [362]
+                    orderBy: [368, '[SampledStatsYearliesOrderBy!]'],
+                    condition: [369],
+                    filter: [370]
                 }
             ],
             allSampledUpvotes: [
-                363,
+                371,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [366, '[SampledUpvotesOrderBy!]'],
-                    condition: [367],
-                    filter: [368]
+                    orderBy: [374, '[SampledUpvotesOrderBy!]'],
+                    condition: [375],
+                    filter: [376]
                 }
             ],
             allSampledUsers: [
-                369,
+                377,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [372, '[SampledUsersOrderBy!]'],
-                    condition: [373],
-                    filter: [374]
+                    orderBy: [380, '[SampledUsersOrderBy!]'],
+                    condition: [381],
+                    filter: [382]
                 }
             ],
             allSampledUserPoints: [
-                375,
+                383,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [378, '[SampledUserPointsOrderBy!]'],
-                    condition: [379],
-                    filter: [380]
+                    orderBy: [386, '[SampledUserPointsOrderBy!]'],
+                    condition: [387],
+                    filter: [388]
                 }
             ],
             allSampledVersions: [
-                381,
+                389,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [384, '[SampledVersionsOrderBy!]'],
-                    condition: [385],
-                    filter: [386]
+                    orderBy: [392, '[SampledVersionsOrderBy!]'],
+                    condition: [393],
+                    filter: [394]
                 }
             ],
             allSampledWorldRecordDailies: [
-                387,
+                395,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [390, '[SampledWorldRecordDailiesOrderBy!]'],
-                    condition: [391],
-                    filter: [392]
+                    orderBy: [398, '[SampledWorldRecordDailiesOrderBy!]'],
+                    condition: [399],
+                    filter: [400]
                 }
             ],
             allSampledWorldRecordGlobals: [
-                393,
+                401,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [396, '[SampledWorldRecordGlobalsOrderBy!]'],
-                    condition: [397],
-                    filter: [398]
+                    orderBy: [404, '[SampledWorldRecordGlobalsOrderBy!]'],
+                    condition: [405],
+                    filter: [406]
                 }
             ],
             allSampledWorldRecordMonthlies: [
-                399,
+                407,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [402, '[SampledWorldRecordMonthliesOrderBy!]'],
-                    condition: [403],
-                    filter: [404]
+                    orderBy: [410, '[SampledWorldRecordMonthliesOrderBy!]'],
+                    condition: [411],
+                    filter: [412]
                 }
             ],
             allSampledWorldRecordQuarterlies: [
-                405,
+                413,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [408, '[SampledWorldRecordQuarterliesOrderBy!]'],
-                    condition: [409],
-                    filter: [410]
+                    orderBy: [416, '[SampledWorldRecordQuarterliesOrderBy!]'],
+                    condition: [417],
+                    filter: [418]
                 }
             ],
             allSampledWorldRecordWeeklies: [
-                411,
+                419,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [414, '[SampledWorldRecordWeekliesOrderBy!]'],
-                    condition: [415],
-                    filter: [416]
+                    orderBy: [422, '[SampledWorldRecordWeekliesOrderBy!]'],
+                    condition: [423],
+                    filter: [424]
                 }
             ],
             allSampledWorldRecordYearlies: [
-                417,
+                425,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [420, '[SampledWorldRecordYearliesOrderBy!]'],
-                    condition: [421],
-                    filter: [422]
+                    orderBy: [428, '[SampledWorldRecordYearliesOrderBy!]'],
+                    condition: [429],
+                    filter: [430]
                 }
             ],
             allStatsDailies: [
-                201,
+                204,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [204, '[StatsDailiesOrderBy!]'],
-                    condition: [205],
+                    orderBy: [207, '[StatsDailiesOrderBy!]'],
+                    condition: [208],
                     filter: [73]
                 }
             ],
             allStatsGlobals: [
-                131,
+                134,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [134, '[StatsGlobalsOrderBy!]'],
-                    condition: [135],
+                    orderBy: [137, '[StatsGlobalsOrderBy!]'],
+                    condition: [138],
                     filter: [46]
                 }
             ],
             allStatsMonthlies: [
-                186,
+                189,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [189, '[StatsMonthliesOrderBy!]'],
-                    condition: [190],
+                    orderBy: [192, '[StatsMonthliesOrderBy!]'],
+                    condition: [193],
                     filter: [67]
                 }
             ],
             allStatsQuarterlies: [
-                211,
+                214,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [214, '[StatsQuarterliesOrderBy!]'],
-                    condition: [215],
+                    orderBy: [217, '[StatsQuarterliesOrderBy!]'],
+                    condition: [218],
                     filter: [77]
                 }
             ],
             allStatsWeeklies: [
-                196,
+                199,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [199, '[StatsWeekliesOrderBy!]'],
-                    condition: [200],
+                    orderBy: [202, '[StatsWeekliesOrderBy!]'],
+                    condition: [203],
                     filter: [71]
                 }
             ],
             allStatsYearlies: [
-                191,
+                194,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [194, '[StatsYearliesOrderBy!]'],
-                    condition: [195],
+                    orderBy: [197, '[StatsYearliesOrderBy!]'],
+                    condition: [198],
                     filter: [69]
                 }
             ],
             allUpvotes: [
-                136,
+                139,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [139, '[UpvotesOrderBy!]'],
-                    condition: [140],
+                    orderBy: [142, '[UpvotesOrderBy!]'],
+                    condition: [143],
                     filter: [48]
                 }
             ],
             allUsers: [
-                423,
+                431,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [425, '[UsersOrderBy!]'],
-                    condition: [426],
+                    orderBy: [433, '[UsersOrderBy!]'],
+                    condition: [434],
                     filter: [17]
                 }
             ],
             allUserPoints: [
-                227,
+                235,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [230, '[UserPointsOrderBy!]'],
-                    condition: [231],
-                    filter: [91]
+                    orderBy: [238, '[UserPointsOrderBy!]'],
+                    condition: [239],
+                    filter: [93]
                 }
             ],
             allVersions: [
-                427,
+                435,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [430, '[VersionsOrderBy!]'],
-                    condition: [431],
-                    filter: [432]
+                    orderBy: [438, '[VersionsOrderBy!]'],
+                    condition: [439],
+                    filter: [440]
+                }
+            ],
+            allVotes: [
+                224,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [11],
+                    after: [11],
+                    orderBy: [227, '[VotesOrderBy!]'],
+                    condition: [228],
+                    filter: [81]
                 }
             ],
             allWorldRecordDailies: [
-                181,
+                184,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [184, '[WorldRecordDailiesOrderBy!]'],
-                    condition: [185],
+                    orderBy: [187, '[WorldRecordDailiesOrderBy!]'],
+                    condition: [188],
                     filter: [65]
                 }
             ],
             allWorldRecordGlobals: [
-                141,
+                144,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [144, '[WorldRecordGlobalsOrderBy!]'],
-                    condition: [145],
+                    orderBy: [147, '[WorldRecordGlobalsOrderBy!]'],
+                    condition: [148],
                     filter: [32]
                 }
             ],
             allWorldRecordMonthlies: [
-                166,
+                169,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [169, '[WorldRecordMonthliesOrderBy!]'],
-                    condition: [170],
+                    orderBy: [172, '[WorldRecordMonthliesOrderBy!]'],
+                    condition: [173],
                     filter: [59]
                 }
             ],
             allWorldRecordQuarterlies: [
-                216,
+                219,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [219, '[WorldRecordQuarterliesOrderBy!]'],
-                    condition: [220],
+                    orderBy: [222, '[WorldRecordQuarterliesOrderBy!]'],
+                    condition: [223],
                     filter: [79]
                 }
             ],
             allWorldRecordWeeklies: [
-                176,
+                179,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [179, '[WorldRecordWeekliesOrderBy!]'],
-                    condition: [180],
+                    orderBy: [182, '[WorldRecordWeekliesOrderBy!]'],
+                    condition: [183],
                     filter: [63]
                 }
             ],
             allWorldRecordYearlies: [
-                171,
+                174,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [174, '[WorldRecordYearliesOrderBy!]'],
-                    condition: [175],
+                    orderBy: [177, '[WorldRecordYearliesOrderBy!]'],
+                    condition: [178],
                     filter: [61]
                 }
             ],
@@ -803,127 +816,127 @@ export default {
                 }
             ],
             levelById: [
-                108,
+                111,
                 {
                     id: [5, 'Int!']
                 }
             ],
             levelByHash: [
-                108,
+                111,
                 {
                     hash: [8, 'String!']
                 }
             ],
             levelItemById: [
-                116,
+                119,
                 {
                     id: [5, 'Int!']
                 }
             ],
             levelMetadatumById: [
-                121,
+                124,
                 {
                     id: [5, 'Int!']
                 }
             ],
             levelPointById: [
-                110,
+                113,
                 {
                     id: [5, 'Int!']
                 }
             ],
             levelRequestById: [
-                238,
+                246,
                 {
                     id: [5, 'Int!']
                 }
             ],
             personalBestDailyById: [
-                162,
+                165,
                 {
                     id: [5, 'Int!']
                 }
             ],
             personalBestGlobalById: [
-                106,
+                109,
                 {
                     id: [5, 'Int!']
                 }
             ],
             personalBestMonthlyById: [
-                152,
+                155,
                 {
                     id: [5, 'Int!']
                 }
             ],
             personalBestQuarterlyById: [
-                207,
+                210,
                 {
                     id: [5, 'Int!']
                 }
             ],
             personalBestWeeklyById: [
-                157,
+                160,
                 {
                     id: [5, 'Int!']
                 }
             ],
             personalBestYearlyById: [
-                147,
+                150,
                 {
                     id: [5, 'Int!']
                 }
             ],
             recordById: [
-                107,
+                110,
                 {
                     id: [5, 'Int!']
                 }
             ],
             recordMediaById: [
-                222,
+                230,
                 {
                     id: [5, 'Int!']
                 }
             ],
             statsDailyById: [
-                202,
+                205,
                 {
                     id: [5, 'Int!']
                 }
             ],
             statsGlobalById: [
-                132,
+                135,
                 {
                     id: [5, 'Int!']
                 }
             ],
             statsMonthlyById: [
-                187,
+                190,
                 {
                     id: [5, 'Int!']
                 }
             ],
             statsQuarterlyById: [
-                212,
+                215,
                 {
                     id: [5, 'Int!']
                 }
             ],
             statsWeeklyById: [
-                197,
+                200,
                 {
                     id: [5, 'Int!']
                 }
             ],
             statsYearlyById: [
-                192,
+                195,
                 {
                     id: [5, 'Int!']
                 }
             ],
             upvoteById: [
-                137,
+                140,
                 {
                     id: [5, 'Int!']
                 }
@@ -935,55 +948,61 @@ export default {
                 }
             ],
             userPointById: [
-                228,
+                236,
                 {
                     id: [5, 'Int!']
                 }
             ],
             versionById: [
-                428,
+                436,
+                {
+                    id: [5, 'Int!']
+                }
+            ],
+            voteById: [
+                225,
                 {
                     id: [5, 'Int!']
                 }
             ],
             worldRecordDailyById: [
-                182,
+                185,
                 {
                     id: [5, 'Int!']
                 }
             ],
             worldRecordGlobalById: [
-                142,
+                145,
                 {
                     id: [5, 'Int!']
                 }
             ],
             worldRecordMonthlyById: [
-                167,
+                170,
                 {
                     id: [5, 'Int!']
                 }
             ],
             worldRecordQuarterlyById: [
-                217,
+                220,
                 {
                     id: [5, 'Int!']
                 }
             ],
             worldRecordWeeklyById: [
-                177,
+                180,
                 {
                     id: [5, 'Int!']
                 }
             ],
             worldRecordYearlyById: [
-                172,
+                175,
                 {
                     id: [5, 'Int!']
                 }
             ],
             zRtm: [
-                433,
+                441,
                 {
                     pMinAuthorTime: [26],
                     pMaxAuthorTime: [26],
@@ -1003,7 +1022,7 @@ export default {
                     offset: [5],
                     before: [11],
                     after: [11],
-                    filter: [437]
+                    filter: [445]
                 }
             ],
             favorite: [
@@ -1013,121 +1032,121 @@ export default {
                 }
             ],
             level: [
-                108,
+                111,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
             levelItem: [
-                116,
+                119,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
             levelMetadatum: [
-                121,
+                124,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
             levelPoint: [
-                110,
+                113,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
             levelRequest: [
-                238,
+                246,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
             personalBestDaily: [
-                162,
+                165,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
             personalBestGlobal: [
-                106,
+                109,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
             personalBestMonthly: [
-                152,
+                155,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
             personalBestQuarterly: [
-                207,
+                210,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
             personalBestWeekly: [
-                157,
+                160,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
             personalBestYearly: [
-                147,
+                150,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
             record: [
-                107,
+                110,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
             recordMedia: [
-                222,
+                230,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
             statsDaily: [
-                202,
+                205,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
             statsGlobal: [
-                132,
+                135,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
             statsMonthly: [
-                187,
+                190,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
             statsQuarterly: [
-                212,
+                215,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
             statsWeekly: [
-                197,
+                200,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
             statsYearly: [
-                192,
+                195,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
             upvote: [
-                137,
+                140,
                 {
                     nodeId: [2, 'ID!']
                 }
@@ -1139,49 +1158,55 @@ export default {
                 }
             ],
             userPoint: [
-                228,
+                236,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
             version: [
-                428,
+                436,
+                {
+                    nodeId: [2, 'ID!']
+                }
+            ],
+            vote: [
+                225,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
             worldRecordDaily: [
-                182,
+                185,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
             worldRecordGlobal: [
-                142,
+                145,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
             worldRecordMonthly: [
-                167,
+                170,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
             worldRecordQuarterly: [
-                217,
+                220,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
             worldRecordWeekly: [
-                177,
+                180,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
             worldRecordYearly: [
-                172,
+                175,
                 {
                     nodeId: [2, 'ID!']
                 }
@@ -1193,41 +1218,42 @@ export default {
             on_Query: [0],
             on_Favorite: [4],
             on_User: [7],
-            on_PersonalBestGlobal: [106],
-            on_Record: [107],
-            on_Level: [108],
-            on_LevelPoint: [110],
-            on_LevelItem: [116],
-            on_LevelMetadatum: [121],
-            on_StatsGlobal: [132],
-            on_Upvote: [137],
-            on_WorldRecordGlobal: [142],
-            on_PersonalBestYearly: [147],
-            on_PersonalBestMonthly: [152],
-            on_PersonalBestWeekly: [157],
-            on_PersonalBestDaily: [162],
-            on_WorldRecordMonthly: [167],
-            on_WorldRecordYearly: [172],
-            on_WorldRecordWeekly: [177],
-            on_WorldRecordDaily: [182],
-            on_StatsMonthly: [187],
-            on_StatsYearly: [192],
-            on_StatsWeekly: [197],
-            on_StatsDaily: [202],
-            on_PersonalBestQuarterly: [207],
-            on_StatsQuarterly: [212],
-            on_WorldRecordQuarterly: [217],
-            on_RecordMedia: [222],
-            on_UserPoint: [228],
-            on_LevelRequest: [238],
-            on_Version: [428],
+            on_PersonalBestGlobal: [109],
+            on_Record: [110],
+            on_Level: [111],
+            on_LevelPoint: [113],
+            on_LevelItem: [119],
+            on_LevelMetadatum: [124],
+            on_StatsGlobal: [135],
+            on_Upvote: [140],
+            on_WorldRecordGlobal: [145],
+            on_PersonalBestYearly: [150],
+            on_PersonalBestMonthly: [155],
+            on_PersonalBestWeekly: [160],
+            on_PersonalBestDaily: [165],
+            on_WorldRecordMonthly: [170],
+            on_WorldRecordYearly: [175],
+            on_WorldRecordWeekly: [180],
+            on_WorldRecordDaily: [185],
+            on_StatsMonthly: [190],
+            on_StatsYearly: [195],
+            on_StatsWeekly: [200],
+            on_StatsDaily: [205],
+            on_PersonalBestQuarterly: [210],
+            on_StatsQuarterly: [215],
+            on_WorldRecordQuarterly: [220],
+            on_Vote: [225],
+            on_RecordMedia: [230],
+            on_UserPoint: [236],
+            on_LevelRequest: [246],
+            on_Version: [436],
             __typename: [8]
         },
         ID: {},
         FavoritesConnection: {
             nodes: [4],
-            edges: [232],
-            pageInfo: [112],
+            edges: [240],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -1239,7 +1265,7 @@ export default {
             dateUpdated: [6],
             idLevel: [5],
             userByIdUser: [7],
-            levelByIdLevel: [108],
+            levelByIdLevel: [111],
             __typename: [8]
         },
         Int: {},
@@ -1267,198 +1293,211 @@ export default {
                 }
             ],
             personalBestGlobalsByIdUser: [
-                105,
+                108,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [125, '[PersonalBestGlobalsOrderBy!]'],
-                    condition: [126],
+                    orderBy: [128, '[PersonalBestGlobalsOrderBy!]'],
+                    condition: [129],
                     filter: [23]
                 }
             ],
             userPointsByIdUser: [
-                227,
+                235,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [230, '[UserPointsOrderBy!]'],
-                    condition: [231],
-                    filter: [91]
+                    orderBy: [238, '[UserPointsOrderBy!]'],
+                    condition: [239],
+                    filter: [93]
                 }
             ],
             recordsByIdUser: [
-                127,
+                130,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [129, '[RecordsOrderBy!]'],
-                    condition: [130],
+                    orderBy: [132, '[RecordsOrderBy!]'],
+                    condition: [133],
                     filter: [24]
                 }
             ],
             statsGlobalsByIdUser: [
-                131,
+                134,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [134, '[StatsGlobalsOrderBy!]'],
-                    condition: [135],
+                    orderBy: [137, '[StatsGlobalsOrderBy!]'],
+                    condition: [138],
                     filter: [46]
                 }
             ],
             upvotesByIdUser: [
-                136,
+                139,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [139, '[UpvotesOrderBy!]'],
-                    condition: [140],
+                    orderBy: [142, '[UpvotesOrderBy!]'],
+                    condition: [143],
                     filter: [48]
                 }
             ],
             personalBestYearliesByIdUser: [
-                146,
+                149,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [149, '[PersonalBestYearliesOrderBy!]'],
-                    condition: [150],
+                    orderBy: [152, '[PersonalBestYearliesOrderBy!]'],
+                    condition: [153],
                     filter: [51]
                 }
             ],
             personalBestMonthliesByIdUser: [
-                151,
+                154,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [154, '[PersonalBestMonthliesOrderBy!]'],
-                    condition: [155],
+                    orderBy: [157, '[PersonalBestMonthliesOrderBy!]'],
+                    condition: [158],
                     filter: [53]
                 }
             ],
             personalBestWeekliesByIdUser: [
-                156,
+                159,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [159, '[PersonalBestWeekliesOrderBy!]'],
-                    condition: [160],
+                    orderBy: [162, '[PersonalBestWeekliesOrderBy!]'],
+                    condition: [163],
                     filter: [55]
                 }
             ],
             personalBestDailiesByIdUser: [
-                161,
+                164,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [164, '[PersonalBestDailiesOrderBy!]'],
-                    condition: [165],
+                    orderBy: [167, '[PersonalBestDailiesOrderBy!]'],
+                    condition: [168],
                     filter: [57]
                 }
             ],
             statsMonthliesByIdUser: [
-                186,
+                189,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [189, '[StatsMonthliesOrderBy!]'],
-                    condition: [190],
+                    orderBy: [192, '[StatsMonthliesOrderBy!]'],
+                    condition: [193],
                     filter: [67]
                 }
             ],
             statsYearliesByIdUser: [
-                191,
+                194,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [194, '[StatsYearliesOrderBy!]'],
-                    condition: [195],
+                    orderBy: [197, '[StatsYearliesOrderBy!]'],
+                    condition: [198],
                     filter: [69]
                 }
             ],
             statsWeekliesByIdUser: [
-                196,
+                199,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [199, '[StatsWeekliesOrderBy!]'],
-                    condition: [200],
+                    orderBy: [202, '[StatsWeekliesOrderBy!]'],
+                    condition: [203],
                     filter: [71]
                 }
             ],
             statsDailiesByIdUser: [
-                201,
+                204,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [204, '[StatsDailiesOrderBy!]'],
-                    condition: [205],
+                    orderBy: [207, '[StatsDailiesOrderBy!]'],
+                    condition: [208],
                     filter: [73]
                 }
             ],
             personalBestQuarterliesByIdUser: [
-                206,
+                209,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [209, '[PersonalBestQuarterliesOrderBy!]'],
-                    condition: [210],
+                    orderBy: [212, '[PersonalBestQuarterliesOrderBy!]'],
+                    condition: [213],
                     filter: [75]
                 }
             ],
             statsQuarterliesByIdUser: [
-                211,
+                214,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [214, '[StatsQuarterliesOrderBy!]'],
-                    condition: [215],
+                    orderBy: [217, '[StatsQuarterliesOrderBy!]'],
+                    condition: [218],
                     filter: [77]
+                }
+            ],
+            votesByIdUser: [
+                224,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [11],
+                    after: [11],
+                    orderBy: [227, '[VotesOrderBy!]'],
+                    condition: [228],
+                    filter: [81]
                 }
             ],
             __typename: [8]
@@ -1529,34 +1568,36 @@ export default {
             favoritesByIdUserExist: [9],
             personalBestGlobalsByIdUser: [22],
             personalBestGlobalsByIdUserExist: [9],
-            userPointsByIdUser: [90],
+            userPointsByIdUser: [92],
             userPointsByIdUserExist: [9],
-            recordsByIdUser: [92],
+            recordsByIdUser: [94],
             recordsByIdUserExist: [9],
-            statsGlobalsByIdUser: [93],
+            statsGlobalsByIdUser: [95],
             statsGlobalsByIdUserExist: [9],
-            upvotesByIdUser: [94],
+            upvotesByIdUser: [96],
             upvotesByIdUserExist: [9],
-            personalBestYearliesByIdUser: [95],
+            personalBestYearliesByIdUser: [97],
             personalBestYearliesByIdUserExist: [9],
-            personalBestMonthliesByIdUser: [96],
+            personalBestMonthliesByIdUser: [98],
             personalBestMonthliesByIdUserExist: [9],
-            personalBestWeekliesByIdUser: [97],
+            personalBestWeekliesByIdUser: [99],
             personalBestWeekliesByIdUserExist: [9],
-            personalBestDailiesByIdUser: [98],
+            personalBestDailiesByIdUser: [100],
             personalBestDailiesByIdUserExist: [9],
-            statsMonthliesByIdUser: [99],
+            statsMonthliesByIdUser: [101],
             statsMonthliesByIdUserExist: [9],
-            statsYearliesByIdUser: [100],
+            statsYearliesByIdUser: [102],
             statsYearliesByIdUserExist: [9],
-            statsWeekliesByIdUser: [101],
+            statsWeekliesByIdUser: [103],
             statsWeekliesByIdUserExist: [9],
-            statsDailiesByIdUser: [102],
+            statsDailiesByIdUser: [104],
             statsDailiesByIdUserExist: [9],
-            personalBestQuarterliesByIdUser: [103],
+            personalBestQuarterliesByIdUser: [105],
             personalBestQuarterliesByIdUserExist: [9],
-            statsQuarterliesByIdUser: [104],
+            statsQuarterliesByIdUser: [106],
             statsQuarterliesByIdUserExist: [9],
+            votesByIdUser: [107],
+            votesByIdUserExist: [9],
             and: [17],
             or: [17],
             not: [17],
@@ -1675,25 +1716,25 @@ export default {
             personalBestGlobalsByIdRecordExist: [9],
             worldRecordGlobalsByIdRecord: [31],
             worldRecordGlobalsByIdRecordExist: [9],
-            personalBestYearliesByIdRecord: [80],
+            personalBestYearliesByIdRecord: [82],
             personalBestYearliesByIdRecordExist: [9],
-            personalBestMonthliesByIdRecord: [81],
+            personalBestMonthliesByIdRecord: [83],
             personalBestMonthliesByIdRecordExist: [9],
-            personalBestWeekliesByIdRecord: [82],
+            personalBestWeekliesByIdRecord: [84],
             personalBestWeekliesByIdRecordExist: [9],
-            personalBestDailiesByIdRecord: [83],
+            personalBestDailiesByIdRecord: [85],
             personalBestDailiesByIdRecordExist: [9],
-            worldRecordMonthliesByIdRecord: [84],
+            worldRecordMonthliesByIdRecord: [86],
             worldRecordMonthliesByIdRecordExist: [9],
-            worldRecordYearliesByIdRecord: [85],
+            worldRecordYearliesByIdRecord: [87],
             worldRecordYearliesByIdRecordExist: [9],
-            worldRecordWeekliesByIdRecord: [86],
+            worldRecordWeekliesByIdRecord: [88],
             worldRecordWeekliesByIdRecordExist: [9],
-            worldRecordDailiesByIdRecord: [87],
+            worldRecordDailiesByIdRecord: [89],
             worldRecordDailiesByIdRecordExist: [9],
-            personalBestQuarterliesByIdRecord: [88],
+            personalBestQuarterliesByIdRecord: [90],
             personalBestQuarterliesByIdRecordExist: [9],
-            worldRecordQuarterliesByIdRecord: [89],
+            worldRecordQuarterliesByIdRecord: [91],
             worldRecordQuarterliesByIdRecordExist: [9],
             userByIdUser: [17],
             levelByIdLevel: [33],
@@ -1835,6 +1876,8 @@ export default {
             statsQuarterliesByIdLevelExist: [9],
             worldRecordQuarterliesByIdLevel: [78],
             worldRecordQuarterliesByIdLevelExist: [9],
+            votesByIdLevel: [80],
+            votesByIdLevelExist: [9],
             and: [33],
             or: [33],
             not: [33],
@@ -2334,6 +2377,26 @@ export default {
             not: [79],
             __typename: [8]
         },
+        LevelToManyVoteFilter: {
+            every: [81],
+            some: [81],
+            none: [81],
+            __typename: [8]
+        },
+        VoteFilter: {
+            id: [15],
+            idUser: [15],
+            idLevel: [15],
+            value: [15],
+            dateCreated: [16],
+            dateUpdated: [16],
+            userByIdUser: [17],
+            levelByIdLevel: [33],
+            and: [81],
+            or: [81],
+            not: [81],
+            __typename: [8]
+        },
         RecordToManyPersonalBestYearlyFilter: {
             every: [51],
             some: [51],
@@ -2395,9 +2458,9 @@ export default {
             __typename: [8]
         },
         UserToManyUserPointFilter: {
-            every: [91],
-            some: [91],
-            none: [91],
+            every: [93],
+            some: [93],
+            none: [93],
             __typename: [8]
         },
         UserPointFilter: {
@@ -2409,9 +2472,9 @@ export default {
             rank: [15],
             worldRecords: [15],
             userByIdUser: [17],
-            and: [91],
-            or: [91],
-            not: [91],
+            and: [93],
+            or: [93],
+            not: [93],
             __typename: [8]
         },
         UserToManyRecordFilter: {
@@ -2492,10 +2555,16 @@ export default {
             none: [77],
             __typename: [8]
         },
+        UserToManyVoteFilter: {
+            every: [81],
+            some: [81],
+            none: [81],
+            __typename: [8]
+        },
         PersonalBestGlobalsConnection: {
-            nodes: [106],
-            edges: [226],
-            pageInfo: [112],
+            nodes: [109],
+            edges: [234],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -2507,9 +2576,9 @@ export default {
             idLevel: [5],
             dateCreated: [6],
             dateUpdated: [6],
-            recordByIdRecord: [107],
+            recordByIdRecord: [110],
             userByIdUser: [7],
-            levelByIdLevel: [108],
+            levelByIdLevel: [111],
             __typename: [8]
         },
         Record: {
@@ -2526,173 +2595,173 @@ export default {
             splits: [26],
             speeds: [26],
             userByIdUser: [7],
-            levelByIdLevel: [108],
+            levelByIdLevel: [111],
             recordMediasByIdRecord: [
-                221,
+                229,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [224, '[RecordMediasOrderBy!]'],
-                    condition: [225],
+                    orderBy: [232, '[RecordMediasOrderBy!]'],
+                    condition: [233],
                     filter: [29]
                 }
             ],
             personalBestGlobalsByIdRecord: [
-                105,
+                108,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [125, '[PersonalBestGlobalsOrderBy!]'],
-                    condition: [126],
+                    orderBy: [128, '[PersonalBestGlobalsOrderBy!]'],
+                    condition: [129],
                     filter: [23]
                 }
             ],
             worldRecordGlobalsByIdRecord: [
-                141,
+                144,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [144, '[WorldRecordGlobalsOrderBy!]'],
-                    condition: [145],
+                    orderBy: [147, '[WorldRecordGlobalsOrderBy!]'],
+                    condition: [148],
                     filter: [32]
                 }
             ],
             personalBestYearliesByIdRecord: [
-                146,
+                149,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [149, '[PersonalBestYearliesOrderBy!]'],
-                    condition: [150],
+                    orderBy: [152, '[PersonalBestYearliesOrderBy!]'],
+                    condition: [153],
                     filter: [51]
                 }
             ],
             personalBestMonthliesByIdRecord: [
-                151,
+                154,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [154, '[PersonalBestMonthliesOrderBy!]'],
-                    condition: [155],
+                    orderBy: [157, '[PersonalBestMonthliesOrderBy!]'],
+                    condition: [158],
                     filter: [53]
                 }
             ],
             personalBestWeekliesByIdRecord: [
-                156,
+                159,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [159, '[PersonalBestWeekliesOrderBy!]'],
-                    condition: [160],
+                    orderBy: [162, '[PersonalBestWeekliesOrderBy!]'],
+                    condition: [163],
                     filter: [55]
                 }
             ],
             personalBestDailiesByIdRecord: [
-                161,
+                164,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [164, '[PersonalBestDailiesOrderBy!]'],
-                    condition: [165],
+                    orderBy: [167, '[PersonalBestDailiesOrderBy!]'],
+                    condition: [168],
                     filter: [57]
                 }
             ],
             worldRecordMonthliesByIdRecord: [
-                166,
+                169,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [169, '[WorldRecordMonthliesOrderBy!]'],
-                    condition: [170],
+                    orderBy: [172, '[WorldRecordMonthliesOrderBy!]'],
+                    condition: [173],
                     filter: [59]
                 }
             ],
             worldRecordYearliesByIdRecord: [
-                171,
+                174,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [174, '[WorldRecordYearliesOrderBy!]'],
-                    condition: [175],
+                    orderBy: [177, '[WorldRecordYearliesOrderBy!]'],
+                    condition: [178],
                     filter: [61]
                 }
             ],
             worldRecordWeekliesByIdRecord: [
-                176,
+                179,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [179, '[WorldRecordWeekliesOrderBy!]'],
-                    condition: [180],
+                    orderBy: [182, '[WorldRecordWeekliesOrderBy!]'],
+                    condition: [183],
                     filter: [63]
                 }
             ],
             worldRecordDailiesByIdRecord: [
-                181,
+                184,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [184, '[WorldRecordDailiesOrderBy!]'],
-                    condition: [185],
+                    orderBy: [187, '[WorldRecordDailiesOrderBy!]'],
+                    condition: [188],
                     filter: [65]
                 }
             ],
             personalBestQuarterliesByIdRecord: [
-                206,
+                209,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [209, '[PersonalBestQuarterliesOrderBy!]'],
-                    condition: [210],
+                    orderBy: [212, '[PersonalBestQuarterliesOrderBy!]'],
+                    condition: [213],
                     filter: [75]
                 }
             ],
             worldRecordQuarterliesByIdRecord: [
-                216,
+                219,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [219, '[WorldRecordQuarterliesOrderBy!]'],
-                    condition: [220],
+                    orderBy: [222, '[WorldRecordQuarterliesOrderBy!]'],
+                    condition: [223],
                     filter: [79]
                 }
             ],
@@ -2718,310 +2787,323 @@ export default {
                 }
             ],
             levelPointsByIdLevel: [
-                109,
+                112,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [113, '[LevelPointsOrderBy!]'],
-                    condition: [114],
+                    orderBy: [116, '[LevelPointsOrderBy!]'],
+                    condition: [117],
                     filter: [36]
                 }
             ],
             levelItemsByIdLevel: [
-                115,
+                118,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [118, '[LevelItemsOrderBy!]'],
-                    condition: [119],
+                    orderBy: [121, '[LevelItemsOrderBy!]'],
+                    condition: [122],
                     filter: [38]
                 }
             ],
             levelMetadataByIdLevel: [
-                120,
+                123,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [123, '[LevelMetadataOrderBy!]'],
-                    condition: [124],
+                    orderBy: [126, '[LevelMetadataOrderBy!]'],
+                    condition: [127],
                     filter: [40]
                 }
             ],
             personalBestGlobalsByIdLevel: [
-                105,
+                108,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [125, '[PersonalBestGlobalsOrderBy!]'],
-                    condition: [126],
+                    orderBy: [128, '[PersonalBestGlobalsOrderBy!]'],
+                    condition: [129],
                     filter: [23]
                 }
             ],
             recordsByIdLevel: [
-                127,
+                130,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [129, '[RecordsOrderBy!]'],
-                    condition: [130],
+                    orderBy: [132, '[RecordsOrderBy!]'],
+                    condition: [133],
                     filter: [24]
                 }
             ],
             statsGlobalsByIdLevel: [
-                131,
+                134,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [134, '[StatsGlobalsOrderBy!]'],
-                    condition: [135],
+                    orderBy: [137, '[StatsGlobalsOrderBy!]'],
+                    condition: [138],
                     filter: [46]
                 }
             ],
             upvotesByIdLevel: [
-                136,
+                139,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [139, '[UpvotesOrderBy!]'],
-                    condition: [140],
+                    orderBy: [142, '[UpvotesOrderBy!]'],
+                    condition: [143],
                     filter: [48]
                 }
             ],
             worldRecordGlobalsByIdLevel: [
-                141,
+                144,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [144, '[WorldRecordGlobalsOrderBy!]'],
-                    condition: [145],
+                    orderBy: [147, '[WorldRecordGlobalsOrderBy!]'],
+                    condition: [148],
                     filter: [32]
                 }
             ],
             personalBestYearliesByIdLevel: [
-                146,
+                149,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [149, '[PersonalBestYearliesOrderBy!]'],
-                    condition: [150],
+                    orderBy: [152, '[PersonalBestYearliesOrderBy!]'],
+                    condition: [153],
                     filter: [51]
                 }
             ],
             personalBestMonthliesByIdLevel: [
-                151,
+                154,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [154, '[PersonalBestMonthliesOrderBy!]'],
-                    condition: [155],
+                    orderBy: [157, '[PersonalBestMonthliesOrderBy!]'],
+                    condition: [158],
                     filter: [53]
                 }
             ],
             personalBestWeekliesByIdLevel: [
-                156,
+                159,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [159, '[PersonalBestWeekliesOrderBy!]'],
-                    condition: [160],
+                    orderBy: [162, '[PersonalBestWeekliesOrderBy!]'],
+                    condition: [163],
                     filter: [55]
                 }
             ],
             personalBestDailiesByIdLevel: [
-                161,
+                164,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [164, '[PersonalBestDailiesOrderBy!]'],
-                    condition: [165],
+                    orderBy: [167, '[PersonalBestDailiesOrderBy!]'],
+                    condition: [168],
                     filter: [57]
                 }
             ],
             worldRecordMonthliesByIdLevel: [
-                166,
+                169,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [169, '[WorldRecordMonthliesOrderBy!]'],
-                    condition: [170],
+                    orderBy: [172, '[WorldRecordMonthliesOrderBy!]'],
+                    condition: [173],
                     filter: [59]
                 }
             ],
             worldRecordYearliesByIdLevel: [
-                171,
+                174,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [174, '[WorldRecordYearliesOrderBy!]'],
-                    condition: [175],
+                    orderBy: [177, '[WorldRecordYearliesOrderBy!]'],
+                    condition: [178],
                     filter: [61]
                 }
             ],
             worldRecordWeekliesByIdLevel: [
-                176,
+                179,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [179, '[WorldRecordWeekliesOrderBy!]'],
-                    condition: [180],
+                    orderBy: [182, '[WorldRecordWeekliesOrderBy!]'],
+                    condition: [183],
                     filter: [63]
                 }
             ],
             worldRecordDailiesByIdLevel: [
-                181,
+                184,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [184, '[WorldRecordDailiesOrderBy!]'],
-                    condition: [185],
+                    orderBy: [187, '[WorldRecordDailiesOrderBy!]'],
+                    condition: [188],
                     filter: [65]
                 }
             ],
             statsMonthliesByIdLevel: [
-                186,
+                189,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [189, '[StatsMonthliesOrderBy!]'],
-                    condition: [190],
+                    orderBy: [192, '[StatsMonthliesOrderBy!]'],
+                    condition: [193],
                     filter: [67]
                 }
             ],
             statsYearliesByIdLevel: [
-                191,
+                194,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [194, '[StatsYearliesOrderBy!]'],
-                    condition: [195],
+                    orderBy: [197, '[StatsYearliesOrderBy!]'],
+                    condition: [198],
                     filter: [69]
                 }
             ],
             statsWeekliesByIdLevel: [
-                196,
+                199,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [199, '[StatsWeekliesOrderBy!]'],
-                    condition: [200],
+                    orderBy: [202, '[StatsWeekliesOrderBy!]'],
+                    condition: [203],
                     filter: [71]
                 }
             ],
             statsDailiesByIdLevel: [
-                201,
+                204,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [204, '[StatsDailiesOrderBy!]'],
-                    condition: [205],
+                    orderBy: [207, '[StatsDailiesOrderBy!]'],
+                    condition: [208],
                     filter: [73]
                 }
             ],
             personalBestQuarterliesByIdLevel: [
-                206,
+                209,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [209, '[PersonalBestQuarterliesOrderBy!]'],
-                    condition: [210],
+                    orderBy: [212, '[PersonalBestQuarterliesOrderBy!]'],
+                    condition: [213],
                     filter: [75]
                 }
             ],
             statsQuarterliesByIdLevel: [
-                211,
+                214,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [214, '[StatsQuarterliesOrderBy!]'],
-                    condition: [215],
+                    orderBy: [217, '[StatsQuarterliesOrderBy!]'],
+                    condition: [218],
                     filter: [77]
                 }
             ],
             worldRecordQuarterliesByIdLevel: [
-                216,
+                219,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [219, '[WorldRecordQuarterliesOrderBy!]'],
-                    condition: [220],
+                    orderBy: [222, '[WorldRecordQuarterliesOrderBy!]'],
+                    condition: [223],
                     filter: [79]
+                }
+            ],
+            votesByIdLevel: [
+                224,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [11],
+                    after: [11],
+                    orderBy: [227, '[VotesOrderBy!]'],
+                    condition: [228],
+                    filter: [81]
                 }
             ],
             __typename: [8]
         },
         LevelPointsConnection: {
-            nodes: [110],
-            edges: [111],
-            pageInfo: [112],
+            nodes: [113],
+            edges: [114],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -3032,12 +3114,12 @@ export default {
             idLevel: [5],
             dateCreated: [6],
             dateUpdated: [6],
-            levelByIdLevel: [108],
+            levelByIdLevel: [111],
             __typename: [8]
         },
         LevelPointsEdge: {
             cursor: [11],
-            node: [110],
+            node: [113],
             __typename: [8]
         },
         PageInfo: {
@@ -3057,9 +3139,9 @@ export default {
             __typename: [8]
         },
         LevelItemsConnection: {
-            nodes: [116],
-            edges: [117],
-            pageInfo: [112],
+            nodes: [119],
+            edges: [120],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -3082,12 +3164,12 @@ export default {
             updatedAt: [6],
             dateCreated: [6],
             dateUpdated: [6],
-            levelByIdLevel: [108],
+            levelByIdLevel: [111],
             __typename: [8]
         },
         LevelItemsEdge: {
             cursor: [11],
-            node: [116],
+            node: [119],
             __typename: [8]
         },
         LevelItemsOrderBy: {},
@@ -3112,9 +3194,9 @@ export default {
             __typename: [8]
         },
         LevelMetadataConnection: {
-            nodes: [121],
-            edges: [122],
-            pageInfo: [112],
+            nodes: [124],
+            edges: [125],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -3130,12 +3212,12 @@ export default {
             blocks: [42],
             dateCreated: [6],
             dateUpdated: [6],
-            levelByIdLevel: [108],
+            levelByIdLevel: [111],
             __typename: [8]
         },
         LevelMetadataEdge: {
             cursor: [11],
-            node: [121],
+            node: [124],
             __typename: [8]
         },
         LevelMetadataOrderBy: {},
@@ -3163,15 +3245,15 @@ export default {
             __typename: [8]
         },
         RecordsConnection: {
-            nodes: [107],
-            edges: [128],
-            pageInfo: [112],
+            nodes: [110],
+            edges: [131],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
         RecordsEdge: {
             cursor: [11],
-            node: [107],
+            node: [110],
             __typename: [8]
         },
         RecordsOrderBy: {},
@@ -3190,9 +3272,9 @@ export default {
             __typename: [8]
         },
         StatsGlobalsConnection: {
-            nodes: [132],
-            edges: [133],
-            pageInfo: [112],
+            nodes: [135],
+            edges: [136],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -3206,12 +3288,12 @@ export default {
             dateUpdated: [6],
             value: [10],
             userByIdUser: [7],
-            levelByIdLevel: [108],
+            levelByIdLevel: [111],
             __typename: [8]
         },
         StatsGlobalsEdge: {
             cursor: [11],
-            node: [132],
+            node: [135],
             __typename: [8]
         },
         StatsGlobalsOrderBy: {},
@@ -3226,9 +3308,9 @@ export default {
             __typename: [8]
         },
         UpvotesConnection: {
-            nodes: [137],
-            edges: [138],
-            pageInfo: [112],
+            nodes: [140],
+            edges: [141],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -3240,12 +3322,12 @@ export default {
             dateCreated: [6],
             dateUpdated: [6],
             userByIdUser: [7],
-            levelByIdLevel: [108],
+            levelByIdLevel: [111],
             __typename: [8]
         },
         UpvotesEdge: {
             cursor: [11],
-            node: [137],
+            node: [140],
             __typename: [8]
         },
         UpvotesOrderBy: {},
@@ -3258,9 +3340,9 @@ export default {
             __typename: [8]
         },
         WorldRecordGlobalsConnection: {
-            nodes: [142],
-            edges: [143],
-            pageInfo: [112],
+            nodes: [145],
+            edges: [146],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -3271,13 +3353,13 @@ export default {
             idLevel: [5],
             dateCreated: [6],
             dateUpdated: [6],
-            recordByIdRecord: [107],
-            levelByIdLevel: [108],
+            recordByIdRecord: [110],
+            levelByIdLevel: [111],
             __typename: [8]
         },
         WorldRecordGlobalsEdge: {
             cursor: [11],
-            node: [142],
+            node: [145],
             __typename: [8]
         },
         WorldRecordGlobalsOrderBy: {},
@@ -3290,9 +3372,9 @@ export default {
             __typename: [8]
         },
         PersonalBestYearliesConnection: {
-            nodes: [147],
-            edges: [148],
-            pageInfo: [112],
+            nodes: [150],
+            edges: [151],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -3305,14 +3387,14 @@ export default {
             dateCreated: [6],
             dateUpdated: [6],
             year: [5],
-            recordByIdRecord: [107],
+            recordByIdRecord: [110],
             userByIdUser: [7],
-            levelByIdLevel: [108],
+            levelByIdLevel: [111],
             __typename: [8]
         },
         PersonalBestYearliesEdge: {
             cursor: [11],
-            node: [147],
+            node: [150],
             __typename: [8]
         },
         PersonalBestYearliesOrderBy: {},
@@ -3327,9 +3409,9 @@ export default {
             __typename: [8]
         },
         PersonalBestMonthliesConnection: {
-            nodes: [152],
-            edges: [153],
-            pageInfo: [112],
+            nodes: [155],
+            edges: [156],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -3343,14 +3425,14 @@ export default {
             dateUpdated: [6],
             year: [5],
             month: [5],
-            recordByIdRecord: [107],
+            recordByIdRecord: [110],
             userByIdUser: [7],
-            levelByIdLevel: [108],
+            levelByIdLevel: [111],
             __typename: [8]
         },
         PersonalBestMonthliesEdge: {
             cursor: [11],
-            node: [152],
+            node: [155],
             __typename: [8]
         },
         PersonalBestMonthliesOrderBy: {},
@@ -3366,9 +3448,9 @@ export default {
             __typename: [8]
         },
         PersonalBestWeekliesConnection: {
-            nodes: [157],
-            edges: [158],
-            pageInfo: [112],
+            nodes: [160],
+            edges: [161],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -3382,14 +3464,14 @@ export default {
             dateUpdated: [6],
             year: [5],
             week: [5],
-            recordByIdRecord: [107],
+            recordByIdRecord: [110],
             userByIdUser: [7],
-            levelByIdLevel: [108],
+            levelByIdLevel: [111],
             __typename: [8]
         },
         PersonalBestWeekliesEdge: {
             cursor: [11],
-            node: [157],
+            node: [160],
             __typename: [8]
         },
         PersonalBestWeekliesOrderBy: {},
@@ -3405,9 +3487,9 @@ export default {
             __typename: [8]
         },
         PersonalBestDailiesConnection: {
-            nodes: [162],
-            edges: [163],
-            pageInfo: [112],
+            nodes: [165],
+            edges: [166],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -3421,14 +3503,14 @@ export default {
             dateUpdated: [6],
             year: [5],
             day: [5],
-            recordByIdRecord: [107],
+            recordByIdRecord: [110],
             userByIdUser: [7],
-            levelByIdLevel: [108],
+            levelByIdLevel: [111],
             __typename: [8]
         },
         PersonalBestDailiesEdge: {
             cursor: [11],
-            node: [162],
+            node: [165],
             __typename: [8]
         },
         PersonalBestDailiesOrderBy: {},
@@ -3444,9 +3526,9 @@ export default {
             __typename: [8]
         },
         WorldRecordMonthliesConnection: {
-            nodes: [167],
-            edges: [168],
-            pageInfo: [112],
+            nodes: [170],
+            edges: [171],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -3459,13 +3541,13 @@ export default {
             dateUpdated: [6],
             year: [5],
             month: [5],
-            recordByIdRecord: [107],
-            levelByIdLevel: [108],
+            recordByIdRecord: [110],
+            levelByIdLevel: [111],
             __typename: [8]
         },
         WorldRecordMonthliesEdge: {
             cursor: [11],
-            node: [167],
+            node: [170],
             __typename: [8]
         },
         WorldRecordMonthliesOrderBy: {},
@@ -3480,9 +3562,9 @@ export default {
             __typename: [8]
         },
         WorldRecordYearliesConnection: {
-            nodes: [172],
-            edges: [173],
-            pageInfo: [112],
+            nodes: [175],
+            edges: [176],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -3494,13 +3576,13 @@ export default {
             dateCreated: [6],
             dateUpdated: [6],
             year: [5],
-            recordByIdRecord: [107],
-            levelByIdLevel: [108],
+            recordByIdRecord: [110],
+            levelByIdLevel: [111],
             __typename: [8]
         },
         WorldRecordYearliesEdge: {
             cursor: [11],
-            node: [172],
+            node: [175],
             __typename: [8]
         },
         WorldRecordYearliesOrderBy: {},
@@ -3514,9 +3596,9 @@ export default {
             __typename: [8]
         },
         WorldRecordWeekliesConnection: {
-            nodes: [177],
-            edges: [178],
-            pageInfo: [112],
+            nodes: [180],
+            edges: [181],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -3529,13 +3611,13 @@ export default {
             dateUpdated: [6],
             year: [5],
             week: [5],
-            recordByIdRecord: [107],
-            levelByIdLevel: [108],
+            recordByIdRecord: [110],
+            levelByIdLevel: [111],
             __typename: [8]
         },
         WorldRecordWeekliesEdge: {
             cursor: [11],
-            node: [177],
+            node: [180],
             __typename: [8]
         },
         WorldRecordWeekliesOrderBy: {},
@@ -3550,9 +3632,9 @@ export default {
             __typename: [8]
         },
         WorldRecordDailiesConnection: {
-            nodes: [182],
-            edges: [183],
-            pageInfo: [112],
+            nodes: [185],
+            edges: [186],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -3565,13 +3647,13 @@ export default {
             dateUpdated: [6],
             year: [5],
             day: [5],
-            recordByIdRecord: [107],
-            levelByIdLevel: [108],
+            recordByIdRecord: [110],
+            levelByIdLevel: [111],
             __typename: [8]
         },
         WorldRecordDailiesEdge: {
             cursor: [11],
-            node: [182],
+            node: [185],
             __typename: [8]
         },
         WorldRecordDailiesOrderBy: {},
@@ -3586,9 +3668,9 @@ export default {
             __typename: [8]
         },
         StatsMonthliesConnection: {
-            nodes: [187],
-            edges: [188],
-            pageInfo: [112],
+            nodes: [190],
+            edges: [191],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -3604,12 +3686,12 @@ export default {
             month: [5],
             value: [10],
             userByIdUser: [7],
-            levelByIdLevel: [108],
+            levelByIdLevel: [111],
             __typename: [8]
         },
         StatsMonthliesEdge: {
             cursor: [11],
-            node: [187],
+            node: [190],
             __typename: [8]
         },
         StatsMonthliesOrderBy: {},
@@ -3626,9 +3708,9 @@ export default {
             __typename: [8]
         },
         StatsYearliesConnection: {
-            nodes: [192],
-            edges: [193],
-            pageInfo: [112],
+            nodes: [195],
+            edges: [196],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -3643,12 +3725,12 @@ export default {
             year: [5],
             value: [10],
             userByIdUser: [7],
-            levelByIdLevel: [108],
+            levelByIdLevel: [111],
             __typename: [8]
         },
         StatsYearliesEdge: {
             cursor: [11],
-            node: [192],
+            node: [195],
             __typename: [8]
         },
         StatsYearliesOrderBy: {},
@@ -3664,9 +3746,9 @@ export default {
             __typename: [8]
         },
         StatsWeekliesConnection: {
-            nodes: [197],
-            edges: [198],
-            pageInfo: [112],
+            nodes: [200],
+            edges: [201],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -3682,12 +3764,12 @@ export default {
             week: [5],
             value: [10],
             userByIdUser: [7],
-            levelByIdLevel: [108],
+            levelByIdLevel: [111],
             __typename: [8]
         },
         StatsWeekliesEdge: {
             cursor: [11],
-            node: [197],
+            node: [200],
             __typename: [8]
         },
         StatsWeekliesOrderBy: {},
@@ -3704,9 +3786,9 @@ export default {
             __typename: [8]
         },
         StatsDailiesConnection: {
-            nodes: [202],
-            edges: [203],
-            pageInfo: [112],
+            nodes: [205],
+            edges: [206],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -3722,12 +3804,12 @@ export default {
             day: [5],
             value: [10],
             userByIdUser: [7],
-            levelByIdLevel: [108],
+            levelByIdLevel: [111],
             __typename: [8]
         },
         StatsDailiesEdge: {
             cursor: [11],
-            node: [202],
+            node: [205],
             __typename: [8]
         },
         StatsDailiesOrderBy: {},
@@ -3744,9 +3826,9 @@ export default {
             __typename: [8]
         },
         PersonalBestQuarterliesConnection: {
-            nodes: [207],
-            edges: [208],
-            pageInfo: [112],
+            nodes: [210],
+            edges: [211],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -3760,14 +3842,14 @@ export default {
             dateUpdated: [6],
             year: [5],
             quarter: [5],
-            recordByIdRecord: [107],
+            recordByIdRecord: [110],
             userByIdUser: [7],
-            levelByIdLevel: [108],
+            levelByIdLevel: [111],
             __typename: [8]
         },
         PersonalBestQuarterliesEdge: {
             cursor: [11],
-            node: [207],
+            node: [210],
             __typename: [8]
         },
         PersonalBestQuarterliesOrderBy: {},
@@ -3783,9 +3865,9 @@ export default {
             __typename: [8]
         },
         StatsQuarterliesConnection: {
-            nodes: [212],
-            edges: [213],
-            pageInfo: [112],
+            nodes: [215],
+            edges: [216],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -3801,12 +3883,12 @@ export default {
             quarter: [5],
             value: [10],
             userByIdUser: [7],
-            levelByIdLevel: [108],
+            levelByIdLevel: [111],
             __typename: [8]
         },
         StatsQuarterliesEdge: {
             cursor: [11],
-            node: [212],
+            node: [215],
             __typename: [8]
         },
         StatsQuarterliesOrderBy: {},
@@ -3823,9 +3905,9 @@ export default {
             __typename: [8]
         },
         WorldRecordQuarterliesConnection: {
-            nodes: [217],
-            edges: [218],
-            pageInfo: [112],
+            nodes: [220],
+            edges: [221],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -3838,13 +3920,13 @@ export default {
             dateUpdated: [6],
             year: [5],
             quarter: [5],
-            recordByIdRecord: [107],
-            levelByIdLevel: [108],
+            recordByIdRecord: [110],
+            levelByIdLevel: [111],
             __typename: [8]
         },
         WorldRecordQuarterliesEdge: {
             cursor: [11],
-            node: [217],
+            node: [220],
             __typename: [8]
         },
         WorldRecordQuarterliesOrderBy: {},
@@ -3858,10 +3940,44 @@ export default {
             quarter: [5],
             __typename: [8]
         },
+        VotesConnection: {
+            nodes: [225],
+            edges: [226],
+            pageInfo: [115],
+            totalCount: [5],
+            __typename: [8]
+        },
+        Vote: {
+            nodeId: [2],
+            id: [5],
+            idUser: [5],
+            idLevel: [5],
+            value: [5],
+            dateCreated: [6],
+            dateUpdated: [6],
+            userByIdUser: [7],
+            levelByIdLevel: [111],
+            __typename: [8]
+        },
+        VotesEdge: {
+            cursor: [11],
+            node: [225],
+            __typename: [8]
+        },
+        VotesOrderBy: {},
+        VoteCondition: {
+            id: [5],
+            idUser: [5],
+            idLevel: [5],
+            value: [5],
+            dateCreated: [6],
+            dateUpdated: [6],
+            __typename: [8]
+        },
         RecordMediasConnection: {
-            nodes: [222],
-            edges: [223],
-            pageInfo: [112],
+            nodes: [230],
+            edges: [231],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -3873,12 +3989,12 @@ export default {
             screenshotUrl: [8],
             dateCreated: [6],
             dateUpdated: [6],
-            recordByIdRecord: [107],
+            recordByIdRecord: [110],
             __typename: [8]
         },
         RecordMediasEdge: {
             cursor: [11],
-            node: [222],
+            node: [230],
             __typename: [8]
         },
         RecordMediasOrderBy: {},
@@ -3893,13 +4009,13 @@ export default {
         },
         PersonalBestGlobalsEdge: {
             cursor: [11],
-            node: [106],
+            node: [109],
             __typename: [8]
         },
         UserPointsConnection: {
-            nodes: [228],
-            edges: [229],
-            pageInfo: [112],
+            nodes: [236],
+            edges: [237],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -3917,7 +4033,7 @@ export default {
         },
         UserPointsEdge: {
             cursor: [11],
-            node: [228],
+            node: [236],
             __typename: [8]
         },
         UserPointsOrderBy: {},
@@ -3937,15 +4053,15 @@ export default {
             __typename: [8]
         },
         LevelsConnection: {
-            nodes: [108],
-            edges: [234],
-            pageInfo: [112],
+            nodes: [111],
+            edges: [242],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
         LevelsEdge: {
             cursor: [11],
-            node: [108],
+            node: [111],
             __typename: [8]
         },
         LevelsOrderBy: {},
@@ -3957,9 +4073,9 @@ export default {
             __typename: [8]
         },
         LevelRequestsConnection: {
-            nodes: [238],
-            edges: [239],
-            pageInfo: [112],
+            nodes: [246],
+            edges: [247],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -3975,7 +4091,7 @@ export default {
         },
         LevelRequestsEdge: {
             cursor: [11],
-            node: [238],
+            node: [246],
             __typename: [8]
         },
         LevelRequestsOrderBy: {},
@@ -3995,15 +4111,15 @@ export default {
             hash: [18],
             dateCreated: [16],
             dateUpdated: [16],
-            and: [242],
-            or: [242],
-            not: [242],
+            and: [250],
+            or: [250],
+            not: [250],
             __typename: [8]
         },
         SampledFavoritesConnection: {
-            nodes: [244],
-            edges: [245],
-            pageInfo: [112],
+            nodes: [252],
+            edges: [253],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -4017,7 +4133,7 @@ export default {
         },
         SampledFavoritesEdge: {
             cursor: [11],
-            node: [244],
+            node: [252],
             __typename: [8]
         },
         SampledFavoritesOrderBy: {},
@@ -4035,15 +4151,15 @@ export default {
             dateCreated: [16],
             dateUpdated: [16],
             idLevel: [15],
-            and: [248],
-            or: [248],
-            not: [248],
+            and: [256],
+            or: [256],
+            not: [256],
             __typename: [8]
         },
         SampledLevelsConnection: {
-            nodes: [250],
-            edges: [251],
-            pageInfo: [112],
+            nodes: [258],
+            edges: [259],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -4056,7 +4172,7 @@ export default {
         },
         SampledLevelsEdge: {
             cursor: [11],
-            node: [250],
+            node: [258],
             __typename: [8]
         },
         SampledLevelsOrderBy: {},
@@ -4072,15 +4188,15 @@ export default {
             hash: [18],
             dateCreated: [16],
             dateUpdated: [16],
-            and: [254],
-            or: [254],
-            not: [254],
+            and: [262],
+            or: [262],
+            not: [262],
             __typename: [8]
         },
         SampledLevelItemsConnection: {
-            nodes: [256],
-            edges: [257],
-            pageInfo: [112],
+            nodes: [264],
+            edges: [265],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -4106,7 +4222,7 @@ export default {
         },
         SampledLevelItemsEdge: {
             cursor: [11],
-            node: [256],
+            node: [264],
             __typename: [8]
         },
         SampledLevelItemsOrderBy: {},
@@ -4148,15 +4264,15 @@ export default {
             updatedAt: [16],
             dateCreated: [16],
             dateUpdated: [16],
-            and: [260],
-            or: [260],
-            not: [260],
+            and: [268],
+            or: [268],
+            not: [268],
             __typename: [8]
         },
         SampledLevelMetadataConnection: {
-            nodes: [262],
-            edges: [263],
-            pageInfo: [112],
+            nodes: [270],
+            edges: [271],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -4175,7 +4291,7 @@ export default {
         },
         SampledLevelMetadataEdge: {
             cursor: [11],
-            node: [262],
+            node: [270],
             __typename: [8]
         },
         SampledLevelMetadataOrderBy: {},
@@ -4203,15 +4319,15 @@ export default {
             blocks: [41],
             dateCreated: [16],
             dateUpdated: [16],
-            and: [266],
-            or: [266],
-            not: [266],
+            and: [274],
+            or: [274],
+            not: [274],
             __typename: [8]
         },
         SampledLevelPointsConnection: {
-            nodes: [268],
-            edges: [269],
-            pageInfo: [112],
+            nodes: [276],
+            edges: [277],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -4225,7 +4341,7 @@ export default {
         },
         SampledLevelPointsEdge: {
             cursor: [11],
-            node: [268],
+            node: [276],
             __typename: [8]
         },
         SampledLevelPointsOrderBy: {},
@@ -4243,15 +4359,15 @@ export default {
             idLevel: [15],
             dateCreated: [16],
             dateUpdated: [16],
-            and: [272],
-            or: [272],
-            not: [272],
+            and: [280],
+            or: [280],
+            not: [280],
             __typename: [8]
         },
         SampledLevelRequestsConnection: {
-            nodes: [274],
-            edges: [275],
-            pageInfo: [112],
+            nodes: [282],
+            edges: [283],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -4266,7 +4382,7 @@ export default {
         },
         SampledLevelRequestsEdge: {
             cursor: [11],
-            node: [274],
+            node: [282],
             __typename: [8]
         },
         SampledLevelRequestsOrderBy: {},
@@ -4286,15 +4402,15 @@ export default {
             hash: [18],
             dateCreated: [16],
             dateUpdated: [16],
-            and: [278],
-            or: [278],
-            not: [278],
+            and: [286],
+            or: [286],
+            not: [286],
             __typename: [8]
         },
         SampledPersonalBestDailiesConnection: {
-            nodes: [280],
-            edges: [281],
-            pageInfo: [112],
+            nodes: [288],
+            edges: [289],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -4311,7 +4427,7 @@ export default {
         },
         SampledPersonalBestDailiesEdge: {
             cursor: [11],
-            node: [280],
+            node: [288],
             __typename: [8]
         },
         SampledPersonalBestDailiesOrderBy: {},
@@ -4335,15 +4451,15 @@ export default {
             dateUpdated: [16],
             year: [15],
             day: [15],
-            and: [284],
-            or: [284],
-            not: [284],
+            and: [292],
+            or: [292],
+            not: [292],
             __typename: [8]
         },
         SampledPersonalBestGlobalsConnection: {
-            nodes: [286],
-            edges: [287],
-            pageInfo: [112],
+            nodes: [294],
+            edges: [295],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -4358,7 +4474,7 @@ export default {
         },
         SampledPersonalBestGlobalsEdge: {
             cursor: [11],
-            node: [286],
+            node: [294],
             __typename: [8]
         },
         SampledPersonalBestGlobalsOrderBy: {},
@@ -4378,15 +4494,15 @@ export default {
             idLevel: [15],
             dateCreated: [16],
             dateUpdated: [16],
-            and: [290],
-            or: [290],
-            not: [290],
+            and: [298],
+            or: [298],
+            not: [298],
             __typename: [8]
         },
         SampledPersonalBestMonthliesConnection: {
-            nodes: [292],
-            edges: [293],
-            pageInfo: [112],
+            nodes: [300],
+            edges: [301],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -4403,7 +4519,7 @@ export default {
         },
         SampledPersonalBestMonthliesEdge: {
             cursor: [11],
-            node: [292],
+            node: [300],
             __typename: [8]
         },
         SampledPersonalBestMonthliesOrderBy: {},
@@ -4427,15 +4543,15 @@ export default {
             dateUpdated: [16],
             year: [15],
             month: [15],
-            and: [296],
-            or: [296],
-            not: [296],
+            and: [304],
+            or: [304],
+            not: [304],
             __typename: [8]
         },
         SampledPersonalBestQuarterliesConnection: {
-            nodes: [298],
-            edges: [299],
-            pageInfo: [112],
+            nodes: [306],
+            edges: [307],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -4452,7 +4568,7 @@ export default {
         },
         SampledPersonalBestQuarterliesEdge: {
             cursor: [11],
-            node: [298],
+            node: [306],
             __typename: [8]
         },
         SampledPersonalBestQuarterliesOrderBy: {},
@@ -4476,15 +4592,15 @@ export default {
             dateUpdated: [16],
             year: [15],
             quarter: [15],
-            and: [302],
-            or: [302],
-            not: [302],
+            and: [310],
+            or: [310],
+            not: [310],
             __typename: [8]
         },
         SampledPersonalBestWeekliesConnection: {
-            nodes: [304],
-            edges: [305],
-            pageInfo: [112],
+            nodes: [312],
+            edges: [313],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -4501,7 +4617,7 @@ export default {
         },
         SampledPersonalBestWeekliesEdge: {
             cursor: [11],
-            node: [304],
+            node: [312],
             __typename: [8]
         },
         SampledPersonalBestWeekliesOrderBy: {},
@@ -4525,15 +4641,15 @@ export default {
             dateUpdated: [16],
             year: [15],
             week: [15],
-            and: [308],
-            or: [308],
-            not: [308],
+            and: [316],
+            or: [316],
+            not: [316],
             __typename: [8]
         },
         SampledPersonalBestYearliesConnection: {
-            nodes: [310],
-            edges: [311],
-            pageInfo: [112],
+            nodes: [318],
+            edges: [319],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -4549,7 +4665,7 @@ export default {
         },
         SampledPersonalBestYearliesEdge: {
             cursor: [11],
-            node: [310],
+            node: [318],
             __typename: [8]
         },
         SampledPersonalBestYearliesOrderBy: {},
@@ -4571,15 +4687,15 @@ export default {
             dateCreated: [16],
             dateUpdated: [16],
             year: [15],
-            and: [314],
-            or: [314],
-            not: [314],
+            and: [322],
+            or: [322],
+            not: [322],
             __typename: [8]
         },
         SampledRecordsConnection: {
-            nodes: [316],
-            edges: [317],
-            pageInfo: [112],
+            nodes: [324],
+            edges: [325],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -4599,7 +4715,7 @@ export default {
         },
         SampledRecordsEdge: {
             cursor: [11],
-            node: [316],
+            node: [324],
             __typename: [8]
         },
         SampledRecordsOrderBy: {},
@@ -4629,15 +4745,15 @@ export default {
             dateUpdated: [16],
             splits: [27],
             speeds: [27],
-            and: [320],
-            or: [320],
-            not: [320],
+            and: [328],
+            or: [328],
+            not: [328],
             __typename: [8]
         },
         SampledRecordMediasConnection: {
-            nodes: [322],
-            edges: [323],
-            pageInfo: [112],
+            nodes: [330],
+            edges: [331],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -4652,7 +4768,7 @@ export default {
         },
         SampledRecordMediasEdge: {
             cursor: [11],
-            node: [322],
+            node: [330],
             __typename: [8]
         },
         SampledRecordMediasOrderBy: {},
@@ -4672,15 +4788,15 @@ export default {
             screenshotUrl: [18],
             dateCreated: [16],
             dateUpdated: [16],
-            and: [326],
-            or: [326],
-            not: [326],
+            and: [334],
+            or: [334],
+            not: [334],
             __typename: [8]
         },
         SampledStatsDailiesConnection: {
-            nodes: [328],
-            edges: [329],
-            pageInfo: [112],
+            nodes: [336],
+            edges: [337],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -4698,7 +4814,7 @@ export default {
         },
         SampledStatsDailiesEdge: {
             cursor: [11],
-            node: [328],
+            node: [336],
             __typename: [8]
         },
         SampledStatsDailiesOrderBy: {},
@@ -4724,15 +4840,15 @@ export default {
             year: [15],
             day: [15],
             value: [20],
-            and: [332],
-            or: [332],
-            not: [332],
+            and: [340],
+            or: [340],
+            not: [340],
             __typename: [8]
         },
         SampledStatsGlobalsConnection: {
-            nodes: [334],
-            edges: [335],
-            pageInfo: [112],
+            nodes: [342],
+            edges: [343],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -4748,7 +4864,7 @@ export default {
         },
         SampledStatsGlobalsEdge: {
             cursor: [11],
-            node: [334],
+            node: [342],
             __typename: [8]
         },
         SampledStatsGlobalsOrderBy: {},
@@ -4770,15 +4886,15 @@ export default {
             dateCreated: [16],
             dateUpdated: [16],
             value: [20],
-            and: [338],
-            or: [338],
-            not: [338],
+            and: [346],
+            or: [346],
+            not: [346],
             __typename: [8]
         },
         SampledStatsMonthliesConnection: {
-            nodes: [340],
-            edges: [341],
-            pageInfo: [112],
+            nodes: [348],
+            edges: [349],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -4796,7 +4912,7 @@ export default {
         },
         SampledStatsMonthliesEdge: {
             cursor: [11],
-            node: [340],
+            node: [348],
             __typename: [8]
         },
         SampledStatsMonthliesOrderBy: {},
@@ -4822,15 +4938,15 @@ export default {
             year: [15],
             month: [15],
             value: [20],
-            and: [344],
-            or: [344],
-            not: [344],
+            and: [352],
+            or: [352],
+            not: [352],
             __typename: [8]
         },
         SampledStatsQuarterliesConnection: {
-            nodes: [346],
-            edges: [347],
-            pageInfo: [112],
+            nodes: [354],
+            edges: [355],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -4848,7 +4964,7 @@ export default {
         },
         SampledStatsQuarterliesEdge: {
             cursor: [11],
-            node: [346],
+            node: [354],
             __typename: [8]
         },
         SampledStatsQuarterliesOrderBy: {},
@@ -4874,15 +4990,15 @@ export default {
             year: [15],
             quarter: [15],
             value: [20],
-            and: [350],
-            or: [350],
-            not: [350],
+            and: [358],
+            or: [358],
+            not: [358],
             __typename: [8]
         },
         SampledStatsWeekliesConnection: {
-            nodes: [352],
-            edges: [353],
-            pageInfo: [112],
+            nodes: [360],
+            edges: [361],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -4900,7 +5016,7 @@ export default {
         },
         SampledStatsWeekliesEdge: {
             cursor: [11],
-            node: [352],
+            node: [360],
             __typename: [8]
         },
         SampledStatsWeekliesOrderBy: {},
@@ -4926,15 +5042,15 @@ export default {
             year: [15],
             week: [15],
             value: [20],
-            and: [356],
-            or: [356],
-            not: [356],
+            and: [364],
+            or: [364],
+            not: [364],
             __typename: [8]
         },
         SampledStatsYearliesConnection: {
-            nodes: [358],
-            edges: [359],
-            pageInfo: [112],
+            nodes: [366],
+            edges: [367],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -4951,7 +5067,7 @@ export default {
         },
         SampledStatsYearliesEdge: {
             cursor: [11],
-            node: [358],
+            node: [366],
             __typename: [8]
         },
         SampledStatsYearliesOrderBy: {},
@@ -4975,15 +5091,15 @@ export default {
             dateUpdated: [16],
             year: [15],
             value: [20],
-            and: [362],
-            or: [362],
-            not: [362],
+            and: [370],
+            or: [370],
+            not: [370],
             __typename: [8]
         },
         SampledUpvotesConnection: {
-            nodes: [364],
-            edges: [365],
-            pageInfo: [112],
+            nodes: [372],
+            edges: [373],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -4997,7 +5113,7 @@ export default {
         },
         SampledUpvotesEdge: {
             cursor: [11],
-            node: [364],
+            node: [372],
             __typename: [8]
         },
         SampledUpvotesOrderBy: {},
@@ -5015,15 +5131,15 @@ export default {
             idLevel: [15],
             dateCreated: [16],
             dateUpdated: [16],
-            and: [368],
-            or: [368],
-            not: [368],
+            and: [376],
+            or: [376],
+            not: [376],
             __typename: [8]
         },
         SampledUsersConnection: {
-            nodes: [370],
-            edges: [371],
-            pageInfo: [112],
+            nodes: [378],
+            edges: [379],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -5039,7 +5155,7 @@ export default {
         },
         SampledUsersEdge: {
             cursor: [11],
-            node: [370],
+            node: [378],
             __typename: [8]
         },
         SampledUsersOrderBy: {},
@@ -5061,15 +5177,15 @@ export default {
             dateUpdated: [16],
             steamId: [20],
             discordId: [20],
-            and: [374],
-            or: [374],
-            not: [374],
+            and: [382],
+            or: [382],
+            not: [382],
             __typename: [8]
         },
         SampledUserPointsConnection: {
-            nodes: [376],
-            edges: [377],
-            pageInfo: [112],
+            nodes: [384],
+            edges: [385],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -5085,7 +5201,7 @@ export default {
         },
         SampledUserPointsEdge: {
             cursor: [11],
-            node: [376],
+            node: [384],
             __typename: [8]
         },
         SampledUserPointsOrderBy: {},
@@ -5107,15 +5223,15 @@ export default {
             dateUpdated: [16],
             rank: [15],
             worldRecords: [15],
-            and: [380],
-            or: [380],
-            not: [380],
+            and: [388],
+            or: [388],
+            not: [388],
             __typename: [8]
         },
         SampledVersionsConnection: {
-            nodes: [382],
-            edges: [383],
-            pageInfo: [112],
+            nodes: [390],
+            edges: [391],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -5129,7 +5245,7 @@ export default {
         },
         SampledVersionsEdge: {
             cursor: [11],
-            node: [382],
+            node: [390],
             __typename: [8]
         },
         SampledVersionsOrderBy: {},
@@ -5147,15 +5263,15 @@ export default {
             latest: [18],
             dateCreated: [16],
             dateUpdated: [16],
-            and: [386],
-            or: [386],
-            not: [386],
+            and: [394],
+            or: [394],
+            not: [394],
             __typename: [8]
         },
         SampledWorldRecordDailiesConnection: {
-            nodes: [388],
-            edges: [389],
-            pageInfo: [112],
+            nodes: [396],
+            edges: [397],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -5171,7 +5287,7 @@ export default {
         },
         SampledWorldRecordDailiesEdge: {
             cursor: [11],
-            node: [388],
+            node: [396],
             __typename: [8]
         },
         SampledWorldRecordDailiesOrderBy: {},
@@ -5193,15 +5309,15 @@ export default {
             dateUpdated: [16],
             year: [15],
             day: [15],
-            and: [392],
-            or: [392],
-            not: [392],
+            and: [400],
+            or: [400],
+            not: [400],
             __typename: [8]
         },
         SampledWorldRecordGlobalsConnection: {
-            nodes: [394],
-            edges: [395],
-            pageInfo: [112],
+            nodes: [402],
+            edges: [403],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -5215,7 +5331,7 @@ export default {
         },
         SampledWorldRecordGlobalsEdge: {
             cursor: [11],
-            node: [394],
+            node: [402],
             __typename: [8]
         },
         SampledWorldRecordGlobalsOrderBy: {},
@@ -5233,15 +5349,15 @@ export default {
             idLevel: [15],
             dateCreated: [16],
             dateUpdated: [16],
-            and: [398],
-            or: [398],
-            not: [398],
+            and: [406],
+            or: [406],
+            not: [406],
             __typename: [8]
         },
         SampledWorldRecordMonthliesConnection: {
-            nodes: [400],
-            edges: [401],
-            pageInfo: [112],
+            nodes: [408],
+            edges: [409],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -5257,7 +5373,7 @@ export default {
         },
         SampledWorldRecordMonthliesEdge: {
             cursor: [11],
-            node: [400],
+            node: [408],
             __typename: [8]
         },
         SampledWorldRecordMonthliesOrderBy: {},
@@ -5279,15 +5395,15 @@ export default {
             dateUpdated: [16],
             year: [15],
             month: [15],
-            and: [404],
-            or: [404],
-            not: [404],
+            and: [412],
+            or: [412],
+            not: [412],
             __typename: [8]
         },
         SampledWorldRecordQuarterliesConnection: {
-            nodes: [406],
-            edges: [407],
-            pageInfo: [112],
+            nodes: [414],
+            edges: [415],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -5303,7 +5419,7 @@ export default {
         },
         SampledWorldRecordQuarterliesEdge: {
             cursor: [11],
-            node: [406],
+            node: [414],
             __typename: [8]
         },
         SampledWorldRecordQuarterliesOrderBy: {},
@@ -5325,15 +5441,15 @@ export default {
             dateUpdated: [16],
             year: [15],
             quarter: [15],
-            and: [410],
-            or: [410],
-            not: [410],
+            and: [418],
+            or: [418],
+            not: [418],
             __typename: [8]
         },
         SampledWorldRecordWeekliesConnection: {
-            nodes: [412],
-            edges: [413],
-            pageInfo: [112],
+            nodes: [420],
+            edges: [421],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -5349,7 +5465,7 @@ export default {
         },
         SampledWorldRecordWeekliesEdge: {
             cursor: [11],
-            node: [412],
+            node: [420],
             __typename: [8]
         },
         SampledWorldRecordWeekliesOrderBy: {},
@@ -5371,15 +5487,15 @@ export default {
             dateUpdated: [16],
             year: [15],
             week: [15],
-            and: [416],
-            or: [416],
-            not: [416],
+            and: [424],
+            or: [424],
+            not: [424],
             __typename: [8]
         },
         SampledWorldRecordYearliesConnection: {
-            nodes: [418],
-            edges: [419],
-            pageInfo: [112],
+            nodes: [426],
+            edges: [427],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -5394,7 +5510,7 @@ export default {
         },
         SampledWorldRecordYearliesEdge: {
             cursor: [11],
-            node: [418],
+            node: [426],
             __typename: [8]
         },
         SampledWorldRecordYearliesOrderBy: {},
@@ -5414,15 +5530,15 @@ export default {
             dateCreated: [16],
             dateUpdated: [16],
             year: [15],
-            and: [422],
-            or: [422],
-            not: [422],
+            and: [430],
+            or: [430],
+            not: [430],
             __typename: [8]
         },
         UsersConnection: {
             nodes: [7],
-            edges: [424],
-            pageInfo: [112],
+            edges: [432],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -5443,9 +5559,9 @@ export default {
             __typename: [8]
         },
         VersionsConnection: {
-            nodes: [428],
-            edges: [429],
-            pageInfo: [112],
+            nodes: [436],
+            edges: [437],
+            pageInfo: [115],
             totalCount: [5],
             __typename: [8]
         },
@@ -5460,7 +5576,7 @@ export default {
         },
         VersionsEdge: {
             cursor: [11],
-            node: [428],
+            node: [436],
             __typename: [8]
         },
         VersionsOrderBy: {},
@@ -5478,14 +5594,14 @@ export default {
             latest: [18],
             dateCreated: [16],
             dateUpdated: [16],
-            and: [432],
-            or: [432],
-            not: [432],
+            and: [440],
+            or: [440],
+            not: [440],
             __typename: [8]
         },
         ZRtmConnection: {
-            nodes: [434],
-            edges: [436],
+            nodes: [442],
+            edges: [444],
             totalCount: [5],
             __typename: [8]
         },
@@ -5510,13 +5626,13 @@ export default {
             amountCheckpoints: [5],
             amountFinishes: [5],
             amountBlocks: [5],
-            numRecords: [435],
+            numRecords: [443],
             __typename: [8]
         },
         BigInt: {},
         ZRtmEdge: {
             cursor: [11],
-            node: [434],
+            node: [442],
             __typename: [8]
         },
         ZRtmRecordFilter: {
@@ -5540,31 +5656,31 @@ export default {
             amountCheckpoints: [15],
             amountFinishes: [15],
             amountBlocks: [15],
-            numRecords: [438],
-            and: [437],
-            or: [437],
-            not: [437],
+            numRecords: [446],
+            and: [445],
+            or: [445],
+            not: [445],
             __typename: [8]
         },
         BigIntFilter: {
             isNull: [9],
-            equalTo: [435],
-            notEqualTo: [435],
-            distinctFrom: [435],
-            notDistinctFrom: [435],
-            in: [435],
-            notIn: [435],
-            lessThan: [435],
-            lessThanOrEqualTo: [435],
-            greaterThan: [435],
-            greaterThanOrEqualTo: [435],
+            equalTo: [443],
+            notEqualTo: [443],
+            distinctFrom: [443],
+            notDistinctFrom: [443],
+            in: [443],
+            notIn: [443],
+            lessThan: [443],
+            lessThanOrEqualTo: [443],
+            greaterThan: [443],
+            greaterThanOrEqualTo: [443],
             __typename: [8]
         },
         Mutation: {
             updateWorldRecordGlobal: [
-                440,
+                448,
                 {
-                    input: [441, 'UpdateWorldRecordGlobalInput!']
+                    input: [449, 'UpdateWorldRecordGlobalInput!']
                 }
             ],
             __typename: [8]
