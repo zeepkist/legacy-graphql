@@ -5,7 +5,7 @@ scripts
 docs
 src
 
-.eslintrc.cjs
+.eslint.config.mjs
 .gitattributes
 .prettierignore
 .prettierrc.json

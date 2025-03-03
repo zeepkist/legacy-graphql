@@ -1,10 +1,10 @@
-import { createClient as createGtr } from './gtr/index.js'
-import { createClient as createZworpshop } from './zworpshop/index.js'
+import { createClient as createGtrBeta } from './gtr-beta/index.js';
+import { createClient as createGtr } from './gtr/index.js';
 
 export const gtr = createGtr({
-    batch: false
-})
+	batch: true,
+});
 
-export const zworpshop = createZworpshop({
-    batch: false
-})
+export const gtrBeta = createGtrBeta({
+	batch: true,
+});

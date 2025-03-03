@@ -1,0 +1,71 @@
+{
+	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+	"vcs": {
+		"enabled": true,
+		"clientKind": "git",
+		"useIgnoreFile": true
+	},
+	"files": {
+		"ignoreUnknown": false,
+		"ignore": ["dist", "docs"]
+	},
+	"formatter": {
+		"enabled": true,
+		"indentStyle": "tab"
+	},
+	"organizeImports": {
+		"enabled": true
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"complexity": {
+				"useOptionalChain": {
+					"level": "warn",
+					"fix": "safe"
+				},
+				"noBannedTypes": "off",
+				"noForEach": "off",
+				"noExtraBooleanCast": {
+					"level": "warn",
+					"fix": "safe"
+				}
+			},
+			"performance": {
+				"noDelete": {
+					"level": "warn",
+					"fix": "safe"
+				}
+			},
+			"style": {
+				"useTemplate": {
+					"level": "warn",
+					"fix": "safe"
+				},
+				"noNonNullAssertion": "off",
+				"noUnusedTemplateLiteral": {
+					"level": "warn",
+					"fix": "safe"
+				},
+				"noUselessElse": {
+					"level": "warn",
+					"fix": "safe"
+				}
+			},
+			"suspicious": {
+				"noExplicitAny": "off",
+				"noDoubleEquals": {
+					"level": "warn",
+					"fix": "safe",
+					"options": {}
+				}
+			}
+		}
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "single"
+		}
+	}
+}

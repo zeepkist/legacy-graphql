@@ -1,11 +1,10 @@
-import test from 'ava'
+import test from 'ava';
+import { gtr, gtrBeta } from './index.js';
 
-import { gtr, zworpshop } from './index.js'
+test('GTR API exists', (t) => {
+	t.is(typeof gtr.query, 'function');
+});
 
-test('GTR API exists', t => {
-    t.is(typeof gtr.query, 'function')
-})
-
-test('Zworpshop API exists', t => {
-    t.is(typeof zworpshop.query, 'function')
-})
+test('GTR Beta API exists', (t) => {
+	t.is(typeof gtrBeta.query, 'function');
+});

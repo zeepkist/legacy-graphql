@@ -1,19 +1,19 @@
 {
-  "entryPoints": ["src/index.ts", "src/gtr/index.ts", "src/zworpshop/index.ts"],
-  "hideGenerator": true,
-  "searchInComments": true,
-  "sort": ["kind", "required-first", "enum-value-ascending"],
-  "defaultCategory": "Other",
-  "categorizeByGroup": false,
-  "categoryOrder": [
-    "Favourite",
-    "Level",
-    "Record",
-    "Track of the Day",
-    "Upvote",
-    "User",
-    "Vote",
-    "Utilities",
-    "Other"
-  ]
+	"entryPoints": ["src/index.ts", "src/gtr/index.ts", "src/zworpshop/index.ts"],
+	"hideGenerator": true,
+	"searchInComments": true,
+	"sort": ["kind", "required-first", "enum-value-ascending"],
+	"defaultCategory": "Other",
+	"categorizeByGroup": false,
+	"categoryOrder": [
+		"Favourite",
+		"Level",
+		"Record",
+		"Track of the Day",
+		"Upvote",
+		"User",
+		"Vote",
+		"Utilities",
+		"Other"
+	]
 }

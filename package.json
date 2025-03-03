@@ -1,86 +1,72 @@
 {
-    "private": false,
-    "name": "@zeepkist/graphql",
-    "version": "0.0.0",
-    "license": "MIT",
-    "description": "GraphQL client for Zeepkists' GraphQL APIs",
-    "author": "James Harris <wopian@wopian.me>",
-    "homepage": "https://github.com/zeepkist/graphql#readme",
-    "repository": "https://github.com/zeepkist/graphql",
-    "bugs": {
-        "url": "https://github.com/zeepkist/graphql/issues"
-    },
-    "funding": "https://github.com/sponsors/wopian",
-    "type": "module",
-    "main": "dist/index.js",
-    "packageManager": "pnpm@9.15.5",
-    "exports": {
-        ".": {
-            "import": "./dist/index.js",
-            "require": "./dist/index.js"
-        },
-        "./gtr": {
-            "import": "./dist/gtr/index.js",
-            "require": "./dist/gtr/index.js"
-        },
-        "./zworpshop": {
-            "import": "./dist/zworpshop/index.js",
-            "require": "./dist/zworpshop/index.js"
-        }
-    },
-    "scripts": {
-        "build": "tsc",
-        "lint": "eslint . --ext .js,.cjs,.mjs,.ts,.cts,.mts --fix",
-        "lint:ci": "eslint . --ext .js,.cjs,.mjs,.ts,.cts,.mts",
-        "test": "ava",
-        "coverage": "c8 --all --src=dist --skip-full ava",
-        "document": "typedoc && prettier --write docs/",
-        "generate:gtr": "genql --endpoint https://graphql.zeepkist-gtr.com --language typescript --output src/gtr --clientName gtr",
-        "publish:gtr": "rover subgraph publish zeepkist@current --schema src/gtr/schema.graphql --name GTR --routing-url https://graphql.zeepkist-gtr.com",
-        "publish-schemas": "pnpm publish:gtr",
-        "move": "tsx scripts/moveRuntime.ts",
-        "generate": "pnpm generate:gtr && pnpm move"
-    },
-    "devDependencies": {
-        "@apollo/rover": "^0.26.0",
-        "@ava/typescript": "^5.0.0",
-        "@genql/cli": "^6.3.0",
-        "@rushstack/eslint-patch": "^1.10.0",
-        "@semantic-release/changelog": "^6.0.3",
-        "@semantic-release/commit-analyzer": "^13.0.0",
-        "@semantic-release/github": "^11.0.0",
-        "@semantic-release/npm": "^12.0.0",
-        "@semantic-release/release-notes-generator": "^14.0.0",
-        "@types/node": "^22.0.0",
-        "@typescript-eslint/eslint-plugin": "^6.21.0",
-        "@typescript-eslint/parser": "^6.21.0",
-        "ava": "^6.1.0",
-        "c8": "^10.0.0",
-        "eslint": "^8.57.0",
-        "eslint-config-prettier": "^9.1.0",
-        "eslint-plugin-import": "^2.29.0",
-        "eslint-plugin-prettier": "^5.1.0",
-        "eslint-plugin-regexp": "^2.5.0",
-        "eslint-plugin-simple-import-sort": "^10.0.0",
-        "eslint-plugin-unicorn": "^49.0.0",
-        "prettier": "^3.2.0",
-        "semantic-release": "^24.0.0",
-        "tsx": "^4.9.0",
-        "typedoc": "^0.25.0",
-        "typescript": "^5.4.0"
-    },
-    "ava": {
-        "utilizeParallelBuilds": true,
-        "typescript": {
-            "compile": "tsc",
-            "rewritePaths": {
-                "src/": "dist/"
-            }
-        }
-    },
-    "renovate": {
-        "extends": [
-            "local>wopian/renovate-config"
-        ]
-    }
+	"private": false,
+	"name": "@zeepkist/graphql",
+	"version": "0.0.0",
+	"license": "MIT",
+	"description": "GraphQL client for Zeepkists' GraphQL APIs",
+	"author": "James Harris <wopian@wopian.me>",
+	"homepage": "https://github.com/zeepkist/graphql#readme",
+	"repository": "https://github.com/zeepkist/graphql",
+	"bugs": {
+		"url": "https://github.com/zeepkist/graphql/issues"
+	},
+	"funding": "https://github.com/sponsors/wopian",
+	"type": "module",
+	"main": "dist/index.js",
+	"packageManager": "pnpm@9.15.5",
+	"exports": {
+		".": {
+			"import": "./dist/index.js",
+			"require": "./dist/index.js"
+		},
+		"./gtr": {
+			"import": "./dist/gtr/index.js",
+			"require": "./dist/gtr/index.js"
+		}
+	},
+	"scripts": {
+		"build": "tsc",
+		"lint": "biome check --write",
+		"lint:ci": "biome check",
+		"test": "ava",
+		"coverage": "c8 --all --src=dist --skip-full ava",
+		"document": "typedoc && prettier --write docs/",
+		"generate:gtr": "genql --endpoint https://graphql.zeepki.st --language typescript --output src/gtr --clientName gtr",
+		"generate:gtr-beta": "genql --endpoint https://graphql-beta.zeepki.st --language typescript --output src/gtr-beta --clientName gtrBeta",
+		"publish:gtr": "rover subgraph publish zeepkist@current --schema src/gtr/schema.graphql --name GTR --routing-url https://graphql.zeepki.st",
+		"publish:gtr-beta": "rover subgraph publish zeepkist@beta --schema src/gtr-beta/schema.graphql --name GTR_BETA --routing-url https://graphql-beta.zeepki.st",
+		"publish-schemas": "pnpm publish:gtr && pnpm publish:gtr-beta",
+		"move": "tsx scripts/moveRuntime.ts",
+		"generate": "pnpm generate:gtr && pnpm generate:gtr-beta && pnpm move && pnpm lint"
+	},
+	"devDependencies": {
+		"@apollo/rover": "^0.27.2",
+		"@ava/typescript": "^5.0.0",
+		"@biomejs/biome": "1.9.4",
+		"@genql/cli": "^6.3.3",
+		"@semantic-release/changelog": "^6.0.3",
+		"@semantic-release/commit-analyzer": "^13.0.1",
+		"@semantic-release/github": "^11.0.1",
+		"@semantic-release/npm": "^12.0.1",
+		"@semantic-release/release-notes-generator": "^14.0.3",
+		"@types/node": "^22.13.9",
+		"ava": "^6.2.0",
+		"c8": "^10.1.3",
+		"semantic-release": "^24.2.3",
+		"tsx": "^4.19.3",
+		"typedoc": "^0.27.9",
+		"typescript": "^5.8.2"
+	},
+	"ava": {
+		"utilizeParallelBuilds": true,
+		"typescript": {
+			"compile": "tsc",
+			"rewritePaths": {
+				"src/": "dist/"
+			}
+		}
+	},
+	"renovate": {
+		"extends": ["local>wopian/renovate-config"]
+	}
 }

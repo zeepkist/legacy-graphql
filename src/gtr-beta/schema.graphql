@@ -26,7 +26,7 @@ type Query implements Node {
 	"""
 	Reads and enables pagination through a set of `VersionInfo`.
 	"""
-	allVersionInfos(
+	versionInfos(
 		"""
 		Only read the first `n` values of the set.
 		"""
@@ -72,7 +72,7 @@ type Query implements Node {
 	"""
 	Reads and enables pagination through a set of `Favorite`.
 	"""
-	allFavorites(
+	favorites(
 		"""
 		Only read the first `n` values of the set.
 		"""
@@ -118,7 +118,7 @@ type Query implements Node {
 	"""
 	Reads and enables pagination through a set of `Level`.
 	"""
-	allLevels(
+	levels(
 		"""
 		Only read the first `n` values of the set.
 		"""
@@ -164,7 +164,7 @@ type Query implements Node {
 	"""
 	Reads and enables pagination through a set of `LevelItem`.
 	"""
-	allLevelItems(
+	levelItems(
 		"""
 		Only read the first `n` values of the set.
 		"""
@@ -210,7 +210,7 @@ type Query implements Node {
 	"""
 	Reads and enables pagination through a set of `LevelMetadatum`.
 	"""
-	allLevelMetadata(
+	levelMetadata(
 		"""
 		Only read the first `n` values of the set.
 		"""
@@ -256,7 +256,7 @@ type Query implements Node {
 	"""
 	Reads and enables pagination through a set of `LevelPoint`.
 	"""
-	allLevelPoints(
+	levelPoints(
 		"""
 		Only read the first `n` values of the set.
 		"""
@@ -302,7 +302,7 @@ type Query implements Node {
 	"""
 	Reads and enables pagination through a set of `LevelRequest`.
 	"""
-	allLevelRequests(
+	levelRequests(
 		"""
 		Only read the first `n` values of the set.
 		"""
@@ -348,7 +348,7 @@ type Query implements Node {
 	"""
 	Reads and enables pagination through a set of `PersonalBestGlobal`.
 	"""
-	allPersonalBestGlobals(
+	personalBestGlobals(
 		"""
 		Only read the first `n` values of the set.
 		"""
@@ -394,7 +394,7 @@ type Query implements Node {
 	"""
 	Reads and enables pagination through a set of `Record`.
 	"""
-	allRecords(
+	records(
 		"""
 		Only read the first `n` values of the set.
 		"""
@@ -440,7 +440,7 @@ type Query implements Node {
 	"""
 	Reads and enables pagination through a set of `RecordMedia`.
 	"""
-	allRecordMedias(
+	recordMedias(
 		"""
 		Only read the first `n` values of the set.
 		"""
@@ -470,7 +470,7 @@ type Query implements Node {
 		"""
 		The method to use when ordering `RecordMedia`.
 		"""
-		orderBy: [RecordMediasOrderBy!] = [PRIMARY_KEY_ASC]
+		orderBy: [RecordMediaOrderBy!] = [PRIMARY_KEY_ASC]
 
 		"""
 		A condition to be used in determining which values should be returned by the collection.
@@ -481,12 +481,12 @@ type Query implements Node {
 		A filter to be used in determining which values should be returned by the collection.
 		"""
 		filter: RecordMediaFilter
-	): RecordMediasConnection
+	): RecordMediaConnection
 
 	"""
 	Reads and enables pagination through a set of `SampledFavorite`.
 	"""
-	allSampledFavorites(
+	sampledFavorites(
 		"""
 		Only read the first `n` values of the set.
 		"""
@@ -532,7 +532,7 @@ type Query implements Node {
 	"""
 	Reads and enables pagination through a set of `SampledLevel`.
 	"""
-	allSampledLevels(
+	sampledLevels(
 		"""
 		Only read the first `n` values of the set.
 		"""
@@ -578,7 +578,7 @@ type Query implements Node {
 	"""
 	Reads and enables pagination through a set of `SampledLevelItem`.
 	"""
-	allSampledLevelItems(
+	sampledLevelItems(
 		"""
 		Only read the first `n` values of the set.
 		"""
@@ -624,7 +624,7 @@ type Query implements Node {
 	"""
 	Reads and enables pagination through a set of `SampledLevelMetadatum`.
 	"""
-	allSampledLevelMetadata(
+	sampledLevelMetadata(
 		"""
 		Only read the first `n` values of the set.
 		"""
@@ -670,7 +670,7 @@ type Query implements Node {
 	"""
 	Reads and enables pagination through a set of `SampledLevelPoint`.
 	"""
-	allSampledLevelPoints(
+	sampledLevelPoints(
 		"""
 		Only read the first `n` values of the set.
 		"""
@@ -716,7 +716,7 @@ type Query implements Node {
 	"""
 	Reads and enables pagination through a set of `SampledLevelRequest`.
 	"""
-	allSampledLevelRequests(
+	sampledLevelRequests(
 		"""
 		Only read the first `n` values of the set.
 		"""
@@ -762,7 +762,7 @@ type Query implements Node {
 	"""
 	Reads and enables pagination through a set of `SampledPersonalBestGlobal`.
 	"""
-	allSampledPersonalBestGlobals(
+	sampledPersonalBestGlobals(
 		"""
 		Only read the first `n` values of the set.
 		"""
@@ -808,7 +808,7 @@ type Query implements Node {
 	"""
 	Reads and enables pagination through a set of `SampledRecord`.
 	"""
-	allSampledRecords(
+	sampledRecords(
 		"""
 		Only read the first `n` values of the set.
 		"""
@@ -854,7 +854,7 @@ type Query implements Node {
 	"""
 	Reads and enables pagination through a set of `SampledRecordMedia`.
 	"""
-	allSampledRecordMedias(
+	sampledRecordMedias(
 		"""
 		Only read the first `n` values of the set.
 		"""
@@ -884,7 +884,7 @@ type Query implements Node {
 		"""
 		The method to use when ordering `SampledRecordMedia`.
 		"""
-		orderBy: [SampledRecordMediasOrderBy!] = [NATURAL]
+		orderBy: [SampledRecordMediaOrderBy!] = [NATURAL]
 
 		"""
 		A condition to be used in determining which values should be returned by the collection.
@@ -895,12 +895,12 @@ type Query implements Node {
 		A filter to be used in determining which values should be returned by the collection.
 		"""
 		filter: SampledRecordMediaFilter
-	): SampledRecordMediasConnection
+	): SampledRecordMediaConnection
 
 	"""
 	Reads and enables pagination through a set of `SampledUpvote`.
 	"""
-	allSampledUpvotes(
+	sampledUpvotes(
 		"""
 		Only read the first `n` values of the set.
 		"""
@@ -946,7 +946,7 @@ type Query implements Node {
 	"""
 	Reads and enables pagination through a set of `SampledUser`.
 	"""
-	allSampledUsers(
+	sampledUsers(
 		"""
 		Only read the first `n` values of the set.
 		"""
@@ -992,7 +992,7 @@ type Query implements Node {
 	"""
 	Reads and enables pagination through a set of `SampledUserPoint`.
 	"""
-	allSampledUserPoints(
+	sampledUserPoints(
 		"""
 		Only read the first `n` values of the set.
 		"""
@@ -1038,7 +1038,7 @@ type Query implements Node {
 	"""
 	Reads and enables pagination through a set of `SampledVersion`.
 	"""
-	allSampledVersions(
+	sampledVersions(
 		"""
 		Only read the first `n` values of the set.
 		"""
@@ -1084,7 +1084,7 @@ type Query implements Node {
 	"""
 	Reads and enables pagination through a set of `SampledWorldRecordGlobal`.
 	"""
-	allSampledWorldRecordGlobals(
+	sampledWorldRecordGlobals(
 		"""
 		Only read the first `n` values of the set.
 		"""
@@ -1130,7 +1130,7 @@ type Query implements Node {
 	"""
 	Reads and enables pagination through a set of `Upvote`.
 	"""
-	allUpvotes(
+	upvotes(
 		"""
 		Only read the first `n` values of the set.
 		"""
@@ -1176,7 +1176,7 @@ type Query implements Node {
 	"""
 	Reads and enables pagination through a set of `User`.
 	"""
-	allUsers(
+	users(
 		"""
 		Only read the first `n` values of the set.
 		"""
@@ -1222,7 +1222,7 @@ type Query implements Node {
 	"""
 	Reads and enables pagination through a set of `UserPoint`.
 	"""
-	allUserPoints(
+	userPoints(
 		"""
 		Only read the first `n` values of the set.
 		"""
@@ -1268,7 +1268,7 @@ type Query implements Node {
 	"""
 	Reads and enables pagination through a set of `Version`.
 	"""
-	allVersions(
+	versions(
 		"""
 		Only read the first `n` values of the set.
 		"""
@@ -1314,7 +1314,7 @@ type Query implements Node {
 	"""
 	Reads and enables pagination through a set of `Vote`.
 	"""
-	allVotes(
+	votes(
 		"""
 		Only read the first `n` values of the set.
 		"""
@@ -1360,7 +1360,7 @@ type Query implements Node {
 	"""
 	Reads and enables pagination through a set of `WorldRecordGlobal`.
 	"""
-	allWorldRecordGlobals(
+	worldRecordGlobals(
 		"""
 		Only read the first `n` values of the set.
 		"""
@@ -1402,22 +1402,22 @@ type Query implements Node {
 		"""
 		filter: WorldRecordGlobalFilter
 	): WorldRecordGlobalsConnection
-	favoriteById(id: Int!): Favorite
-	levelById(id: Int!): Level
+	favorite(id: Int!): Favorite
+	level(id: Int!): Level
 	levelByHash(hash: String!): Level
-	levelItemById(id: Int!): LevelItem
-	levelMetadatumById(id: Int!): LevelMetadatum
-	levelPointById(id: Int!): LevelPoint
-	levelRequestById(id: Int!): LevelRequest
-	personalBestGlobalById(id: Int!): PersonalBestGlobal
-	recordById(id: Int!): Record
-	recordMediaById(id: Int!): RecordMedia
-	upvoteById(id: Int!): Upvote
-	userById(id: Int!): User
-	userPointById(id: Int!): UserPoint
-	versionById(id: Int!): Version
-	voteById(id: Int!): Vote
-	worldRecordGlobalById(id: Int!): WorldRecordGlobal
+	levelItem(id: Int!): LevelItem
+	levelMetadatum(id: Int!): LevelMetadatum
+	levelPoint(id: Int!): LevelPoint
+	levelRequest(id: Int!): LevelRequest
+	personalBestGlobal(id: Int!): PersonalBestGlobal
+	record(id: Int!): Record
+	recordMedia(id: Int!): RecordMedia
+	upvote(id: Int!): Upvote
+	user(id: Int!): User
+	userPoint(id: Int!): UserPoint
+	version(id: Int!): Version
+	vote(id: Int!): Vote
+	worldRecordGlobal(id: Int!): WorldRecordGlobal
 
 	"""
 	Retrieves filtered level items based on specified criteria.
@@ -1472,7 +1472,7 @@ type Query implements Node {
 	"""
 	Reads a single `Favorite` using its globally unique `ID`.
 	"""
-	favorite(
+	favoriteByNodeId(
 		"""
 		The globally unique `ID` to be used in selecting a single `Favorite`.
 		"""
@@ -1482,7 +1482,7 @@ type Query implements Node {
 	"""
 	Reads a single `Level` using its globally unique `ID`.
 	"""
-	level(
+	levelByNodeId(
 		"""
 		The globally unique `ID` to be used in selecting a single `Level`.
 		"""
@@ -1492,7 +1492,7 @@ type Query implements Node {
 	"""
 	Reads a single `LevelItem` using its globally unique `ID`.
 	"""
-	levelItem(
+	levelItemByNodeId(
 		"""
 		The globally unique `ID` to be used in selecting a single `LevelItem`.
 		"""
@@ -1502,7 +1502,7 @@ type Query implements Node {
 	"""
 	Reads a single `LevelMetadatum` using its globally unique `ID`.
 	"""
-	levelMetadatum(
+	levelMetadatumByNodeId(
 		"""
 		The globally unique `ID` to be used in selecting a single `LevelMetadatum`.
 		"""
@@ -1512,7 +1512,7 @@ type Query implements Node {
 	"""
 	Reads a single `LevelPoint` using its globally unique `ID`.
 	"""
-	levelPoint(
+	levelPointByNodeId(
 		"""
 		The globally unique `ID` to be used in selecting a single `LevelPoint`.
 		"""
@@ -1522,7 +1522,7 @@ type Query implements Node {
 	"""
 	Reads a single `LevelRequest` using its globally unique `ID`.
 	"""
-	levelRequest(
+	levelRequestByNodeId(
 		"""
 		The globally unique `ID` to be used in selecting a single `LevelRequest`.
 		"""
@@ -1532,7 +1532,7 @@ type Query implements Node {
 	"""
 	Reads a single `PersonalBestGlobal` using its globally unique `ID`.
 	"""
-	personalBestGlobal(
+	personalBestGlobalByNodeId(
 		"""
 		The globally unique `ID` to be used in selecting a single `PersonalBestGlobal`.
 		"""
@@ -1542,7 +1542,7 @@ type Query implements Node {
 	"""
 	Reads a single `Record` using its globally unique `ID`.
 	"""
-	record(
+	recordByNodeId(
 		"""
 		The globally unique `ID` to be used in selecting a single `Record`.
 		"""
@@ -1552,7 +1552,7 @@ type Query implements Node {
 	"""
 	Reads a single `RecordMedia` using its globally unique `ID`.
 	"""
-	recordMedia(
+	recordMediaByNodeId(
 		"""
 		The globally unique `ID` to be used in selecting a single `RecordMedia`.
 		"""
@@ -1562,7 +1562,7 @@ type Query implements Node {
 	"""
 	Reads a single `Upvote` using its globally unique `ID`.
 	"""
-	upvote(
+	upvoteByNodeId(
 		"""
 		The globally unique `ID` to be used in selecting a single `Upvote`.
 		"""
@@ -1572,7 +1572,7 @@ type Query implements Node {
 	"""
 	Reads a single `User` using its globally unique `ID`.
 	"""
-	user(
+	userByNodeId(
 		"""
 		The globally unique `ID` to be used in selecting a single `User`.
 		"""
@@ -1582,7 +1582,7 @@ type Query implements Node {
 	"""
 	Reads a single `UserPoint` using its globally unique `ID`.
 	"""
-	userPoint(
+	userPointByNodeId(
 		"""
 		The globally unique `ID` to be used in selecting a single `UserPoint`.
 		"""
@@ -1592,7 +1592,7 @@ type Query implements Node {
 	"""
 	Reads a single `Version` using its globally unique `ID`.
 	"""
-	version(
+	versionByNodeId(
 		"""
 		The globally unique `ID` to be used in selecting a single `Version`.
 		"""
@@ -1602,7 +1602,7 @@ type Query implements Node {
 	"""
 	Reads a single `Vote` using its globally unique `ID`.
 	"""
-	vote(
+	voteByNodeId(
 		"""
 		The globally unique `ID` to be used in selecting a single `Vote`.
 		"""
@@ -1612,7 +1612,7 @@ type Query implements Node {
 	"""
 	Reads a single `WorldRecordGlobal` using its globally unique `ID`.
 	"""
-	worldRecordGlobal(
+	worldRecordGlobalByNodeId(
 		"""
 		The globally unique `ID` to be used in selecting a single `WorldRecordGlobal`.
 		"""
@@ -1637,7 +1637,7 @@ type VersionInfosConnection {
 	"""
 	A list of `VersionInfo` objects.
 	"""
-	nodes: [VersionInfo]!
+	nodes: [VersionInfo!]!
 
 	"""
 	A list of edges which contains the `VersionInfo` and cursor to aid in pagination.
@@ -1686,7 +1686,7 @@ type VersionInfosEdge {
 	"""
 	The `VersionInfo` at the end of the edge.
 	"""
-	node: VersionInfo
+	node: VersionInfo!
 }
 
 """
@@ -2105,7 +2105,7 @@ type FavoritesConnection {
 	"""
 	A list of `Favorite` objects.
 	"""
-	nodes: [Favorite]!
+	nodes: [Favorite!]!
 
 	"""
 	A list of edges which contains the `Favorite` and cursor to aid in pagination.
@@ -4272,7 +4272,7 @@ type PersonalBestGlobalsConnection {
 	"""
 	A list of `PersonalBestGlobal` objects.
 	"""
-	nodes: [PersonalBestGlobal]!
+	nodes: [PersonalBestGlobal!]!
 
 	"""
 	A list of edges which contains the `PersonalBestGlobal` and cursor to aid in pagination.
@@ -4377,7 +4377,7 @@ type Record implements Node {
 		"""
 		The method to use when ordering `RecordMedia`.
 		"""
-		orderBy: [RecordMediasOrderBy!] = [PRIMARY_KEY_ASC]
+		orderBy: [RecordMediaOrderBy!] = [PRIMARY_KEY_ASC]
 
 		"""
 		A condition to be used in determining which values should be returned by the collection.
@@ -4388,7 +4388,7 @@ type Record implements Node {
 		A filter to be used in determining which values should be returned by the collection.
 		"""
 		filter: RecordMediaFilter
-	): RecordMediasConnection!
+	): RecordMediaConnection!
 
 	"""
 	Reads and enables pagination through a set of `PersonalBestGlobal`.
@@ -4915,7 +4915,7 @@ type LevelItemsConnection {
 	"""
 	A list of `LevelItem` objects.
 	"""
-	nodes: [LevelItem]!
+	nodes: [LevelItem!]!
 
 	"""
 	A list of edges which contains the `LevelItem` and cursor to aid in pagination.
@@ -4974,7 +4974,7 @@ type LevelItemsEdge {
 	"""
 	The `LevelItem` at the end of the edge.
 	"""
-	node: LevelItem
+	node: LevelItem!
 }
 
 """
@@ -5118,7 +5118,7 @@ type LevelMetadataConnection {
 	"""
 	A list of `LevelMetadatum` objects.
 	"""
-	nodes: [LevelMetadatum]!
+	nodes: [LevelMetadatum!]!
 
 	"""
 	A list of edges which contains the `LevelMetadatum` and cursor to aid in pagination.
@@ -5170,7 +5170,7 @@ type LevelMetadataEdge {
 	"""
 	The `LevelMetadatum` at the end of the edge.
 	"""
-	node: LevelMetadatum
+	node: LevelMetadatum!
 }
 
 """
@@ -5265,7 +5265,7 @@ type LevelPointsConnection {
 	"""
 	A list of `LevelPoint` objects.
 	"""
-	nodes: [LevelPoint]!
+	nodes: [LevelPoint!]!
 
 	"""
 	A list of edges which contains the `LevelPoint` and cursor to aid in pagination.
@@ -5312,7 +5312,7 @@ type LevelPointsEdge {
 	"""
 	The `LevelPoint` at the end of the edge.
 	"""
-	node: LevelPoint
+	node: LevelPoint!
 }
 
 """
@@ -5429,7 +5429,7 @@ type RecordsConnection {
 	"""
 	A list of `Record` objects.
 	"""
-	nodes: [Record]!
+	nodes: [Record!]!
 
 	"""
 	A list of edges which contains the `Record` and cursor to aid in pagination.
@@ -5459,7 +5459,7 @@ type RecordsEdge {
 	"""
 	The `Record` at the end of the edge.
 	"""
-	node: Record
+	node: Record!
 }
 
 """
@@ -5553,7 +5553,7 @@ type UpvotesConnection {
 	"""
 	A list of `Upvote` objects.
 	"""
-	nodes: [Upvote]!
+	nodes: [Upvote!]!
 
 	"""
 	A list of edges which contains the `Upvote` and cursor to aid in pagination.
@@ -5605,7 +5605,7 @@ type UpvotesEdge {
 	"""
 	The `Upvote` at the end of the edge.
 	"""
-	node: Upvote
+	node: Upvote!
 }
 
 """
@@ -5664,7 +5664,7 @@ type WorldRecordGlobalsConnection {
 	"""
 	A list of `WorldRecordGlobal` objects.
 	"""
-	nodes: [WorldRecordGlobal]!
+	nodes: [WorldRecordGlobal!]!
 
 	"""
 	A list of edges which contains the `WorldRecordGlobal` and cursor to aid in pagination.
@@ -5716,7 +5716,7 @@ type WorldRecordGlobalsEdge {
 	"""
 	The `WorldRecordGlobal` at the end of the edge.
 	"""
-	node: WorldRecordGlobal
+	node: WorldRecordGlobal!
 }
 
 """
@@ -5776,7 +5776,7 @@ type VotesConnection {
 	"""
 	A list of `Vote` objects.
 	"""
-	nodes: [Vote]!
+	nodes: [Vote!]!
 
 	"""
 	A list of edges which contains the `Vote` and cursor to aid in pagination.
@@ -5829,7 +5829,7 @@ type VotesEdge {
 	"""
 	The `Vote` at the end of the edge.
 	"""
-	node: Vote
+	node: Vote!
 }
 
 """
@@ -5891,16 +5891,16 @@ input VoteCondition {
 """
 A connection to a list of `RecordMedia` values.
 """
-type RecordMediasConnection {
+type RecordMediaConnection {
 	"""
 	A list of `RecordMedia` objects.
 	"""
-	nodes: [RecordMedia]!
+	nodes: [RecordMedia!]!
 
 	"""
 	A list of edges which contains the `RecordMedia` and cursor to aid in pagination.
 	"""
-	edges: [RecordMediasEdge!]!
+	edges: [RecordMediaEdge!]!
 
 	"""
 	Information to aid in pagination.
@@ -5933,7 +5933,7 @@ type RecordMedia implements Node {
 """
 A `RecordMedia` edge in the connection.
 """
-type RecordMediasEdge {
+type RecordMediaEdge {
 	"""
 	A cursor for use in pagination.
 	"""
@@ -5942,13 +5942,13 @@ type RecordMediasEdge {
 	"""
 	The `RecordMedia` at the end of the edge.
 	"""
-	node: RecordMedia
+	node: RecordMedia!
 }
 
 """
 Methods to use when ordering `RecordMedia`.
 """
-enum RecordMediasOrderBy {
+enum RecordMediaOrderBy {
 	NATURAL
 	ID_ASC
 	ID_DESC
@@ -6007,7 +6007,7 @@ type PersonalBestGlobalsEdge {
 	"""
 	The `PersonalBestGlobal` at the end of the edge.
 	"""
-	node: PersonalBestGlobal
+	node: PersonalBestGlobal!
 }
 
 """
@@ -6017,7 +6017,7 @@ type UserPointsConnection {
 	"""
 	A list of `UserPoint` objects.
 	"""
-	nodes: [UserPoint]!
+	nodes: [UserPoint!]!
 
 	"""
 	A list of edges which contains the `UserPoint` and cursor to aid in pagination.
@@ -6066,7 +6066,7 @@ type UserPointsEdge {
 	"""
 	The `UserPoint` at the end of the edge.
 	"""
-	node: UserPoint
+	node: UserPoint!
 }
 
 """
@@ -6145,7 +6145,7 @@ type FavoritesEdge {
 	"""
 	The `Favorite` at the end of the edge.
 	"""
-	node: Favorite
+	node: Favorite!
 }
 
 """
@@ -6155,7 +6155,7 @@ type LevelsConnection {
 	"""
 	A list of `Level` objects.
 	"""
-	nodes: [Level]!
+	nodes: [Level!]!
 
 	"""
 	A list of edges which contains the `Level` and cursor to aid in pagination.
@@ -6185,7 +6185,7 @@ type LevelsEdge {
 	"""
 	The `Level` at the end of the edge.
 	"""
-	node: Level
+	node: Level!
 }
 
 """
@@ -6237,7 +6237,7 @@ type LevelRequestsConnection {
 	"""
 	A list of `LevelRequest` objects.
 	"""
-	nodes: [LevelRequest]!
+	nodes: [LevelRequest!]!
 
 	"""
 	A list of edges which contains the `LevelRequest` and cursor to aid in pagination.
@@ -6280,7 +6280,7 @@ type LevelRequestsEdge {
 	"""
 	The `LevelRequest` at the end of the edge.
 	"""
-	node: LevelRequest
+	node: LevelRequest!
 }
 
 """
@@ -6397,7 +6397,7 @@ type SampledFavoritesConnection {
 	"""
 	A list of `SampledFavorite` objects.
 	"""
-	nodes: [SampledFavorite]!
+	nodes: [SampledFavorite!]!
 
 	"""
 	A list of edges which contains the `SampledFavorite` and cursor to aid in pagination.
@@ -6435,7 +6435,7 @@ type SampledFavoritesEdge {
 	"""
 	The `SampledFavorite` at the end of the edge.
 	"""
-	node: SampledFavorite
+	node: SampledFavorite!
 }
 
 """
@@ -6538,7 +6538,7 @@ type SampledLevelsConnection {
 	"""
 	A list of `SampledLevel` objects.
 	"""
-	nodes: [SampledLevel]!
+	nodes: [SampledLevel!]!
 
 	"""
 	A list of edges which contains the `SampledLevel` and cursor to aid in pagination.
@@ -6575,7 +6575,7 @@ type SampledLevelsEdge {
 	"""
 	The `SampledLevel` at the end of the edge.
 	"""
-	node: SampledLevel
+	node: SampledLevel!
 }
 
 """
@@ -6666,7 +6666,7 @@ type SampledLevelItemsConnection {
 	"""
 	A list of `SampledLevelItem` objects.
 	"""
-	nodes: [SampledLevelItem]!
+	nodes: [SampledLevelItem!]!
 
 	"""
 	A list of edges which contains the `SampledLevelItem` and cursor to aid in pagination.
@@ -6716,7 +6716,7 @@ type SampledLevelItemsEdge {
 	"""
 	The `SampledLevelItem` at the end of the edge.
 	"""
-	node: SampledLevelItem
+	node: SampledLevelItem!
 }
 
 """
@@ -6963,7 +6963,7 @@ type SampledLevelMetadataConnection {
 	"""
 	A list of `SampledLevelMetadatum` objects.
 	"""
-	nodes: [SampledLevelMetadatum]!
+	nodes: [SampledLevelMetadatum!]!
 
 	"""
 	A list of edges which contains the `SampledLevelMetadatum` and cursor to aid in pagination.
@@ -7006,7 +7006,7 @@ type SampledLevelMetadataEdge {
 	"""
 	The `SampledLevelMetadatum` at the end of the edge.
 	"""
-	node: SampledLevelMetadatum
+	node: SampledLevelMetadatum!
 }
 
 """
@@ -7169,7 +7169,7 @@ type SampledLevelPointsConnection {
 	"""
 	A list of `SampledLevelPoint` objects.
 	"""
-	nodes: [SampledLevelPoint]!
+	nodes: [SampledLevelPoint!]!
 
 	"""
 	A list of edges which contains the `SampledLevelPoint` and cursor to aid in pagination.
@@ -7207,7 +7207,7 @@ type SampledLevelPointsEdge {
 	"""
 	The `SampledLevelPoint` at the end of the edge.
 	"""
-	node: SampledLevelPoint
+	node: SampledLevelPoint!
 }
 
 """
@@ -7310,7 +7310,7 @@ type SampledLevelRequestsConnection {
 	"""
 	A list of `SampledLevelRequest` objects.
 	"""
-	nodes: [SampledLevelRequest]!
+	nodes: [SampledLevelRequest!]!
 
 	"""
 	A list of edges which contains the `SampledLevelRequest` and cursor to aid in pagination.
@@ -7349,7 +7349,7 @@ type SampledLevelRequestsEdge {
 	"""
 	The `SampledLevelRequest` at the end of the edge.
 	"""
-	node: SampledLevelRequest
+	node: SampledLevelRequest!
 }
 
 """
@@ -7464,7 +7464,7 @@ type SampledPersonalBestGlobalsConnection {
 	"""
 	A list of `SampledPersonalBestGlobal` objects.
 	"""
-	nodes: [SampledPersonalBestGlobal]!
+	nodes: [SampledPersonalBestGlobal!]!
 
 	"""
 	A list of edges which contains the `SampledPersonalBestGlobal` and cursor to aid in pagination.
@@ -7503,7 +7503,7 @@ type SampledPersonalBestGlobalsEdge {
 	"""
 	The `SampledPersonalBestGlobal` at the end of the edge.
 	"""
-	node: SampledPersonalBestGlobal
+	node: SampledPersonalBestGlobal!
 }
 
 """
@@ -7618,7 +7618,7 @@ type SampledRecordsConnection {
 	"""
 	A list of `SampledRecord` objects.
 	"""
-	nodes: [SampledRecord]!
+	nodes: [SampledRecord!]!
 
 	"""
 	A list of edges which contains the `SampledRecord` and cursor to aid in pagination.
@@ -7661,7 +7661,7 @@ type SampledRecordsEdge {
 	"""
 	The `SampledRecord` at the end of the edge.
 	"""
-	node: SampledRecord
+	node: SampledRecord!
 }
 
 """
@@ -7820,16 +7820,16 @@ input SampledRecordFilter {
 """
 A connection to a list of `SampledRecordMedia` values.
 """
-type SampledRecordMediasConnection {
+type SampledRecordMediaConnection {
 	"""
 	A list of `SampledRecordMedia` objects.
 	"""
-	nodes: [SampledRecordMedia]!
+	nodes: [SampledRecordMedia!]!
 
 	"""
 	A list of edges which contains the `SampledRecordMedia` and cursor to aid in pagination.
 	"""
-	edges: [SampledRecordMediasEdge!]!
+	edges: [SampledRecordMediaEdge!]!
 
 	"""
 	Information to aid in pagination.
@@ -7853,7 +7853,7 @@ type SampledRecordMedia {
 """
 A `SampledRecordMedia` edge in the connection.
 """
-type SampledRecordMediasEdge {
+type SampledRecordMediaEdge {
 	"""
 	A cursor for use in pagination.
 	"""
@@ -7862,13 +7862,13 @@ type SampledRecordMediasEdge {
 	"""
 	The `SampledRecordMedia` at the end of the edge.
 	"""
-	node: SampledRecordMedia
+	node: SampledRecordMedia!
 }
 
 """
 Methods to use when ordering `SampledRecordMedia`.
 """
-enum SampledRecordMediasOrderBy {
+enum SampledRecordMediaOrderBy {
 	NATURAL
 	ID_ASC
 	ID_DESC
@@ -7965,7 +7965,7 @@ type SampledUpvotesConnection {
 	"""
 	A list of `SampledUpvote` objects.
 	"""
-	nodes: [SampledUpvote]!
+	nodes: [SampledUpvote!]!
 
 	"""
 	A list of edges which contains the `SampledUpvote` and cursor to aid in pagination.
@@ -8003,7 +8003,7 @@ type SampledUpvotesEdge {
 	"""
 	The `SampledUpvote` at the end of the edge.
 	"""
-	node: SampledUpvote
+	node: SampledUpvote!
 }
 
 """
@@ -8106,7 +8106,7 @@ type SampledUsersConnection {
 	"""
 	A list of `SampledUser` objects.
 	"""
-	nodes: [SampledUser]!
+	nodes: [SampledUser!]!
 
 	"""
 	A list of edges which contains the `SampledUser` and cursor to aid in pagination.
@@ -8146,7 +8146,7 @@ type SampledUsersEdge {
 	"""
 	The `SampledUser` at the end of the edge.
 	"""
-	node: SampledUser
+	node: SampledUser!
 }
 
 """
@@ -8273,7 +8273,7 @@ type SampledUserPointsConnection {
 	"""
 	A list of `SampledUserPoint` objects.
 	"""
-	nodes: [SampledUserPoint]!
+	nodes: [SampledUserPoint!]!
 
 	"""
 	A list of edges which contains the `SampledUserPoint` and cursor to aid in pagination.
@@ -8313,7 +8313,7 @@ type SampledUserPointsEdge {
 	"""
 	The `SampledUserPoint` at the end of the edge.
 	"""
-	node: SampledUserPoint
+	node: SampledUserPoint!
 }
 
 """
@@ -8440,7 +8440,7 @@ type SampledVersionsConnection {
 	"""
 	A list of `SampledVersion` objects.
 	"""
-	nodes: [SampledVersion]!
+	nodes: [SampledVersion!]!
 
 	"""
 	A list of edges which contains the `SampledVersion` and cursor to aid in pagination.
@@ -8478,7 +8478,7 @@ type SampledVersionsEdge {
 	"""
 	The `SampledVersion` at the end of the edge.
 	"""
-	node: SampledVersion
+	node: SampledVersion!
 }
 
 """
@@ -8581,7 +8581,7 @@ type SampledWorldRecordGlobalsConnection {
 	"""
 	A list of `SampledWorldRecordGlobal` objects.
 	"""
-	nodes: [SampledWorldRecordGlobal]!
+	nodes: [SampledWorldRecordGlobal!]!
 
 	"""
 	A list of edges which contains the `SampledWorldRecordGlobal` and cursor to aid in pagination.
@@ -8619,7 +8619,7 @@ type SampledWorldRecordGlobalsEdge {
 	"""
 	The `SampledWorldRecordGlobal` at the end of the edge.
 	"""
-	node: SampledWorldRecordGlobal
+	node: SampledWorldRecordGlobal!
 }
 
 """
@@ -8722,7 +8722,7 @@ type UsersConnection {
 	"""
 	A list of `User` objects.
 	"""
-	nodes: [User]!
+	nodes: [User!]!
 
 	"""
 	A list of edges which contains the `User` and cursor to aid in pagination.
@@ -8752,7 +8752,7 @@ type UsersEdge {
 	"""
 	The `User` at the end of the edge.
 	"""
-	node: User
+	node: User!
 }
 
 """
@@ -8825,7 +8825,7 @@ type VersionsConnection {
 	"""
 	A list of `Version` objects.
 	"""
-	nodes: [Version]!
+	nodes: [Version!]!
 
 	"""
 	A list of edges which contains the `Version` and cursor to aid in pagination.
@@ -8867,7 +8867,7 @@ type VersionsEdge {
 	"""
 	The `Version` at the end of the edge.
 	"""
-	node: Version
+	node: Version!
 }
 
 """
@@ -8971,7 +8971,7 @@ type ZRtmConnection {
 	"""
 	A list of `ZRtmRecord` objects.
 	"""
-	nodes: [ZRtmRecord]!
+	nodes: [ZRtmRecord!]!
 
 	"""
 	A list of edges which contains the `ZRtmRecord` and cursor to aid in pagination.
@@ -9023,7 +9023,7 @@ type ZRtmEdge {
 	"""
 	The `ZRtmRecord` at the end of the edge.
 	"""
-	node: ZRtmRecord
+	node: ZRtmRecord!
 }
 
 """
@@ -9188,4 +9188,1709 @@ input UpdateWorldRecordGlobalInput {
 	payload verbatim. May be used to track mutations by the client.
 	"""
 	clientMutationId: String
+}
+
+"""
+The root subscription type: contains events and live queries you can subscribe to with the `subscription` operation.
+
+#### Live Queries
+
+Live query fields are differentiated by containing `(live)` at the end of their
+description, they are added for each field in the `Query` type. When you
+subscribe to a live query field, the selection set will be evaluated and sent to
+the client, and then most things\* that would cause the output of the selection
+set to change will trigger the selection set to be re-evaluated and the results
+to be re-sent to the client.
+
+_(\* Not everything: typically only changes to persisted data referenced by the query are detected, not computed fields.)_
+
+Live queries can be very expensive, so try and keep them small and focussed.
+
+#### Events
+
+Event fields will run their selection set when, and only when, the specified
+server-side event occurs. This makes them a lot more efficient than Live
+Queries, but it is still recommended that you keep payloads fairly small.
+"""
+type Subscription {
+	"""
+	Exposes the root query type nested one level down. This is helpful for Relay 1
+	which can only query top level fields if they are in a particular form. (live)
+	"""
+	query: Query!
+
+	"""
+	The root query type must be a `Node` to work well with Relay 1 mutations. This just resolves to `query`. (live)
+	"""
+	nodeId: ID!
+
+	"""
+	Fetches an object given its globally unique `ID`. (live)
+	"""
+	node(
+		"""
+		The globally unique `ID`.
+		"""
+		nodeId: ID!
+	): Node
+
+	"""
+	Reads and enables pagination through a set of `VersionInfo`. (live)
+	"""
+	versionInfos(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `VersionInfo`.
+		"""
+		orderBy: [VersionInfosOrderBy!] = [NATURAL]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: VersionInfoCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: VersionInfoFilter
+	): VersionInfosConnection
+
+	"""
+	Reads and enables pagination through a set of `Favorite`. (live)
+	"""
+	favorites(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `Favorite`.
+		"""
+		orderBy: [FavoritesOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: FavoriteCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: FavoriteFilter
+	): FavoritesConnection
+
+	"""
+	Reads and enables pagination through a set of `Level`. (live)
+	"""
+	levels(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `Level`.
+		"""
+		orderBy: [LevelsOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: LevelCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: LevelFilter
+	): LevelsConnection
+
+	"""
+	Reads and enables pagination through a set of `LevelItem`. (live)
+	"""
+	levelItems(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `LevelItem`.
+		"""
+		orderBy: [LevelItemsOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: LevelItemCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: LevelItemFilter
+	): LevelItemsConnection
+
+	"""
+	Reads and enables pagination through a set of `LevelMetadatum`. (live)
+	"""
+	levelMetadata(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `LevelMetadatum`.
+		"""
+		orderBy: [LevelMetadataOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: LevelMetadatumCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: LevelMetadatumFilter
+	): LevelMetadataConnection
+
+	"""
+	Reads and enables pagination through a set of `LevelPoint`. (live)
+	"""
+	levelPoints(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `LevelPoint`.
+		"""
+		orderBy: [LevelPointsOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: LevelPointCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: LevelPointFilter
+	): LevelPointsConnection
+
+	"""
+	Reads and enables pagination through a set of `LevelRequest`. (live)
+	"""
+	levelRequests(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `LevelRequest`.
+		"""
+		orderBy: [LevelRequestsOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: LevelRequestCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: LevelRequestFilter
+	): LevelRequestsConnection
+
+	"""
+	Reads and enables pagination through a set of `PersonalBestGlobal`. (live)
+	"""
+	personalBestGlobals(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `PersonalBestGlobal`.
+		"""
+		orderBy: [PersonalBestGlobalsOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: PersonalBestGlobalCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: PersonalBestGlobalFilter
+	): PersonalBestGlobalsConnection
+
+	"""
+	Reads and enables pagination through a set of `Record`. (live)
+	"""
+	records(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `Record`.
+		"""
+		orderBy: [RecordsOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: RecordCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: RecordFilter
+	): RecordsConnection
+
+	"""
+	Reads and enables pagination through a set of `RecordMedia`. (live)
+	"""
+	recordMedias(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `RecordMedia`.
+		"""
+		orderBy: [RecordMediaOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: RecordMediaCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: RecordMediaFilter
+	): RecordMediaConnection
+
+	"""
+	Reads and enables pagination through a set of `SampledFavorite`. (live)
+	"""
+	sampledFavorites(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `SampledFavorite`.
+		"""
+		orderBy: [SampledFavoritesOrderBy!] = [NATURAL]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: SampledFavoriteCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: SampledFavoriteFilter
+	): SampledFavoritesConnection
+
+	"""
+	Reads and enables pagination through a set of `SampledLevel`. (live)
+	"""
+	sampledLevels(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `SampledLevel`.
+		"""
+		orderBy: [SampledLevelsOrderBy!] = [NATURAL]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: SampledLevelCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: SampledLevelFilter
+	): SampledLevelsConnection
+
+	"""
+	Reads and enables pagination through a set of `SampledLevelItem`. (live)
+	"""
+	sampledLevelItems(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `SampledLevelItem`.
+		"""
+		orderBy: [SampledLevelItemsOrderBy!] = [NATURAL]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: SampledLevelItemCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: SampledLevelItemFilter
+	): SampledLevelItemsConnection
+
+	"""
+	Reads and enables pagination through a set of `SampledLevelMetadatum`. (live)
+	"""
+	sampledLevelMetadata(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `SampledLevelMetadatum`.
+		"""
+		orderBy: [SampledLevelMetadataOrderBy!] = [NATURAL]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: SampledLevelMetadatumCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: SampledLevelMetadatumFilter
+	): SampledLevelMetadataConnection
+
+	"""
+	Reads and enables pagination through a set of `SampledLevelPoint`. (live)
+	"""
+	sampledLevelPoints(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `SampledLevelPoint`.
+		"""
+		orderBy: [SampledLevelPointsOrderBy!] = [NATURAL]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: SampledLevelPointCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: SampledLevelPointFilter
+	): SampledLevelPointsConnection
+
+	"""
+	Reads and enables pagination through a set of `SampledLevelRequest`. (live)
+	"""
+	sampledLevelRequests(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `SampledLevelRequest`.
+		"""
+		orderBy: [SampledLevelRequestsOrderBy!] = [NATURAL]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: SampledLevelRequestCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: SampledLevelRequestFilter
+	): SampledLevelRequestsConnection
+
+	"""
+	Reads and enables pagination through a set of `SampledPersonalBestGlobal`. (live)
+	"""
+	sampledPersonalBestGlobals(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `SampledPersonalBestGlobal`.
+		"""
+		orderBy: [SampledPersonalBestGlobalsOrderBy!] = [NATURAL]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: SampledPersonalBestGlobalCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: SampledPersonalBestGlobalFilter
+	): SampledPersonalBestGlobalsConnection
+
+	"""
+	Reads and enables pagination through a set of `SampledRecord`. (live)
+	"""
+	sampledRecords(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `SampledRecord`.
+		"""
+		orderBy: [SampledRecordsOrderBy!] = [NATURAL]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: SampledRecordCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: SampledRecordFilter
+	): SampledRecordsConnection
+
+	"""
+	Reads and enables pagination through a set of `SampledRecordMedia`. (live)
+	"""
+	sampledRecordMedias(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `SampledRecordMedia`.
+		"""
+		orderBy: [SampledRecordMediaOrderBy!] = [NATURAL]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: SampledRecordMediaCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: SampledRecordMediaFilter
+	): SampledRecordMediaConnection
+
+	"""
+	Reads and enables pagination through a set of `SampledUpvote`. (live)
+	"""
+	sampledUpvotes(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `SampledUpvote`.
+		"""
+		orderBy: [SampledUpvotesOrderBy!] = [NATURAL]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: SampledUpvoteCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: SampledUpvoteFilter
+	): SampledUpvotesConnection
+
+	"""
+	Reads and enables pagination through a set of `SampledUser`. (live)
+	"""
+	sampledUsers(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `SampledUser`.
+		"""
+		orderBy: [SampledUsersOrderBy!] = [NATURAL]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: SampledUserCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: SampledUserFilter
+	): SampledUsersConnection
+
+	"""
+	Reads and enables pagination through a set of `SampledUserPoint`. (live)
+	"""
+	sampledUserPoints(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `SampledUserPoint`.
+		"""
+		orderBy: [SampledUserPointsOrderBy!] = [NATURAL]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: SampledUserPointCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: SampledUserPointFilter
+	): SampledUserPointsConnection
+
+	"""
+	Reads and enables pagination through a set of `SampledVersion`. (live)
+	"""
+	sampledVersions(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `SampledVersion`.
+		"""
+		orderBy: [SampledVersionsOrderBy!] = [NATURAL]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: SampledVersionCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: SampledVersionFilter
+	): SampledVersionsConnection
+
+	"""
+	Reads and enables pagination through a set of `SampledWorldRecordGlobal`. (live)
+	"""
+	sampledWorldRecordGlobals(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `SampledWorldRecordGlobal`.
+		"""
+		orderBy: [SampledWorldRecordGlobalsOrderBy!] = [NATURAL]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: SampledWorldRecordGlobalCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: SampledWorldRecordGlobalFilter
+	): SampledWorldRecordGlobalsConnection
+
+	"""
+	Reads and enables pagination through a set of `Upvote`. (live)
+	"""
+	upvotes(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `Upvote`.
+		"""
+		orderBy: [UpvotesOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: UpvoteCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: UpvoteFilter
+	): UpvotesConnection
+
+	"""
+	Reads and enables pagination through a set of `User`. (live)
+	"""
+	users(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `User`.
+		"""
+		orderBy: [UsersOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: UserCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: UserFilter
+	): UsersConnection
+
+	"""
+	Reads and enables pagination through a set of `UserPoint`. (live)
+	"""
+	userPoints(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `UserPoint`.
+		"""
+		orderBy: [UserPointsOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: UserPointCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: UserPointFilter
+	): UserPointsConnection
+
+	"""
+	Reads and enables pagination through a set of `Version`. (live)
+	"""
+	versions(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `Version`.
+		"""
+		orderBy: [VersionsOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: VersionCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: VersionFilter
+	): VersionsConnection
+
+	"""
+	Reads and enables pagination through a set of `Vote`. (live)
+	"""
+	votes(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `Vote`.
+		"""
+		orderBy: [VotesOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: VoteCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: VoteFilter
+	): VotesConnection
+
+	"""
+	Reads and enables pagination through a set of `WorldRecordGlobal`. (live)
+	"""
+	worldRecordGlobals(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `WorldRecordGlobal`.
+		"""
+		orderBy: [WorldRecordGlobalsOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: WorldRecordGlobalCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: WorldRecordGlobalFilter
+	): WorldRecordGlobalsConnection
+
+	"""
+	(live)
+	"""
+	favorite(id: Int!): Favorite
+
+	"""
+	(live)
+	"""
+	level(id: Int!): Level
+
+	"""
+	(live)
+	"""
+	levelByHash(hash: String!): Level
+
+	"""
+	(live)
+	"""
+	levelItem(id: Int!): LevelItem
+
+	"""
+	(live)
+	"""
+	levelMetadatum(id: Int!): LevelMetadatum
+
+	"""
+	(live)
+	"""
+	levelPoint(id: Int!): LevelPoint
+
+	"""
+	(live)
+	"""
+	levelRequest(id: Int!): LevelRequest
+
+	"""
+	(live)
+	"""
+	personalBestGlobal(id: Int!): PersonalBestGlobal
+
+	"""
+	(live)
+	"""
+	record(id: Int!): Record
+
+	"""
+	(live)
+	"""
+	recordMedia(id: Int!): RecordMedia
+
+	"""
+	(live)
+	"""
+	upvote(id: Int!): Upvote
+
+	"""
+	(live)
+	"""
+	user(id: Int!): User
+
+	"""
+	(live)
+	"""
+	userPoint(id: Int!): UserPoint
+
+	"""
+	(live)
+	"""
+	version(id: Int!): Version
+
+	"""
+	(live)
+	"""
+	vote(id: Int!): Vote
+
+	"""
+	(live)
+	"""
+	worldRecordGlobal(id: Int!): WorldRecordGlobal
+
+	"""
+	Retrieves filtered level items based on specified criteria. (live)
+	"""
+	zRtm(
+		pMinAuthorTime: Float
+		pMaxAuthorTime: Float
+		pMinRecords: Int
+		pMaxRecords: Int
+		pExcludedAuthorIds: [Int]
+		pExcludedHashes: [String]
+		pMinCheckpoints: Int
+		pMaxCheckpoints: Int
+		pMinFinishes: Int
+		pMaxFinishes: Int
+		pMinBlocks: Int
+		pMaxBlocks: Int
+		pSampleSize: Int
+
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: ZRtmRecordFilter
+	): ZRtmConnection
+
+	"""
+	Reads a single `Favorite` using its globally unique `ID`. (live)
+	"""
+	favoriteByNodeId(
+		"""
+		The globally unique `ID` to be used in selecting a single `Favorite`.
+		"""
+		nodeId: ID!
+	): Favorite
+
+	"""
+	Reads a single `Level` using its globally unique `ID`. (live)
+	"""
+	levelByNodeId(
+		"""
+		The globally unique `ID` to be used in selecting a single `Level`.
+		"""
+		nodeId: ID!
+	): Level
+
+	"""
+	Reads a single `LevelItem` using its globally unique `ID`. (live)
+	"""
+	levelItemByNodeId(
+		"""
+		The globally unique `ID` to be used in selecting a single `LevelItem`.
+		"""
+		nodeId: ID!
+	): LevelItem
+
+	"""
+	Reads a single `LevelMetadatum` using its globally unique `ID`. (live)
+	"""
+	levelMetadatumByNodeId(
+		"""
+		The globally unique `ID` to be used in selecting a single `LevelMetadatum`.
+		"""
+		nodeId: ID!
+	): LevelMetadatum
+
+	"""
+	Reads a single `LevelPoint` using its globally unique `ID`. (live)
+	"""
+	levelPointByNodeId(
+		"""
+		The globally unique `ID` to be used in selecting a single `LevelPoint`.
+		"""
+		nodeId: ID!
+	): LevelPoint
+
+	"""
+	Reads a single `LevelRequest` using its globally unique `ID`. (live)
+	"""
+	levelRequestByNodeId(
+		"""
+		The globally unique `ID` to be used in selecting a single `LevelRequest`.
+		"""
+		nodeId: ID!
+	): LevelRequest
+
+	"""
+	Reads a single `PersonalBestGlobal` using its globally unique `ID`. (live)
+	"""
+	personalBestGlobalByNodeId(
+		"""
+		The globally unique `ID` to be used in selecting a single `PersonalBestGlobal`.
+		"""
+		nodeId: ID!
+	): PersonalBestGlobal
+
+	"""
+	Reads a single `Record` using its globally unique `ID`. (live)
+	"""
+	recordByNodeId(
+		"""
+		The globally unique `ID` to be used in selecting a single `Record`.
+		"""
+		nodeId: ID!
+	): Record
+
+	"""
+	Reads a single `RecordMedia` using its globally unique `ID`. (live)
+	"""
+	recordMediaByNodeId(
+		"""
+		The globally unique `ID` to be used in selecting a single `RecordMedia`.
+		"""
+		nodeId: ID!
+	): RecordMedia
+
+	"""
+	Reads a single `Upvote` using its globally unique `ID`. (live)
+	"""
+	upvoteByNodeId(
+		"""
+		The globally unique `ID` to be used in selecting a single `Upvote`.
+		"""
+		nodeId: ID!
+	): Upvote
+
+	"""
+	Reads a single `User` using its globally unique `ID`. (live)
+	"""
+	userByNodeId(
+		"""
+		The globally unique `ID` to be used in selecting a single `User`.
+		"""
+		nodeId: ID!
+	): User
+
+	"""
+	Reads a single `UserPoint` using its globally unique `ID`. (live)
+	"""
+	userPointByNodeId(
+		"""
+		The globally unique `ID` to be used in selecting a single `UserPoint`.
+		"""
+		nodeId: ID!
+	): UserPoint
+
+	"""
+	Reads a single `Version` using its globally unique `ID`. (live)
+	"""
+	versionByNodeId(
+		"""
+		The globally unique `ID` to be used in selecting a single `Version`.
+		"""
+		nodeId: ID!
+	): Version
+
+	"""
+	Reads a single `Vote` using its globally unique `ID`. (live)
+	"""
+	voteByNodeId(
+		"""
+		The globally unique `ID` to be used in selecting a single `Vote`.
+		"""
+		nodeId: ID!
+	): Vote
+
+	"""
+	Reads a single `WorldRecordGlobal` using its globally unique `ID`. (live)
+	"""
+	worldRecordGlobalByNodeId(
+		"""
+		The globally unique `ID` to be used in selecting a single `WorldRecordGlobal`.
+		"""
+		nodeId: ID!
+	): WorldRecordGlobal
 }
