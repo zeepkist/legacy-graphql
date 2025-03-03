@@ -1,10 +1,10 @@
 # GTR & Zworpshop GraphQL Clients
 
-Fully typed TypeScript GraphQL clients for the [GTR] and [Zworpshop] APIs for Zeepkist.
+Fully typed TypeScript GraphQL clients for Zeepkist, including [GTR and Workshop] GraphQL APIs for Zeepkist.
 
 Download the GTR mod for Zeepkist in [Modkist] (Zeepkist's Mod Loader) or on [mod.io]
 
-Please note that as this is an ever green package that automatically updates types when it detects the GTR or Zworpshop schemas change, breaking changes may occur in minor releases.
+Please note that as this is an ever green package that automatically updates types when it detects the schemas change, breaking changes may occur in minor releases.
 
 ## Usage
 
@@ -12,13 +12,13 @@ Please note that as this is an ever green package that automatically updates typ
 
 ```html
 <script type="module">
-  import { gtr, zworpshop } from 'https://esm.run/@zeepkist/graphql'
+  import { gtr, gtrBeta } from 'https://esm.run/@zeepkist/graphql'
 
   const gtrResponse = await gtr.query({
 	...
   })
 
-  const zworpshopResponse = await zworpshop.query({
+  const betaResponse = await gtrBeta.query({
 	...
   })
 </script>
@@ -27,13 +27,13 @@ Please note that as this is an ever green package that automatically updates typ
 ### Deno
 
 ```js
-import { gtr, zworpshop } from 'https://esm.run/@zeepkist/graphql'
+import { gtr, gtrBeta } from 'https://esm.run/@zeepkist/graphql'
 
 const gtrResponse = await gtr.query({
 ...
 })
 
-const zworpshopResponse = await zworpshop.query({
+const betaResponse = await gtrBeta.query({
 ...
 })
 ```
@@ -52,13 +52,13 @@ npm install @zeepkist/graphql
 #### Import and use
 
 ```ts
-import { gtr, zworpshop } from '@zeepkist/graphql'
+import { gtr, gtrBeta } from '@zeepkist/graphql'
 
 const gtrResponse = await gtr.query({
 ...
 })
 
-const zworpshopResponse = await zworpshop.query({
+const betaResponse = await gtrBeta.query({
 ...
 })
 ```
@@ -69,12 +69,12 @@ Enums can be imported from the specific service you are using, for example:
 
 ```ts
 import { gtr } from '@zeepkist/graphql'
-import { enumPlayerPointsOrderBy } from '@zeepkist/graphql/gtr'
+import { enumUserPointsOrderBy } from '@zeepkist/graphql/gtr'
 
 const response = await gtr.query({
   allPlayerPoints: {
     __args: {
-      orderBy: [enumPlayerPointsOrderBy.POINTS_DESC]
+      orderBy: [enumUserPointsOrderBy.POINTS_DESC]
     }
   }
 })
@@ -124,7 +124,6 @@ pnpm lint
 pnpm generate
 ```
 
-[GTR]:https://graphql.zeepkist-gtr.com/graphiql
-[Zworpshop]:https://graphql.zworpshop.com/graphqiql
+[GTR and Workshop]:https://graphql.zeepki.st.com/graphiql
 [Modkist]:https://zeepkist.fandom.com/wiki/Modkist_(Mod_Manager)
 [mod.io]:https://zeepkist.mod.io/zeepkist-gtr
