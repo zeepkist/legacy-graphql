@@ -1,1693 +1,1738 @@
-<!doctype html>
-<html class="default" lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="x-ua-compatible" content="IE=edge" />
-        <title>FloatListFilter | @zeepkist/graphql</title>
-        <meta
-            name="description"
-            content="Documentation for @zeepkist/graphql" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="../assets/style.css" />
-        <link rel="stylesheet" href="../assets/highlight.css" />
-        <script defer src="../assets/main.js"></script>
-        <script async src="../assets/icons.js" id="tsd-icons-script"></script>
-        <script async src="../assets/search.js" id="tsd-search-script"></script>
-        <script
-            async
-            src="../assets/navigation.js"
-            id="tsd-nav-script"></script>
-    </head>
-    <body>
-        <script>
-            document.documentElement.dataset.theme =
-                localStorage.getItem('tsd-theme') || 'os'
-            document.body.style.display = 'none'
-            setTimeout(
-                () =>
-                    app
-                        ? app.showPage()
-                        : document.body.style.removeProperty('display'),
-                500
-            )
-        </script>
-        <header class="tsd-page-toolbar">
-            <div class="tsd-toolbar-contents container">
-                <div class="table-cell" id="tsd-search" data-base="..">
-                    <div class="field">
-                        <label
-                            for="tsd-search-field"
-                            class="tsd-widget tsd-toolbar-icon search no-caption"
-                            ><svg
-                                width="16"
-                                height="16"
-                                viewBox="0 0 16 16"
-                                fill="none">
-                                <use
-                                    href="../assets/icons.svg#icon-search"></use></svg></label
-                        ><input
-                            type="text"
-                            id="tsd-search-field"
-                            aria-label="Search" />
-                    </div>
-                    <div class="field"><div id="tsd-toolbar-links"></div></div>
-                    <ul class="results">
-                        <li class="state loading">Preparing search index...</li>
-                        <li class="state failure">
-                            The search index is not available
-                        </li>
-                    </ul>
-                    <a href="../index.html" class="title">@zeepkist/graphql</a>
-                </div>
-                <div class="table-cell" id="tsd-widgets">
-                    <a
-                        href="#"
-                        class="tsd-widget tsd-toolbar-icon menu no-caption"
-                        data-toggle="menu"
-                        aria-label="Menu"
-                        ><svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 16 16"
-                            fill="none">
-                            <use
-                                href="../assets/icons.svg#icon-menu"></use></svg
-                    ></a>
-                </div>
-            </div>
-        </header>
-        <div class="container container-main">
-            <div class="col-content">
-                <div class="tsd-page-title">
-                    <ul class="tsd-breadcrumb">
-                        <li><a href="../index.html">@zeepkist/graphql</a></li>
-                        <li><a href="../modules/gtr.html">gtr</a></li>
-                        <li>
-                            <a href="gtr.FloatListFilter.html"
-                                >FloatListFilter</a
-                            >
-                        </li>
-                    </ul>
-                    <h1>Interface FloatListFilter</h1>
-                </div>
-                <section class="tsd-panel tsd-comment">
-                    <div class="tsd-comment tsd-typography">
-                        <p>
-                            A filter to be used against Float List fields. All
-                            fields are combined with a logical ‘and.’
-                        </p>
-                    </div>
-                    <div class="tsd-comment tsd-typography"></div>
-                </section>
-                <div class="tsd-signature">
-                    <span class="tsd-signature-keyword">interface </span
-                    ><span class="tsd-kind-interface">FloatListFilter</span>
-                    <span class="tsd-signature-symbol">{ </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.FloatListFilter.html#isNull"
-                        >isNull</a
-                    ><span class="tsd-signature-symbol">?: </span
-                    ><span class="tsd-signature-type">null</span
-                    ><span class="tsd-signature-symbol"> | </span
-                    ><span class="tsd-signature-type">boolean</span
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.FloatListFilter.html#equalTo"
-                        >equalTo</a
-                    ><span class="tsd-signature-symbol">?: </span
-                    ><span class="tsd-signature-type">null</span
-                    ><span class="tsd-signature-symbol"> | </span
-                    ><span class="tsd-signature-symbol">(</span
-                    ><span class="tsd-signature-type">null</span
-                    ><span class="tsd-signature-symbol"> | </span
-                    ><span class="tsd-signature-type">number</span
-                    ><span class="tsd-signature-symbol">)</span
-                    ><span class="tsd-signature-symbol">[]</span
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.FloatListFilter.html#notEqualTo"
-                        >notEqualTo</a
-                    ><span class="tsd-signature-symbol">?: </span
-                    ><span class="tsd-signature-type">null</span
-                    ><span class="tsd-signature-symbol"> | </span
-                    ><span class="tsd-signature-symbol">(</span
-                    ><span class="tsd-signature-type">null</span
-                    ><span class="tsd-signature-symbol"> | </span
-                    ><span class="tsd-signature-type">number</span
-                    ><span class="tsd-signature-symbol">)</span
-                    ><span class="tsd-signature-symbol">[]</span
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.FloatListFilter.html#distinctFrom"
-                        >distinctFrom</a
-                    ><span class="tsd-signature-symbol">?: </span
-                    ><span class="tsd-signature-type">null</span
-                    ><span class="tsd-signature-symbol"> | </span
-                    ><span class="tsd-signature-symbol">(</span
-                    ><span class="tsd-signature-type">null</span
-                    ><span class="tsd-signature-symbol"> | </span
-                    ><span class="tsd-signature-type">number</span
-                    ><span class="tsd-signature-symbol">)</span
-                    ><span class="tsd-signature-symbol">[]</span
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.FloatListFilter.html#notDistinctFrom"
-                        >notDistinctFrom</a
-                    ><span class="tsd-signature-symbol">?: </span
-                    ><span class="tsd-signature-type">null</span
-                    ><span class="tsd-signature-symbol"> | </span
-                    ><span class="tsd-signature-symbol">(</span
-                    ><span class="tsd-signature-type">null</span
-                    ><span class="tsd-signature-symbol"> | </span
-                    ><span class="tsd-signature-type">number</span
-                    ><span class="tsd-signature-symbol">)</span
-                    ><span class="tsd-signature-symbol">[]</span
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.FloatListFilter.html#lessThan"
-                        >lessThan</a
-                    ><span class="tsd-signature-symbol">?: </span
-                    ><span class="tsd-signature-type">null</span
-                    ><span class="tsd-signature-symbol"> | </span
-                    ><span class="tsd-signature-symbol">(</span
-                    ><span class="tsd-signature-type">null</span
-                    ><span class="tsd-signature-symbol"> | </span
-                    ><span class="tsd-signature-type">number</span
-                    ><span class="tsd-signature-symbol">)</span
-                    ><span class="tsd-signature-symbol">[]</span
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.FloatListFilter.html#lessThanOrEqualTo"
-                        >lessThanOrEqualTo</a
-                    ><span class="tsd-signature-symbol">?: </span
-                    ><span class="tsd-signature-type">null</span
-                    ><span class="tsd-signature-symbol"> | </span
-                    ><span class="tsd-signature-symbol">(</span
-                    ><span class="tsd-signature-type">null</span
-                    ><span class="tsd-signature-symbol"> | </span
-                    ><span class="tsd-signature-type">number</span
-                    ><span class="tsd-signature-symbol">)</span
-                    ><span class="tsd-signature-symbol">[]</span
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.FloatListFilter.html#greaterThan"
-                        >greaterThan</a
-                    ><span class="tsd-signature-symbol">?: </span
-                    ><span class="tsd-signature-type">null</span
-                    ><span class="tsd-signature-symbol"> | </span
-                    ><span class="tsd-signature-symbol">(</span
-                    ><span class="tsd-signature-type">null</span
-                    ><span class="tsd-signature-symbol"> | </span
-                    ><span class="tsd-signature-type">number</span
-                    ><span class="tsd-signature-symbol">)</span
-                    ><span class="tsd-signature-symbol">[]</span
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.FloatListFilter.html#greaterThanOrEqualTo"
-                        >greaterThanOrEqualTo</a
-                    ><span class="tsd-signature-symbol">?: </span
-                    ><span class="tsd-signature-type">null</span
-                    ><span class="tsd-signature-symbol"> | </span
-                    ><span class="tsd-signature-symbol">(</span
-                    ><span class="tsd-signature-type">null</span
-                    ><span class="tsd-signature-symbol"> | </span
-                    ><span class="tsd-signature-type">number</span
-                    ><span class="tsd-signature-symbol">)</span
-                    ><span class="tsd-signature-symbol">[]</span
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.FloatListFilter.html#contains"
-                        >contains</a
-                    ><span class="tsd-signature-symbol">?: </span
-                    ><span class="tsd-signature-type">null</span
-                    ><span class="tsd-signature-symbol"> | </span
-                    ><span class="tsd-signature-symbol">(</span
-                    ><span class="tsd-signature-type">null</span
-                    ><span class="tsd-signature-symbol"> | </span
-                    ><span class="tsd-signature-type">number</span
-                    ><span class="tsd-signature-symbol">)</span
-                    ><span class="tsd-signature-symbol">[]</span
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.FloatListFilter.html#containedBy"
-                        >containedBy</a
-                    ><span class="tsd-signature-symbol">?: </span
-                    ><span class="tsd-signature-type">null</span
-                    ><span class="tsd-signature-symbol"> | </span
-                    ><span class="tsd-signature-symbol">(</span
-                    ><span class="tsd-signature-type">null</span
-                    ><span class="tsd-signature-symbol"> | </span
-                    ><span class="tsd-signature-type">number</span
-                    ><span class="tsd-signature-symbol">)</span
-                    ><span class="tsd-signature-symbol">[]</span
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.FloatListFilter.html#overlaps"
-                        >overlaps</a
-                    ><span class="tsd-signature-symbol">?: </span
-                    ><span class="tsd-signature-type">null</span
-                    ><span class="tsd-signature-symbol"> | </span
-                    ><span class="tsd-signature-symbol">(</span
-                    ><span class="tsd-signature-type">null</span
-                    ><span class="tsd-signature-symbol"> | </span
-                    ><span class="tsd-signature-type">number</span
-                    ><span class="tsd-signature-symbol">)</span
-                    ><span class="tsd-signature-symbol">[]</span
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.FloatListFilter.html#anyEqualTo"
-                        >anyEqualTo</a
-                    ><span class="tsd-signature-symbol">?: </span
-                    ><span class="tsd-signature-type">null</span
-                    ><span class="tsd-signature-symbol"> | </span
-                    ><span class="tsd-signature-type">number</span
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.FloatListFilter.html#anyNotEqualTo"
-                        >anyNotEqualTo</a
-                    ><span class="tsd-signature-symbol">?: </span
-                    ><span class="tsd-signature-type">null</span
-                    ><span class="tsd-signature-symbol"> | </span
-                    ><span class="tsd-signature-type">number</span
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.FloatListFilter.html#anyLessThan"
-                        >anyLessThan</a
-                    ><span class="tsd-signature-symbol">?: </span
-                    ><span class="tsd-signature-type">null</span
-                    ><span class="tsd-signature-symbol"> | </span
-                    ><span class="tsd-signature-type">number</span
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.FloatListFilter.html#anyLessThanOrEqualTo"
-                        >anyLessThanOrEqualTo</a
-                    ><span class="tsd-signature-symbol">?: </span
-                    ><span class="tsd-signature-type">null</span
-                    ><span class="tsd-signature-symbol"> | </span
-                    ><span class="tsd-signature-type">number</span
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.FloatListFilter.html#anyGreaterThan"
-                        >anyGreaterThan</a
-                    ><span class="tsd-signature-symbol">?: </span
-                    ><span class="tsd-signature-type">null</span
-                    ><span class="tsd-signature-symbol"> | </span
-                    ><span class="tsd-signature-type">number</span
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.FloatListFilter.html#anyGreaterThanOrEqualTo"
-                        >anyGreaterThanOrEqualTo</a
-                    ><span class="tsd-signature-symbol">?: </span
-                    ><span class="tsd-signature-type">null</span
-                    ><span class="tsd-signature-symbol"> | </span
-                    ><span class="tsd-signature-type">number</span
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        class="tsd-signature-symbol"
-                        >}</span
-                    >
-                </div>
-                <aside class="tsd-sources">
-                    <ul>
-                        <li>
-                            Defined in
-                            <a
-                                href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L5419"
-                                >src/gtr/schema.ts:5419</a
-                            >
-                        </li>
-                    </ul>
-                </aside>
-                <section class="tsd-panel-group tsd-index-group">
-                    <section class="tsd-panel tsd-index-panel">
-                        <details
-                            class="tsd-index-content tsd-index-accordion"
-                            open>
-                            <summary
-                                class="tsd-accordion-summary tsd-index-summary">
-                                <h5
-                                    class="tsd-index-heading uppercase"
-                                    role="button"
-                                    aria-expanded="false"
-                                    tabindex="0">
-                                    <svg
-                                        width="16"
-                                        height="16"
-                                        viewBox="0 0 16 16"
-                                        fill="none">
-                                        <use
-                                            href="../assets/icons.svg#icon-chevronSmall"></use>
-                                    </svg>
-                                    Index
-                                </h5>
-                            </summary>
-                            <div class="tsd-accordion-details">
-                                <section class="tsd-index-section">
-                                    <h3 class="tsd-index-heading">
-                                        Properties
-                                    </h3>
-                                    <div class="tsd-index-list">
-                                        <a
-                                            href="gtr.FloatListFilter.html#isNull"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span>is<wbr />Null?</span></a
-                                        >
-                                        <a
-                                            href="gtr.FloatListFilter.html#equalTo"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span>equal<wbr />To?</span></a
-                                        >
-                                        <a
-                                            href="gtr.FloatListFilter.html#notEqualTo"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span
-                                                >not<wbr />Equal<wbr />To?</span
-                                            ></a
-                                        >
-                                        <a
-                                            href="gtr.FloatListFilter.html#distinctFrom"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span
-                                                >distinct<wbr />From?</span
-                                            ></a
-                                        >
-                                        <a
-                                            href="gtr.FloatListFilter.html#notDistinctFrom"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span
-                                                >not<wbr />Distinct<wbr />From?</span
-                                            ></a
-                                        >
-                                        <a
-                                            href="gtr.FloatListFilter.html#lessThan"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span>less<wbr />Than?</span></a
-                                        >
-                                        <a
-                                            href="gtr.FloatListFilter.html#lessThanOrEqualTo"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span
-                                                >less<wbr />Than<wbr />Or<wbr />Equal<wbr />To?</span
-                                            ></a
-                                        >
-                                        <a
-                                            href="gtr.FloatListFilter.html#greaterThan"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span>greater<wbr />Than?</span></a
-                                        >
-                                        <a
-                                            href="gtr.FloatListFilter.html#greaterThanOrEqualTo"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span
-                                                >greater<wbr />Than<wbr />Or<wbr />Equal<wbr />To?</span
-                                            ></a
-                                        >
-                                        <a
-                                            href="gtr.FloatListFilter.html#contains"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span>contains?</span></a
-                                        >
-                                        <a
-                                            href="gtr.FloatListFilter.html#containedBy"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span>contained<wbr />By?</span></a
-                                        >
-                                        <a
-                                            href="gtr.FloatListFilter.html#overlaps"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span>overlaps?</span></a
-                                        >
-                                        <a
-                                            href="gtr.FloatListFilter.html#anyEqualTo"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span
-                                                >any<wbr />Equal<wbr />To?</span
-                                            ></a
-                                        >
-                                        <a
-                                            href="gtr.FloatListFilter.html#anyNotEqualTo"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span
-                                                >any<wbr />Not<wbr />Equal<wbr />To?</span
-                                            ></a
-                                        >
-                                        <a
-                                            href="gtr.FloatListFilter.html#anyLessThan"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span
-                                                >any<wbr />Less<wbr />Than?</span
-                                            ></a
-                                        >
-                                        <a
-                                            href="gtr.FloatListFilter.html#anyLessThanOrEqualTo"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span
-                                                >any<wbr />Less<wbr />Than<wbr />Or<wbr />Equal<wbr />To?</span
-                                            ></a
-                                        >
-                                        <a
-                                            href="gtr.FloatListFilter.html#anyGreaterThan"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span
-                                                >any<wbr />Greater<wbr />Than?</span
-                                            ></a
-                                        >
-                                        <a
-                                            href="gtr.FloatListFilter.html#anyGreaterThanOrEqualTo"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span
-                                                >any<wbr />Greater<wbr />Than<wbr />Or<wbr />Equal<wbr />To?</span
-                                            ></a
-                                        >
-                                    </div>
-                                </section>
-                            </div>
-                        </details>
-                    </section>
-                </section>
-                <section class="tsd-panel-group tsd-member-group">
-                    <h2>Properties</h2>
-                    <section class="tsd-panel tsd-member">
-                        <a id="isNull" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <code class="tsd-tag ts-flagOptional"
-                                >Optional</code
-                            >
-                            <span>is<wbr />Null</span
-                            ><a
-                                href="#isNull"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property">is<wbr />Null</span
-                            ><span class="tsd-signature-symbol">?:</span>
-                            <span class="tsd-signature-type">null</span
-                            ><span class="tsd-signature-symbol"> | </span
-                            ><span class="tsd-signature-type">boolean</span>
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>
-                                Is null (if <code>true</code> is specified) or
-                                is not null (if <code>false</code> is
-                                specified).
-                            </p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L5421"
-                                        >src/gtr/schema.ts:5421</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a id="equalTo" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <code class="tsd-tag ts-flagOptional"
-                                >Optional</code
-                            >
-                            <span>equal<wbr />To</span
-                            ><a
-                                href="#equalTo"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property">equal<wbr />To</span
-                            ><span class="tsd-signature-symbol">?:</span>
-                            <span class="tsd-signature-type">null</span
-                            ><span class="tsd-signature-symbol"> | </span
-                            ><span class="tsd-signature-symbol">(</span
-                            ><span class="tsd-signature-type">null</span
-                            ><span class="tsd-signature-symbol"> | </span
-                            ><span class="tsd-signature-type">number</span
-                            ><span class="tsd-signature-symbol">)</span
-                            ><span class="tsd-signature-symbol">[]</span>
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>Equal to the specified value.</p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L5423"
-                                        >src/gtr/schema.ts:5423</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a id="notEqualTo" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <code class="tsd-tag ts-flagOptional"
-                                >Optional</code
-                            >
-                            <span>not<wbr />Equal<wbr />To</span
-                            ><a
-                                href="#notEqualTo"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >not<wbr />Equal<wbr />To</span
-                            ><span class="tsd-signature-symbol">?:</span>
-                            <span class="tsd-signature-type">null</span
-                            ><span class="tsd-signature-symbol"> | </span
-                            ><span class="tsd-signature-symbol">(</span
-                            ><span class="tsd-signature-type">null</span
-                            ><span class="tsd-signature-symbol"> | </span
-                            ><span class="tsd-signature-type">number</span
-                            ><span class="tsd-signature-symbol">)</span
-                            ><span class="tsd-signature-symbol">[]</span>
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>Not equal to the specified value.</p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L5425"
-                                        >src/gtr/schema.ts:5425</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a id="distinctFrom" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <code class="tsd-tag ts-flagOptional"
-                                >Optional</code
-                            >
-                            <span>distinct<wbr />From</span
-                            ><a
-                                href="#distinctFrom"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >distinct<wbr />From</span
-                            ><span class="tsd-signature-symbol">?:</span>
-                            <span class="tsd-signature-type">null</span
-                            ><span class="tsd-signature-symbol"> | </span
-                            ><span class="tsd-signature-symbol">(</span
-                            ><span class="tsd-signature-type">null</span
-                            ><span class="tsd-signature-symbol"> | </span
-                            ><span class="tsd-signature-type">number</span
-                            ><span class="tsd-signature-symbol">)</span
-                            ><span class="tsd-signature-symbol">[]</span>
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>
-                                Not equal to the specified value, treating null
-                                like an ordinary value.
-                            </p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L5427"
-                                        >src/gtr/schema.ts:5427</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a id="notDistinctFrom" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <code class="tsd-tag ts-flagOptional"
-                                >Optional</code
-                            >
-                            <span>not<wbr />Distinct<wbr />From</span
-                            ><a
-                                href="#notDistinctFrom"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >not<wbr />Distinct<wbr />From</span
-                            ><span class="tsd-signature-symbol">?:</span>
-                            <span class="tsd-signature-type">null</span
-                            ><span class="tsd-signature-symbol"> | </span
-                            ><span class="tsd-signature-symbol">(</span
-                            ><span class="tsd-signature-type">null</span
-                            ><span class="tsd-signature-symbol"> | </span
-                            ><span class="tsd-signature-type">number</span
-                            ><span class="tsd-signature-symbol">)</span
-                            ><span class="tsd-signature-symbol">[]</span>
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>
-                                Equal to the specified value, treating null like
-                                an ordinary value.
-                            </p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L5429"
-                                        >src/gtr/schema.ts:5429</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a id="lessThan" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <code class="tsd-tag ts-flagOptional"
-                                >Optional</code
-                            >
-                            <span>less<wbr />Than</span
-                            ><a
-                                href="#lessThan"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >less<wbr />Than</span
-                            ><span class="tsd-signature-symbol">?:</span>
-                            <span class="tsd-signature-type">null</span
-                            ><span class="tsd-signature-symbol"> | </span
-                            ><span class="tsd-signature-symbol">(</span
-                            ><span class="tsd-signature-type">null</span
-                            ><span class="tsd-signature-symbol"> | </span
-                            ><span class="tsd-signature-type">number</span
-                            ><span class="tsd-signature-symbol">)</span
-                            ><span class="tsd-signature-symbol">[]</span>
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>Less than the specified value.</p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L5431"
-                                        >src/gtr/schema.ts:5431</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a id="lessThanOrEqualTo" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <code class="tsd-tag ts-flagOptional"
-                                >Optional</code
-                            >
-                            <span
-                                >less<wbr />Than<wbr />Or<wbr />Equal<wbr />To</span
-                            ><a
-                                href="#lessThanOrEqualTo"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >less<wbr />Than<wbr />Or<wbr />Equal<wbr />To</span
-                            ><span class="tsd-signature-symbol">?:</span>
-                            <span class="tsd-signature-type">null</span
-                            ><span class="tsd-signature-symbol"> | </span
-                            ><span class="tsd-signature-symbol">(</span
-                            ><span class="tsd-signature-type">null</span
-                            ><span class="tsd-signature-symbol"> | </span
-                            ><span class="tsd-signature-type">number</span
-                            ><span class="tsd-signature-symbol">)</span
-                            ><span class="tsd-signature-symbol">[]</span>
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>Less than or equal to the specified value.</p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L5433"
-                                        >src/gtr/schema.ts:5433</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a id="greaterThan" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <code class="tsd-tag ts-flagOptional"
-                                >Optional</code
-                            >
-                            <span>greater<wbr />Than</span
-                            ><a
-                                href="#greaterThan"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >greater<wbr />Than</span
-                            ><span class="tsd-signature-symbol">?:</span>
-                            <span class="tsd-signature-type">null</span
-                            ><span class="tsd-signature-symbol"> | </span
-                            ><span class="tsd-signature-symbol">(</span
-                            ><span class="tsd-signature-type">null</span
-                            ><span class="tsd-signature-symbol"> | </span
-                            ><span class="tsd-signature-type">number</span
-                            ><span class="tsd-signature-symbol">)</span
-                            ><span class="tsd-signature-symbol">[]</span>
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>Greater than the specified value.</p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L5435"
-                                        >src/gtr/schema.ts:5435</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a id="greaterThanOrEqualTo" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <code class="tsd-tag ts-flagOptional"
-                                >Optional</code
-                            >
-                            <span
-                                >greater<wbr />Than<wbr />Or<wbr />Equal<wbr />To</span
-                            ><a
-                                href="#greaterThanOrEqualTo"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >greater<wbr />Than<wbr />Or<wbr />Equal<wbr />To</span
-                            ><span class="tsd-signature-symbol">?:</span>
-                            <span class="tsd-signature-type">null</span
-                            ><span class="tsd-signature-symbol"> | </span
-                            ><span class="tsd-signature-symbol">(</span
-                            ><span class="tsd-signature-type">null</span
-                            ><span class="tsd-signature-symbol"> | </span
-                            ><span class="tsd-signature-type">number</span
-                            ><span class="tsd-signature-symbol">)</span
-                            ><span class="tsd-signature-symbol">[]</span>
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>Greater than or equal to the specified value.</p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L5437"
-                                        >src/gtr/schema.ts:5437</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a id="contains" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <code class="tsd-tag ts-flagOptional"
-                                >Optional</code
-                            >
-                            <span>contains</span
-                            ><a
-                                href="#contains"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property">contains</span
-                            ><span class="tsd-signature-symbol">?:</span>
-                            <span class="tsd-signature-type">null</span
-                            ><span class="tsd-signature-symbol"> | </span
-                            ><span class="tsd-signature-symbol">(</span
-                            ><span class="tsd-signature-type">null</span
-                            ><span class="tsd-signature-symbol"> | </span
-                            ><span class="tsd-signature-type">number</span
-                            ><span class="tsd-signature-symbol">)</span
-                            ><span class="tsd-signature-symbol">[]</span>
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>Contains the specified list of values.</p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L5439"
-                                        >src/gtr/schema.ts:5439</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a id="containedBy" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <code class="tsd-tag ts-flagOptional"
-                                >Optional</code
-                            >
-                            <span>contained<wbr />By</span
-                            ><a
-                                href="#containedBy"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >contained<wbr />By</span
-                            ><span class="tsd-signature-symbol">?:</span>
-                            <span class="tsd-signature-type">null</span
-                            ><span class="tsd-signature-symbol"> | </span
-                            ><span class="tsd-signature-symbol">(</span
-                            ><span class="tsd-signature-type">null</span
-                            ><span class="tsd-signature-symbol"> | </span
-                            ><span class="tsd-signature-type">number</span
-                            ><span class="tsd-signature-symbol">)</span
-                            ><span class="tsd-signature-symbol">[]</span>
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>Contained by the specified list of values.</p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L5441"
-                                        >src/gtr/schema.ts:5441</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a id="overlaps" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <code class="tsd-tag ts-flagOptional"
-                                >Optional</code
-                            >
-                            <span>overlaps</span
-                            ><a
-                                href="#overlaps"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property">overlaps</span
-                            ><span class="tsd-signature-symbol">?:</span>
-                            <span class="tsd-signature-type">null</span
-                            ><span class="tsd-signature-symbol"> | </span
-                            ><span class="tsd-signature-symbol">(</span
-                            ><span class="tsd-signature-type">null</span
-                            ><span class="tsd-signature-symbol"> | </span
-                            ><span class="tsd-signature-type">number</span
-                            ><span class="tsd-signature-symbol">)</span
-                            ><span class="tsd-signature-symbol">[]</span>
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>Overlaps the specified list of values.</p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L5443"
-                                        >src/gtr/schema.ts:5443</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a id="anyEqualTo" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <code class="tsd-tag ts-flagOptional"
-                                >Optional</code
-                            >
-                            <span>any<wbr />Equal<wbr />To</span
-                            ><a
-                                href="#anyEqualTo"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >any<wbr />Equal<wbr />To</span
-                            ><span class="tsd-signature-symbol">?:</span>
-                            <span class="tsd-signature-type">null</span
-                            ><span class="tsd-signature-symbol"> | </span
-                            ><span class="tsd-signature-type">number</span>
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>
-                                Any array item is equal to the specified value.
-                            </p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L5445"
-                                        >src/gtr/schema.ts:5445</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a id="anyNotEqualTo" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <code class="tsd-tag ts-flagOptional"
-                                >Optional</code
-                            >
-                            <span>any<wbr />Not<wbr />Equal<wbr />To</span
-                            ><a
-                                href="#anyNotEqualTo"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >any<wbr />Not<wbr />Equal<wbr />To</span
-                            ><span class="tsd-signature-symbol">?:</span>
-                            <span class="tsd-signature-type">null</span
-                            ><span class="tsd-signature-symbol"> | </span
-                            ><span class="tsd-signature-type">number</span>
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>
-                                Any array item is not equal to the specified
-                                value.
-                            </p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L5447"
-                                        >src/gtr/schema.ts:5447</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a id="anyLessThan" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <code class="tsd-tag ts-flagOptional"
-                                >Optional</code
-                            >
-                            <span>any<wbr />Less<wbr />Than</span
-                            ><a
-                                href="#anyLessThan"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >any<wbr />Less<wbr />Than</span
-                            ><span class="tsd-signature-symbol">?:</span>
-                            <span class="tsd-signature-type">null</span
-                            ><span class="tsd-signature-symbol"> | </span
-                            ><span class="tsd-signature-type">number</span>
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>
-                                Any array item is less than the specified value.
-                            </p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L5449"
-                                        >src/gtr/schema.ts:5449</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a id="anyLessThanOrEqualTo" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <code class="tsd-tag ts-flagOptional"
-                                >Optional</code
-                            >
-                            <span
-                                >any<wbr />Less<wbr />Than<wbr />Or<wbr />Equal<wbr />To</span
-                            ><a
-                                href="#anyLessThanOrEqualTo"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >any<wbr />Less<wbr />Than<wbr />Or<wbr />Equal<wbr />To</span
-                            ><span class="tsd-signature-symbol">?:</span>
-                            <span class="tsd-signature-type">null</span
-                            ><span class="tsd-signature-symbol"> | </span
-                            ><span class="tsd-signature-type">number</span>
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>
-                                Any array item is less than or equal to the
-                                specified value.
-                            </p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L5451"
-                                        >src/gtr/schema.ts:5451</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a id="anyGreaterThan" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <code class="tsd-tag ts-flagOptional"
-                                >Optional</code
-                            >
-                            <span>any<wbr />Greater<wbr />Than</span
-                            ><a
-                                href="#anyGreaterThan"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >any<wbr />Greater<wbr />Than</span
-                            ><span class="tsd-signature-symbol">?:</span>
-                            <span class="tsd-signature-type">null</span
-                            ><span class="tsd-signature-symbol"> | </span
-                            ><span class="tsd-signature-type">number</span>
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>
-                                Any array item is greater than the specified
-                                value.
-                            </p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L5453"
-                                        >src/gtr/schema.ts:5453</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a id="anyGreaterThanOrEqualTo" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <code class="tsd-tag ts-flagOptional"
-                                >Optional</code
-                            >
-                            <span
-                                >any<wbr />Greater<wbr />Than<wbr />Or<wbr />Equal<wbr />To</span
-                            ><a
-                                href="#anyGreaterThanOrEqualTo"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >any<wbr />Greater<wbr />Than<wbr />Or<wbr />Equal<wbr />To</span
-                            ><span class="tsd-signature-symbol">?:</span>
-                            <span class="tsd-signature-type">null</span
-                            ><span class="tsd-signature-symbol"> | </span
-                            ><span class="tsd-signature-type">number</span>
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>
-                                Any array item is greater than or equal to the
-                                specified value.
-                            </p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L5455"
-                                        >src/gtr/schema.ts:5455</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                </section>
-            </div>
-            <div class="col-sidebar">
-                <div class="page-menu">
-                    <div class="tsd-navigation settings">
-                        <details class="tsd-index-accordion">
-                            <summary class="tsd-accordion-summary">
-                                <h3>
-                                    <svg
-                                        width="20"
-                                        height="20"
-                                        viewBox="0 0 24 24"
-                                        fill="none">
-                                        <use
-                                            href="../assets/icons.svg#icon-chevronDown"></use></svg
-                                    >Settings
-                                </h3>
-                            </summary>
-                            <div class="tsd-accordion-details">
-                                <div class="tsd-filter-visibility">
-                                    <h4 class="uppercase">Member Visibility</h4>
-                                    <form>
-                                        <ul id="tsd-filter-options">
-                                            <li class="tsd-filter-item">
-                                                <label class="tsd-filter-input"
-                                                    ><input
-                                                        type="checkbox"
-                                                        id="tsd-filter-protected"
-                                                        name="protected" /><svg
-                                                        width="32"
-                                                        height="32"
-                                                        viewBox="0 0 32 32"
-                                                        aria-hidden="true">
-                                                        <rect
-                                                            class="tsd-checkbox-background"
-                                                            width="30"
-                                                            height="30"
-                                                            x="1"
-                                                            y="1"
-                                                            rx="6"
-                                                            fill="none"></rect>
-                                                        <path
-                                                            class="tsd-checkbox-checkmark"
-                                                            d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25"
-                                                            stroke="none"
-                                                            stroke-width="3.5"
-                                                            stroke-linejoin="round"
-                                                            fill="none"></path></svg
-                                                    ><span
-                                                        >Protected</span
-                                                    ></label
-                                                >
-                                            </li>
-                                            <li class="tsd-filter-item">
-                                                <label class="tsd-filter-input"
-                                                    ><input
-                                                        type="checkbox"
-                                                        id="tsd-filter-private"
-                                                        name="private" /><svg
-                                                        width="32"
-                                                        height="32"
-                                                        viewBox="0 0 32 32"
-                                                        aria-hidden="true">
-                                                        <rect
-                                                            class="tsd-checkbox-background"
-                                                            width="30"
-                                                            height="30"
-                                                            x="1"
-                                                            y="1"
-                                                            rx="6"
-                                                            fill="none"></rect>
-                                                        <path
-                                                            class="tsd-checkbox-checkmark"
-                                                            d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25"
-                                                            stroke="none"
-                                                            stroke-width="3.5"
-                                                            stroke-linejoin="round"
-                                                            fill="none"></path></svg
-                                                    ><span>Private</span></label
-                                                >
-                                            </li>
-                                            <li class="tsd-filter-item">
-                                                <label class="tsd-filter-input"
-                                                    ><input
-                                                        type="checkbox"
-                                                        id="tsd-filter-inherited"
-                                                        name="inherited"
-                                                        checked /><svg
-                                                        width="32"
-                                                        height="32"
-                                                        viewBox="0 0 32 32"
-                                                        aria-hidden="true">
-                                                        <rect
-                                                            class="tsd-checkbox-background"
-                                                            width="30"
-                                                            height="30"
-                                                            x="1"
-                                                            y="1"
-                                                            rx="6"
-                                                            fill="none"></rect>
-                                                        <path
-                                                            class="tsd-checkbox-checkmark"
-                                                            d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25"
-                                                            stroke="none"
-                                                            stroke-width="3.5"
-                                                            stroke-linejoin="round"
-                                                            fill="none"></path></svg
-                                                    ><span
-                                                        >Inherited</span
-                                                    ></label
-                                                >
-                                            </li>
-                                            <li class="tsd-filter-item">
-                                                <label class="tsd-filter-input"
-                                                    ><input
-                                                        type="checkbox"
-                                                        id="tsd-filter-external"
-                                                        name="external" /><svg
-                                                        width="32"
-                                                        height="32"
-                                                        viewBox="0 0 32 32"
-                                                        aria-hidden="true">
-                                                        <rect
-                                                            class="tsd-checkbox-background"
-                                                            width="30"
-                                                            height="30"
-                                                            x="1"
-                                                            y="1"
-                                                            rx="6"
-                                                            fill="none"></rect>
-                                                        <path
-                                                            class="tsd-checkbox-checkmark"
-                                                            d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25"
-                                                            stroke="none"
-                                                            stroke-width="3.5"
-                                                            stroke-linejoin="round"
-                                                            fill="none"></path></svg
-                                                    ><span
-                                                        >External</span
-                                                    ></label
-                                                >
-                                            </li>
-                                        </ul>
-                                    </form>
-                                </div>
-                                <div class="tsd-theme-toggle">
-                                    <h4 class="uppercase">Theme</h4>
-                                    <select id="tsd-theme">
-                                        <option value="os">OS</option>
-                                        <option value="light">Light</option>
-                                        <option value="dark">Dark</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
-                    <details
-                        open
-                        class="tsd-index-accordion tsd-page-navigation">
-                        <summary class="tsd-accordion-summary">
-                            <h3>
-                                <svg
-                                    width="20"
-                                    height="20"
-                                    viewBox="0 0 24 24"
-                                    fill="none">
-                                    <use
-                                        href="../assets/icons.svg#icon-chevronDown"></use></svg
-                                >On This Page
-                            </h3>
-                        </summary>
-                        <div class="tsd-accordion-details">
-                            <a href="#isNull" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span>is<wbr />Null</span></a
-                            ><a href="#equalTo" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span>equal<wbr />To</span></a
-                            ><a href="#notEqualTo" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span>not<wbr />Equal<wbr />To</span></a
-                            ><a href="#distinctFrom" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span>distinct<wbr />From</span></a
-                            ><a href="#notDistinctFrom" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span>not<wbr />Distinct<wbr />From</span></a
-                            ><a href="#lessThan" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span>less<wbr />Than</span></a
-                            ><a href="#lessThanOrEqualTo" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span
-                                    >less<wbr />Than<wbr />Or<wbr />Equal<wbr />To</span
-                                ></a
-                            ><a href="#greaterThan" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span>greater<wbr />Than</span></a
-                            ><a href="#greaterThanOrEqualTo" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span
-                                    >greater<wbr />Than<wbr />Or<wbr />Equal<wbr />To</span
-                                ></a
-                            ><a href="#contains" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span>contains</span></a
-                            ><a href="#containedBy" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span>contained<wbr />By</span></a
-                            ><a href="#overlaps" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span>overlaps</span></a
-                            ><a href="#anyEqualTo" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span>any<wbr />Equal<wbr />To</span></a
-                            ><a href="#anyNotEqualTo" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span
-                                    >any<wbr />Not<wbr />Equal<wbr />To</span
-                                ></a
-                            ><a href="#anyLessThan" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span>any<wbr />Less<wbr />Than</span></a
-                            ><a href="#anyLessThanOrEqualTo" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span
-                                    >any<wbr />Less<wbr />Than<wbr />Or<wbr />Equal<wbr />To</span
-                                ></a
-                            ><a href="#anyGreaterThan" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span>any<wbr />Greater<wbr />Than</span></a
-                            ><a href="#anyGreaterThanOrEqualTo" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span
-                                    >any<wbr />Greater<wbr />Than<wbr />Or<wbr />Equal<wbr />To</span
-                                ></a
-                            >
-                        </div>
-                    </details>
-                </div>
-                <div class="site-menu">
-                    <nav class="tsd-navigation">
-                        <a href="../index.html"
-                            ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                <use
-                                    href="../assets/icons.svg#icon-1"></use></svg
-                            ><span>@zeepkist/graphql</span></a
-                        >
-                        <ul
-                            class="tsd-small-nested-navigation"
-                            id="tsd-nav-container"
-                            data-base="..">
-                            <li>Loading...</li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
-        <footer></footer>
-        <div class="overlay"></div>
-    </body>
+<!DOCTYPE html>
+<html class="default" lang="en" data-base="..">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="x-ua-compatible" content="IE=edge" />
+		<title>FloatListFilter | @zeepkist/graphql</title>
+		<meta
+			name="description"
+			content="Documentation for @zeepkist/graphql" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="../assets/style.css" />
+		<link rel="stylesheet" href="../assets/highlight.css" />
+		<script defer src="../assets/main.js"></script>
+		<script async src="../assets/icons.js" id="tsd-icons-script"></script>
+		<script async src="../assets/search.js" id="tsd-search-script"></script>
+		<script
+			async
+			src="../assets/navigation.js"
+			id="tsd-nav-script"></script>
+	</head>
+	<body>
+		<script>
+			document.documentElement.dataset.theme =
+				localStorage.getItem('tsd-theme') || 'os'
+			document.body.style.display = 'none'
+			setTimeout(
+				() =>
+					app
+						? app.showPage()
+						: document.body.style.removeProperty('display'),
+				500
+			)
+		</script>
+		<header class="tsd-page-toolbar">
+			<div class="tsd-toolbar-contents container">
+				<div class="table-cell" id="tsd-search">
+					<div class="field">
+						<label
+							for="tsd-search-field"
+							class="tsd-widget tsd-toolbar-icon search no-caption"
+							><svg
+								width="16"
+								height="16"
+								viewBox="0 0 16 16"
+								fill="none"
+								aria-hidden="true">
+								<use
+									href="../assets/icons.svg#icon-search"></use></svg></label
+						><input
+							type="text"
+							id="tsd-search-field"
+							aria-label="Search" />
+					</div>
+					<div class="field"><div id="tsd-toolbar-links"></div></div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">
+							The search index is not available
+						</li>
+					</ul>
+					<a href="../index.html" class="title">@zeepkist/graphql</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<a
+						href="#"
+						class="tsd-widget tsd-toolbar-icon menu no-caption"
+						data-toggle="menu"
+						aria-label="Menu"
+						><svg
+							width="16"
+							height="16"
+							viewBox="0 0 16 16"
+							fill="none"
+							aria-hidden="true">
+							<use
+								href="../assets/icons.svg#icon-menu"></use></svg
+					></a>
+				</div>
+			</div>
+		</header>
+		<div class="container container-main">
+			<div class="col-content">
+				<div class="tsd-page-title">
+					<ul class="tsd-breadcrumb">
+						<li><a href="../modules.html">@zeepkist/graphql</a></li>
+						<li><a href="../modules/gtr.html">gtr</a></li>
+						<li>
+							<a href="gtr.FloatListFilter.html"
+								>FloatListFilter</a
+							>
+						</li>
+					</ul>
+					<h1>Interface FloatListFilter</h1>
+				</div>
+				<section class="tsd-panel tsd-comment">
+					<div class="tsd-comment tsd-typography">
+						<p>
+							A filter to be used against Float List fields. All
+							fields are combined with a logical ‘and.’
+						</p>
+					</div>
+					<div class="tsd-comment tsd-typography"></div>
+				</section>
+				<div class="tsd-signature">
+					<span class="tsd-signature-keyword">interface</span>
+					<span class="tsd-kind-interface">FloatListFilter</span>
+					<span class="tsd-signature-symbol">{</span><br />    <a
+						class="tsd-kind-property"
+						href="gtr.FloatListFilter.html#isnull"
+						>isNull</a
+					><span class="tsd-signature-symbol">?:</span>
+					<span class="tsd-signature-type">null</span>
+					<span class="tsd-signature-symbol">|</span>
+					<span class="tsd-signature-type">boolean</span
+					><span class="tsd-signature-symbol">;</span><br />    <a
+						class="tsd-kind-property"
+						href="gtr.FloatListFilter.html#equalto"
+						>equalTo</a
+					><span class="tsd-signature-symbol">?:</span>
+					<span class="tsd-signature-type">null</span>
+					<span class="tsd-signature-symbol">|</span> (<span
+						class="tsd-signature-type"
+						>null</span
+					>
+					<span class="tsd-signature-symbol">|</span>
+					<span class="tsd-signature-type">number</span>)<span
+						class="tsd-signature-symbol"
+						>[]</span
+					><span class="tsd-signature-symbol">;</span><br />    <a
+						class="tsd-kind-property"
+						href="gtr.FloatListFilter.html#notequalto"
+						>notEqualTo</a
+					><span class="tsd-signature-symbol">?:</span>
+					<span class="tsd-signature-type">null</span>
+					<span class="tsd-signature-symbol">|</span> (<span
+						class="tsd-signature-type"
+						>null</span
+					>
+					<span class="tsd-signature-symbol">|</span>
+					<span class="tsd-signature-type">number</span>)<span
+						class="tsd-signature-symbol"
+						>[]</span
+					><span class="tsd-signature-symbol">;</span><br />    <a
+						class="tsd-kind-property"
+						href="gtr.FloatListFilter.html#distinctfrom"
+						>distinctFrom</a
+					><span class="tsd-signature-symbol">?:</span>
+					<span class="tsd-signature-type">null</span>
+					<span class="tsd-signature-symbol">|</span> (<span
+						class="tsd-signature-type"
+						>null</span
+					>
+					<span class="tsd-signature-symbol">|</span>
+					<span class="tsd-signature-type">number</span>)<span
+						class="tsd-signature-symbol"
+						>[]</span
+					><span class="tsd-signature-symbol">;</span><br />    <a
+						class="tsd-kind-property"
+						href="gtr.FloatListFilter.html#notdistinctfrom"
+						>notDistinctFrom</a
+					><span class="tsd-signature-symbol">?:</span>
+					<span class="tsd-signature-type">null</span>
+					<span class="tsd-signature-symbol">|</span> (<span
+						class="tsd-signature-type"
+						>null</span
+					>
+					<span class="tsd-signature-symbol">|</span>
+					<span class="tsd-signature-type">number</span>)<span
+						class="tsd-signature-symbol"
+						>[]</span
+					><span class="tsd-signature-symbol">;</span><br />    <a
+						class="tsd-kind-property"
+						href="gtr.FloatListFilter.html#lessthan"
+						>lessThan</a
+					><span class="tsd-signature-symbol">?:</span>
+					<span class="tsd-signature-type">null</span>
+					<span class="tsd-signature-symbol">|</span> (<span
+						class="tsd-signature-type"
+						>null</span
+					>
+					<span class="tsd-signature-symbol">|</span>
+					<span class="tsd-signature-type">number</span>)<span
+						class="tsd-signature-symbol"
+						>[]</span
+					><span class="tsd-signature-symbol">;</span><br />    <a
+						class="tsd-kind-property"
+						href="gtr.FloatListFilter.html#lessthanorequalto"
+						>lessThanOrEqualTo</a
+					><span class="tsd-signature-symbol">?:</span>
+					<span class="tsd-signature-type">null</span>
+					<span class="tsd-signature-symbol">|</span> (<span
+						class="tsd-signature-type"
+						>null</span
+					>
+					<span class="tsd-signature-symbol">|</span>
+					<span class="tsd-signature-type">number</span>)<span
+						class="tsd-signature-symbol"
+						>[]</span
+					><span class="tsd-signature-symbol">;</span><br />    <a
+						class="tsd-kind-property"
+						href="gtr.FloatListFilter.html#greaterthan"
+						>greaterThan</a
+					><span class="tsd-signature-symbol">?:</span>
+					<span class="tsd-signature-type">null</span>
+					<span class="tsd-signature-symbol">|</span> (<span
+						class="tsd-signature-type"
+						>null</span
+					>
+					<span class="tsd-signature-symbol">|</span>
+					<span class="tsd-signature-type">number</span>)<span
+						class="tsd-signature-symbol"
+						>[]</span
+					><span class="tsd-signature-symbol">;</span><br />    <a
+						class="tsd-kind-property"
+						href="gtr.FloatListFilter.html#greaterthanorequalto"
+						>greaterThanOrEqualTo</a
+					><span class="tsd-signature-symbol">?:</span>
+					<span class="tsd-signature-type">null</span>
+					<span class="tsd-signature-symbol">|</span> (<span
+						class="tsd-signature-type"
+						>null</span
+					>
+					<span class="tsd-signature-symbol">|</span>
+					<span class="tsd-signature-type">number</span>)<span
+						class="tsd-signature-symbol"
+						>[]</span
+					><span class="tsd-signature-symbol">;</span><br />    <a
+						class="tsd-kind-property"
+						href="gtr.FloatListFilter.html#contains"
+						>contains</a
+					><span class="tsd-signature-symbol">?:</span>
+					<span class="tsd-signature-type">null</span>
+					<span class="tsd-signature-symbol">|</span> (<span
+						class="tsd-signature-type"
+						>null</span
+					>
+					<span class="tsd-signature-symbol">|</span>
+					<span class="tsd-signature-type">number</span>)<span
+						class="tsd-signature-symbol"
+						>[]</span
+					><span class="tsd-signature-symbol">;</span><br />    <a
+						class="tsd-kind-property"
+						href="gtr.FloatListFilter.html#containedby"
+						>containedBy</a
+					><span class="tsd-signature-symbol">?:</span>
+					<span class="tsd-signature-type">null</span>
+					<span class="tsd-signature-symbol">|</span> (<span
+						class="tsd-signature-type"
+						>null</span
+					>
+					<span class="tsd-signature-symbol">|</span>
+					<span class="tsd-signature-type">number</span>)<span
+						class="tsd-signature-symbol"
+						>[]</span
+					><span class="tsd-signature-symbol">;</span><br />    <a
+						class="tsd-kind-property"
+						href="gtr.FloatListFilter.html#overlaps"
+						>overlaps</a
+					><span class="tsd-signature-symbol">?:</span>
+					<span class="tsd-signature-type">null</span>
+					<span class="tsd-signature-symbol">|</span> (<span
+						class="tsd-signature-type"
+						>null</span
+					>
+					<span class="tsd-signature-symbol">|</span>
+					<span class="tsd-signature-type">number</span>)<span
+						class="tsd-signature-symbol"
+						>[]</span
+					><span class="tsd-signature-symbol">;</span><br />    <a
+						class="tsd-kind-property"
+						href="gtr.FloatListFilter.html#anyequalto"
+						>anyEqualTo</a
+					><span class="tsd-signature-symbol">?:</span>
+					<span class="tsd-signature-type">null</span>
+					<span class="tsd-signature-symbol">|</span>
+					<span class="tsd-signature-type">number</span
+					><span class="tsd-signature-symbol">;</span><br />    <a
+						class="tsd-kind-property"
+						href="gtr.FloatListFilter.html#anynotequalto"
+						>anyNotEqualTo</a
+					><span class="tsd-signature-symbol">?:</span>
+					<span class="tsd-signature-type">null</span>
+					<span class="tsd-signature-symbol">|</span>
+					<span class="tsd-signature-type">number</span
+					><span class="tsd-signature-symbol">;</span><br />    <a
+						class="tsd-kind-property"
+						href="gtr.FloatListFilter.html#anylessthan"
+						>anyLessThan</a
+					><span class="tsd-signature-symbol">?:</span>
+					<span class="tsd-signature-type">null</span>
+					<span class="tsd-signature-symbol">|</span>
+					<span class="tsd-signature-type">number</span
+					><span class="tsd-signature-symbol">;</span><br />    <a
+						class="tsd-kind-property"
+						href="gtr.FloatListFilter.html#anylessthanorequalto"
+						>anyLessThanOrEqualTo</a
+					><span class="tsd-signature-symbol">?:</span>
+					<span class="tsd-signature-type">null</span>
+					<span class="tsd-signature-symbol">|</span>
+					<span class="tsd-signature-type">number</span
+					><span class="tsd-signature-symbol">;</span><br />    <a
+						class="tsd-kind-property"
+						href="gtr.FloatListFilter.html#anygreaterthan"
+						>anyGreaterThan</a
+					><span class="tsd-signature-symbol">?:</span>
+					<span class="tsd-signature-type">null</span>
+					<span class="tsd-signature-symbol">|</span>
+					<span class="tsd-signature-type">number</span
+					><span class="tsd-signature-symbol">;</span><br />    <a
+						class="tsd-kind-property"
+						href="gtr.FloatListFilter.html#anygreaterthanorequalto"
+						>anyGreaterThanOrEqualTo</a
+					><span class="tsd-signature-symbol">?:</span>
+					<span class="tsd-signature-type">null</span>
+					<span class="tsd-signature-symbol">|</span>
+					<span class="tsd-signature-type">number</span
+					><span class="tsd-signature-symbol">;</span><br /><span
+						class="tsd-signature-symbol"
+						>}</span
+					>
+				</div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>
+							Defined in
+							<a
+								href="https://github.com/zeepkist/graphql/blob/adcc4fb6fb61a83d159f829afe4a9d7621f37d11/src/gtr/schema.ts#L3490"
+								>src/gtr/schema.ts:3490</a
+							>
+						</li>
+					</ul>
+				</aside>
+				<section class="tsd-panel-group tsd-index-group">
+					<section class="tsd-panel tsd-index-panel">
+						<details class="tsd-index-content tsd-accordion" open>
+							<summary
+								class="tsd-accordion-summary tsd-index-summary">
+								<h5
+									class="tsd-index-heading uppercase"
+									role="button"
+									aria-expanded="false"
+									tabindex="0">
+									<svg
+										width="16"
+										height="16"
+										viewBox="0 0 16 16"
+										fill="none"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-chevronSmall"></use>
+									</svg>
+									Index
+								</h5>
+							</summary>
+							<div class="tsd-accordion-details">
+								<section class="tsd-index-section">
+									<h3 class="tsd-index-heading">
+										Properties
+									</h3>
+									<div class="tsd-index-list">
+										<a
+											href="gtr.FloatListFilter.html#isnull"
+											class="tsd-index-link"
+											><svg
+												class="tsd-kind-icon"
+												viewBox="0 0 24 24"
+												aria-label="Property">
+												<use
+													href="../assets/icons.svg#icon-1024"></use></svg
+											><span>is<wbr />Null?</span></a
+										>
+										<a
+											href="gtr.FloatListFilter.html#equalto"
+											class="tsd-index-link"
+											><svg
+												class="tsd-kind-icon"
+												viewBox="0 0 24 24"
+												aria-label="Property">
+												<use
+													href="../assets/icons.svg#icon-1024"></use></svg
+											><span>equal<wbr />To?</span></a
+										>
+										<a
+											href="gtr.FloatListFilter.html#notequalto"
+											class="tsd-index-link"
+											><svg
+												class="tsd-kind-icon"
+												viewBox="0 0 24 24"
+												aria-label="Property">
+												<use
+													href="../assets/icons.svg#icon-1024"></use></svg
+											><span
+												>not<wbr />Equal<wbr />To?</span
+											></a
+										>
+										<a
+											href="gtr.FloatListFilter.html#distinctfrom"
+											class="tsd-index-link"
+											><svg
+												class="tsd-kind-icon"
+												viewBox="0 0 24 24"
+												aria-label="Property">
+												<use
+													href="../assets/icons.svg#icon-1024"></use></svg
+											><span
+												>distinct<wbr />From?</span
+											></a
+										>
+										<a
+											href="gtr.FloatListFilter.html#notdistinctfrom"
+											class="tsd-index-link"
+											><svg
+												class="tsd-kind-icon"
+												viewBox="0 0 24 24"
+												aria-label="Property">
+												<use
+													href="../assets/icons.svg#icon-1024"></use></svg
+											><span
+												>not<wbr />Distinct<wbr />From?</span
+											></a
+										>
+										<a
+											href="gtr.FloatListFilter.html#lessthan"
+											class="tsd-index-link"
+											><svg
+												class="tsd-kind-icon"
+												viewBox="0 0 24 24"
+												aria-label="Property">
+												<use
+													href="../assets/icons.svg#icon-1024"></use></svg
+											><span>less<wbr />Than?</span></a
+										>
+										<a
+											href="gtr.FloatListFilter.html#lessthanorequalto"
+											class="tsd-index-link"
+											><svg
+												class="tsd-kind-icon"
+												viewBox="0 0 24 24"
+												aria-label="Property">
+												<use
+													href="../assets/icons.svg#icon-1024"></use></svg
+											><span
+												>less<wbr />Than<wbr />Or<wbr />Equal<wbr />To?</span
+											></a
+										>
+										<a
+											href="gtr.FloatListFilter.html#greaterthan"
+											class="tsd-index-link"
+											><svg
+												class="tsd-kind-icon"
+												viewBox="0 0 24 24"
+												aria-label="Property">
+												<use
+													href="../assets/icons.svg#icon-1024"></use></svg
+											><span>greater<wbr />Than?</span></a
+										>
+										<a
+											href="gtr.FloatListFilter.html#greaterthanorequalto"
+											class="tsd-index-link"
+											><svg
+												class="tsd-kind-icon"
+												viewBox="0 0 24 24"
+												aria-label="Property">
+												<use
+													href="../assets/icons.svg#icon-1024"></use></svg
+											><span
+												>greater<wbr />Than<wbr />Or<wbr />Equal<wbr />To?</span
+											></a
+										>
+										<a
+											href="gtr.FloatListFilter.html#contains"
+											class="tsd-index-link"
+											><svg
+												class="tsd-kind-icon"
+												viewBox="0 0 24 24"
+												aria-label="Property">
+												<use
+													href="../assets/icons.svg#icon-1024"></use></svg
+											><span>contains?</span></a
+										>
+										<a
+											href="gtr.FloatListFilter.html#containedby"
+											class="tsd-index-link"
+											><svg
+												class="tsd-kind-icon"
+												viewBox="0 0 24 24"
+												aria-label="Property">
+												<use
+													href="../assets/icons.svg#icon-1024"></use></svg
+											><span>contained<wbr />By?</span></a
+										>
+										<a
+											href="gtr.FloatListFilter.html#overlaps"
+											class="tsd-index-link"
+											><svg
+												class="tsd-kind-icon"
+												viewBox="0 0 24 24"
+												aria-label="Property">
+												<use
+													href="../assets/icons.svg#icon-1024"></use></svg
+											><span>overlaps?</span></a
+										>
+										<a
+											href="gtr.FloatListFilter.html#anyequalto"
+											class="tsd-index-link"
+											><svg
+												class="tsd-kind-icon"
+												viewBox="0 0 24 24"
+												aria-label="Property">
+												<use
+													href="../assets/icons.svg#icon-1024"></use></svg
+											><span
+												>any<wbr />Equal<wbr />To?</span
+											></a
+										>
+										<a
+											href="gtr.FloatListFilter.html#anynotequalto"
+											class="tsd-index-link"
+											><svg
+												class="tsd-kind-icon"
+												viewBox="0 0 24 24"
+												aria-label="Property">
+												<use
+													href="../assets/icons.svg#icon-1024"></use></svg
+											><span
+												>any<wbr />Not<wbr />Equal<wbr />To?</span
+											></a
+										>
+										<a
+											href="gtr.FloatListFilter.html#anylessthan"
+											class="tsd-index-link"
+											><svg
+												class="tsd-kind-icon"
+												viewBox="0 0 24 24"
+												aria-label="Property">
+												<use
+													href="../assets/icons.svg#icon-1024"></use></svg
+											><span
+												>any<wbr />Less<wbr />Than?</span
+											></a
+										>
+										<a
+											href="gtr.FloatListFilter.html#anylessthanorequalto"
+											class="tsd-index-link"
+											><svg
+												class="tsd-kind-icon"
+												viewBox="0 0 24 24"
+												aria-label="Property">
+												<use
+													href="../assets/icons.svg#icon-1024"></use></svg
+											><span
+												>any<wbr />Less<wbr />Than<wbr />Or<wbr />Equal<wbr />To?</span
+											></a
+										>
+										<a
+											href="gtr.FloatListFilter.html#anygreaterthan"
+											class="tsd-index-link"
+											><svg
+												class="tsd-kind-icon"
+												viewBox="0 0 24 24"
+												aria-label="Property">
+												<use
+													href="../assets/icons.svg#icon-1024"></use></svg
+											><span
+												>any<wbr />Greater<wbr />Than?</span
+											></a
+										>
+										<a
+											href="gtr.FloatListFilter.html#anygreaterthanorequalto"
+											class="tsd-index-link"
+											><svg
+												class="tsd-kind-icon"
+												viewBox="0 0 24 24"
+												aria-label="Property">
+												<use
+													href="../assets/icons.svg#icon-1024"></use></svg
+											><span
+												>any<wbr />Greater<wbr />Than<wbr />Or<wbr />Equal<wbr />To?</span
+											></a
+										>
+									</div>
+								</section>
+							</div>
+						</details>
+					</section>
+				</section>
+				<details
+					class="tsd-panel-group tsd-member-group tsd-accordion"
+					open>
+					<summary
+						class="tsd-accordion-summary"
+						data-key="section-Properties">
+						<h2>
+							<svg
+								width="20"
+								height="20"
+								viewBox="0 0 24 24"
+								fill="none"
+								aria-hidden="true">
+								<use
+									href="../assets/icons.svg#icon-chevronDown"></use>
+							</svg>
+							Properties
+						</h2>
+					</summary>
+					<section>
+						<section class="tsd-panel tsd-member">
+							<a id="isnull" class="tsd-anchor"></a>
+							<h3 class="tsd-anchor-link">
+								<code class="tsd-tag">Optional</code
+								><span>is<wbr />Null</span
+								><a
+									href="#isnull"
+									aria-label="Permalink"
+									class="tsd-anchor-icon"
+									><svg
+										viewBox="0 0 24 24"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-anchor"></use></svg
+								></a>
+							</h3>
+							<div class="tsd-signature">
+								<span class="tsd-kind-property">isNull</span
+								><span class="tsd-signature-symbol">?:</span>
+								<span class="tsd-signature-type">null</span>
+								<span class="tsd-signature-symbol">|</span>
+								<span class="tsd-signature-type">boolean</span>
+							</div>
+							<div class="tsd-comment tsd-typography">
+								<p>
+									Is null (if <code>true</code> is specified)
+									or is not null (if <code>false</code> is
+									specified).
+								</p>
+							</div>
+							<div class="tsd-comment tsd-typography"></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>
+										Defined in
+										<a
+											href="https://github.com/zeepkist/graphql/blob/adcc4fb6fb61a83d159f829afe4a9d7621f37d11/src/gtr/schema.ts#L3492"
+											>src/gtr/schema.ts:3492</a
+										>
+									</li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member">
+							<a id="equalto" class="tsd-anchor"></a>
+							<h3 class="tsd-anchor-link">
+								<code class="tsd-tag">Optional</code
+								><span>equal<wbr />To</span
+								><a
+									href="#equalto"
+									aria-label="Permalink"
+									class="tsd-anchor-icon"
+									><svg
+										viewBox="0 0 24 24"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-anchor"></use></svg
+								></a>
+							</h3>
+							<div class="tsd-signature">
+								<span class="tsd-kind-property">equalTo</span
+								><span class="tsd-signature-symbol">?:</span>
+								<span class="tsd-signature-type">null</span>
+								<span class="tsd-signature-symbol">|</span>
+								(<span class="tsd-signature-type">null</span>
+								<span class="tsd-signature-symbol">|</span>
+								<span class="tsd-signature-type">number</span
+								>)<span class="tsd-signature-symbol">[]</span>
+							</div>
+							<div class="tsd-comment tsd-typography">
+								<p>Equal to the specified value.</p>
+							</div>
+							<div class="tsd-comment tsd-typography"></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>
+										Defined in
+										<a
+											href="https://github.com/zeepkist/graphql/blob/adcc4fb6fb61a83d159f829afe4a9d7621f37d11/src/gtr/schema.ts#L3494"
+											>src/gtr/schema.ts:3494</a
+										>
+									</li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member">
+							<a id="notequalto" class="tsd-anchor"></a>
+							<h3 class="tsd-anchor-link">
+								<code class="tsd-tag">Optional</code
+								><span>not<wbr />Equal<wbr />To</span
+								><a
+									href="#notequalto"
+									aria-label="Permalink"
+									class="tsd-anchor-icon"
+									><svg
+										viewBox="0 0 24 24"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-anchor"></use></svg
+								></a>
+							</h3>
+							<div class="tsd-signature">
+								<span class="tsd-kind-property">notEqualTo</span
+								><span class="tsd-signature-symbol">?:</span>
+								<span class="tsd-signature-type">null</span>
+								<span class="tsd-signature-symbol">|</span>
+								(<span class="tsd-signature-type">null</span>
+								<span class="tsd-signature-symbol">|</span>
+								<span class="tsd-signature-type">number</span
+								>)<span class="tsd-signature-symbol">[]</span>
+							</div>
+							<div class="tsd-comment tsd-typography">
+								<p>Not equal to the specified value.</p>
+							</div>
+							<div class="tsd-comment tsd-typography"></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>
+										Defined in
+										<a
+											href="https://github.com/zeepkist/graphql/blob/adcc4fb6fb61a83d159f829afe4a9d7621f37d11/src/gtr/schema.ts#L3496"
+											>src/gtr/schema.ts:3496</a
+										>
+									</li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member">
+							<a id="distinctfrom" class="tsd-anchor"></a>
+							<h3 class="tsd-anchor-link">
+								<code class="tsd-tag">Optional</code
+								><span>distinct<wbr />From</span
+								><a
+									href="#distinctfrom"
+									aria-label="Permalink"
+									class="tsd-anchor-icon"
+									><svg
+										viewBox="0 0 24 24"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-anchor"></use></svg
+								></a>
+							</h3>
+							<div class="tsd-signature">
+								<span class="tsd-kind-property"
+									>distinctFrom</span
+								><span class="tsd-signature-symbol">?:</span>
+								<span class="tsd-signature-type">null</span>
+								<span class="tsd-signature-symbol">|</span>
+								(<span class="tsd-signature-type">null</span>
+								<span class="tsd-signature-symbol">|</span>
+								<span class="tsd-signature-type">number</span
+								>)<span class="tsd-signature-symbol">[]</span>
+							</div>
+							<div class="tsd-comment tsd-typography">
+								<p>
+									Not equal to the specified value, treating
+									null like an ordinary value.
+								</p>
+							</div>
+							<div class="tsd-comment tsd-typography"></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>
+										Defined in
+										<a
+											href="https://github.com/zeepkist/graphql/blob/adcc4fb6fb61a83d159f829afe4a9d7621f37d11/src/gtr/schema.ts#L3498"
+											>src/gtr/schema.ts:3498</a
+										>
+									</li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member">
+							<a id="notdistinctfrom" class="tsd-anchor"></a>
+							<h3 class="tsd-anchor-link">
+								<code class="tsd-tag">Optional</code
+								><span>not<wbr />Distinct<wbr />From</span
+								><a
+									href="#notdistinctfrom"
+									aria-label="Permalink"
+									class="tsd-anchor-icon"
+									><svg
+										viewBox="0 0 24 24"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-anchor"></use></svg
+								></a>
+							</h3>
+							<div class="tsd-signature">
+								<span class="tsd-kind-property"
+									>notDistinctFrom</span
+								><span class="tsd-signature-symbol">?:</span>
+								<span class="tsd-signature-type">null</span>
+								<span class="tsd-signature-symbol">|</span>
+								(<span class="tsd-signature-type">null</span>
+								<span class="tsd-signature-symbol">|</span>
+								<span class="tsd-signature-type">number</span
+								>)<span class="tsd-signature-symbol">[]</span>
+							</div>
+							<div class="tsd-comment tsd-typography">
+								<p>
+									Equal to the specified value, treating null
+									like an ordinary value.
+								</p>
+							</div>
+							<div class="tsd-comment tsd-typography"></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>
+										Defined in
+										<a
+											href="https://github.com/zeepkist/graphql/blob/adcc4fb6fb61a83d159f829afe4a9d7621f37d11/src/gtr/schema.ts#L3500"
+											>src/gtr/schema.ts:3500</a
+										>
+									</li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member">
+							<a id="lessthan" class="tsd-anchor"></a>
+							<h3 class="tsd-anchor-link">
+								<code class="tsd-tag">Optional</code
+								><span>less<wbr />Than</span
+								><a
+									href="#lessthan"
+									aria-label="Permalink"
+									class="tsd-anchor-icon"
+									><svg
+										viewBox="0 0 24 24"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-anchor"></use></svg
+								></a>
+							</h3>
+							<div class="tsd-signature">
+								<span class="tsd-kind-property">lessThan</span
+								><span class="tsd-signature-symbol">?:</span>
+								<span class="tsd-signature-type">null</span>
+								<span class="tsd-signature-symbol">|</span>
+								(<span class="tsd-signature-type">null</span>
+								<span class="tsd-signature-symbol">|</span>
+								<span class="tsd-signature-type">number</span
+								>)<span class="tsd-signature-symbol">[]</span>
+							</div>
+							<div class="tsd-comment tsd-typography">
+								<p>Less than the specified value.</p>
+							</div>
+							<div class="tsd-comment tsd-typography"></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>
+										Defined in
+										<a
+											href="https://github.com/zeepkist/graphql/blob/adcc4fb6fb61a83d159f829afe4a9d7621f37d11/src/gtr/schema.ts#L3502"
+											>src/gtr/schema.ts:3502</a
+										>
+									</li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member">
+							<a id="lessthanorequalto" class="tsd-anchor"></a>
+							<h3 class="tsd-anchor-link">
+								<code class="tsd-tag">Optional</code
+								><span
+									>less<wbr />Than<wbr />Or<wbr />Equal<wbr />To</span
+								><a
+									href="#lessthanorequalto"
+									aria-label="Permalink"
+									class="tsd-anchor-icon"
+									><svg
+										viewBox="0 0 24 24"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-anchor"></use></svg
+								></a>
+							</h3>
+							<div class="tsd-signature">
+								<span class="tsd-kind-property"
+									>lessThanOrEqualTo</span
+								><span class="tsd-signature-symbol">?:</span>
+								<span class="tsd-signature-type">null</span>
+								<span class="tsd-signature-symbol">|</span>
+								(<span class="tsd-signature-type">null</span>
+								<span class="tsd-signature-symbol">|</span>
+								<span class="tsd-signature-type">number</span
+								>)<span class="tsd-signature-symbol">[]</span>
+							</div>
+							<div class="tsd-comment tsd-typography">
+								<p>
+									Less than or equal to the specified value.
+								</p>
+							</div>
+							<div class="tsd-comment tsd-typography"></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>
+										Defined in
+										<a
+											href="https://github.com/zeepkist/graphql/blob/adcc4fb6fb61a83d159f829afe4a9d7621f37d11/src/gtr/schema.ts#L3504"
+											>src/gtr/schema.ts:3504</a
+										>
+									</li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member">
+							<a id="greaterthan" class="tsd-anchor"></a>
+							<h3 class="tsd-anchor-link">
+								<code class="tsd-tag">Optional</code
+								><span>greater<wbr />Than</span
+								><a
+									href="#greaterthan"
+									aria-label="Permalink"
+									class="tsd-anchor-icon"
+									><svg
+										viewBox="0 0 24 24"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-anchor"></use></svg
+								></a>
+							</h3>
+							<div class="tsd-signature">
+								<span class="tsd-kind-property"
+									>greaterThan</span
+								><span class="tsd-signature-symbol">?:</span>
+								<span class="tsd-signature-type">null</span>
+								<span class="tsd-signature-symbol">|</span>
+								(<span class="tsd-signature-type">null</span>
+								<span class="tsd-signature-symbol">|</span>
+								<span class="tsd-signature-type">number</span
+								>)<span class="tsd-signature-symbol">[]</span>
+							</div>
+							<div class="tsd-comment tsd-typography">
+								<p>Greater than the specified value.</p>
+							</div>
+							<div class="tsd-comment tsd-typography"></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>
+										Defined in
+										<a
+											href="https://github.com/zeepkist/graphql/blob/adcc4fb6fb61a83d159f829afe4a9d7621f37d11/src/gtr/schema.ts#L3506"
+											>src/gtr/schema.ts:3506</a
+										>
+									</li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member">
+							<a id="greaterthanorequalto" class="tsd-anchor"></a>
+							<h3 class="tsd-anchor-link">
+								<code class="tsd-tag">Optional</code
+								><span
+									>greater<wbr />Than<wbr />Or<wbr />Equal<wbr />To</span
+								><a
+									href="#greaterthanorequalto"
+									aria-label="Permalink"
+									class="tsd-anchor-icon"
+									><svg
+										viewBox="0 0 24 24"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-anchor"></use></svg
+								></a>
+							</h3>
+							<div class="tsd-signature">
+								<span class="tsd-kind-property"
+									>greaterThanOrEqualTo</span
+								><span class="tsd-signature-symbol">?:</span>
+								<span class="tsd-signature-type">null</span>
+								<span class="tsd-signature-symbol">|</span>
+								(<span class="tsd-signature-type">null</span>
+								<span class="tsd-signature-symbol">|</span>
+								<span class="tsd-signature-type">number</span
+								>)<span class="tsd-signature-symbol">[]</span>
+							</div>
+							<div class="tsd-comment tsd-typography">
+								<p>
+									Greater than or equal to the specified
+									value.
+								</p>
+							</div>
+							<div class="tsd-comment tsd-typography"></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>
+										Defined in
+										<a
+											href="https://github.com/zeepkist/graphql/blob/adcc4fb6fb61a83d159f829afe4a9d7621f37d11/src/gtr/schema.ts#L3508"
+											>src/gtr/schema.ts:3508</a
+										>
+									</li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member">
+							<a id="contains" class="tsd-anchor"></a>
+							<h3 class="tsd-anchor-link">
+								<code class="tsd-tag">Optional</code
+								><span>contains</span
+								><a
+									href="#contains"
+									aria-label="Permalink"
+									class="tsd-anchor-icon"
+									><svg
+										viewBox="0 0 24 24"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-anchor"></use></svg
+								></a>
+							</h3>
+							<div class="tsd-signature">
+								<span class="tsd-kind-property">contains</span
+								><span class="tsd-signature-symbol">?:</span>
+								<span class="tsd-signature-type">null</span>
+								<span class="tsd-signature-symbol">|</span>
+								(<span class="tsd-signature-type">null</span>
+								<span class="tsd-signature-symbol">|</span>
+								<span class="tsd-signature-type">number</span
+								>)<span class="tsd-signature-symbol">[]</span>
+							</div>
+							<div class="tsd-comment tsd-typography">
+								<p>Contains the specified list of values.</p>
+							</div>
+							<div class="tsd-comment tsd-typography"></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>
+										Defined in
+										<a
+											href="https://github.com/zeepkist/graphql/blob/adcc4fb6fb61a83d159f829afe4a9d7621f37d11/src/gtr/schema.ts#L3510"
+											>src/gtr/schema.ts:3510</a
+										>
+									</li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member">
+							<a id="containedby" class="tsd-anchor"></a>
+							<h3 class="tsd-anchor-link">
+								<code class="tsd-tag">Optional</code
+								><span>contained<wbr />By</span
+								><a
+									href="#containedby"
+									aria-label="Permalink"
+									class="tsd-anchor-icon"
+									><svg
+										viewBox="0 0 24 24"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-anchor"></use></svg
+								></a>
+							</h3>
+							<div class="tsd-signature">
+								<span class="tsd-kind-property"
+									>containedBy</span
+								><span class="tsd-signature-symbol">?:</span>
+								<span class="tsd-signature-type">null</span>
+								<span class="tsd-signature-symbol">|</span>
+								(<span class="tsd-signature-type">null</span>
+								<span class="tsd-signature-symbol">|</span>
+								<span class="tsd-signature-type">number</span
+								>)<span class="tsd-signature-symbol">[]</span>
+							</div>
+							<div class="tsd-comment tsd-typography">
+								<p>
+									Contained by the specified list of values.
+								</p>
+							</div>
+							<div class="tsd-comment tsd-typography"></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>
+										Defined in
+										<a
+											href="https://github.com/zeepkist/graphql/blob/adcc4fb6fb61a83d159f829afe4a9d7621f37d11/src/gtr/schema.ts#L3512"
+											>src/gtr/schema.ts:3512</a
+										>
+									</li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member">
+							<a id="overlaps" class="tsd-anchor"></a>
+							<h3 class="tsd-anchor-link">
+								<code class="tsd-tag">Optional</code
+								><span>overlaps</span
+								><a
+									href="#overlaps"
+									aria-label="Permalink"
+									class="tsd-anchor-icon"
+									><svg
+										viewBox="0 0 24 24"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-anchor"></use></svg
+								></a>
+							</h3>
+							<div class="tsd-signature">
+								<span class="tsd-kind-property">overlaps</span
+								><span class="tsd-signature-symbol">?:</span>
+								<span class="tsd-signature-type">null</span>
+								<span class="tsd-signature-symbol">|</span>
+								(<span class="tsd-signature-type">null</span>
+								<span class="tsd-signature-symbol">|</span>
+								<span class="tsd-signature-type">number</span
+								>)<span class="tsd-signature-symbol">[]</span>
+							</div>
+							<div class="tsd-comment tsd-typography">
+								<p>Overlaps the specified list of values.</p>
+							</div>
+							<div class="tsd-comment tsd-typography"></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>
+										Defined in
+										<a
+											href="https://github.com/zeepkist/graphql/blob/adcc4fb6fb61a83d159f829afe4a9d7621f37d11/src/gtr/schema.ts#L3514"
+											>src/gtr/schema.ts:3514</a
+										>
+									</li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member">
+							<a id="anyequalto" class="tsd-anchor"></a>
+							<h3 class="tsd-anchor-link">
+								<code class="tsd-tag">Optional</code
+								><span>any<wbr />Equal<wbr />To</span
+								><a
+									href="#anyequalto"
+									aria-label="Permalink"
+									class="tsd-anchor-icon"
+									><svg
+										viewBox="0 0 24 24"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-anchor"></use></svg
+								></a>
+							</h3>
+							<div class="tsd-signature">
+								<span class="tsd-kind-property">anyEqualTo</span
+								><span class="tsd-signature-symbol">?:</span>
+								<span class="tsd-signature-type">null</span>
+								<span class="tsd-signature-symbol">|</span>
+								<span class="tsd-signature-type">number</span>
+							</div>
+							<div class="tsd-comment tsd-typography">
+								<p>
+									Any array item is equal to the specified
+									value.
+								</p>
+							</div>
+							<div class="tsd-comment tsd-typography"></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>
+										Defined in
+										<a
+											href="https://github.com/zeepkist/graphql/blob/adcc4fb6fb61a83d159f829afe4a9d7621f37d11/src/gtr/schema.ts#L3516"
+											>src/gtr/schema.ts:3516</a
+										>
+									</li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member">
+							<a id="anynotequalto" class="tsd-anchor"></a>
+							<h3 class="tsd-anchor-link">
+								<code class="tsd-tag">Optional</code
+								><span>any<wbr />Not<wbr />Equal<wbr />To</span
+								><a
+									href="#anynotequalto"
+									aria-label="Permalink"
+									class="tsd-anchor-icon"
+									><svg
+										viewBox="0 0 24 24"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-anchor"></use></svg
+								></a>
+							</h3>
+							<div class="tsd-signature">
+								<span class="tsd-kind-property"
+									>anyNotEqualTo</span
+								><span class="tsd-signature-symbol">?:</span>
+								<span class="tsd-signature-type">null</span>
+								<span class="tsd-signature-symbol">|</span>
+								<span class="tsd-signature-type">number</span>
+							</div>
+							<div class="tsd-comment tsd-typography">
+								<p>
+									Any array item is not equal to the specified
+									value.
+								</p>
+							</div>
+							<div class="tsd-comment tsd-typography"></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>
+										Defined in
+										<a
+											href="https://github.com/zeepkist/graphql/blob/adcc4fb6fb61a83d159f829afe4a9d7621f37d11/src/gtr/schema.ts#L3518"
+											>src/gtr/schema.ts:3518</a
+										>
+									</li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member">
+							<a id="anylessthan" class="tsd-anchor"></a>
+							<h3 class="tsd-anchor-link">
+								<code class="tsd-tag">Optional</code
+								><span>any<wbr />Less<wbr />Than</span
+								><a
+									href="#anylessthan"
+									aria-label="Permalink"
+									class="tsd-anchor-icon"
+									><svg
+										viewBox="0 0 24 24"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-anchor"></use></svg
+								></a>
+							</h3>
+							<div class="tsd-signature">
+								<span class="tsd-kind-property"
+									>anyLessThan</span
+								><span class="tsd-signature-symbol">?:</span>
+								<span class="tsd-signature-type">null</span>
+								<span class="tsd-signature-symbol">|</span>
+								<span class="tsd-signature-type">number</span>
+							</div>
+							<div class="tsd-comment tsd-typography">
+								<p>
+									Any array item is less than the specified
+									value.
+								</p>
+							</div>
+							<div class="tsd-comment tsd-typography"></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>
+										Defined in
+										<a
+											href="https://github.com/zeepkist/graphql/blob/adcc4fb6fb61a83d159f829afe4a9d7621f37d11/src/gtr/schema.ts#L3520"
+											>src/gtr/schema.ts:3520</a
+										>
+									</li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member">
+							<a id="anylessthanorequalto" class="tsd-anchor"></a>
+							<h3 class="tsd-anchor-link">
+								<code class="tsd-tag">Optional</code
+								><span
+									>any<wbr />Less<wbr />Than<wbr />Or<wbr />Equal<wbr />To</span
+								><a
+									href="#anylessthanorequalto"
+									aria-label="Permalink"
+									class="tsd-anchor-icon"
+									><svg
+										viewBox="0 0 24 24"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-anchor"></use></svg
+								></a>
+							</h3>
+							<div class="tsd-signature">
+								<span class="tsd-kind-property"
+									>anyLessThanOrEqualTo</span
+								><span class="tsd-signature-symbol">?:</span>
+								<span class="tsd-signature-type">null</span>
+								<span class="tsd-signature-symbol">|</span>
+								<span class="tsd-signature-type">number</span>
+							</div>
+							<div class="tsd-comment tsd-typography">
+								<p>
+									Any array item is less than or equal to the
+									specified value.
+								</p>
+							</div>
+							<div class="tsd-comment tsd-typography"></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>
+										Defined in
+										<a
+											href="https://github.com/zeepkist/graphql/blob/adcc4fb6fb61a83d159f829afe4a9d7621f37d11/src/gtr/schema.ts#L3522"
+											>src/gtr/schema.ts:3522</a
+										>
+									</li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member">
+							<a id="anygreaterthan" class="tsd-anchor"></a>
+							<h3 class="tsd-anchor-link">
+								<code class="tsd-tag">Optional</code
+								><span>any<wbr />Greater<wbr />Than</span
+								><a
+									href="#anygreaterthan"
+									aria-label="Permalink"
+									class="tsd-anchor-icon"
+									><svg
+										viewBox="0 0 24 24"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-anchor"></use></svg
+								></a>
+							</h3>
+							<div class="tsd-signature">
+								<span class="tsd-kind-property"
+									>anyGreaterThan</span
+								><span class="tsd-signature-symbol">?:</span>
+								<span class="tsd-signature-type">null</span>
+								<span class="tsd-signature-symbol">|</span>
+								<span class="tsd-signature-type">number</span>
+							</div>
+							<div class="tsd-comment tsd-typography">
+								<p>
+									Any array item is greater than the specified
+									value.
+								</p>
+							</div>
+							<div class="tsd-comment tsd-typography"></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>
+										Defined in
+										<a
+											href="https://github.com/zeepkist/graphql/blob/adcc4fb6fb61a83d159f829afe4a9d7621f37d11/src/gtr/schema.ts#L3524"
+											>src/gtr/schema.ts:3524</a
+										>
+									</li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member">
+							<a
+								id="anygreaterthanorequalto"
+								class="tsd-anchor"></a>
+							<h3 class="tsd-anchor-link">
+								<code class="tsd-tag">Optional</code
+								><span
+									>any<wbr />Greater<wbr />Than<wbr />Or<wbr />Equal<wbr />To</span
+								><a
+									href="#anygreaterthanorequalto"
+									aria-label="Permalink"
+									class="tsd-anchor-icon"
+									><svg
+										viewBox="0 0 24 24"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-anchor"></use></svg
+								></a>
+							</h3>
+							<div class="tsd-signature">
+								<span class="tsd-kind-property"
+									>anyGreaterThanOrEqualTo</span
+								><span class="tsd-signature-symbol">?:</span>
+								<span class="tsd-signature-type">null</span>
+								<span class="tsd-signature-symbol">|</span>
+								<span class="tsd-signature-type">number</span>
+							</div>
+							<div class="tsd-comment tsd-typography">
+								<p>
+									Any array item is greater than or equal to
+									the specified value.
+								</p>
+							</div>
+							<div class="tsd-comment tsd-typography"></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>
+										Defined in
+										<a
+											href="https://github.com/zeepkist/graphql/blob/adcc4fb6fb61a83d159f829afe4a9d7621f37d11/src/gtr/schema.ts#L3526"
+											>src/gtr/schema.ts:3526</a
+										>
+									</li>
+								</ul>
+							</aside>
+						</section>
+					</section>
+				</details>
+			</div>
+			<div class="col-sidebar">
+				<div class="page-menu">
+					<div class="tsd-navigation settings">
+						<details class="tsd-accordion">
+							<summary class="tsd-accordion-summary">
+								<h3>
+									<svg
+										width="20"
+										height="20"
+										viewBox="0 0 24 24"
+										fill="none"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-chevronDown"></use></svg
+									>Settings
+								</h3>
+							</summary>
+							<div class="tsd-accordion-details">
+								<div class="tsd-filter-visibility">
+									<span class="settings-label"
+										>Member Visibility</span
+									>
+									<ul id="tsd-filter-options">
+										<li class="tsd-filter-item">
+											<label class="tsd-filter-input"
+												><input
+													type="checkbox"
+													id="tsd-filter-protected"
+													name="protected" /><svg
+													width="32"
+													height="32"
+													viewBox="0 0 32 32"
+													aria-hidden="true">
+													<rect
+														class="tsd-checkbox-background"
+														width="30"
+														height="30"
+														x="1"
+														y="1"
+														rx="6"
+														fill="none"></rect>
+													<path
+														class="tsd-checkbox-checkmark"
+														d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25"
+														stroke="none"
+														stroke-width="3.5"
+														stroke-linejoin="round"
+														fill="none"></path></svg
+												><span>Protected</span></label
+											>
+										</li>
+										<li class="tsd-filter-item">
+											<label class="tsd-filter-input"
+												><input
+													type="checkbox"
+													id="tsd-filter-inherited"
+													name="inherited"
+													checked /><svg
+													width="32"
+													height="32"
+													viewBox="0 0 32 32"
+													aria-hidden="true">
+													<rect
+														class="tsd-checkbox-background"
+														width="30"
+														height="30"
+														x="1"
+														y="1"
+														rx="6"
+														fill="none"></rect>
+													<path
+														class="tsd-checkbox-checkmark"
+														d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25"
+														stroke="none"
+														stroke-width="3.5"
+														stroke-linejoin="round"
+														fill="none"></path></svg
+												><span>Inherited</span></label
+											>
+										</li>
+										<li class="tsd-filter-item">
+											<label class="tsd-filter-input"
+												><input
+													type="checkbox"
+													id="tsd-filter-external"
+													name="external" /><svg
+													width="32"
+													height="32"
+													viewBox="0 0 32 32"
+													aria-hidden="true">
+													<rect
+														class="tsd-checkbox-background"
+														width="30"
+														height="30"
+														x="1"
+														y="1"
+														rx="6"
+														fill="none"></rect>
+													<path
+														class="tsd-checkbox-checkmark"
+														d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25"
+														stroke="none"
+														stroke-width="3.5"
+														stroke-linejoin="round"
+														fill="none"></path></svg
+												><span>External</span></label
+											>
+										</li>
+									</ul>
+								</div>
+								<div class="tsd-theme-toggle">
+									<label
+										class="settings-label"
+										for="tsd-theme"
+										>Theme</label
+									><select id="tsd-theme">
+										<option value="os">OS</option>
+										<option value="light">Light</option>
+										<option value="dark">Dark</option>
+									</select>
+								</div>
+							</div>
+						</details>
+					</div>
+					<details open class="tsd-accordion tsd-page-navigation">
+						<summary class="tsd-accordion-summary">
+							<h3>
+								<svg
+									width="20"
+									height="20"
+									viewBox="0 0 24 24"
+									fill="none"
+									aria-hidden="true">
+									<use
+										href="../assets/icons.svg#icon-chevronDown"></use></svg
+								>On This Page
+							</h3>
+						</summary>
+						<div class="tsd-accordion-details">
+							<details
+								open
+								class="tsd-accordion tsd-page-navigation-section">
+								<summary
+									class="tsd-accordion-summary"
+									data-key="section-Properties">
+									<svg
+										width="20"
+										height="20"
+										viewBox="0 0 24 24"
+										fill="none"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-chevronDown"></use></svg
+									>Properties
+								</summary>
+								<div>
+									<a href="#isnull" class=""
+										><svg
+											class="tsd-kind-icon"
+											viewBox="0 0 24 24"
+											aria-label="Property">
+											<use
+												href="../assets/icons.svg#icon-1024"></use></svg
+										><span>is<wbr />Null</span></a
+									><a href="#equalto" class=""
+										><svg
+											class="tsd-kind-icon"
+											viewBox="0 0 24 24"
+											aria-label="Property">
+											<use
+												href="../assets/icons.svg#icon-1024"></use></svg
+										><span>equal<wbr />To</span></a
+									><a href="#notequalto" class=""
+										><svg
+											class="tsd-kind-icon"
+											viewBox="0 0 24 24"
+											aria-label="Property">
+											<use
+												href="../assets/icons.svg#icon-1024"></use></svg
+										><span
+											>not<wbr />Equal<wbr />To</span
+										></a
+									><a href="#distinctfrom" class=""
+										><svg
+											class="tsd-kind-icon"
+											viewBox="0 0 24 24"
+											aria-label="Property">
+											<use
+												href="../assets/icons.svg#icon-1024"></use></svg
+										><span>distinct<wbr />From</span></a
+									><a href="#notdistinctfrom" class=""
+										><svg
+											class="tsd-kind-icon"
+											viewBox="0 0 24 24"
+											aria-label="Property">
+											<use
+												href="../assets/icons.svg#icon-1024"></use></svg
+										><span
+											>not<wbr />Distinct<wbr />From</span
+										></a
+									><a href="#lessthan" class=""
+										><svg
+											class="tsd-kind-icon"
+											viewBox="0 0 24 24"
+											aria-label="Property">
+											<use
+												href="../assets/icons.svg#icon-1024"></use></svg
+										><span>less<wbr />Than</span></a
+									><a href="#lessthanorequalto" class=""
+										><svg
+											class="tsd-kind-icon"
+											viewBox="0 0 24 24"
+											aria-label="Property">
+											<use
+												href="../assets/icons.svg#icon-1024"></use></svg
+										><span
+											>less<wbr />Than<wbr />Or<wbr />Equal<wbr />To</span
+										></a
+									><a href="#greaterthan" class=""
+										><svg
+											class="tsd-kind-icon"
+											viewBox="0 0 24 24"
+											aria-label="Property">
+											<use
+												href="../assets/icons.svg#icon-1024"></use></svg
+										><span>greater<wbr />Than</span></a
+									><a href="#greaterthanorequalto" class=""
+										><svg
+											class="tsd-kind-icon"
+											viewBox="0 0 24 24"
+											aria-label="Property">
+											<use
+												href="../assets/icons.svg#icon-1024"></use></svg
+										><span
+											>greater<wbr />Than<wbr />Or<wbr />Equal<wbr />To</span
+										></a
+									><a href="#contains" class=""
+										><svg
+											class="tsd-kind-icon"
+											viewBox="0 0 24 24"
+											aria-label="Property">
+											<use
+												href="../assets/icons.svg#icon-1024"></use></svg
+										><span>contains</span></a
+									><a href="#containedby" class=""
+										><svg
+											class="tsd-kind-icon"
+											viewBox="0 0 24 24"
+											aria-label="Property">
+											<use
+												href="../assets/icons.svg#icon-1024"></use></svg
+										><span>contained<wbr />By</span></a
+									><a href="#overlaps" class=""
+										><svg
+											class="tsd-kind-icon"
+											viewBox="0 0 24 24"
+											aria-label="Property">
+											<use
+												href="../assets/icons.svg#icon-1024"></use></svg
+										><span>overlaps</span></a
+									><a href="#anyequalto" class=""
+										><svg
+											class="tsd-kind-icon"
+											viewBox="0 0 24 24"
+											aria-label="Property">
+											<use
+												href="../assets/icons.svg#icon-1024"></use></svg
+										><span
+											>any<wbr />Equal<wbr />To</span
+										></a
+									><a href="#anynotequalto" class=""
+										><svg
+											class="tsd-kind-icon"
+											viewBox="0 0 24 24"
+											aria-label="Property">
+											<use
+												href="../assets/icons.svg#icon-1024"></use></svg
+										><span
+											>any<wbr />Not<wbr />Equal<wbr />To</span
+										></a
+									><a href="#anylessthan" class=""
+										><svg
+											class="tsd-kind-icon"
+											viewBox="0 0 24 24"
+											aria-label="Property">
+											<use
+												href="../assets/icons.svg#icon-1024"></use></svg
+										><span
+											>any<wbr />Less<wbr />Than</span
+										></a
+									><a href="#anylessthanorequalto" class=""
+										><svg
+											class="tsd-kind-icon"
+											viewBox="0 0 24 24"
+											aria-label="Property">
+											<use
+												href="../assets/icons.svg#icon-1024"></use></svg
+										><span
+											>any<wbr />Less<wbr />Than<wbr />Or<wbr />Equal<wbr />To</span
+										></a
+									><a href="#anygreaterthan" class=""
+										><svg
+											class="tsd-kind-icon"
+											viewBox="0 0 24 24"
+											aria-label="Property">
+											<use
+												href="../assets/icons.svg#icon-1024"></use></svg
+										><span
+											>any<wbr />Greater<wbr />Than</span
+										></a
+									><a href="#anygreaterthanorequalto" class=""
+										><svg
+											class="tsd-kind-icon"
+											viewBox="0 0 24 24"
+											aria-label="Property">
+											<use
+												href="../assets/icons.svg#icon-1024"></use></svg
+										><span
+											>any<wbr />Greater<wbr />Than<wbr />Or<wbr />Equal<wbr />To</span
+										></a
+									>
+								</div>
+							</details>
+						</div>
+					</details>
+				</div>
+				<div class="site-menu">
+					<nav class="tsd-navigation">
+						<a href="../modules.html">@zeepkist/graphql</a>
+						<ul
+							class="tsd-small-nested-navigation"
+							id="tsd-nav-container">
+							<li>Loading...</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+		<footer></footer>
+		<div class="overlay"></div>
+	</body>
 </html>

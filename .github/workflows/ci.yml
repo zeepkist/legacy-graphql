@@ -40,7 +40,7 @@ jobs:
       - name: Commit new files
         if: success() && github.ref == 'refs/heads/develop'
         run: |
-          if [ -n "$(git status --porcelain)" ]; then
+          if [ -n "$(git status --porcelain | grep -v '^?? docs/' | grep -v '^ M docs/')" ]; then
             pnpm document
             git config --global user.name "GitHub Actions"
             git config --global user.email ${{ secrets.GH_EMAIL }}

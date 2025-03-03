@@ -37,7 +37,8 @@
 		"publish:gtr-beta": "rover subgraph publish zeepkist@beta --schema src/gtr-beta/schema.graphql --name GTR_BETA --routing-url https://graphql-beta.zeepki.st",
 		"publish-schemas": "pnpm publish:gtr && pnpm publish:gtr-beta",
 		"move": "tsx scripts/moveRuntime.ts",
-		"generate": "pnpm generate:gtr && pnpm generate:gtr-beta && pnpm move && pnpm lint"
+		"generate": "pnpm generate:gtr && pnpm generate:gtr-beta && pnpm move",
+		"start": "pnpm generate && pnpm document && pnpm lint"
 	},
 	"devDependencies": {
 		"@apollo/rover": "^0.27.2",

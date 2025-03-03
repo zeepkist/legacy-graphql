@@ -1,2514 +1,1400 @@
-<!doctype html>
-<html class="default" lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="x-ua-compatible" content="IE=edge" />
-        <title>Level | @zeepkist/graphql</title>
-        <meta
-            name="description"
-            content="Documentation for @zeepkist/graphql" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="../assets/style.css" />
-        <link rel="stylesheet" href="../assets/highlight.css" />
-        <script defer src="../assets/main.js"></script>
-        <script async src="../assets/icons.js" id="tsd-icons-script"></script>
-        <script async src="../assets/search.js" id="tsd-search-script"></script>
-        <script
-            async
-            src="../assets/navigation.js"
-            id="tsd-nav-script"></script>
-    </head>
-    <body>
-        <script>
-            document.documentElement.dataset.theme =
-                localStorage.getItem('tsd-theme') || 'os'
-            document.body.style.display = 'none'
-            setTimeout(
-                () =>
-                    app
-                        ? app.showPage()
-                        : document.body.style.removeProperty('display'),
-                500
-            )
-        </script>
-        <header class="tsd-page-toolbar">
-            <div class="tsd-toolbar-contents container">
-                <div class="table-cell" id="tsd-search" data-base="..">
-                    <div class="field">
-                        <label
-                            for="tsd-search-field"
-                            class="tsd-widget tsd-toolbar-icon search no-caption"
-                            ><svg
-                                width="16"
-                                height="16"
-                                viewBox="0 0 16 16"
-                                fill="none">
-                                <use
-                                    href="../assets/icons.svg#icon-search"></use></svg></label
-                        ><input
-                            type="text"
-                            id="tsd-search-field"
-                            aria-label="Search" />
-                    </div>
-                    <div class="field"><div id="tsd-toolbar-links"></div></div>
-                    <ul class="results">
-                        <li class="state loading">Preparing search index...</li>
-                        <li class="state failure">
-                            The search index is not available
-                        </li>
-                    </ul>
-                    <a href="../index.html" class="title">@zeepkist/graphql</a>
-                </div>
-                <div class="table-cell" id="tsd-widgets">
-                    <a
-                        href="#"
-                        class="tsd-widget tsd-toolbar-icon menu no-caption"
-                        data-toggle="menu"
-                        aria-label="Menu"
-                        ><svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 16 16"
-                            fill="none">
-                            <use
-                                href="../assets/icons.svg#icon-menu"></use></svg
-                    ></a>
-                </div>
-            </div>
-        </header>
-        <div class="container container-main">
-            <div class="col-content">
-                <div class="tsd-page-title">
-                    <ul class="tsd-breadcrumb">
-                        <li><a href="../index.html">@zeepkist/graphql</a></li>
-                        <li><a href="../modules/gtr.html">gtr</a></li>
-                        <li><a href="gtr.Level.html">Level</a></li>
-                    </ul>
-                    <h1>Interface Level</h1>
-                </div>
-                <div class="tsd-signature">
-                    <span class="tsd-signature-keyword">interface </span
-                    ><span class="tsd-kind-interface">Level</span>
-                    <span class="tsd-signature-symbol">{ </span><br /><span
-                        >    </span
-                    ><a class="tsd-kind-property" href="gtr.Level.html#nodeId"
-                        >nodeId</a
-                    ><span class="tsd-signature-symbol">: </span
-                    ><span class="tsd-signature-type">string</span
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a class="tsd-kind-property" href="gtr.Level.html#id">id</a
-                    ><span class="tsd-signature-symbol">: </span
-                    ><span class="tsd-signature-type">number</span
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a class="tsd-kind-property" href="gtr.Level.html#hash"
-                        >hash</a
-                    ><span class="tsd-signature-symbol">: </span
-                    ><span class="tsd-signature-type">string</span
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.Level.html#dateCreated"
-                        >dateCreated</a
-                    ><span class="tsd-signature-symbol">: </span
-                    ><span class="tsd-signature-type">any</span
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.Level.html#dateUpdated"
-                        >dateUpdated</a
-                    ><span class="tsd-signature-symbol">: </span
-                    ><span class="tsd-signature-type">any</span
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.Level.html#favoritesByIdLevel"
-                        >favoritesByIdLevel</a
-                    ><span class="tsd-signature-symbol">: </span
-                    ><a
-                        href="gtr.FavoritesConnection.html"
-                        class="tsd-signature-type tsd-kind-interface"
-                        >FavoritesConnection</a
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.Level.html#levelPointsByIdLevel"
-                        >levelPointsByIdLevel</a
-                    ><span class="tsd-signature-symbol">: </span
-                    ><a
-                        href="gtr.LevelPointsConnection.html"
-                        class="tsd-signature-type tsd-kind-interface"
-                        >LevelPointsConnection</a
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.Level.html#levelItemsByIdLevel"
-                        >levelItemsByIdLevel</a
-                    ><span class="tsd-signature-symbol">: </span
-                    ><a
-                        href="gtr.LevelItemsConnection.html"
-                        class="tsd-signature-type tsd-kind-interface"
-                        >LevelItemsConnection</a
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.Level.html#levelMetadataByIdLevel"
-                        >levelMetadataByIdLevel</a
-                    ><span class="tsd-signature-symbol">: </span
-                    ><a
-                        href="gtr.LevelMetadataConnection.html"
-                        class="tsd-signature-type tsd-kind-interface"
-                        >LevelMetadataConnection</a
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.Level.html#personalBestGlobalsByIdLevel"
-                        >personalBestGlobalsByIdLevel</a
-                    ><span class="tsd-signature-symbol">: </span
-                    ><a
-                        href="gtr.PersonalBestGlobalsConnection.html"
-                        class="tsd-signature-type tsd-kind-interface"
-                        >PersonalBestGlobalsConnection</a
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.Level.html#recordsByIdLevel"
-                        >recordsByIdLevel</a
-                    ><span class="tsd-signature-symbol">: </span
-                    ><a
-                        href="gtr.RecordsConnection.html"
-                        class="tsd-signature-type tsd-kind-interface"
-                        >RecordsConnection</a
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.Level.html#statsGlobalsByIdLevel"
-                        >statsGlobalsByIdLevel</a
-                    ><span class="tsd-signature-symbol">: </span
-                    ><a
-                        href="gtr.StatsGlobalsConnection.html"
-                        class="tsd-signature-type tsd-kind-interface"
-                        >StatsGlobalsConnection</a
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.Level.html#upvotesByIdLevel"
-                        >upvotesByIdLevel</a
-                    ><span class="tsd-signature-symbol">: </span
-                    ><a
-                        href="gtr.UpvotesConnection.html"
-                        class="tsd-signature-type tsd-kind-interface"
-                        >UpvotesConnection</a
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.Level.html#worldRecordGlobalsByIdLevel"
-                        >worldRecordGlobalsByIdLevel</a
-                    ><span class="tsd-signature-symbol">: </span
-                    ><a
-                        href="gtr.WorldRecordGlobalsConnection.html"
-                        class="tsd-signature-type tsd-kind-interface"
-                        >WorldRecordGlobalsConnection</a
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.Level.html#personalBestYearliesByIdLevel"
-                        >personalBestYearliesByIdLevel</a
-                    ><span class="tsd-signature-symbol">: </span
-                    ><a
-                        href="gtr.PersonalBestYearliesConnection.html"
-                        class="tsd-signature-type tsd-kind-interface"
-                        >PersonalBestYearliesConnection</a
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.Level.html#personalBestMonthliesByIdLevel"
-                        >personalBestMonthliesByIdLevel</a
-                    ><span class="tsd-signature-symbol">: </span
-                    ><a
-                        href="gtr.PersonalBestMonthliesConnection.html"
-                        class="tsd-signature-type tsd-kind-interface"
-                        >PersonalBestMonthliesConnection</a
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.Level.html#personalBestWeekliesByIdLevel"
-                        >personalBestWeekliesByIdLevel</a
-                    ><span class="tsd-signature-symbol">: </span
-                    ><a
-                        href="gtr.PersonalBestWeekliesConnection.html"
-                        class="tsd-signature-type tsd-kind-interface"
-                        >PersonalBestWeekliesConnection</a
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.Level.html#personalBestDailiesByIdLevel"
-                        >personalBestDailiesByIdLevel</a
-                    ><span class="tsd-signature-symbol">: </span
-                    ><a
-                        href="gtr.PersonalBestDailiesConnection.html"
-                        class="tsd-signature-type tsd-kind-interface"
-                        >PersonalBestDailiesConnection</a
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.Level.html#worldRecordMonthliesByIdLevel"
-                        >worldRecordMonthliesByIdLevel</a
-                    ><span class="tsd-signature-symbol">: </span
-                    ><a
-                        href="gtr.WorldRecordMonthliesConnection.html"
-                        class="tsd-signature-type tsd-kind-interface"
-                        >WorldRecordMonthliesConnection</a
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.Level.html#worldRecordYearliesByIdLevel"
-                        >worldRecordYearliesByIdLevel</a
-                    ><span class="tsd-signature-symbol">: </span
-                    ><a
-                        href="gtr.WorldRecordYearliesConnection.html"
-                        class="tsd-signature-type tsd-kind-interface"
-                        >WorldRecordYearliesConnection</a
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.Level.html#worldRecordWeekliesByIdLevel"
-                        >worldRecordWeekliesByIdLevel</a
-                    ><span class="tsd-signature-symbol">: </span
-                    ><a
-                        href="gtr.WorldRecordWeekliesConnection.html"
-                        class="tsd-signature-type tsd-kind-interface"
-                        >WorldRecordWeekliesConnection</a
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.Level.html#worldRecordDailiesByIdLevel"
-                        >worldRecordDailiesByIdLevel</a
-                    ><span class="tsd-signature-symbol">: </span
-                    ><a
-                        href="gtr.WorldRecordDailiesConnection.html"
-                        class="tsd-signature-type tsd-kind-interface"
-                        >WorldRecordDailiesConnection</a
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.Level.html#statsMonthliesByIdLevel"
-                        >statsMonthliesByIdLevel</a
-                    ><span class="tsd-signature-symbol">: </span
-                    ><a
-                        href="gtr.StatsMonthliesConnection.html"
-                        class="tsd-signature-type tsd-kind-interface"
-                        >StatsMonthliesConnection</a
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.Level.html#statsYearliesByIdLevel"
-                        >statsYearliesByIdLevel</a
-                    ><span class="tsd-signature-symbol">: </span
-                    ><a
-                        href="gtr.StatsYearliesConnection.html"
-                        class="tsd-signature-type tsd-kind-interface"
-                        >StatsYearliesConnection</a
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.Level.html#statsWeekliesByIdLevel"
-                        >statsWeekliesByIdLevel</a
-                    ><span class="tsd-signature-symbol">: </span
-                    ><a
-                        href="gtr.StatsWeekliesConnection.html"
-                        class="tsd-signature-type tsd-kind-interface"
-                        >StatsWeekliesConnection</a
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.Level.html#statsDailiesByIdLevel"
-                        >statsDailiesByIdLevel</a
-                    ><span class="tsd-signature-symbol">: </span
-                    ><a
-                        href="gtr.StatsDailiesConnection.html"
-                        class="tsd-signature-type tsd-kind-interface"
-                        >StatsDailiesConnection</a
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.Level.html#personalBestQuarterliesByIdLevel"
-                        >personalBestQuarterliesByIdLevel</a
-                    ><span class="tsd-signature-symbol">: </span
-                    ><a
-                        href="gtr.PersonalBestQuarterliesConnection.html"
-                        class="tsd-signature-type tsd-kind-interface"
-                        >PersonalBestQuarterliesConnection</a
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.Level.html#statsQuarterliesByIdLevel"
-                        >statsQuarterliesByIdLevel</a
-                    ><span class="tsd-signature-symbol">: </span
-                    ><a
-                        href="gtr.StatsQuarterliesConnection.html"
-                        class="tsd-signature-type tsd-kind-interface"
-                        >StatsQuarterliesConnection</a
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.Level.html#worldRecordQuarterliesByIdLevel"
-                        >worldRecordQuarterliesByIdLevel</a
-                    ><span class="tsd-signature-symbol">: </span
-                    ><a
-                        href="gtr.WorldRecordQuarterliesConnection.html"
-                        class="tsd-signature-type tsd-kind-interface"
-                        >WorldRecordQuarterliesConnection</a
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.Level.html#votesByIdLevel"
-                        >votesByIdLevel</a
-                    ><span class="tsd-signature-symbol">: </span
-                    ><a
-                        href="gtr.VotesConnection.html"
-                        class="tsd-signature-type tsd-kind-interface"
-                        >VotesConnection</a
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a
-                        class="tsd-kind-property"
-                        href="gtr.Level.html#__typename"
-                        >__typename</a
-                    ><span class="tsd-signature-symbol">: </span
-                    ><span class="tsd-signature-type">&quot;Level&quot;</span
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        class="tsd-signature-symbol"
-                        >}</span
-                    >
-                </div>
-                <aside class="tsd-sources">
-                    <ul>
-                        <li>
-                            Defined in
-                            <a
-                                href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L415"
-                                >src/gtr/schema.ts:415</a
-                            >
-                        </li>
-                    </ul>
-                </aside>
-                <section class="tsd-panel-group tsd-index-group">
-                    <section class="tsd-panel tsd-index-panel">
-                        <details
-                            class="tsd-index-content tsd-index-accordion"
-                            open>
-                            <summary
-                                class="tsd-accordion-summary tsd-index-summary">
-                                <h5
-                                    class="tsd-index-heading uppercase"
-                                    role="button"
-                                    aria-expanded="false"
-                                    tabindex="0">
-                                    <svg
-                                        width="16"
-                                        height="16"
-                                        viewBox="0 0 16 16"
-                                        fill="none">
-                                        <use
-                                            href="../assets/icons.svg#icon-chevronSmall"></use>
-                                    </svg>
-                                    Index
-                                </h5>
-                            </summary>
-                            <div class="tsd-accordion-details">
-                                <section class="tsd-index-section">
-                                    <h3 class="tsd-index-heading">
-                                        Properties
-                                    </h3>
-                                    <div class="tsd-index-list">
-                                        <a
-                                            href="gtr.Level.html#nodeId"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span>node<wbr />Id</span></a
-                                        >
-                                        <a
-                                            href="gtr.Level.html#id"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span>id</span></a
-                                        >
-                                        <a
-                                            href="gtr.Level.html#hash"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span>hash</span></a
-                                        >
-                                        <a
-                                            href="gtr.Level.html#dateCreated"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span>date<wbr />Created</span></a
-                                        >
-                                        <a
-                                            href="gtr.Level.html#dateUpdated"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span>date<wbr />Updated</span></a
-                                        >
-                                        <a
-                                            href="gtr.Level.html#favoritesByIdLevel"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span
-                                                >favorites<wbr />By<wbr />Id<wbr />Level</span
-                                            ></a
-                                        >
-                                        <a
-                                            href="gtr.Level.html#levelPointsByIdLevel"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span
-                                                >level<wbr />Points<wbr />By<wbr />Id<wbr />Level</span
-                                            ></a
-                                        >
-                                        <a
-                                            href="gtr.Level.html#levelItemsByIdLevel"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span
-                                                >level<wbr />Items<wbr />By<wbr />Id<wbr />Level</span
-                                            ></a
-                                        >
-                                        <a
-                                            href="gtr.Level.html#levelMetadataByIdLevel"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span
-                                                >level<wbr />Metadata<wbr />By<wbr />Id<wbr />Level</span
-                                            ></a
-                                        >
-                                        <a
-                                            href="gtr.Level.html#personalBestGlobalsByIdLevel"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span
-                                                >personal<wbr />Best<wbr />Globals<wbr />By<wbr />Id<wbr />Level</span
-                                            ></a
-                                        >
-                                        <a
-                                            href="gtr.Level.html#recordsByIdLevel"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span
-                                                >records<wbr />By<wbr />Id<wbr />Level</span
-                                            ></a
-                                        >
-                                        <a
-                                            href="gtr.Level.html#statsGlobalsByIdLevel"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span
-                                                >stats<wbr />Globals<wbr />By<wbr />Id<wbr />Level</span
-                                            ></a
-                                        >
-                                        <a
-                                            href="gtr.Level.html#upvotesByIdLevel"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span
-                                                >upvotes<wbr />By<wbr />Id<wbr />Level</span
-                                            ></a
-                                        >
-                                        <a
-                                            href="gtr.Level.html#worldRecordGlobalsByIdLevel"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span
-                                                >world<wbr />Record<wbr />Globals<wbr />By<wbr />Id<wbr />Level</span
-                                            ></a
-                                        >
-                                        <a
-                                            href="gtr.Level.html#personalBestYearliesByIdLevel"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span
-                                                >personal<wbr />Best<wbr />Yearlies<wbr />By<wbr />Id<wbr />Level</span
-                                            ></a
-                                        >
-                                        <a
-                                            href="gtr.Level.html#personalBestMonthliesByIdLevel"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span
-                                                >personal<wbr />Best<wbr />Monthlies<wbr />By<wbr />Id<wbr />Level</span
-                                            ></a
-                                        >
-                                        <a
-                                            href="gtr.Level.html#personalBestWeekliesByIdLevel"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span
-                                                >personal<wbr />Best<wbr />Weeklies<wbr />By<wbr />Id<wbr />Level</span
-                                            ></a
-                                        >
-                                        <a
-                                            href="gtr.Level.html#personalBestDailiesByIdLevel"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span
-                                                >personal<wbr />Best<wbr />Dailies<wbr />By<wbr />Id<wbr />Level</span
-                                            ></a
-                                        >
-                                        <a
-                                            href="gtr.Level.html#worldRecordMonthliesByIdLevel"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span
-                                                >world<wbr />Record<wbr />Monthlies<wbr />By<wbr />Id<wbr />Level</span
-                                            ></a
-                                        >
-                                        <a
-                                            href="gtr.Level.html#worldRecordYearliesByIdLevel"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span
-                                                >world<wbr />Record<wbr />Yearlies<wbr />By<wbr />Id<wbr />Level</span
-                                            ></a
-                                        >
-                                        <a
-                                            href="gtr.Level.html#worldRecordWeekliesByIdLevel"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span
-                                                >world<wbr />Record<wbr />Weeklies<wbr />By<wbr />Id<wbr />Level</span
-                                            ></a
-                                        >
-                                        <a
-                                            href="gtr.Level.html#worldRecordDailiesByIdLevel"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span
-                                                >world<wbr />Record<wbr />Dailies<wbr />By<wbr />Id<wbr />Level</span
-                                            ></a
-                                        >
-                                        <a
-                                            href="gtr.Level.html#statsMonthliesByIdLevel"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span
-                                                >stats<wbr />Monthlies<wbr />By<wbr />Id<wbr />Level</span
-                                            ></a
-                                        >
-                                        <a
-                                            href="gtr.Level.html#statsYearliesByIdLevel"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span
-                                                >stats<wbr />Yearlies<wbr />By<wbr />Id<wbr />Level</span
-                                            ></a
-                                        >
-                                        <a
-                                            href="gtr.Level.html#statsWeekliesByIdLevel"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span
-                                                >stats<wbr />Weeklies<wbr />By<wbr />Id<wbr />Level</span
-                                            ></a
-                                        >
-                                        <a
-                                            href="gtr.Level.html#statsDailiesByIdLevel"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span
-                                                >stats<wbr />Dailies<wbr />By<wbr />Id<wbr />Level</span
-                                            ></a
-                                        >
-                                        <a
-                                            href="gtr.Level.html#personalBestQuarterliesByIdLevel"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span
-                                                >personal<wbr />Best<wbr />Quarterlies<wbr />By<wbr />Id<wbr />Level</span
-                                            ></a
-                                        >
-                                        <a
-                                            href="gtr.Level.html#statsQuarterliesByIdLevel"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span
-                                                >stats<wbr />Quarterlies<wbr />By<wbr />Id<wbr />Level</span
-                                            ></a
-                                        >
-                                        <a
-                                            href="gtr.Level.html#worldRecordQuarterliesByIdLevel"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span
-                                                >world<wbr />Record<wbr />Quarterlies<wbr />By<wbr />Id<wbr />Level</span
-                                            ></a
-                                        >
-                                        <a
-                                            href="gtr.Level.html#votesByIdLevel"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span
-                                                >votes<wbr />By<wbr />Id<wbr />Level</span
-                                            ></a
-                                        >
-                                        <a
-                                            href="gtr.Level.html#__typename"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span>__typename</span></a
-                                        >
-                                    </div>
-                                </section>
-                            </div>
-                        </details>
-                    </section>
-                </section>
-                <section class="tsd-panel-group tsd-member-group">
-                    <h2>Properties</h2>
-                    <section class="tsd-panel tsd-member">
-                        <a id="nodeId" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <span>node<wbr />Id</span
-                            ><a
-                                href="#nodeId"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property">node<wbr />Id</span
-                            ><span class="tsd-signature-symbol">:</span>
-                            <span class="tsd-signature-type">string</span>
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>
-                                A globally unique identifier. Can be used in
-                                various places throughout the system to identify
-                                this single value.
-                            </p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L417"
-                                        >src/gtr/schema.ts:417</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a id="id" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <span>id</span
-                            ><a
-                                href="#id"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property">id</span
-                            ><span class="tsd-signature-symbol">:</span>
-                            <span class="tsd-signature-type">number</span>
-                        </div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L418"
-                                        >src/gtr/schema.ts:418</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a id="hash" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <span>hash</span
-                            ><a
-                                href="#hash"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property">hash</span
-                            ><span class="tsd-signature-symbol">:</span>
-                            <span class="tsd-signature-type">string</span>
-                        </div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L419"
-                                        >src/gtr/schema.ts:419</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a id="dateCreated" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <span>date<wbr />Created</span
-                            ><a
-                                href="#dateCreated"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >date<wbr />Created</span
-                            ><span class="tsd-signature-symbol">:</span>
-                            <span class="tsd-signature-type">any</span>
-                        </div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L420"
-                                        >src/gtr/schema.ts:420</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a id="dateUpdated" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <span>date<wbr />Updated</span
-                            ><a
-                                href="#dateUpdated"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >date<wbr />Updated</span
-                            ><span class="tsd-signature-symbol">:</span>
-                            <span class="tsd-signature-type">any</span>
-                        </div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L421"
-                                        >src/gtr/schema.ts:421</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a id="favoritesByIdLevel" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <span>favorites<wbr />By<wbr />Id<wbr />Level</span
-                            ><a
-                                href="#favoritesByIdLevel"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >favorites<wbr />By<wbr />Id<wbr />Level</span
-                            ><span class="tsd-signature-symbol">:</span>
-                            <a
-                                href="gtr.FavoritesConnection.html"
-                                class="tsd-signature-type tsd-kind-interface"
-                                >FavoritesConnection</a
-                            >
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>
-                                Reads and enables pagination through a set of
-                                <code>Favorite</code>.
-                            </p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L423"
-                                        >src/gtr/schema.ts:423</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a id="levelPointsByIdLevel" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <span
-                                >level<wbr />Points<wbr />By<wbr />Id<wbr />Level</span
-                            ><a
-                                href="#levelPointsByIdLevel"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >level<wbr />Points<wbr />By<wbr />Id<wbr />Level</span
-                            ><span class="tsd-signature-symbol">:</span>
-                            <a
-                                href="gtr.LevelPointsConnection.html"
-                                class="tsd-signature-type tsd-kind-interface"
-                                >LevelPointsConnection</a
-                            >
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>
-                                Reads and enables pagination through a set of
-                                <code>LevelPoint</code>.
-                            </p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L425"
-                                        >src/gtr/schema.ts:425</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a id="levelItemsByIdLevel" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <span
-                                >level<wbr />Items<wbr />By<wbr />Id<wbr />Level</span
-                            ><a
-                                href="#levelItemsByIdLevel"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >level<wbr />Items<wbr />By<wbr />Id<wbr />Level</span
-                            ><span class="tsd-signature-symbol">:</span>
-                            <a
-                                href="gtr.LevelItemsConnection.html"
-                                class="tsd-signature-type tsd-kind-interface"
-                                >LevelItemsConnection</a
-                            >
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>
-                                Reads and enables pagination through a set of
-                                <code>LevelItem</code>.
-                            </p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L427"
-                                        >src/gtr/schema.ts:427</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a id="levelMetadataByIdLevel" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <span
-                                >level<wbr />Metadata<wbr />By<wbr />Id<wbr />Level</span
-                            ><a
-                                href="#levelMetadataByIdLevel"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >level<wbr />Metadata<wbr />By<wbr />Id<wbr />Level</span
-                            ><span class="tsd-signature-symbol">:</span>
-                            <a
-                                href="gtr.LevelMetadataConnection.html"
-                                class="tsd-signature-type tsd-kind-interface"
-                                >LevelMetadataConnection</a
-                            >
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>
-                                Reads and enables pagination through a set of
-                                <code>LevelMetadatum</code>.
-                            </p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L429"
-                                        >src/gtr/schema.ts:429</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a
-                            id="personalBestGlobalsByIdLevel"
-                            class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <span
-                                >personal<wbr />Best<wbr />Globals<wbr />By<wbr />Id<wbr />Level</span
-                            ><a
-                                href="#personalBestGlobalsByIdLevel"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >personal<wbr />Best<wbr />Globals<wbr />By<wbr />Id<wbr />Level</span
-                            ><span class="tsd-signature-symbol">:</span>
-                            <a
-                                href="gtr.PersonalBestGlobalsConnection.html"
-                                class="tsd-signature-type tsd-kind-interface"
-                                >PersonalBestGlobalsConnection</a
-                            >
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>
-                                Reads and enables pagination through a set of
-                                <code>PersonalBestGlobal</code>.
-                            </p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L431"
-                                        >src/gtr/schema.ts:431</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a id="recordsByIdLevel" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <span>records<wbr />By<wbr />Id<wbr />Level</span
-                            ><a
-                                href="#recordsByIdLevel"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >records<wbr />By<wbr />Id<wbr />Level</span
-                            ><span class="tsd-signature-symbol">:</span>
-                            <a
-                                href="gtr.RecordsConnection.html"
-                                class="tsd-signature-type tsd-kind-interface"
-                                >RecordsConnection</a
-                            >
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>
-                                Reads and enables pagination through a set of
-                                <code>Record</code>.
-                            </p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L433"
-                                        >src/gtr/schema.ts:433</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a id="statsGlobalsByIdLevel" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <span
-                                >stats<wbr />Globals<wbr />By<wbr />Id<wbr />Level</span
-                            ><a
-                                href="#statsGlobalsByIdLevel"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >stats<wbr />Globals<wbr />By<wbr />Id<wbr />Level</span
-                            ><span class="tsd-signature-symbol">:</span>
-                            <a
-                                href="gtr.StatsGlobalsConnection.html"
-                                class="tsd-signature-type tsd-kind-interface"
-                                >StatsGlobalsConnection</a
-                            >
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>
-                                Reads and enables pagination through a set of
-                                <code>StatsGlobal</code>.
-                            </p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L435"
-                                        >src/gtr/schema.ts:435</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a id="upvotesByIdLevel" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <span>upvotes<wbr />By<wbr />Id<wbr />Level</span
-                            ><a
-                                href="#upvotesByIdLevel"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >upvotes<wbr />By<wbr />Id<wbr />Level</span
-                            ><span class="tsd-signature-symbol">:</span>
-                            <a
-                                href="gtr.UpvotesConnection.html"
-                                class="tsd-signature-type tsd-kind-interface"
-                                >UpvotesConnection</a
-                            >
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>
-                                Reads and enables pagination through a set of
-                                <code>Upvote</code>.
-                            </p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L437"
-                                        >src/gtr/schema.ts:437</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a
-                            id="worldRecordGlobalsByIdLevel"
-                            class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <span
-                                >world<wbr />Record<wbr />Globals<wbr />By<wbr />Id<wbr />Level</span
-                            ><a
-                                href="#worldRecordGlobalsByIdLevel"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >world<wbr />Record<wbr />Globals<wbr />By<wbr />Id<wbr />Level</span
-                            ><span class="tsd-signature-symbol">:</span>
-                            <a
-                                href="gtr.WorldRecordGlobalsConnection.html"
-                                class="tsd-signature-type tsd-kind-interface"
-                                >WorldRecordGlobalsConnection</a
-                            >
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>
-                                Reads and enables pagination through a set of
-                                <code>WorldRecordGlobal</code>.
-                            </p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L439"
-                                        >src/gtr/schema.ts:439</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a
-                            id="personalBestYearliesByIdLevel"
-                            class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <span
-                                >personal<wbr />Best<wbr />Yearlies<wbr />By<wbr />Id<wbr />Level</span
-                            ><a
-                                href="#personalBestYearliesByIdLevel"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >personal<wbr />Best<wbr />Yearlies<wbr />By<wbr />Id<wbr />Level</span
-                            ><span class="tsd-signature-symbol">:</span>
-                            <a
-                                href="gtr.PersonalBestYearliesConnection.html"
-                                class="tsd-signature-type tsd-kind-interface"
-                                >PersonalBestYearliesConnection</a
-                            >
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>
-                                Reads and enables pagination through a set of
-                                <code>PersonalBestYearly</code>.
-                            </p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L441"
-                                        >src/gtr/schema.ts:441</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a
-                            id="personalBestMonthliesByIdLevel"
-                            class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <span
-                                >personal<wbr />Best<wbr />Monthlies<wbr />By<wbr />Id<wbr />Level</span
-                            ><a
-                                href="#personalBestMonthliesByIdLevel"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >personal<wbr />Best<wbr />Monthlies<wbr />By<wbr />Id<wbr />Level</span
-                            ><span class="tsd-signature-symbol">:</span>
-                            <a
-                                href="gtr.PersonalBestMonthliesConnection.html"
-                                class="tsd-signature-type tsd-kind-interface"
-                                >PersonalBestMonthliesConnection</a
-                            >
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>
-                                Reads and enables pagination through a set of
-                                <code>PersonalBestMonthly</code>.
-                            </p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L443"
-                                        >src/gtr/schema.ts:443</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a
-                            id="personalBestWeekliesByIdLevel"
-                            class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <span
-                                >personal<wbr />Best<wbr />Weeklies<wbr />By<wbr />Id<wbr />Level</span
-                            ><a
-                                href="#personalBestWeekliesByIdLevel"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >personal<wbr />Best<wbr />Weeklies<wbr />By<wbr />Id<wbr />Level</span
-                            ><span class="tsd-signature-symbol">:</span>
-                            <a
-                                href="gtr.PersonalBestWeekliesConnection.html"
-                                class="tsd-signature-type tsd-kind-interface"
-                                >PersonalBestWeekliesConnection</a
-                            >
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>
-                                Reads and enables pagination through a set of
-                                <code>PersonalBestWeekly</code>.
-                            </p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L445"
-                                        >src/gtr/schema.ts:445</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a
-                            id="personalBestDailiesByIdLevel"
-                            class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <span
-                                >personal<wbr />Best<wbr />Dailies<wbr />By<wbr />Id<wbr />Level</span
-                            ><a
-                                href="#personalBestDailiesByIdLevel"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >personal<wbr />Best<wbr />Dailies<wbr />By<wbr />Id<wbr />Level</span
-                            ><span class="tsd-signature-symbol">:</span>
-                            <a
-                                href="gtr.PersonalBestDailiesConnection.html"
-                                class="tsd-signature-type tsd-kind-interface"
-                                >PersonalBestDailiesConnection</a
-                            >
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>
-                                Reads and enables pagination through a set of
-                                <code>PersonalBestDaily</code>.
-                            </p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L447"
-                                        >src/gtr/schema.ts:447</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a
-                            id="worldRecordMonthliesByIdLevel"
-                            class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <span
-                                >world<wbr />Record<wbr />Monthlies<wbr />By<wbr />Id<wbr />Level</span
-                            ><a
-                                href="#worldRecordMonthliesByIdLevel"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >world<wbr />Record<wbr />Monthlies<wbr />By<wbr />Id<wbr />Level</span
-                            ><span class="tsd-signature-symbol">:</span>
-                            <a
-                                href="gtr.WorldRecordMonthliesConnection.html"
-                                class="tsd-signature-type tsd-kind-interface"
-                                >WorldRecordMonthliesConnection</a
-                            >
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>
-                                Reads and enables pagination through a set of
-                                <code>WorldRecordMonthly</code>.
-                            </p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L449"
-                                        >src/gtr/schema.ts:449</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a
-                            id="worldRecordYearliesByIdLevel"
-                            class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <span
-                                >world<wbr />Record<wbr />Yearlies<wbr />By<wbr />Id<wbr />Level</span
-                            ><a
-                                href="#worldRecordYearliesByIdLevel"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >world<wbr />Record<wbr />Yearlies<wbr />By<wbr />Id<wbr />Level</span
-                            ><span class="tsd-signature-symbol">:</span>
-                            <a
-                                href="gtr.WorldRecordYearliesConnection.html"
-                                class="tsd-signature-type tsd-kind-interface"
-                                >WorldRecordYearliesConnection</a
-                            >
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>
-                                Reads and enables pagination through a set of
-                                <code>WorldRecordYearly</code>.
-                            </p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L451"
-                                        >src/gtr/schema.ts:451</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a
-                            id="worldRecordWeekliesByIdLevel"
-                            class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <span
-                                >world<wbr />Record<wbr />Weeklies<wbr />By<wbr />Id<wbr />Level</span
-                            ><a
-                                href="#worldRecordWeekliesByIdLevel"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >world<wbr />Record<wbr />Weeklies<wbr />By<wbr />Id<wbr />Level</span
-                            ><span class="tsd-signature-symbol">:</span>
-                            <a
-                                href="gtr.WorldRecordWeekliesConnection.html"
-                                class="tsd-signature-type tsd-kind-interface"
-                                >WorldRecordWeekliesConnection</a
-                            >
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>
-                                Reads and enables pagination through a set of
-                                <code>WorldRecordWeekly</code>.
-                            </p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L453"
-                                        >src/gtr/schema.ts:453</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a
-                            id="worldRecordDailiesByIdLevel"
-                            class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <span
-                                >world<wbr />Record<wbr />Dailies<wbr />By<wbr />Id<wbr />Level</span
-                            ><a
-                                href="#worldRecordDailiesByIdLevel"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >world<wbr />Record<wbr />Dailies<wbr />By<wbr />Id<wbr />Level</span
-                            ><span class="tsd-signature-symbol">:</span>
-                            <a
-                                href="gtr.WorldRecordDailiesConnection.html"
-                                class="tsd-signature-type tsd-kind-interface"
-                                >WorldRecordDailiesConnection</a
-                            >
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>
-                                Reads and enables pagination through a set of
-                                <code>WorldRecordDaily</code>.
-                            </p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L455"
-                                        >src/gtr/schema.ts:455</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a id="statsMonthliesByIdLevel" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <span
-                                >stats<wbr />Monthlies<wbr />By<wbr />Id<wbr />Level</span
-                            ><a
-                                href="#statsMonthliesByIdLevel"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >stats<wbr />Monthlies<wbr />By<wbr />Id<wbr />Level</span
-                            ><span class="tsd-signature-symbol">:</span>
-                            <a
-                                href="gtr.StatsMonthliesConnection.html"
-                                class="tsd-signature-type tsd-kind-interface"
-                                >StatsMonthliesConnection</a
-                            >
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>
-                                Reads and enables pagination through a set of
-                                <code>StatsMonthly</code>.
-                            </p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L457"
-                                        >src/gtr/schema.ts:457</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a id="statsYearliesByIdLevel" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <span
-                                >stats<wbr />Yearlies<wbr />By<wbr />Id<wbr />Level</span
-                            ><a
-                                href="#statsYearliesByIdLevel"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >stats<wbr />Yearlies<wbr />By<wbr />Id<wbr />Level</span
-                            ><span class="tsd-signature-symbol">:</span>
-                            <a
-                                href="gtr.StatsYearliesConnection.html"
-                                class="tsd-signature-type tsd-kind-interface"
-                                >StatsYearliesConnection</a
-                            >
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>
-                                Reads and enables pagination through a set of
-                                <code>StatsYearly</code>.
-                            </p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L459"
-                                        >src/gtr/schema.ts:459</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a id="statsWeekliesByIdLevel" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <span
-                                >stats<wbr />Weeklies<wbr />By<wbr />Id<wbr />Level</span
-                            ><a
-                                href="#statsWeekliesByIdLevel"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >stats<wbr />Weeklies<wbr />By<wbr />Id<wbr />Level</span
-                            ><span class="tsd-signature-symbol">:</span>
-                            <a
-                                href="gtr.StatsWeekliesConnection.html"
-                                class="tsd-signature-type tsd-kind-interface"
-                                >StatsWeekliesConnection</a
-                            >
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>
-                                Reads and enables pagination through a set of
-                                <code>StatsWeekly</code>.
-                            </p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L461"
-                                        >src/gtr/schema.ts:461</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a id="statsDailiesByIdLevel" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <span
-                                >stats<wbr />Dailies<wbr />By<wbr />Id<wbr />Level</span
-                            ><a
-                                href="#statsDailiesByIdLevel"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >stats<wbr />Dailies<wbr />By<wbr />Id<wbr />Level</span
-                            ><span class="tsd-signature-symbol">:</span>
-                            <a
-                                href="gtr.StatsDailiesConnection.html"
-                                class="tsd-signature-type tsd-kind-interface"
-                                >StatsDailiesConnection</a
-                            >
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>
-                                Reads and enables pagination through a set of
-                                <code>StatsDaily</code>.
-                            </p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L463"
-                                        >src/gtr/schema.ts:463</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a
-                            id="personalBestQuarterliesByIdLevel"
-                            class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <span
-                                >personal<wbr />Best<wbr />Quarterlies<wbr />By<wbr />Id<wbr />Level</span
-                            ><a
-                                href="#personalBestQuarterliesByIdLevel"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >personal<wbr />Best<wbr />Quarterlies<wbr />By<wbr />Id<wbr />Level</span
-                            ><span class="tsd-signature-symbol">:</span>
-                            <a
-                                href="gtr.PersonalBestQuarterliesConnection.html"
-                                class="tsd-signature-type tsd-kind-interface"
-                                >PersonalBestQuarterliesConnection</a
-                            >
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>
-                                Reads and enables pagination through a set of
-                                <code>PersonalBestQuarterly</code>.
-                            </p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L465"
-                                        >src/gtr/schema.ts:465</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a
-                            id="statsQuarterliesByIdLevel"
-                            class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <span
-                                >stats<wbr />Quarterlies<wbr />By<wbr />Id<wbr />Level</span
-                            ><a
-                                href="#statsQuarterliesByIdLevel"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >stats<wbr />Quarterlies<wbr />By<wbr />Id<wbr />Level</span
-                            ><span class="tsd-signature-symbol">:</span>
-                            <a
-                                href="gtr.StatsQuarterliesConnection.html"
-                                class="tsd-signature-type tsd-kind-interface"
-                                >StatsQuarterliesConnection</a
-                            >
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>
-                                Reads and enables pagination through a set of
-                                <code>StatsQuarterly</code>.
-                            </p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L467"
-                                        >src/gtr/schema.ts:467</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a
-                            id="worldRecordQuarterliesByIdLevel"
-                            class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <span
-                                >world<wbr />Record<wbr />Quarterlies<wbr />By<wbr />Id<wbr />Level</span
-                            ><a
-                                href="#worldRecordQuarterliesByIdLevel"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >world<wbr />Record<wbr />Quarterlies<wbr />By<wbr />Id<wbr />Level</span
-                            ><span class="tsd-signature-symbol">:</span>
-                            <a
-                                href="gtr.WorldRecordQuarterliesConnection.html"
-                                class="tsd-signature-type tsd-kind-interface"
-                                >WorldRecordQuarterliesConnection</a
-                            >
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>
-                                Reads and enables pagination through a set of
-                                <code>WorldRecordQuarterly</code>.
-                            </p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L469"
-                                        >src/gtr/schema.ts:469</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a id="votesByIdLevel" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <span>votes<wbr />By<wbr />Id<wbr />Level</span
-                            ><a
-                                href="#votesByIdLevel"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property"
-                                >votes<wbr />By<wbr />Id<wbr />Level</span
-                            ><span class="tsd-signature-symbol">:</span>
-                            <a
-                                href="gtr.VotesConnection.html"
-                                class="tsd-signature-type tsd-kind-interface"
-                                >VotesConnection</a
-                            >
-                        </div>
-                        <div class="tsd-comment tsd-typography">
-                            <p>
-                                Reads and enables pagination through a set of
-                                <code>Vote</code>.
-                            </p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L471"
-                                        >src/gtr/schema.ts:471</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a id="__typename" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <span>__typename</span
-                            ><a
-                                href="#__typename"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property">__typename</span
-                            ><span class="tsd-signature-symbol">:</span>
-                            <span class="tsd-signature-type"
-                                >&quot;Level&quot;</span
-                            >
-                        </div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/e6e626ee5cd1420cafac1f0d226c2a6438cc29c6/src/gtr/schema.ts#L472"
-                                        >src/gtr/schema.ts:472</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                </section>
-            </div>
-            <div class="col-sidebar">
-                <div class="page-menu">
-                    <div class="tsd-navigation settings">
-                        <details class="tsd-index-accordion">
-                            <summary class="tsd-accordion-summary">
-                                <h3>
-                                    <svg
-                                        width="20"
-                                        height="20"
-                                        viewBox="0 0 24 24"
-                                        fill="none">
-                                        <use
-                                            href="../assets/icons.svg#icon-chevronDown"></use></svg
-                                    >Settings
-                                </h3>
-                            </summary>
-                            <div class="tsd-accordion-details">
-                                <div class="tsd-filter-visibility">
-                                    <h4 class="uppercase">Member Visibility</h4>
-                                    <form>
-                                        <ul id="tsd-filter-options">
-                                            <li class="tsd-filter-item">
-                                                <label class="tsd-filter-input"
-                                                    ><input
-                                                        type="checkbox"
-                                                        id="tsd-filter-protected"
-                                                        name="protected" /><svg
-                                                        width="32"
-                                                        height="32"
-                                                        viewBox="0 0 32 32"
-                                                        aria-hidden="true">
-                                                        <rect
-                                                            class="tsd-checkbox-background"
-                                                            width="30"
-                                                            height="30"
-                                                            x="1"
-                                                            y="1"
-                                                            rx="6"
-                                                            fill="none"></rect>
-                                                        <path
-                                                            class="tsd-checkbox-checkmark"
-                                                            d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25"
-                                                            stroke="none"
-                                                            stroke-width="3.5"
-                                                            stroke-linejoin="round"
-                                                            fill="none"></path></svg
-                                                    ><span
-                                                        >Protected</span
-                                                    ></label
-                                                >
-                                            </li>
-                                            <li class="tsd-filter-item">
-                                                <label class="tsd-filter-input"
-                                                    ><input
-                                                        type="checkbox"
-                                                        id="tsd-filter-private"
-                                                        name="private" /><svg
-                                                        width="32"
-                                                        height="32"
-                                                        viewBox="0 0 32 32"
-                                                        aria-hidden="true">
-                                                        <rect
-                                                            class="tsd-checkbox-background"
-                                                            width="30"
-                                                            height="30"
-                                                            x="1"
-                                                            y="1"
-                                                            rx="6"
-                                                            fill="none"></rect>
-                                                        <path
-                                                            class="tsd-checkbox-checkmark"
-                                                            d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25"
-                                                            stroke="none"
-                                                            stroke-width="3.5"
-                                                            stroke-linejoin="round"
-                                                            fill="none"></path></svg
-                                                    ><span>Private</span></label
-                                                >
-                                            </li>
-                                            <li class="tsd-filter-item">
-                                                <label class="tsd-filter-input"
-                                                    ><input
-                                                        type="checkbox"
-                                                        id="tsd-filter-inherited"
-                                                        name="inherited"
-                                                        checked /><svg
-                                                        width="32"
-                                                        height="32"
-                                                        viewBox="0 0 32 32"
-                                                        aria-hidden="true">
-                                                        <rect
-                                                            class="tsd-checkbox-background"
-                                                            width="30"
-                                                            height="30"
-                                                            x="1"
-                                                            y="1"
-                                                            rx="6"
-                                                            fill="none"></rect>
-                                                        <path
-                                                            class="tsd-checkbox-checkmark"
-                                                            d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25"
-                                                            stroke="none"
-                                                            stroke-width="3.5"
-                                                            stroke-linejoin="round"
-                                                            fill="none"></path></svg
-                                                    ><span
-                                                        >Inherited</span
-                                                    ></label
-                                                >
-                                            </li>
-                                            <li class="tsd-filter-item">
-                                                <label class="tsd-filter-input"
-                                                    ><input
-                                                        type="checkbox"
-                                                        id="tsd-filter-external"
-                                                        name="external" /><svg
-                                                        width="32"
-                                                        height="32"
-                                                        viewBox="0 0 32 32"
-                                                        aria-hidden="true">
-                                                        <rect
-                                                            class="tsd-checkbox-background"
-                                                            width="30"
-                                                            height="30"
-                                                            x="1"
-                                                            y="1"
-                                                            rx="6"
-                                                            fill="none"></rect>
-                                                        <path
-                                                            class="tsd-checkbox-checkmark"
-                                                            d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25"
-                                                            stroke="none"
-                                                            stroke-width="3.5"
-                                                            stroke-linejoin="round"
-                                                            fill="none"></path></svg
-                                                    ><span
-                                                        >External</span
-                                                    ></label
-                                                >
-                                            </li>
-                                        </ul>
-                                    </form>
-                                </div>
-                                <div class="tsd-theme-toggle">
-                                    <h4 class="uppercase">Theme</h4>
-                                    <select id="tsd-theme">
-                                        <option value="os">OS</option>
-                                        <option value="light">Light</option>
-                                        <option value="dark">Dark</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
-                    <details
-                        open
-                        class="tsd-index-accordion tsd-page-navigation">
-                        <summary class="tsd-accordion-summary">
-                            <h3>
-                                <svg
-                                    width="20"
-                                    height="20"
-                                    viewBox="0 0 24 24"
-                                    fill="none">
-                                    <use
-                                        href="../assets/icons.svg#icon-chevronDown"></use></svg
-                                >On This Page
-                            </h3>
-                        </summary>
-                        <div class="tsd-accordion-details">
-                            <a href="#nodeId" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span>node<wbr />Id</span></a
-                            ><a href="#id" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span>id</span></a
-                            ><a href="#hash" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span>hash</span></a
-                            ><a href="#dateCreated" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span>date<wbr />Created</span></a
-                            ><a href="#dateUpdated" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span>date<wbr />Updated</span></a
-                            ><a href="#favoritesByIdLevel" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span
-                                    >favorites<wbr />By<wbr />Id<wbr />Level</span
-                                ></a
-                            ><a href="#levelPointsByIdLevel" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span
-                                    >level<wbr />Points<wbr />By<wbr />Id<wbr />Level</span
-                                ></a
-                            ><a href="#levelItemsByIdLevel" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span
-                                    >level<wbr />Items<wbr />By<wbr />Id<wbr />Level</span
-                                ></a
-                            ><a href="#levelMetadataByIdLevel" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span
-                                    >level<wbr />Metadata<wbr />By<wbr />Id<wbr />Level</span
-                                ></a
-                            ><a href="#personalBestGlobalsByIdLevel" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span
-                                    >personal<wbr />Best<wbr />Globals<wbr />By<wbr />Id<wbr />Level</span
-                                ></a
-                            ><a href="#recordsByIdLevel" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span
-                                    >records<wbr />By<wbr />Id<wbr />Level</span
-                                ></a
-                            ><a href="#statsGlobalsByIdLevel" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span
-                                    >stats<wbr />Globals<wbr />By<wbr />Id<wbr />Level</span
-                                ></a
-                            ><a href="#upvotesByIdLevel" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span
-                                    >upvotes<wbr />By<wbr />Id<wbr />Level</span
-                                ></a
-                            ><a href="#worldRecordGlobalsByIdLevel" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span
-                                    >world<wbr />Record<wbr />Globals<wbr />By<wbr />Id<wbr />Level</span
-                                ></a
-                            ><a href="#personalBestYearliesByIdLevel" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span
-                                    >personal<wbr />Best<wbr />Yearlies<wbr />By<wbr />Id<wbr />Level</span
-                                ></a
-                            ><a href="#personalBestMonthliesByIdLevel" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span
-                                    >personal<wbr />Best<wbr />Monthlies<wbr />By<wbr />Id<wbr />Level</span
-                                ></a
-                            ><a href="#personalBestWeekliesByIdLevel" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span
-                                    >personal<wbr />Best<wbr />Weeklies<wbr />By<wbr />Id<wbr />Level</span
-                                ></a
-                            ><a href="#personalBestDailiesByIdLevel" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span
-                                    >personal<wbr />Best<wbr />Dailies<wbr />By<wbr />Id<wbr />Level</span
-                                ></a
-                            ><a href="#worldRecordMonthliesByIdLevel" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span
-                                    >world<wbr />Record<wbr />Monthlies<wbr />By<wbr />Id<wbr />Level</span
-                                ></a
-                            ><a href="#worldRecordYearliesByIdLevel" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span
-                                    >world<wbr />Record<wbr />Yearlies<wbr />By<wbr />Id<wbr />Level</span
-                                ></a
-                            ><a href="#worldRecordWeekliesByIdLevel" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span
-                                    >world<wbr />Record<wbr />Weeklies<wbr />By<wbr />Id<wbr />Level</span
-                                ></a
-                            ><a href="#worldRecordDailiesByIdLevel" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span
-                                    >world<wbr />Record<wbr />Dailies<wbr />By<wbr />Id<wbr />Level</span
-                                ></a
-                            ><a href="#statsMonthliesByIdLevel" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span
-                                    >stats<wbr />Monthlies<wbr />By<wbr />Id<wbr />Level</span
-                                ></a
-                            ><a href="#statsYearliesByIdLevel" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span
-                                    >stats<wbr />Yearlies<wbr />By<wbr />Id<wbr />Level</span
-                                ></a
-                            ><a href="#statsWeekliesByIdLevel" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span
-                                    >stats<wbr />Weeklies<wbr />By<wbr />Id<wbr />Level</span
-                                ></a
-                            ><a href="#statsDailiesByIdLevel" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span
-                                    >stats<wbr />Dailies<wbr />By<wbr />Id<wbr />Level</span
-                                ></a
-                            ><a
-                                href="#personalBestQuarterliesByIdLevel"
-                                class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span
-                                    >personal<wbr />Best<wbr />Quarterlies<wbr />By<wbr />Id<wbr />Level</span
-                                ></a
-                            ><a href="#statsQuarterliesByIdLevel" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span
-                                    >stats<wbr />Quarterlies<wbr />By<wbr />Id<wbr />Level</span
-                                ></a
-                            ><a href="#worldRecordQuarterliesByIdLevel" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span
-                                    >world<wbr />Record<wbr />Quarterlies<wbr />By<wbr />Id<wbr />Level</span
-                                ></a
-                            ><a href="#votesByIdLevel" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span
-                                    >votes<wbr />By<wbr />Id<wbr />Level</span
-                                ></a
-                            ><a href="#__typename" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span>__typename</span></a
-                            >
-                        </div>
-                    </details>
-                </div>
-                <div class="site-menu">
-                    <nav class="tsd-navigation">
-                        <a href="../index.html"
-                            ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                <use
-                                    href="../assets/icons.svg#icon-1"></use></svg
-                            ><span>@zeepkist/graphql</span></a
-                        >
-                        <ul
-                            class="tsd-small-nested-navigation"
-                            id="tsd-nav-container"
-                            data-base="..">
-                            <li>Loading...</li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
-        <footer></footer>
-        <div class="overlay"></div>
-    </body>
+<!DOCTYPE html>
+<html class="default" lang="en" data-base="..">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="x-ua-compatible" content="IE=edge" />
+		<title>Level | @zeepkist/graphql</title>
+		<meta
+			name="description"
+			content="Documentation for @zeepkist/graphql" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="../assets/style.css" />
+		<link rel="stylesheet" href="../assets/highlight.css" />
+		<script defer src="../assets/main.js"></script>
+		<script async src="../assets/icons.js" id="tsd-icons-script"></script>
+		<script async src="../assets/search.js" id="tsd-search-script"></script>
+		<script
+			async
+			src="../assets/navigation.js"
+			id="tsd-nav-script"></script>
+	</head>
+	<body>
+		<script>
+			document.documentElement.dataset.theme =
+				localStorage.getItem('tsd-theme') || 'os'
+			document.body.style.display = 'none'
+			setTimeout(
+				() =>
+					app
+						? app.showPage()
+						: document.body.style.removeProperty('display'),
+				500
+			)
+		</script>
+		<header class="tsd-page-toolbar">
+			<div class="tsd-toolbar-contents container">
+				<div class="table-cell" id="tsd-search">
+					<div class="field">
+						<label
+							for="tsd-search-field"
+							class="tsd-widget tsd-toolbar-icon search no-caption"
+							><svg
+								width="16"
+								height="16"
+								viewBox="0 0 16 16"
+								fill="none"
+								aria-hidden="true">
+								<use
+									href="../assets/icons.svg#icon-search"></use></svg></label
+						><input
+							type="text"
+							id="tsd-search-field"
+							aria-label="Search" />
+					</div>
+					<div class="field"><div id="tsd-toolbar-links"></div></div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">
+							The search index is not available
+						</li>
+					</ul>
+					<a href="../index.html" class="title">@zeepkist/graphql</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<a
+						href="#"
+						class="tsd-widget tsd-toolbar-icon menu no-caption"
+						data-toggle="menu"
+						aria-label="Menu"
+						><svg
+							width="16"
+							height="16"
+							viewBox="0 0 16 16"
+							fill="none"
+							aria-hidden="true">
+							<use
+								href="../assets/icons.svg#icon-menu"></use></svg
+					></a>
+				</div>
+			</div>
+		</header>
+		<div class="container container-main">
+			<div class="col-content">
+				<div class="tsd-page-title">
+					<ul class="tsd-breadcrumb">
+						<li><a href="../modules.html">@zeepkist/graphql</a></li>
+						<li><a href="../modules/gtr.html">gtr</a></li>
+						<li><a href="gtr.Level.html">Level</a></li>
+					</ul>
+					<h1>Interface Level</h1>
+				</div>
+				<div class="tsd-signature">
+					<span class="tsd-signature-keyword">interface</span>
+					<span class="tsd-kind-interface">Level</span>
+					<span class="tsd-signature-symbol">{</span><br />    <a
+						class="tsd-kind-property"
+						href="gtr.Level.html#nodeid"
+						>nodeId</a
+					><span class="tsd-signature-symbol">:</span>
+					<span class="tsd-signature-type">string</span
+					><span class="tsd-signature-symbol">;</span><br />    <a
+						class="tsd-kind-property"
+						href="gtr.Level.html#id"
+						>id</a
+					><span class="tsd-signature-symbol">:</span>
+					<span class="tsd-signature-type">number</span
+					><span class="tsd-signature-symbol">;</span><br />    <a
+						class="tsd-kind-property"
+						href="gtr.Level.html#hash"
+						>hash</a
+					><span class="tsd-signature-symbol">:</span>
+					<span class="tsd-signature-type">string</span
+					><span class="tsd-signature-symbol">;</span><br />    <a
+						class="tsd-kind-property"
+						href="gtr.Level.html#datecreated"
+						>dateCreated</a
+					><span class="tsd-signature-symbol">:</span>
+					<span class="tsd-signature-type">any</span
+					><span class="tsd-signature-symbol">;</span><br />    <a
+						class="tsd-kind-property"
+						href="gtr.Level.html#dateupdated"
+						>dateUpdated</a
+					><span class="tsd-signature-symbol">:</span>
+					<span class="tsd-signature-type">any</span
+					><span class="tsd-signature-symbol">;</span><br />    <a
+						class="tsd-kind-property"
+						href="gtr.Level.html#favoritesbyidlevel"
+						>favoritesByIdLevel</a
+					><span class="tsd-signature-symbol">:</span>
+					<a
+						href="gtr.FavoritesConnection.html"
+						class="tsd-signature-type tsd-kind-interface"
+						>FavoritesConnection</a
+					><span class="tsd-signature-symbol">;</span><br />    <a
+						class="tsd-kind-property"
+						href="gtr.Level.html#levelitemsbyidlevel"
+						>levelItemsByIdLevel</a
+					><span class="tsd-signature-symbol">:</span>
+					<a
+						href="gtr.LevelItemsConnection.html"
+						class="tsd-signature-type tsd-kind-interface"
+						>LevelItemsConnection</a
+					><span class="tsd-signature-symbol">;</span><br />    <a
+						class="tsd-kind-property"
+						href="gtr.Level.html#levelmetadatabyidlevel"
+						>levelMetadataByIdLevel</a
+					><span class="tsd-signature-symbol">:</span>
+					<a
+						href="gtr.LevelMetadataConnection.html"
+						class="tsd-signature-type tsd-kind-interface"
+						>LevelMetadataConnection</a
+					><span class="tsd-signature-symbol">;</span><br />    <a
+						class="tsd-kind-property"
+						href="gtr.Level.html#levelpointsbyidlevel"
+						>levelPointsByIdLevel</a
+					><span class="tsd-signature-symbol">:</span>
+					<a
+						href="gtr.LevelPointsConnection.html"
+						class="tsd-signature-type tsd-kind-interface"
+						>LevelPointsConnection</a
+					><span class="tsd-signature-symbol">;</span><br />    <a
+						class="tsd-kind-property"
+						href="gtr.Level.html#personalbestglobalsbyidlevel"
+						>personalBestGlobalsByIdLevel</a
+					><span class="tsd-signature-symbol">:</span>
+					<a
+						href="gtr.PersonalBestGlobalsConnection.html"
+						class="tsd-signature-type tsd-kind-interface"
+						>PersonalBestGlobalsConnection</a
+					><span class="tsd-signature-symbol">;</span><br />    <a
+						class="tsd-kind-property"
+						href="gtr.Level.html#recordsbyidlevel"
+						>recordsByIdLevel</a
+					><span class="tsd-signature-symbol">:</span>
+					<a
+						href="gtr.RecordsConnection.html"
+						class="tsd-signature-type tsd-kind-interface"
+						>RecordsConnection</a
+					><span class="tsd-signature-symbol">;</span><br />    <a
+						class="tsd-kind-property"
+						href="gtr.Level.html#upvotesbyidlevel"
+						>upvotesByIdLevel</a
+					><span class="tsd-signature-symbol">:</span>
+					<a
+						href="gtr.UpvotesConnection.html"
+						class="tsd-signature-type tsd-kind-interface"
+						>UpvotesConnection</a
+					><span class="tsd-signature-symbol">;</span><br />    <a
+						class="tsd-kind-property"
+						href="gtr.Level.html#worldrecordglobalsbyidlevel"
+						>worldRecordGlobalsByIdLevel</a
+					><span class="tsd-signature-symbol">:</span>
+					<a
+						href="gtr.WorldRecordGlobalsConnection.html"
+						class="tsd-signature-type tsd-kind-interface"
+						>WorldRecordGlobalsConnection</a
+					><span class="tsd-signature-symbol">;</span><br />    <a
+						class="tsd-kind-property"
+						href="gtr.Level.html#votesbyidlevel"
+						>votesByIdLevel</a
+					><span class="tsd-signature-symbol">:</span>
+					<a
+						href="gtr.VotesConnection.html"
+						class="tsd-signature-type tsd-kind-interface"
+						>VotesConnection</a
+					><span class="tsd-signature-symbol">;</span><br />    <a
+						class="tsd-kind-property"
+						href="gtr.Level.html#__typename"
+						>__typename</a
+					><span class="tsd-signature-symbol">:</span>
+					<span class="tsd-signature-type">&quot;Level&quot;</span
+					><span class="tsd-signature-symbol">;</span><br /><span
+						class="tsd-signature-symbol"
+						>}</span
+					>
+				</div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>
+							Defined in
+							<a
+								href="https://github.com/zeepkist/graphql/blob/adcc4fb6fb61a83d159f829afe4a9d7621f37d11/src/gtr/schema.ts#L339"
+								>src/gtr/schema.ts:339</a
+							>
+						</li>
+					</ul>
+				</aside>
+				<section class="tsd-panel-group tsd-index-group">
+					<section class="tsd-panel tsd-index-panel">
+						<details class="tsd-index-content tsd-accordion" open>
+							<summary
+								class="tsd-accordion-summary tsd-index-summary">
+								<h5
+									class="tsd-index-heading uppercase"
+									role="button"
+									aria-expanded="false"
+									tabindex="0">
+									<svg
+										width="16"
+										height="16"
+										viewBox="0 0 16 16"
+										fill="none"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-chevronSmall"></use>
+									</svg>
+									Index
+								</h5>
+							</summary>
+							<div class="tsd-accordion-details">
+								<section class="tsd-index-section">
+									<h3 class="tsd-index-heading">
+										Properties
+									</h3>
+									<div class="tsd-index-list">
+										<a
+											href="gtr.Level.html#nodeid"
+											class="tsd-index-link"
+											><svg
+												class="tsd-kind-icon"
+												viewBox="0 0 24 24"
+												aria-label="Property">
+												<use
+													href="../assets/icons.svg#icon-1024"></use></svg
+											><span>node<wbr />Id</span></a
+										>
+										<a
+											href="gtr.Level.html#id"
+											class="tsd-index-link"
+											><svg
+												class="tsd-kind-icon"
+												viewBox="0 0 24 24"
+												aria-label="Property">
+												<use
+													href="../assets/icons.svg#icon-1024"></use></svg
+											><span>id</span></a
+										>
+										<a
+											href="gtr.Level.html#hash"
+											class="tsd-index-link"
+											><svg
+												class="tsd-kind-icon"
+												viewBox="0 0 24 24"
+												aria-label="Property">
+												<use
+													href="../assets/icons.svg#icon-1024"></use></svg
+											><span>hash</span></a
+										>
+										<a
+											href="gtr.Level.html#datecreated"
+											class="tsd-index-link"
+											><svg
+												class="tsd-kind-icon"
+												viewBox="0 0 24 24"
+												aria-label="Property">
+												<use
+													href="../assets/icons.svg#icon-1024"></use></svg
+											><span>date<wbr />Created</span></a
+										>
+										<a
+											href="gtr.Level.html#dateupdated"
+											class="tsd-index-link"
+											><svg
+												class="tsd-kind-icon"
+												viewBox="0 0 24 24"
+												aria-label="Property">
+												<use
+													href="../assets/icons.svg#icon-1024"></use></svg
+											><span>date<wbr />Updated</span></a
+										>
+										<a
+											href="gtr.Level.html#favoritesbyidlevel"
+											class="tsd-index-link"
+											><svg
+												class="tsd-kind-icon"
+												viewBox="0 0 24 24"
+												aria-label="Property">
+												<use
+													href="../assets/icons.svg#icon-1024"></use></svg
+											><span
+												>favorites<wbr />By<wbr />Id<wbr />Level</span
+											></a
+										>
+										<a
+											href="gtr.Level.html#levelitemsbyidlevel"
+											class="tsd-index-link"
+											><svg
+												class="tsd-kind-icon"
+												viewBox="0 0 24 24"
+												aria-label="Property">
+												<use
+													href="../assets/icons.svg#icon-1024"></use></svg
+											><span
+												>level<wbr />Items<wbr />By<wbr />Id<wbr />Level</span
+											></a
+										>
+										<a
+											href="gtr.Level.html#levelmetadatabyidlevel"
+											class="tsd-index-link"
+											><svg
+												class="tsd-kind-icon"
+												viewBox="0 0 24 24"
+												aria-label="Property">
+												<use
+													href="../assets/icons.svg#icon-1024"></use></svg
+											><span
+												>level<wbr />Metadata<wbr />By<wbr />Id<wbr />Level</span
+											></a
+										>
+										<a
+											href="gtr.Level.html#levelpointsbyidlevel"
+											class="tsd-index-link"
+											><svg
+												class="tsd-kind-icon"
+												viewBox="0 0 24 24"
+												aria-label="Property">
+												<use
+													href="../assets/icons.svg#icon-1024"></use></svg
+											><span
+												>level<wbr />Points<wbr />By<wbr />Id<wbr />Level</span
+											></a
+										>
+										<a
+											href="gtr.Level.html#personalbestglobalsbyidlevel"
+											class="tsd-index-link"
+											><svg
+												class="tsd-kind-icon"
+												viewBox="0 0 24 24"
+												aria-label="Property">
+												<use
+													href="../assets/icons.svg#icon-1024"></use></svg
+											><span
+												>personal<wbr />Best<wbr />Globals<wbr />By<wbr />Id<wbr />Level</span
+											></a
+										>
+										<a
+											href="gtr.Level.html#recordsbyidlevel"
+											class="tsd-index-link"
+											><svg
+												class="tsd-kind-icon"
+												viewBox="0 0 24 24"
+												aria-label="Property">
+												<use
+													href="../assets/icons.svg#icon-1024"></use></svg
+											><span
+												>records<wbr />By<wbr />Id<wbr />Level</span
+											></a
+										>
+										<a
+											href="gtr.Level.html#upvotesbyidlevel"
+											class="tsd-index-link"
+											><svg
+												class="tsd-kind-icon"
+												viewBox="0 0 24 24"
+												aria-label="Property">
+												<use
+													href="../assets/icons.svg#icon-1024"></use></svg
+											><span
+												>upvotes<wbr />By<wbr />Id<wbr />Level</span
+											></a
+										>
+										<a
+											href="gtr.Level.html#worldrecordglobalsbyidlevel"
+											class="tsd-index-link"
+											><svg
+												class="tsd-kind-icon"
+												viewBox="0 0 24 24"
+												aria-label="Property">
+												<use
+													href="../assets/icons.svg#icon-1024"></use></svg
+											><span
+												>world<wbr />Record<wbr />Globals<wbr />By<wbr />Id<wbr />Level</span
+											></a
+										>
+										<a
+											href="gtr.Level.html#votesbyidlevel"
+											class="tsd-index-link"
+											><svg
+												class="tsd-kind-icon"
+												viewBox="0 0 24 24"
+												aria-label="Property">
+												<use
+													href="../assets/icons.svg#icon-1024"></use></svg
+											><span
+												>votes<wbr />By<wbr />Id<wbr />Level</span
+											></a
+										>
+										<a
+											href="gtr.Level.html#__typename"
+											class="tsd-index-link"
+											><svg
+												class="tsd-kind-icon"
+												viewBox="0 0 24 24"
+												aria-label="Property">
+												<use
+													href="../assets/icons.svg#icon-1024"></use></svg
+											><span>__typename</span></a
+										>
+									</div>
+								</section>
+							</div>
+						</details>
+					</section>
+				</section>
+				<details
+					class="tsd-panel-group tsd-member-group tsd-accordion"
+					open>
+					<summary
+						class="tsd-accordion-summary"
+						data-key="section-Properties">
+						<h2>
+							<svg
+								width="20"
+								height="20"
+								viewBox="0 0 24 24"
+								fill="none"
+								aria-hidden="true">
+								<use
+									href="../assets/icons.svg#icon-chevronDown"></use>
+							</svg>
+							Properties
+						</h2>
+					</summary>
+					<section>
+						<section class="tsd-panel tsd-member">
+							<a id="nodeid" class="tsd-anchor"></a>
+							<h3 class="tsd-anchor-link">
+								<span>node<wbr />Id</span
+								><a
+									href="#nodeid"
+									aria-label="Permalink"
+									class="tsd-anchor-icon"
+									><svg
+										viewBox="0 0 24 24"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-anchor"></use></svg
+								></a>
+							</h3>
+							<div class="tsd-signature">
+								<span class="tsd-kind-property">nodeId</span
+								><span class="tsd-signature-symbol">:</span>
+								<span class="tsd-signature-type">string</span>
+							</div>
+							<div class="tsd-comment tsd-typography">
+								<p>
+									A globally unique identifier. Can be used in
+									various places throughout the system to
+									identify this single value.
+								</p>
+							</div>
+							<div class="tsd-comment tsd-typography"></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>
+										Defined in
+										<a
+											href="https://github.com/zeepkist/graphql/blob/adcc4fb6fb61a83d159f829afe4a9d7621f37d11/src/gtr/schema.ts#L341"
+											>src/gtr/schema.ts:341</a
+										>
+									</li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member">
+							<a id="id" class="tsd-anchor"></a>
+							<h3 class="tsd-anchor-link">
+								<span>id</span
+								><a
+									href="#id"
+									aria-label="Permalink"
+									class="tsd-anchor-icon"
+									><svg
+										viewBox="0 0 24 24"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-anchor"></use></svg
+								></a>
+							</h3>
+							<div class="tsd-signature">
+								<span class="tsd-kind-property">id</span
+								><span class="tsd-signature-symbol">:</span>
+								<span class="tsd-signature-type">number</span>
+							</div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>
+										Defined in
+										<a
+											href="https://github.com/zeepkist/graphql/blob/adcc4fb6fb61a83d159f829afe4a9d7621f37d11/src/gtr/schema.ts#L342"
+											>src/gtr/schema.ts:342</a
+										>
+									</li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member">
+							<a id="hash" class="tsd-anchor"></a>
+							<h3 class="tsd-anchor-link">
+								<span>hash</span
+								><a
+									href="#hash"
+									aria-label="Permalink"
+									class="tsd-anchor-icon"
+									><svg
+										viewBox="0 0 24 24"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-anchor"></use></svg
+								></a>
+							</h3>
+							<div class="tsd-signature">
+								<span class="tsd-kind-property">hash</span
+								><span class="tsd-signature-symbol">:</span>
+								<span class="tsd-signature-type">string</span>
+							</div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>
+										Defined in
+										<a
+											href="https://github.com/zeepkist/graphql/blob/adcc4fb6fb61a83d159f829afe4a9d7621f37d11/src/gtr/schema.ts#L343"
+											>src/gtr/schema.ts:343</a
+										>
+									</li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member">
+							<a id="datecreated" class="tsd-anchor"></a>
+							<h3 class="tsd-anchor-link">
+								<span>date<wbr />Created</span
+								><a
+									href="#datecreated"
+									aria-label="Permalink"
+									class="tsd-anchor-icon"
+									><svg
+										viewBox="0 0 24 24"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-anchor"></use></svg
+								></a>
+							</h3>
+							<div class="tsd-signature">
+								<span class="tsd-kind-property"
+									>dateCreated</span
+								><span class="tsd-signature-symbol">:</span>
+								<span class="tsd-signature-type">any</span>
+							</div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>
+										Defined in
+										<a
+											href="https://github.com/zeepkist/graphql/blob/adcc4fb6fb61a83d159f829afe4a9d7621f37d11/src/gtr/schema.ts#L344"
+											>src/gtr/schema.ts:344</a
+										>
+									</li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member">
+							<a id="dateupdated" class="tsd-anchor"></a>
+							<h3 class="tsd-anchor-link">
+								<span>date<wbr />Updated</span
+								><a
+									href="#dateupdated"
+									aria-label="Permalink"
+									class="tsd-anchor-icon"
+									><svg
+										viewBox="0 0 24 24"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-anchor"></use></svg
+								></a>
+							</h3>
+							<div class="tsd-signature">
+								<span class="tsd-kind-property"
+									>dateUpdated</span
+								><span class="tsd-signature-symbol">:</span>
+								<span class="tsd-signature-type">any</span>
+							</div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>
+										Defined in
+										<a
+											href="https://github.com/zeepkist/graphql/blob/adcc4fb6fb61a83d159f829afe4a9d7621f37d11/src/gtr/schema.ts#L345"
+											>src/gtr/schema.ts:345</a
+										>
+									</li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member">
+							<a id="favoritesbyidlevel" class="tsd-anchor"></a>
+							<h3 class="tsd-anchor-link">
+								<span
+									>favorites<wbr />By<wbr />Id<wbr />Level</span
+								><a
+									href="#favoritesbyidlevel"
+									aria-label="Permalink"
+									class="tsd-anchor-icon"
+									><svg
+										viewBox="0 0 24 24"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-anchor"></use></svg
+								></a>
+							</h3>
+							<div class="tsd-signature">
+								<span class="tsd-kind-property"
+									>favoritesByIdLevel</span
+								><span class="tsd-signature-symbol">:</span>
+								<a
+									href="gtr.FavoritesConnection.html"
+									class="tsd-signature-type tsd-kind-interface"
+									>FavoritesConnection</a
+								>
+							</div>
+							<div class="tsd-comment tsd-typography">
+								<p>
+									Reads and enables pagination through a set
+									of <code>Favorite</code>.
+								</p>
+							</div>
+							<div class="tsd-comment tsd-typography"></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>
+										Defined in
+										<a
+											href="https://github.com/zeepkist/graphql/blob/adcc4fb6fb61a83d159f829afe4a9d7621f37d11/src/gtr/schema.ts#L347"
+											>src/gtr/schema.ts:347</a
+										>
+									</li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member">
+							<a id="levelitemsbyidlevel" class="tsd-anchor"></a>
+							<h3 class="tsd-anchor-link">
+								<span
+									>level<wbr />Items<wbr />By<wbr />Id<wbr />Level</span
+								><a
+									href="#levelitemsbyidlevel"
+									aria-label="Permalink"
+									class="tsd-anchor-icon"
+									><svg
+										viewBox="0 0 24 24"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-anchor"></use></svg
+								></a>
+							</h3>
+							<div class="tsd-signature">
+								<span class="tsd-kind-property"
+									>levelItemsByIdLevel</span
+								><span class="tsd-signature-symbol">:</span>
+								<a
+									href="gtr.LevelItemsConnection.html"
+									class="tsd-signature-type tsd-kind-interface"
+									>LevelItemsConnection</a
+								>
+							</div>
+							<div class="tsd-comment tsd-typography">
+								<p>
+									Reads and enables pagination through a set
+									of <code>LevelItem</code>.
+								</p>
+							</div>
+							<div class="tsd-comment tsd-typography"></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>
+										Defined in
+										<a
+											href="https://github.com/zeepkist/graphql/blob/adcc4fb6fb61a83d159f829afe4a9d7621f37d11/src/gtr/schema.ts#L349"
+											>src/gtr/schema.ts:349</a
+										>
+									</li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member">
+							<a
+								id="levelmetadatabyidlevel"
+								class="tsd-anchor"></a>
+							<h3 class="tsd-anchor-link">
+								<span
+									>level<wbr />Metadata<wbr />By<wbr />Id<wbr />Level</span
+								><a
+									href="#levelmetadatabyidlevel"
+									aria-label="Permalink"
+									class="tsd-anchor-icon"
+									><svg
+										viewBox="0 0 24 24"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-anchor"></use></svg
+								></a>
+							</h3>
+							<div class="tsd-signature">
+								<span class="tsd-kind-property"
+									>levelMetadataByIdLevel</span
+								><span class="tsd-signature-symbol">:</span>
+								<a
+									href="gtr.LevelMetadataConnection.html"
+									class="tsd-signature-type tsd-kind-interface"
+									>LevelMetadataConnection</a
+								>
+							</div>
+							<div class="tsd-comment tsd-typography">
+								<p>
+									Reads and enables pagination through a set
+									of <code>LevelMetadatum</code>.
+								</p>
+							</div>
+							<div class="tsd-comment tsd-typography"></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>
+										Defined in
+										<a
+											href="https://github.com/zeepkist/graphql/blob/adcc4fb6fb61a83d159f829afe4a9d7621f37d11/src/gtr/schema.ts#L351"
+											>src/gtr/schema.ts:351</a
+										>
+									</li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member">
+							<a id="levelpointsbyidlevel" class="tsd-anchor"></a>
+							<h3 class="tsd-anchor-link">
+								<span
+									>level<wbr />Points<wbr />By<wbr />Id<wbr />Level</span
+								><a
+									href="#levelpointsbyidlevel"
+									aria-label="Permalink"
+									class="tsd-anchor-icon"
+									><svg
+										viewBox="0 0 24 24"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-anchor"></use></svg
+								></a>
+							</h3>
+							<div class="tsd-signature">
+								<span class="tsd-kind-property"
+									>levelPointsByIdLevel</span
+								><span class="tsd-signature-symbol">:</span>
+								<a
+									href="gtr.LevelPointsConnection.html"
+									class="tsd-signature-type tsd-kind-interface"
+									>LevelPointsConnection</a
+								>
+							</div>
+							<div class="tsd-comment tsd-typography">
+								<p>
+									Reads and enables pagination through a set
+									of <code>LevelPoint</code>.
+								</p>
+							</div>
+							<div class="tsd-comment tsd-typography"></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>
+										Defined in
+										<a
+											href="https://github.com/zeepkist/graphql/blob/adcc4fb6fb61a83d159f829afe4a9d7621f37d11/src/gtr/schema.ts#L353"
+											>src/gtr/schema.ts:353</a
+										>
+									</li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member">
+							<a
+								id="personalbestglobalsbyidlevel"
+								class="tsd-anchor"></a>
+							<h3 class="tsd-anchor-link">
+								<span
+									>personal<wbr />Best<wbr />Globals<wbr />By<wbr />Id<wbr />Level</span
+								><a
+									href="#personalbestglobalsbyidlevel"
+									aria-label="Permalink"
+									class="tsd-anchor-icon"
+									><svg
+										viewBox="0 0 24 24"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-anchor"></use></svg
+								></a>
+							</h3>
+							<div class="tsd-signature">
+								<span class="tsd-kind-property"
+									>personalBestGlobalsByIdLevel</span
+								><span class="tsd-signature-symbol">:</span>
+								<a
+									href="gtr.PersonalBestGlobalsConnection.html"
+									class="tsd-signature-type tsd-kind-interface"
+									>PersonalBestGlobalsConnection</a
+								>
+							</div>
+							<div class="tsd-comment tsd-typography">
+								<p>
+									Reads and enables pagination through a set
+									of <code>PersonalBestGlobal</code>.
+								</p>
+							</div>
+							<div class="tsd-comment tsd-typography"></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>
+										Defined in
+										<a
+											href="https://github.com/zeepkist/graphql/blob/adcc4fb6fb61a83d159f829afe4a9d7621f37d11/src/gtr/schema.ts#L355"
+											>src/gtr/schema.ts:355</a
+										>
+									</li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member">
+							<a id="recordsbyidlevel" class="tsd-anchor"></a>
+							<h3 class="tsd-anchor-link">
+								<span
+									>records<wbr />By<wbr />Id<wbr />Level</span
+								><a
+									href="#recordsbyidlevel"
+									aria-label="Permalink"
+									class="tsd-anchor-icon"
+									><svg
+										viewBox="0 0 24 24"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-anchor"></use></svg
+								></a>
+							</h3>
+							<div class="tsd-signature">
+								<span class="tsd-kind-property"
+									>recordsByIdLevel</span
+								><span class="tsd-signature-symbol">:</span>
+								<a
+									href="gtr.RecordsConnection.html"
+									class="tsd-signature-type tsd-kind-interface"
+									>RecordsConnection</a
+								>
+							</div>
+							<div class="tsd-comment tsd-typography">
+								<p>
+									Reads and enables pagination through a set
+									of <code>Record</code>.
+								</p>
+							</div>
+							<div class="tsd-comment tsd-typography"></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>
+										Defined in
+										<a
+											href="https://github.com/zeepkist/graphql/blob/adcc4fb6fb61a83d159f829afe4a9d7621f37d11/src/gtr/schema.ts#L357"
+											>src/gtr/schema.ts:357</a
+										>
+									</li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member">
+							<a id="upvotesbyidlevel" class="tsd-anchor"></a>
+							<h3 class="tsd-anchor-link">
+								<span
+									>upvotes<wbr />By<wbr />Id<wbr />Level</span
+								><a
+									href="#upvotesbyidlevel"
+									aria-label="Permalink"
+									class="tsd-anchor-icon"
+									><svg
+										viewBox="0 0 24 24"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-anchor"></use></svg
+								></a>
+							</h3>
+							<div class="tsd-signature">
+								<span class="tsd-kind-property"
+									>upvotesByIdLevel</span
+								><span class="tsd-signature-symbol">:</span>
+								<a
+									href="gtr.UpvotesConnection.html"
+									class="tsd-signature-type tsd-kind-interface"
+									>UpvotesConnection</a
+								>
+							</div>
+							<div class="tsd-comment tsd-typography">
+								<p>
+									Reads and enables pagination through a set
+									of <code>Upvote</code>.
+								</p>
+							</div>
+							<div class="tsd-comment tsd-typography"></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>
+										Defined in
+										<a
+											href="https://github.com/zeepkist/graphql/blob/adcc4fb6fb61a83d159f829afe4a9d7621f37d11/src/gtr/schema.ts#L359"
+											>src/gtr/schema.ts:359</a
+										>
+									</li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member">
+							<a
+								id="worldrecordglobalsbyidlevel"
+								class="tsd-anchor"></a>
+							<h3 class="tsd-anchor-link">
+								<span
+									>world<wbr />Record<wbr />Globals<wbr />By<wbr />Id<wbr />Level</span
+								><a
+									href="#worldrecordglobalsbyidlevel"
+									aria-label="Permalink"
+									class="tsd-anchor-icon"
+									><svg
+										viewBox="0 0 24 24"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-anchor"></use></svg
+								></a>
+							</h3>
+							<div class="tsd-signature">
+								<span class="tsd-kind-property"
+									>worldRecordGlobalsByIdLevel</span
+								><span class="tsd-signature-symbol">:</span>
+								<a
+									href="gtr.WorldRecordGlobalsConnection.html"
+									class="tsd-signature-type tsd-kind-interface"
+									>WorldRecordGlobalsConnection</a
+								>
+							</div>
+							<div class="tsd-comment tsd-typography">
+								<p>
+									Reads and enables pagination through a set
+									of <code>WorldRecordGlobal</code>.
+								</p>
+							</div>
+							<div class="tsd-comment tsd-typography"></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>
+										Defined in
+										<a
+											href="https://github.com/zeepkist/graphql/blob/adcc4fb6fb61a83d159f829afe4a9d7621f37d11/src/gtr/schema.ts#L361"
+											>src/gtr/schema.ts:361</a
+										>
+									</li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member">
+							<a id="votesbyidlevel" class="tsd-anchor"></a>
+							<h3 class="tsd-anchor-link">
+								<span>votes<wbr />By<wbr />Id<wbr />Level</span
+								><a
+									href="#votesbyidlevel"
+									aria-label="Permalink"
+									class="tsd-anchor-icon"
+									><svg
+										viewBox="0 0 24 24"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-anchor"></use></svg
+								></a>
+							</h3>
+							<div class="tsd-signature">
+								<span class="tsd-kind-property"
+									>votesByIdLevel</span
+								><span class="tsd-signature-symbol">:</span>
+								<a
+									href="gtr.VotesConnection.html"
+									class="tsd-signature-type tsd-kind-interface"
+									>VotesConnection</a
+								>
+							</div>
+							<div class="tsd-comment tsd-typography">
+								<p>
+									Reads and enables pagination through a set
+									of <code>Vote</code>.
+								</p>
+							</div>
+							<div class="tsd-comment tsd-typography"></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>
+										Defined in
+										<a
+											href="https://github.com/zeepkist/graphql/blob/adcc4fb6fb61a83d159f829afe4a9d7621f37d11/src/gtr/schema.ts#L363"
+											>src/gtr/schema.ts:363</a
+										>
+									</li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member">
+							<a id="__typename" class="tsd-anchor"></a>
+							<h3 class="tsd-anchor-link">
+								<span>__typename</span
+								><a
+									href="#__typename"
+									aria-label="Permalink"
+									class="tsd-anchor-icon"
+									><svg
+										viewBox="0 0 24 24"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-anchor"></use></svg
+								></a>
+							</h3>
+							<div class="tsd-signature">
+								<span class="tsd-kind-property">__typename</span
+								><span class="tsd-signature-symbol">:</span>
+								<span class="tsd-signature-type"
+									>&quot;Level&quot;</span
+								>
+							</div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>
+										Defined in
+										<a
+											href="https://github.com/zeepkist/graphql/blob/adcc4fb6fb61a83d159f829afe4a9d7621f37d11/src/gtr/schema.ts#L364"
+											>src/gtr/schema.ts:364</a
+										>
+									</li>
+								</ul>
+							</aside>
+						</section>
+					</section>
+				</details>
+			</div>
+			<div class="col-sidebar">
+				<div class="page-menu">
+					<div class="tsd-navigation settings">
+						<details class="tsd-accordion">
+							<summary class="tsd-accordion-summary">
+								<h3>
+									<svg
+										width="20"
+										height="20"
+										viewBox="0 0 24 24"
+										fill="none"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-chevronDown"></use></svg
+									>Settings
+								</h3>
+							</summary>
+							<div class="tsd-accordion-details">
+								<div class="tsd-filter-visibility">
+									<span class="settings-label"
+										>Member Visibility</span
+									>
+									<ul id="tsd-filter-options">
+										<li class="tsd-filter-item">
+											<label class="tsd-filter-input"
+												><input
+													type="checkbox"
+													id="tsd-filter-protected"
+													name="protected" /><svg
+													width="32"
+													height="32"
+													viewBox="0 0 32 32"
+													aria-hidden="true">
+													<rect
+														class="tsd-checkbox-background"
+														width="30"
+														height="30"
+														x="1"
+														y="1"
+														rx="6"
+														fill="none"></rect>
+													<path
+														class="tsd-checkbox-checkmark"
+														d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25"
+														stroke="none"
+														stroke-width="3.5"
+														stroke-linejoin="round"
+														fill="none"></path></svg
+												><span>Protected</span></label
+											>
+										</li>
+										<li class="tsd-filter-item">
+											<label class="tsd-filter-input"
+												><input
+													type="checkbox"
+													id="tsd-filter-inherited"
+													name="inherited"
+													checked /><svg
+													width="32"
+													height="32"
+													viewBox="0 0 32 32"
+													aria-hidden="true">
+													<rect
+														class="tsd-checkbox-background"
+														width="30"
+														height="30"
+														x="1"
+														y="1"
+														rx="6"
+														fill="none"></rect>
+													<path
+														class="tsd-checkbox-checkmark"
+														d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25"
+														stroke="none"
+														stroke-width="3.5"
+														stroke-linejoin="round"
+														fill="none"></path></svg
+												><span>Inherited</span></label
+											>
+										</li>
+										<li class="tsd-filter-item">
+											<label class="tsd-filter-input"
+												><input
+													type="checkbox"
+													id="tsd-filter-external"
+													name="external" /><svg
+													width="32"
+													height="32"
+													viewBox="0 0 32 32"
+													aria-hidden="true">
+													<rect
+														class="tsd-checkbox-background"
+														width="30"
+														height="30"
+														x="1"
+														y="1"
+														rx="6"
+														fill="none"></rect>
+													<path
+														class="tsd-checkbox-checkmark"
+														d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25"
+														stroke="none"
+														stroke-width="3.5"
+														stroke-linejoin="round"
+														fill="none"></path></svg
+												><span>External</span></label
+											>
+										</li>
+									</ul>
+								</div>
+								<div class="tsd-theme-toggle">
+									<label
+										class="settings-label"
+										for="tsd-theme"
+										>Theme</label
+									><select id="tsd-theme">
+										<option value="os">OS</option>
+										<option value="light">Light</option>
+										<option value="dark">Dark</option>
+									</select>
+								</div>
+							</div>
+						</details>
+					</div>
+					<details open class="tsd-accordion tsd-page-navigation">
+						<summary class="tsd-accordion-summary">
+							<h3>
+								<svg
+									width="20"
+									height="20"
+									viewBox="0 0 24 24"
+									fill="none"
+									aria-hidden="true">
+									<use
+										href="../assets/icons.svg#icon-chevronDown"></use></svg
+								>On This Page
+							</h3>
+						</summary>
+						<div class="tsd-accordion-details">
+							<details
+								open
+								class="tsd-accordion tsd-page-navigation-section">
+								<summary
+									class="tsd-accordion-summary"
+									data-key="section-Properties">
+									<svg
+										width="20"
+										height="20"
+										viewBox="0 0 24 24"
+										fill="none"
+										aria-hidden="true">
+										<use
+											href="../assets/icons.svg#icon-chevronDown"></use></svg
+									>Properties
+								</summary>
+								<div>
+									<a href="#nodeid" class=""
+										><svg
+											class="tsd-kind-icon"
+											viewBox="0 0 24 24"
+											aria-label="Property">
+											<use
+												href="../assets/icons.svg#icon-1024"></use></svg
+										><span>node<wbr />Id</span></a
+									><a href="#id" class=""
+										><svg
+											class="tsd-kind-icon"
+											viewBox="0 0 24 24"
+											aria-label="Property">
+											<use
+												href="../assets/icons.svg#icon-1024"></use></svg
+										><span>id</span></a
+									><a href="#hash" class=""
+										><svg
+											class="tsd-kind-icon"
+											viewBox="0 0 24 24"
+											aria-label="Property">
+											<use
+												href="../assets/icons.svg#icon-1024"></use></svg
+										><span>hash</span></a
+									><a href="#datecreated" class=""
+										><svg
+											class="tsd-kind-icon"
+											viewBox="0 0 24 24"
+											aria-label="Property">
+											<use
+												href="../assets/icons.svg#icon-1024"></use></svg
+										><span>date<wbr />Created</span></a
+									><a href="#dateupdated" class=""
+										><svg
+											class="tsd-kind-icon"
+											viewBox="0 0 24 24"
+											aria-label="Property">
+											<use
+												href="../assets/icons.svg#icon-1024"></use></svg
+										><span>date<wbr />Updated</span></a
+									><a href="#favoritesbyidlevel" class=""
+										><svg
+											class="tsd-kind-icon"
+											viewBox="0 0 24 24"
+											aria-label="Property">
+											<use
+												href="../assets/icons.svg#icon-1024"></use></svg
+										><span
+											>favorites<wbr />By<wbr />Id<wbr />Level</span
+										></a
+									><a href="#levelitemsbyidlevel" class=""
+										><svg
+											class="tsd-kind-icon"
+											viewBox="0 0 24 24"
+											aria-label="Property">
+											<use
+												href="../assets/icons.svg#icon-1024"></use></svg
+										><span
+											>level<wbr />Items<wbr />By<wbr />Id<wbr />Level</span
+										></a
+									><a href="#levelmetadatabyidlevel" class=""
+										><svg
+											class="tsd-kind-icon"
+											viewBox="0 0 24 24"
+											aria-label="Property">
+											<use
+												href="../assets/icons.svg#icon-1024"></use></svg
+										><span
+											>level<wbr />Metadata<wbr />By<wbr />Id<wbr />Level</span
+										></a
+									><a href="#levelpointsbyidlevel" class=""
+										><svg
+											class="tsd-kind-icon"
+											viewBox="0 0 24 24"
+											aria-label="Property">
+											<use
+												href="../assets/icons.svg#icon-1024"></use></svg
+										><span
+											>level<wbr />Points<wbr />By<wbr />Id<wbr />Level</span
+										></a
+									><a
+										href="#personalbestglobalsbyidlevel"
+										class=""
+										><svg
+											class="tsd-kind-icon"
+											viewBox="0 0 24 24"
+											aria-label="Property">
+											<use
+												href="../assets/icons.svg#icon-1024"></use></svg
+										><span
+											>personal<wbr />Best<wbr />Globals<wbr />By<wbr />Id<wbr />Level</span
+										></a
+									><a href="#recordsbyidlevel" class=""
+										><svg
+											class="tsd-kind-icon"
+											viewBox="0 0 24 24"
+											aria-label="Property">
+											<use
+												href="../assets/icons.svg#icon-1024"></use></svg
+										><span
+											>records<wbr />By<wbr />Id<wbr />Level</span
+										></a
+									><a href="#upvotesbyidlevel" class=""
+										><svg
+											class="tsd-kind-icon"
+											viewBox="0 0 24 24"
+											aria-label="Property">
+											<use
+												href="../assets/icons.svg#icon-1024"></use></svg
+										><span
+											>upvotes<wbr />By<wbr />Id<wbr />Level</span
+										></a
+									><a
+										href="#worldrecordglobalsbyidlevel"
+										class=""
+										><svg
+											class="tsd-kind-icon"
+											viewBox="0 0 24 24"
+											aria-label="Property">
+											<use
+												href="../assets/icons.svg#icon-1024"></use></svg
+										><span
+											>world<wbr />Record<wbr />Globals<wbr />By<wbr />Id<wbr />Level</span
+										></a
+									><a href="#votesbyidlevel" class=""
+										><svg
+											class="tsd-kind-icon"
+											viewBox="0 0 24 24"
+											aria-label="Property">
+											<use
+												href="../assets/icons.svg#icon-1024"></use></svg
+										><span
+											>votes<wbr />By<wbr />Id<wbr />Level</span
+										></a
+									><a href="#__typename" class=""
+										><svg
+											class="tsd-kind-icon"
+											viewBox="0 0 24 24"
+											aria-label="Property">
+											<use
+												href="../assets/icons.svg#icon-1024"></use></svg
+										><span>__typename</span></a
+									>
+								</div>
+							</details>
+						</div>
+					</details>
+				</div>
+				<div class="site-menu">
+					<nav class="tsd-navigation">
+						<a href="../modules.html">@zeepkist/graphql</a>
+						<ul
+							class="tsd-small-nested-navigation"
+							id="tsd-nav-container">
+							<li>Loading...</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+		<footer></footer>
+		<div class="overlay"></div>
+	</body>
 </html>
