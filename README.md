@@ -1,4 +1,4 @@
-# GTR & Zworpshop GraphQL Clients
+# Zeepkist GraphQL Clients
 
 Fully typed TypeScript GraphQL clients for Zeepkist, including [GTR and Workshop] GraphQL APIs for Zeepkist.
 
