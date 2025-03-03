@@ -13,6 +13,8 @@ import type {
 	MutationGenqlSelection,
 	Query,
 	QueryGenqlSelection,
+	Subscription,
+	SubscriptionGenqlSelection,
 } from './schema.js';
 export type { FieldsSelection } from '../runtime/index.js';
 export { GenqlError };
@@ -33,7 +35,7 @@ export interface Client {
 
 export const createClient = (options?: ClientOptions): Client =>
 	createClientOriginal({
-		url: 'https://graphql.zeepki.st',
+		url: 'https://graphql-beta.zeepki.st',
 
 		...options,
 		queryRoot: typeMap.Query!,
@@ -60,3 +62,14 @@ export const generateMutationOp: (
 	fields: MutationGenqlSelection & { __name?: string },
 ) => GraphqlOperation = (fields) =>
 	generateGraphqlOperation('mutation', typeMap.Mutation!, fields as any);
+
+export type SubscriptionResult<fields extends SubscriptionGenqlSelection> =
+	FieldsSelection<Subscription, fields>;
+export const generateSubscriptionOp: (
+	fields: SubscriptionGenqlSelection & { __name?: string },
+) => GraphqlOperation = (fields) =>
+	generateGraphqlOperation(
+		'subscription',
+		typeMap.Subscription!,
+		fields as any,
+	);

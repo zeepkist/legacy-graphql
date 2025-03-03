@@ -28,113 +28,113 @@ export interface Query {
 	/** Fetches an object given its globally unique `ID`. */
 	node: Node | null;
 	/** Reads and enables pagination through a set of `VersionInfo`. */
-	allVersionInfos: VersionInfosConnection | null;
+	versionInfos: VersionInfosConnection | null;
 	/** Reads and enables pagination through a set of `Favorite`. */
-	allFavorites: FavoritesConnection | null;
+	favorites: FavoritesConnection | null;
 	/** Reads and enables pagination through a set of `Level`. */
-	allLevels: LevelsConnection | null;
+	levels: LevelsConnection | null;
 	/** Reads and enables pagination through a set of `LevelItem`. */
-	allLevelItems: LevelItemsConnection | null;
+	levelItems: LevelItemsConnection | null;
 	/** Reads and enables pagination through a set of `LevelMetadatum`. */
-	allLevelMetadata: LevelMetadataConnection | null;
+	levelMetadata: LevelMetadataConnection | null;
 	/** Reads and enables pagination through a set of `LevelPoint`. */
-	allLevelPoints: LevelPointsConnection | null;
+	levelPoints: LevelPointsConnection | null;
 	/** Reads and enables pagination through a set of `LevelRequest`. */
-	allLevelRequests: LevelRequestsConnection | null;
+	levelRequests: LevelRequestsConnection | null;
 	/** Reads and enables pagination through a set of `PersonalBestGlobal`. */
-	allPersonalBestGlobals: PersonalBestGlobalsConnection | null;
+	personalBestGlobals: PersonalBestGlobalsConnection | null;
 	/** Reads and enables pagination through a set of `Record`. */
-	allRecords: RecordsConnection | null;
+	records: RecordsConnection | null;
 	/** Reads and enables pagination through a set of `RecordMedia`. */
-	allRecordMedias: RecordMediasConnection | null;
+	recordMedias: RecordMediaConnection | null;
 	/** Reads and enables pagination through a set of `SampledFavorite`. */
-	allSampledFavorites: SampledFavoritesConnection | null;
+	sampledFavorites: SampledFavoritesConnection | null;
 	/** Reads and enables pagination through a set of `SampledLevel`. */
-	allSampledLevels: SampledLevelsConnection | null;
+	sampledLevels: SampledLevelsConnection | null;
 	/** Reads and enables pagination through a set of `SampledLevelItem`. */
-	allSampledLevelItems: SampledLevelItemsConnection | null;
+	sampledLevelItems: SampledLevelItemsConnection | null;
 	/** Reads and enables pagination through a set of `SampledLevelMetadatum`. */
-	allSampledLevelMetadata: SampledLevelMetadataConnection | null;
+	sampledLevelMetadata: SampledLevelMetadataConnection | null;
 	/** Reads and enables pagination through a set of `SampledLevelPoint`. */
-	allSampledLevelPoints: SampledLevelPointsConnection | null;
+	sampledLevelPoints: SampledLevelPointsConnection | null;
 	/** Reads and enables pagination through a set of `SampledLevelRequest`. */
-	allSampledLevelRequests: SampledLevelRequestsConnection | null;
+	sampledLevelRequests: SampledLevelRequestsConnection | null;
 	/** Reads and enables pagination through a set of `SampledPersonalBestGlobal`. */
-	allSampledPersonalBestGlobals: SampledPersonalBestGlobalsConnection | null;
+	sampledPersonalBestGlobals: SampledPersonalBestGlobalsConnection | null;
 	/** Reads and enables pagination through a set of `SampledRecord`. */
-	allSampledRecords: SampledRecordsConnection | null;
+	sampledRecords: SampledRecordsConnection | null;
 	/** Reads and enables pagination through a set of `SampledRecordMedia`. */
-	allSampledRecordMedias: SampledRecordMediasConnection | null;
+	sampledRecordMedias: SampledRecordMediaConnection | null;
 	/** Reads and enables pagination through a set of `SampledUpvote`. */
-	allSampledUpvotes: SampledUpvotesConnection | null;
+	sampledUpvotes: SampledUpvotesConnection | null;
 	/** Reads and enables pagination through a set of `SampledUser`. */
-	allSampledUsers: SampledUsersConnection | null;
+	sampledUsers: SampledUsersConnection | null;
 	/** Reads and enables pagination through a set of `SampledUserPoint`. */
-	allSampledUserPoints: SampledUserPointsConnection | null;
+	sampledUserPoints: SampledUserPointsConnection | null;
 	/** Reads and enables pagination through a set of `SampledVersion`. */
-	allSampledVersions: SampledVersionsConnection | null;
+	sampledVersions: SampledVersionsConnection | null;
 	/** Reads and enables pagination through a set of `SampledWorldRecordGlobal`. */
-	allSampledWorldRecordGlobals: SampledWorldRecordGlobalsConnection | null;
+	sampledWorldRecordGlobals: SampledWorldRecordGlobalsConnection | null;
 	/** Reads and enables pagination through a set of `Upvote`. */
-	allUpvotes: UpvotesConnection | null;
+	upvotes: UpvotesConnection | null;
 	/** Reads and enables pagination through a set of `User`. */
-	allUsers: UsersConnection | null;
+	users: UsersConnection | null;
 	/** Reads and enables pagination through a set of `UserPoint`. */
-	allUserPoints: UserPointsConnection | null;
+	userPoints: UserPointsConnection | null;
 	/** Reads and enables pagination through a set of `Version`. */
-	allVersions: VersionsConnection | null;
+	versions: VersionsConnection | null;
 	/** Reads and enables pagination through a set of `Vote`. */
-	allVotes: VotesConnection | null;
+	votes: VotesConnection | null;
 	/** Reads and enables pagination through a set of `WorldRecordGlobal`. */
-	allWorldRecordGlobals: WorldRecordGlobalsConnection | null;
-	favoriteById: Favorite | null;
-	levelById: Level | null;
+	worldRecordGlobals: WorldRecordGlobalsConnection | null;
+	favorite: Favorite | null;
+	level: Level | null;
 	levelByHash: Level | null;
-	levelItemById: LevelItem | null;
-	levelMetadatumById: LevelMetadatum | null;
-	levelPointById: LevelPoint | null;
-	levelRequestById: LevelRequest | null;
-	personalBestGlobalById: PersonalBestGlobal | null;
-	recordById: Record | null;
-	recordMediaById: RecordMedia | null;
-	upvoteById: Upvote | null;
-	userById: User | null;
-	userPointById: UserPoint | null;
-	versionById: Version | null;
-	voteById: Vote | null;
-	worldRecordGlobalById: WorldRecordGlobal | null;
+	levelItem: LevelItem | null;
+	levelMetadatum: LevelMetadatum | null;
+	levelPoint: LevelPoint | null;
+	levelRequest: LevelRequest | null;
+	personalBestGlobal: PersonalBestGlobal | null;
+	record: Record | null;
+	recordMedia: RecordMedia | null;
+	upvote: Upvote | null;
+	user: User | null;
+	userPoint: UserPoint | null;
+	version: Version | null;
+	vote: Vote | null;
+	worldRecordGlobal: WorldRecordGlobal | null;
 	/** Retrieves filtered level items based on specified criteria. */
 	zRtm: ZRtmConnection | null;
 	/** Reads a single `Favorite` using its globally unique `ID`. */
-	favorite: Favorite | null;
+	favoriteByNodeId: Favorite | null;
 	/** Reads a single `Level` using its globally unique `ID`. */
-	level: Level | null;
+	levelByNodeId: Level | null;
 	/** Reads a single `LevelItem` using its globally unique `ID`. */
-	levelItem: LevelItem | null;
+	levelItemByNodeId: LevelItem | null;
 	/** Reads a single `LevelMetadatum` using its globally unique `ID`. */
-	levelMetadatum: LevelMetadatum | null;
+	levelMetadatumByNodeId: LevelMetadatum | null;
 	/** Reads a single `LevelPoint` using its globally unique `ID`. */
-	levelPoint: LevelPoint | null;
+	levelPointByNodeId: LevelPoint | null;
 	/** Reads a single `LevelRequest` using its globally unique `ID`. */
-	levelRequest: LevelRequest | null;
+	levelRequestByNodeId: LevelRequest | null;
 	/** Reads a single `PersonalBestGlobal` using its globally unique `ID`. */
-	personalBestGlobal: PersonalBestGlobal | null;
+	personalBestGlobalByNodeId: PersonalBestGlobal | null;
 	/** Reads a single `Record` using its globally unique `ID`. */
-	record: Record | null;
+	recordByNodeId: Record | null;
 	/** Reads a single `RecordMedia` using its globally unique `ID`. */
-	recordMedia: RecordMedia | null;
+	recordMediaByNodeId: RecordMedia | null;
 	/** Reads a single `Upvote` using its globally unique `ID`. */
-	upvote: Upvote | null;
+	upvoteByNodeId: Upvote | null;
 	/** Reads a single `User` using its globally unique `ID`. */
-	user: User | null;
+	userByNodeId: User | null;
 	/** Reads a single `UserPoint` using its globally unique `ID`. */
-	userPoint: UserPoint | null;
+	userPointByNodeId: UserPoint | null;
 	/** Reads a single `Version` using its globally unique `ID`. */
-	version: Version | null;
+	versionByNodeId: Version | null;
 	/** Reads a single `Vote` using its globally unique `ID`. */
-	vote: Vote | null;
+	voteByNodeId: Vote | null;
 	/** Reads a single `WorldRecordGlobal` using its globally unique `ID`. */
-	worldRecordGlobal: WorldRecordGlobal | null;
+	worldRecordGlobalByNodeId: WorldRecordGlobal | null;
 	__typename: 'Query';
 }
 
@@ -161,7 +161,7 @@ export type Node = (
 /** A connection to a list of `VersionInfo` values. */
 export interface VersionInfosConnection {
 	/** A list of `VersionInfo` objects. */
-	nodes: (VersionInfo | null)[];
+	nodes: VersionInfo[];
 	/** A list of edges which contains the `VersionInfo` and cursor to aid in pagination. */
 	edges: VersionInfosEdge[];
 	/** Information to aid in pagination. */
@@ -183,7 +183,7 @@ export interface VersionInfosEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `VersionInfo` at the end of the edge. */
-	node: VersionInfo | null;
+	node: VersionInfo;
 	__typename: 'VersionInfosEdge';
 }
 
@@ -213,7 +213,7 @@ export type VersionInfosOrderBy =
 /** A connection to a list of `Favorite` values. */
 export interface FavoritesConnection {
 	/** A list of `Favorite` objects. */
-	nodes: (Favorite | null)[];
+	nodes: Favorite[];
 	/** A list of edges which contains the `Favorite` and cursor to aid in pagination. */
 	edges: FavoritesEdge[];
 	/** Information to aid in pagination. */
@@ -282,7 +282,7 @@ export type FavoritesOrderBy =
 /** A connection to a list of `PersonalBestGlobal` values. */
 export interface PersonalBestGlobalsConnection {
 	/** A list of `PersonalBestGlobal` objects. */
-	nodes: (PersonalBestGlobal | null)[];
+	nodes: PersonalBestGlobal[];
 	/** A list of edges which contains the `PersonalBestGlobal` and cursor to aid in pagination. */
 	edges: PersonalBestGlobalsEdge[];
 	/** Information to aid in pagination. */
@@ -328,7 +328,7 @@ export interface Record {
 	/** Reads a single `Level` that is related to this `Record`. */
 	levelByIdLevel: Level | null;
 	/** Reads and enables pagination through a set of `RecordMedia`. */
-	recordMediasByIdRecord: RecordMediasConnection;
+	recordMediasByIdRecord: RecordMediaConnection;
 	/** Reads and enables pagination through a set of `PersonalBestGlobal`. */
 	personalBestGlobalsByIdRecord: PersonalBestGlobalsConnection;
 	/** Reads and enables pagination through a set of `WorldRecordGlobal`. */
@@ -367,7 +367,7 @@ export interface Level {
 /** A connection to a list of `LevelItem` values. */
 export interface LevelItemsConnection {
 	/** A list of `LevelItem` objects. */
-	nodes: (LevelItem | null)[];
+	nodes: LevelItem[];
 	/** A list of edges which contains the `LevelItem` and cursor to aid in pagination. */
 	edges: LevelItemsEdge[];
 	/** Information to aid in pagination. */
@@ -407,7 +407,7 @@ export interface LevelItemsEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `LevelItem` at the end of the edge. */
-	node: LevelItem | null;
+	node: LevelItem;
 	__typename: 'LevelItemsEdge';
 }
 
@@ -454,7 +454,7 @@ export type LevelItemsOrderBy =
 /** A connection to a list of `LevelMetadatum` values. */
 export interface LevelMetadataConnection {
 	/** A list of `LevelMetadatum` objects. */
-	nodes: (LevelMetadatum | null)[];
+	nodes: LevelMetadatum[];
 	/** A list of edges which contains the `LevelMetadatum` and cursor to aid in pagination. */
 	edges: LevelMetadataEdge[];
 	/** Information to aid in pagination. */
@@ -487,7 +487,7 @@ export interface LevelMetadataEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `LevelMetadatum` at the end of the edge. */
-	node: LevelMetadatum | null;
+	node: LevelMetadatum;
 	__typename: 'LevelMetadataEdge';
 }
 
@@ -520,7 +520,7 @@ export type LevelMetadataOrderBy =
 /** A connection to a list of `LevelPoint` values. */
 export interface LevelPointsConnection {
 	/** A list of `LevelPoint` objects. */
-	nodes: (LevelPoint | null)[];
+	nodes: LevelPoint[];
 	/** A list of edges which contains the `LevelPoint` and cursor to aid in pagination. */
 	edges: LevelPointsEdge[];
 	/** Information to aid in pagination. */
@@ -548,7 +548,7 @@ export interface LevelPointsEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `LevelPoint` at the end of the edge. */
-	node: LevelPoint | null;
+	node: LevelPoint;
 	__typename: 'LevelPointsEdge';
 }
 
@@ -589,7 +589,7 @@ export type PersonalBestGlobalsOrderBy =
 /** A connection to a list of `Record` values. */
 export interface RecordsConnection {
 	/** A list of `Record` objects. */
-	nodes: (Record | null)[];
+	nodes: Record[];
 	/** A list of edges which contains the `Record` and cursor to aid in pagination. */
 	edges: RecordsEdge[];
 	/** Information to aid in pagination. */
@@ -604,7 +604,7 @@ export interface RecordsEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `Record` at the end of the edge. */
-	node: Record | null;
+	node: Record;
 	__typename: 'RecordsEdge';
 }
 
@@ -637,7 +637,7 @@ export type RecordsOrderBy =
 /** A connection to a list of `Upvote` values. */
 export interface UpvotesConnection {
 	/** A list of `Upvote` objects. */
-	nodes: (Upvote | null)[];
+	nodes: Upvote[];
 	/** A list of edges which contains the `Upvote` and cursor to aid in pagination. */
 	edges: UpvotesEdge[];
 	/** Information to aid in pagination. */
@@ -667,7 +667,7 @@ export interface UpvotesEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `Upvote` at the end of the edge. */
-	node: Upvote | null;
+	node: Upvote;
 	__typename: 'UpvotesEdge';
 }
 
@@ -690,7 +690,7 @@ export type UpvotesOrderBy =
 /** A connection to a list of `WorldRecordGlobal` values. */
 export interface WorldRecordGlobalsConnection {
 	/** A list of `WorldRecordGlobal` objects. */
-	nodes: (WorldRecordGlobal | null)[];
+	nodes: WorldRecordGlobal[];
 	/** A list of edges which contains the `WorldRecordGlobal` and cursor to aid in pagination. */
 	edges: WorldRecordGlobalsEdge[];
 	/** Information to aid in pagination. */
@@ -720,7 +720,7 @@ export interface WorldRecordGlobalsEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `WorldRecordGlobal` at the end of the edge. */
-	node: WorldRecordGlobal | null;
+	node: WorldRecordGlobal;
 	__typename: 'WorldRecordGlobalsEdge';
 }
 
@@ -743,7 +743,7 @@ export type WorldRecordGlobalsOrderBy =
 /** A connection to a list of `Vote` values. */
 export interface VotesConnection {
 	/** A list of `Vote` objects. */
-	nodes: (Vote | null)[];
+	nodes: Vote[];
 	/** A list of edges which contains the `Vote` and cursor to aid in pagination. */
 	edges: VotesEdge[];
 	/** Information to aid in pagination. */
@@ -774,7 +774,7 @@ export interface VotesEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `Vote` at the end of the edge. */
-	node: Vote | null;
+	node: Vote;
 	__typename: 'VotesEdge';
 }
 
@@ -797,16 +797,16 @@ export type VotesOrderBy =
 	| 'PRIMARY_KEY_DESC';
 
 /** A connection to a list of `RecordMedia` values. */
-export interface RecordMediasConnection {
+export interface RecordMediaConnection {
 	/** A list of `RecordMedia` objects. */
-	nodes: (RecordMedia | null)[];
+	nodes: RecordMedia[];
 	/** A list of edges which contains the `RecordMedia` and cursor to aid in pagination. */
-	edges: RecordMediasEdge[];
+	edges: RecordMediaEdge[];
 	/** Information to aid in pagination. */
 	pageInfo: PageInfo;
 	/** The count of *all* `RecordMedia` you could get from the connection. */
 	totalCount: Scalars['Int'];
-	__typename: 'RecordMediasConnection';
+	__typename: 'RecordMediaConnection';
 }
 
 export interface RecordMedia {
@@ -823,16 +823,16 @@ export interface RecordMedia {
 }
 
 /** A `RecordMedia` edge in the connection. */
-export interface RecordMediasEdge {
+export interface RecordMediaEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `RecordMedia` at the end of the edge. */
-	node: RecordMedia | null;
-	__typename: 'RecordMediasEdge';
+	node: RecordMedia;
+	__typename: 'RecordMediaEdge';
 }
 
 /** Methods to use when ordering `RecordMedia`. */
-export type RecordMediasOrderBy =
+export type RecordMediaOrderBy =
 	| 'NATURAL'
 	| 'ID_ASC'
 	| 'ID_DESC'
@@ -852,14 +852,14 @@ export interface PersonalBestGlobalsEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `PersonalBestGlobal` at the end of the edge. */
-	node: PersonalBestGlobal | null;
+	node: PersonalBestGlobal;
 	__typename: 'PersonalBestGlobalsEdge';
 }
 
 /** A connection to a list of `UserPoint` values. */
 export interface UserPointsConnection {
 	/** A list of `UserPoint` objects. */
-	nodes: (UserPoint | null)[];
+	nodes: UserPoint[];
 	/** A list of edges which contains the `UserPoint` and cursor to aid in pagination. */
 	edges: UserPointsEdge[];
 	/** Information to aid in pagination. */
@@ -889,7 +889,7 @@ export interface UserPointsEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `UserPoint` at the end of the edge. */
-	node: UserPoint | null;
+	node: UserPoint;
 	__typename: 'UserPointsEdge';
 }
 
@@ -918,14 +918,14 @@ export interface FavoritesEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `Favorite` at the end of the edge. */
-	node: Favorite | null;
+	node: Favorite;
 	__typename: 'FavoritesEdge';
 }
 
 /** A connection to a list of `Level` values. */
 export interface LevelsConnection {
 	/** A list of `Level` objects. */
-	nodes: (Level | null)[];
+	nodes: Level[];
 	/** A list of edges which contains the `Level` and cursor to aid in pagination. */
 	edges: LevelsEdge[];
 	/** Information to aid in pagination. */
@@ -940,7 +940,7 @@ export interface LevelsEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `Level` at the end of the edge. */
-	node: Level | null;
+	node: Level;
 	__typename: 'LevelsEdge';
 }
 
@@ -961,7 +961,7 @@ export type LevelsOrderBy =
 /** A connection to a list of `LevelRequest` values. */
 export interface LevelRequestsConnection {
 	/** A list of `LevelRequest` objects. */
-	nodes: (LevelRequest | null)[];
+	nodes: LevelRequest[];
 	/** A list of edges which contains the `LevelRequest` and cursor to aid in pagination. */
 	edges: LevelRequestsEdge[];
 	/** Information to aid in pagination. */
@@ -988,7 +988,7 @@ export interface LevelRequestsEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `LevelRequest` at the end of the edge. */
-	node: LevelRequest | null;
+	node: LevelRequest;
 	__typename: 'LevelRequestsEdge';
 }
 
@@ -1013,7 +1013,7 @@ export type LevelRequestsOrderBy =
 /** A connection to a list of `SampledFavorite` values. */
 export interface SampledFavoritesConnection {
 	/** A list of `SampledFavorite` objects. */
-	nodes: (SampledFavorite | null)[];
+	nodes: SampledFavorite[];
 	/** A list of edges which contains the `SampledFavorite` and cursor to aid in pagination. */
 	edges: SampledFavoritesEdge[];
 	/** Information to aid in pagination. */
@@ -1037,7 +1037,7 @@ export interface SampledFavoritesEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `SampledFavorite` at the end of the edge. */
-	node: SampledFavorite | null;
+	node: SampledFavorite;
 	__typename: 'SampledFavoritesEdge';
 }
 
@@ -1058,7 +1058,7 @@ export type SampledFavoritesOrderBy =
 /** A connection to a list of `SampledLevel` values. */
 export interface SampledLevelsConnection {
 	/** A list of `SampledLevel` objects. */
-	nodes: (SampledLevel | null)[];
+	nodes: SampledLevel[];
 	/** A list of edges which contains the `SampledLevel` and cursor to aid in pagination. */
 	edges: SampledLevelsEdge[];
 	/** Information to aid in pagination. */
@@ -1081,7 +1081,7 @@ export interface SampledLevelsEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `SampledLevel` at the end of the edge. */
-	node: SampledLevel | null;
+	node: SampledLevel;
 	__typename: 'SampledLevelsEdge';
 }
 
@@ -1100,7 +1100,7 @@ export type SampledLevelsOrderBy =
 /** A connection to a list of `SampledLevelItem` values. */
 export interface SampledLevelItemsConnection {
 	/** A list of `SampledLevelItem` objects. */
-	nodes: (SampledLevelItem | null)[];
+	nodes: SampledLevelItem[];
 	/** A list of edges which contains the `SampledLevelItem` and cursor to aid in pagination. */
 	edges: SampledLevelItemsEdge[];
 	/** Information to aid in pagination. */
@@ -1136,7 +1136,7 @@ export interface SampledLevelItemsEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `SampledLevelItem` at the end of the edge. */
-	node: SampledLevelItem | null;
+	node: SampledLevelItem;
 	__typename: 'SampledLevelItemsEdge';
 }
 
@@ -1181,7 +1181,7 @@ export type SampledLevelItemsOrderBy =
 /** A connection to a list of `SampledLevelMetadatum` values. */
 export interface SampledLevelMetadataConnection {
 	/** A list of `SampledLevelMetadatum` objects. */
-	nodes: (SampledLevelMetadatum | null)[];
+	nodes: SampledLevelMetadatum[];
 	/** A list of edges which contains the `SampledLevelMetadatum` and cursor to aid in pagination. */
 	edges: SampledLevelMetadataEdge[];
 	/** Information to aid in pagination. */
@@ -1210,7 +1210,7 @@ export interface SampledLevelMetadataEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `SampledLevelMetadatum` at the end of the edge. */
-	node: SampledLevelMetadatum | null;
+	node: SampledLevelMetadatum;
 	__typename: 'SampledLevelMetadataEdge';
 }
 
@@ -1241,7 +1241,7 @@ export type SampledLevelMetadataOrderBy =
 /** A connection to a list of `SampledLevelPoint` values. */
 export interface SampledLevelPointsConnection {
 	/** A list of `SampledLevelPoint` objects. */
-	nodes: (SampledLevelPoint | null)[];
+	nodes: SampledLevelPoint[];
 	/** A list of edges which contains the `SampledLevelPoint` and cursor to aid in pagination. */
 	edges: SampledLevelPointsEdge[];
 	/** Information to aid in pagination. */
@@ -1265,7 +1265,7 @@ export interface SampledLevelPointsEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `SampledLevelPoint` at the end of the edge. */
-	node: SampledLevelPoint | null;
+	node: SampledLevelPoint;
 	__typename: 'SampledLevelPointsEdge';
 }
 
@@ -1286,7 +1286,7 @@ export type SampledLevelPointsOrderBy =
 /** A connection to a list of `SampledLevelRequest` values. */
 export interface SampledLevelRequestsConnection {
 	/** A list of `SampledLevelRequest` objects. */
-	nodes: (SampledLevelRequest | null)[];
+	nodes: SampledLevelRequest[];
 	/** A list of edges which contains the `SampledLevelRequest` and cursor to aid in pagination. */
 	edges: SampledLevelRequestsEdge[];
 	/** Information to aid in pagination. */
@@ -1311,7 +1311,7 @@ export interface SampledLevelRequestsEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `SampledLevelRequest` at the end of the edge. */
-	node: SampledLevelRequest | null;
+	node: SampledLevelRequest;
 	__typename: 'SampledLevelRequestsEdge';
 }
 
@@ -1334,7 +1334,7 @@ export type SampledLevelRequestsOrderBy =
 /** A connection to a list of `SampledPersonalBestGlobal` values. */
 export interface SampledPersonalBestGlobalsConnection {
 	/** A list of `SampledPersonalBestGlobal` objects. */
-	nodes: (SampledPersonalBestGlobal | null)[];
+	nodes: SampledPersonalBestGlobal[];
 	/** A list of edges which contains the `SampledPersonalBestGlobal` and cursor to aid in pagination. */
 	edges: SampledPersonalBestGlobalsEdge[];
 	/** Information to aid in pagination. */
@@ -1359,7 +1359,7 @@ export interface SampledPersonalBestGlobalsEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `SampledPersonalBestGlobal` at the end of the edge. */
-	node: SampledPersonalBestGlobal | null;
+	node: SampledPersonalBestGlobal;
 	__typename: 'SampledPersonalBestGlobalsEdge';
 }
 
@@ -1382,7 +1382,7 @@ export type SampledPersonalBestGlobalsOrderBy =
 /** A connection to a list of `SampledRecord` values. */
 export interface SampledRecordsConnection {
 	/** A list of `SampledRecord` objects. */
-	nodes: (SampledRecord | null)[];
+	nodes: SampledRecord[];
 	/** A list of edges which contains the `SampledRecord` and cursor to aid in pagination. */
 	edges: SampledRecordsEdge[];
 	/** Information to aid in pagination. */
@@ -1411,7 +1411,7 @@ export interface SampledRecordsEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `SampledRecord` at the end of the edge. */
-	node: SampledRecord | null;
+	node: SampledRecord;
 	__typename: 'SampledRecordsEdge';
 }
 
@@ -1440,16 +1440,16 @@ export type SampledRecordsOrderBy =
 	| 'SPEEDS_DESC';
 
 /** A connection to a list of `SampledRecordMedia` values. */
-export interface SampledRecordMediasConnection {
+export interface SampledRecordMediaConnection {
 	/** A list of `SampledRecordMedia` objects. */
-	nodes: (SampledRecordMedia | null)[];
+	nodes: SampledRecordMedia[];
 	/** A list of edges which contains the `SampledRecordMedia` and cursor to aid in pagination. */
-	edges: SampledRecordMediasEdge[];
+	edges: SampledRecordMediaEdge[];
 	/** Information to aid in pagination. */
 	pageInfo: PageInfo;
 	/** The count of *all* `SampledRecordMedia` you could get from the connection. */
 	totalCount: Scalars['Int'];
-	__typename: 'SampledRecordMediasConnection';
+	__typename: 'SampledRecordMediaConnection';
 }
 
 export interface SampledRecordMedia {
@@ -1462,16 +1462,16 @@ export interface SampledRecordMedia {
 }
 
 /** A `SampledRecordMedia` edge in the connection. */
-export interface SampledRecordMediasEdge {
+export interface SampledRecordMediaEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `SampledRecordMedia` at the end of the edge. */
-	node: SampledRecordMedia | null;
-	__typename: 'SampledRecordMediasEdge';
+	node: SampledRecordMedia;
+	__typename: 'SampledRecordMediaEdge';
 }
 
 /** Methods to use when ordering `SampledRecordMedia`. */
-export type SampledRecordMediasOrderBy =
+export type SampledRecordMediaOrderBy =
 	| 'NATURAL'
 	| 'ID_ASC'
 	| 'ID_DESC'
@@ -1487,7 +1487,7 @@ export type SampledRecordMediasOrderBy =
 /** A connection to a list of `SampledUpvote` values. */
 export interface SampledUpvotesConnection {
 	/** A list of `SampledUpvote` objects. */
-	nodes: (SampledUpvote | null)[];
+	nodes: SampledUpvote[];
 	/** A list of edges which contains the `SampledUpvote` and cursor to aid in pagination. */
 	edges: SampledUpvotesEdge[];
 	/** Information to aid in pagination. */
@@ -1511,7 +1511,7 @@ export interface SampledUpvotesEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `SampledUpvote` at the end of the edge. */
-	node: SampledUpvote | null;
+	node: SampledUpvote;
 	__typename: 'SampledUpvotesEdge';
 }
 
@@ -1532,7 +1532,7 @@ export type SampledUpvotesOrderBy =
 /** A connection to a list of `SampledUser` values. */
 export interface SampledUsersConnection {
 	/** A list of `SampledUser` objects. */
-	nodes: (SampledUser | null)[];
+	nodes: SampledUser[];
 	/** A list of edges which contains the `SampledUser` and cursor to aid in pagination. */
 	edges: SampledUsersEdge[];
 	/** Information to aid in pagination. */
@@ -1558,7 +1558,7 @@ export interface SampledUsersEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `SampledUser` at the end of the edge. */
-	node: SampledUser | null;
+	node: SampledUser;
 	__typename: 'SampledUsersEdge';
 }
 
@@ -1583,7 +1583,7 @@ export type SampledUsersOrderBy =
 /** A connection to a list of `SampledUserPoint` values. */
 export interface SampledUserPointsConnection {
 	/** A list of `SampledUserPoint` objects. */
-	nodes: (SampledUserPoint | null)[];
+	nodes: SampledUserPoint[];
 	/** A list of edges which contains the `SampledUserPoint` and cursor to aid in pagination. */
 	edges: SampledUserPointsEdge[];
 	/** Information to aid in pagination. */
@@ -1609,7 +1609,7 @@ export interface SampledUserPointsEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `SampledUserPoint` at the end of the edge. */
-	node: SampledUserPoint | null;
+	node: SampledUserPoint;
 	__typename: 'SampledUserPointsEdge';
 }
 
@@ -1634,7 +1634,7 @@ export type SampledUserPointsOrderBy =
 /** A connection to a list of `SampledVersion` values. */
 export interface SampledVersionsConnection {
 	/** A list of `SampledVersion` objects. */
-	nodes: (SampledVersion | null)[];
+	nodes: SampledVersion[];
 	/** A list of edges which contains the `SampledVersion` and cursor to aid in pagination. */
 	edges: SampledVersionsEdge[];
 	/** Information to aid in pagination. */
@@ -1658,7 +1658,7 @@ export interface SampledVersionsEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `SampledVersion` at the end of the edge. */
-	node: SampledVersion | null;
+	node: SampledVersion;
 	__typename: 'SampledVersionsEdge';
 }
 
@@ -1679,7 +1679,7 @@ export type SampledVersionsOrderBy =
 /** A connection to a list of `SampledWorldRecordGlobal` values. */
 export interface SampledWorldRecordGlobalsConnection {
 	/** A list of `SampledWorldRecordGlobal` objects. */
-	nodes: (SampledWorldRecordGlobal | null)[];
+	nodes: SampledWorldRecordGlobal[];
 	/** A list of edges which contains the `SampledWorldRecordGlobal` and cursor to aid in pagination. */
 	edges: SampledWorldRecordGlobalsEdge[];
 	/** Information to aid in pagination. */
@@ -1703,7 +1703,7 @@ export interface SampledWorldRecordGlobalsEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `SampledWorldRecordGlobal` at the end of the edge. */
-	node: SampledWorldRecordGlobal | null;
+	node: SampledWorldRecordGlobal;
 	__typename: 'SampledWorldRecordGlobalsEdge';
 }
 
@@ -1724,7 +1724,7 @@ export type SampledWorldRecordGlobalsOrderBy =
 /** A connection to a list of `User` values. */
 export interface UsersConnection {
 	/** A list of `User` objects. */
-	nodes: (User | null)[];
+	nodes: User[];
 	/** A list of edges which contains the `User` and cursor to aid in pagination. */
 	edges: UsersEdge[];
 	/** Information to aid in pagination. */
@@ -1739,7 +1739,7 @@ export interface UsersEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `User` at the end of the edge. */
-	node: User | null;
+	node: User;
 	__typename: 'UsersEdge';
 }
 
@@ -1766,7 +1766,7 @@ export type UsersOrderBy =
 /** A connection to a list of `Version` values. */
 export interface VersionsConnection {
 	/** A list of `Version` objects. */
-	nodes: (Version | null)[];
+	nodes: Version[];
 	/** A list of edges which contains the `Version` and cursor to aid in pagination. */
 	edges: VersionsEdge[];
 	/** Information to aid in pagination. */
@@ -1792,7 +1792,7 @@ export interface VersionsEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `Version` at the end of the edge. */
-	node: Version | null;
+	node: Version;
 	__typename: 'VersionsEdge';
 }
 
@@ -1815,7 +1815,7 @@ export type VersionsOrderBy =
 /** A connection to a list of `ZRtmRecord` values. */
 export interface ZRtmConnection {
 	/** A list of `ZRtmRecord` objects. */
-	nodes: (ZRtmRecord | null)[];
+	nodes: ZRtmRecord[];
 	/** A list of edges which contains the `ZRtmRecord` and cursor to aid in pagination. */
 	edges: ZRtmEdge[];
 	/** The count of *all* `ZRtmRecord` you could get from the connection. */
@@ -1854,7 +1854,7 @@ export interface ZRtmEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `ZRtmRecord` at the end of the edge. */
-	node: ZRtmRecord | null;
+	node: ZRtmRecord;
 	__typename: 'ZRtmEdge';
 }
 
@@ -1876,6 +1876,165 @@ export interface UpdateWorldRecordGlobalPayload {
 	__typename: 'UpdateWorldRecordGlobalPayload';
 }
 
+/**
+ * The root subscription type: contains events and live queries you can subscribe to with the `subscription` operation.
+ *
+ * #### Live Queries
+ *
+ * Live query fields are differentiated by containing `(live)` at the end of their
+ * description, they are added for each field in the `Query` type. When you
+ * subscribe to a live query field, the selection set will be evaluated and sent to
+ * the client, and then most things\* that would cause the output of the selection
+ * set to change will trigger the selection set to be re-evaluated and the results
+ * to be re-sent to the client.
+ *
+ * _(\* Not everything: typically only changes to persisted data referenced by the query are detected, not computed fields.)_
+ *
+ * Live queries can be very expensive, so try and keep them small and focussed.
+ *
+ * #### Events
+ *
+ * Event fields will run their selection set when, and only when, the specified
+ * server-side event occurs. This makes them a lot more efficient than Live
+ * Queries, but it is still recommended that you keep payloads fairly small.
+ */
+export interface Subscription {
+	/**
+	 * Exposes the root query type nested one level down. This is helpful for Relay 1
+	 * which can only query top level fields if they are in a particular form. (live)
+	 */
+	query: Query;
+	/** The root query type must be a `Node` to work well with Relay 1 mutations. This just resolves to `query`. (live) */
+	nodeId: Scalars['ID'];
+	/** Fetches an object given its globally unique `ID`. (live) */
+	node: Node | null;
+	/** Reads and enables pagination through a set of `VersionInfo`. (live) */
+	versionInfos: VersionInfosConnection | null;
+	/** Reads and enables pagination through a set of `Favorite`. (live) */
+	favorites: FavoritesConnection | null;
+	/** Reads and enables pagination through a set of `Level`. (live) */
+	levels: LevelsConnection | null;
+	/** Reads and enables pagination through a set of `LevelItem`. (live) */
+	levelItems: LevelItemsConnection | null;
+	/** Reads and enables pagination through a set of `LevelMetadatum`. (live) */
+	levelMetadata: LevelMetadataConnection | null;
+	/** Reads and enables pagination through a set of `LevelPoint`. (live) */
+	levelPoints: LevelPointsConnection | null;
+	/** Reads and enables pagination through a set of `LevelRequest`. (live) */
+	levelRequests: LevelRequestsConnection | null;
+	/** Reads and enables pagination through a set of `PersonalBestGlobal`. (live) */
+	personalBestGlobals: PersonalBestGlobalsConnection | null;
+	/** Reads and enables pagination through a set of `Record`. (live) */
+	records: RecordsConnection | null;
+	/** Reads and enables pagination through a set of `RecordMedia`. (live) */
+	recordMedias: RecordMediaConnection | null;
+	/** Reads and enables pagination through a set of `SampledFavorite`. (live) */
+	sampledFavorites: SampledFavoritesConnection | null;
+	/** Reads and enables pagination through a set of `SampledLevel`. (live) */
+	sampledLevels: SampledLevelsConnection | null;
+	/** Reads and enables pagination through a set of `SampledLevelItem`. (live) */
+	sampledLevelItems: SampledLevelItemsConnection | null;
+	/** Reads and enables pagination through a set of `SampledLevelMetadatum`. (live) */
+	sampledLevelMetadata: SampledLevelMetadataConnection | null;
+	/** Reads and enables pagination through a set of `SampledLevelPoint`. (live) */
+	sampledLevelPoints: SampledLevelPointsConnection | null;
+	/** Reads and enables pagination through a set of `SampledLevelRequest`. (live) */
+	sampledLevelRequests: SampledLevelRequestsConnection | null;
+	/** Reads and enables pagination through a set of `SampledPersonalBestGlobal`. (live) */
+	sampledPersonalBestGlobals: SampledPersonalBestGlobalsConnection | null;
+	/** Reads and enables pagination through a set of `SampledRecord`. (live) */
+	sampledRecords: SampledRecordsConnection | null;
+	/** Reads and enables pagination through a set of `SampledRecordMedia`. (live) */
+	sampledRecordMedias: SampledRecordMediaConnection | null;
+	/** Reads and enables pagination through a set of `SampledUpvote`. (live) */
+	sampledUpvotes: SampledUpvotesConnection | null;
+	/** Reads and enables pagination through a set of `SampledUser`. (live) */
+	sampledUsers: SampledUsersConnection | null;
+	/** Reads and enables pagination through a set of `SampledUserPoint`. (live) */
+	sampledUserPoints: SampledUserPointsConnection | null;
+	/** Reads and enables pagination through a set of `SampledVersion`. (live) */
+	sampledVersions: SampledVersionsConnection | null;
+	/** Reads and enables pagination through a set of `SampledWorldRecordGlobal`. (live) */
+	sampledWorldRecordGlobals: SampledWorldRecordGlobalsConnection | null;
+	/** Reads and enables pagination through a set of `Upvote`. (live) */
+	upvotes: UpvotesConnection | null;
+	/** Reads and enables pagination through a set of `User`. (live) */
+	users: UsersConnection | null;
+	/** Reads and enables pagination through a set of `UserPoint`. (live) */
+	userPoints: UserPointsConnection | null;
+	/** Reads and enables pagination through a set of `Version`. (live) */
+	versions: VersionsConnection | null;
+	/** Reads and enables pagination through a set of `Vote`. (live) */
+	votes: VotesConnection | null;
+	/** Reads and enables pagination through a set of `WorldRecordGlobal`. (live) */
+	worldRecordGlobals: WorldRecordGlobalsConnection | null;
+	/**  (live) */
+	favorite: Favorite | null;
+	/**  (live) */
+	level: Level | null;
+	/**  (live) */
+	levelByHash: Level | null;
+	/**  (live) */
+	levelItem: LevelItem | null;
+	/**  (live) */
+	levelMetadatum: LevelMetadatum | null;
+	/**  (live) */
+	levelPoint: LevelPoint | null;
+	/**  (live) */
+	levelRequest: LevelRequest | null;
+	/**  (live) */
+	personalBestGlobal: PersonalBestGlobal | null;
+	/**  (live) */
+	record: Record | null;
+	/**  (live) */
+	recordMedia: RecordMedia | null;
+	/**  (live) */
+	upvote: Upvote | null;
+	/**  (live) */
+	user: User | null;
+	/**  (live) */
+	userPoint: UserPoint | null;
+	/**  (live) */
+	version: Version | null;
+	/**  (live) */
+	vote: Vote | null;
+	/**  (live) */
+	worldRecordGlobal: WorldRecordGlobal | null;
+	/** Retrieves filtered level items based on specified criteria. (live) */
+	zRtm: ZRtmConnection | null;
+	/** Reads a single `Favorite` using its globally unique `ID`. (live) */
+	favoriteByNodeId: Favorite | null;
+	/** Reads a single `Level` using its globally unique `ID`. (live) */
+	levelByNodeId: Level | null;
+	/** Reads a single `LevelItem` using its globally unique `ID`. (live) */
+	levelItemByNodeId: LevelItem | null;
+	/** Reads a single `LevelMetadatum` using its globally unique `ID`. (live) */
+	levelMetadatumByNodeId: LevelMetadatum | null;
+	/** Reads a single `LevelPoint` using its globally unique `ID`. (live) */
+	levelPointByNodeId: LevelPoint | null;
+	/** Reads a single `LevelRequest` using its globally unique `ID`. (live) */
+	levelRequestByNodeId: LevelRequest | null;
+	/** Reads a single `PersonalBestGlobal` using its globally unique `ID`. (live) */
+	personalBestGlobalByNodeId: PersonalBestGlobal | null;
+	/** Reads a single `Record` using its globally unique `ID`. (live) */
+	recordByNodeId: Record | null;
+	/** Reads a single `RecordMedia` using its globally unique `ID`. (live) */
+	recordMediaByNodeId: RecordMedia | null;
+	/** Reads a single `Upvote` using its globally unique `ID`. (live) */
+	upvoteByNodeId: Upvote | null;
+	/** Reads a single `User` using its globally unique `ID`. (live) */
+	userByNodeId: User | null;
+	/** Reads a single `UserPoint` using its globally unique `ID`. (live) */
+	userPointByNodeId: UserPoint | null;
+	/** Reads a single `Version` using its globally unique `ID`. (live) */
+	versionByNodeId: Version | null;
+	/** Reads a single `Vote` using its globally unique `ID`. (live) */
+	voteByNodeId: Vote | null;
+	/** Reads a single `WorldRecordGlobal` using its globally unique `ID`. (live) */
+	worldRecordGlobalByNodeId: WorldRecordGlobal | null;
+	__typename: 'Subscription';
+}
+
 /** The root query type which gives access points into the data universe. */
 export interface QueryGenqlSelection {
 	/**
@@ -1893,7 +2052,7 @@ export interface QueryGenqlSelection {
 		};
 	};
 	/** Reads and enables pagination through a set of `VersionInfo`. */
-	allVersionInfos?: VersionInfosConnectionGenqlSelection & {
+	versionInfos?: VersionInfosConnectionGenqlSelection & {
 		__args?: {
 			/** Only read the first `n` values of the set. */
 			first?: Scalars['Int'] | null;
@@ -1917,7 +2076,7 @@ export interface QueryGenqlSelection {
 		};
 	};
 	/** Reads and enables pagination through a set of `Favorite`. */
-	allFavorites?: FavoritesConnectionGenqlSelection & {
+	favorites?: FavoritesConnectionGenqlSelection & {
 		__args?: {
 			/** Only read the first `n` values of the set. */
 			first?: Scalars['Int'] | null;
@@ -1941,7 +2100,7 @@ export interface QueryGenqlSelection {
 		};
 	};
 	/** Reads and enables pagination through a set of `Level`. */
-	allLevels?: LevelsConnectionGenqlSelection & {
+	levels?: LevelsConnectionGenqlSelection & {
 		__args?: {
 			/** Only read the first `n` values of the set. */
 			first?: Scalars['Int'] | null;
@@ -1965,7 +2124,7 @@ export interface QueryGenqlSelection {
 		};
 	};
 	/** Reads and enables pagination through a set of `LevelItem`. */
-	allLevelItems?: LevelItemsConnectionGenqlSelection & {
+	levelItems?: LevelItemsConnectionGenqlSelection & {
 		__args?: {
 			/** Only read the first `n` values of the set. */
 			first?: Scalars['Int'] | null;
@@ -1989,7 +2148,7 @@ export interface QueryGenqlSelection {
 		};
 	};
 	/** Reads and enables pagination through a set of `LevelMetadatum`. */
-	allLevelMetadata?: LevelMetadataConnectionGenqlSelection & {
+	levelMetadata?: LevelMetadataConnectionGenqlSelection & {
 		__args?: {
 			/** Only read the first `n` values of the set. */
 			first?: Scalars['Int'] | null;
@@ -2013,7 +2172,7 @@ export interface QueryGenqlSelection {
 		};
 	};
 	/** Reads and enables pagination through a set of `LevelPoint`. */
-	allLevelPoints?: LevelPointsConnectionGenqlSelection & {
+	levelPoints?: LevelPointsConnectionGenqlSelection & {
 		__args?: {
 			/** Only read the first `n` values of the set. */
 			first?: Scalars['Int'] | null;
@@ -2037,7 +2196,7 @@ export interface QueryGenqlSelection {
 		};
 	};
 	/** Reads and enables pagination through a set of `LevelRequest`. */
-	allLevelRequests?: LevelRequestsConnectionGenqlSelection & {
+	levelRequests?: LevelRequestsConnectionGenqlSelection & {
 		__args?: {
 			/** Only read the first `n` values of the set. */
 			first?: Scalars['Int'] | null;
@@ -2061,7 +2220,7 @@ export interface QueryGenqlSelection {
 		};
 	};
 	/** Reads and enables pagination through a set of `PersonalBestGlobal`. */
-	allPersonalBestGlobals?: PersonalBestGlobalsConnectionGenqlSelection & {
+	personalBestGlobals?: PersonalBestGlobalsConnectionGenqlSelection & {
 		__args?: {
 			/** Only read the first `n` values of the set. */
 			first?: Scalars['Int'] | null;
@@ -2085,7 +2244,7 @@ export interface QueryGenqlSelection {
 		};
 	};
 	/** Reads and enables pagination through a set of `Record`. */
-	allRecords?: RecordsConnectionGenqlSelection & {
+	records?: RecordsConnectionGenqlSelection & {
 		__args?: {
 			/** Only read the first `n` values of the set. */
 			first?: Scalars['Int'] | null;
@@ -2109,7 +2268,7 @@ export interface QueryGenqlSelection {
 		};
 	};
 	/** Reads and enables pagination through a set of `RecordMedia`. */
-	allRecordMedias?: RecordMediasConnectionGenqlSelection & {
+	recordMedias?: RecordMediaConnectionGenqlSelection & {
 		__args?: {
 			/** Only read the first `n` values of the set. */
 			first?: Scalars['Int'] | null;
@@ -2125,7 +2284,7 @@ export interface QueryGenqlSelection {
 			/** Read all values in the set after (below) this cursor. */
 			after?: Scalars['Cursor'] | null;
 			/** The method to use when ordering `RecordMedia`. */
-			orderBy?: RecordMediasOrderBy[] | null;
+			orderBy?: RecordMediaOrderBy[] | null;
 			/** A condition to be used in determining which values should be returned by the collection. */
 			condition?: RecordMediaCondition | null;
 			/** A filter to be used in determining which values should be returned by the collection. */
@@ -2133,7 +2292,7 @@ export interface QueryGenqlSelection {
 		};
 	};
 	/** Reads and enables pagination through a set of `SampledFavorite`. */
-	allSampledFavorites?: SampledFavoritesConnectionGenqlSelection & {
+	sampledFavorites?: SampledFavoritesConnectionGenqlSelection & {
 		__args?: {
 			/** Only read the first `n` values of the set. */
 			first?: Scalars['Int'] | null;
@@ -2157,7 +2316,7 @@ export interface QueryGenqlSelection {
 		};
 	};
 	/** Reads and enables pagination through a set of `SampledLevel`. */
-	allSampledLevels?: SampledLevelsConnectionGenqlSelection & {
+	sampledLevels?: SampledLevelsConnectionGenqlSelection & {
 		__args?: {
 			/** Only read the first `n` values of the set. */
 			first?: Scalars['Int'] | null;
@@ -2181,7 +2340,7 @@ export interface QueryGenqlSelection {
 		};
 	};
 	/** Reads and enables pagination through a set of `SampledLevelItem`. */
-	allSampledLevelItems?: SampledLevelItemsConnectionGenqlSelection & {
+	sampledLevelItems?: SampledLevelItemsConnectionGenqlSelection & {
 		__args?: {
 			/** Only read the first `n` values of the set. */
 			first?: Scalars['Int'] | null;
@@ -2205,7 +2364,7 @@ export interface QueryGenqlSelection {
 		};
 	};
 	/** Reads and enables pagination through a set of `SampledLevelMetadatum`. */
-	allSampledLevelMetadata?: SampledLevelMetadataConnectionGenqlSelection & {
+	sampledLevelMetadata?: SampledLevelMetadataConnectionGenqlSelection & {
 		__args?: {
 			/** Only read the first `n` values of the set. */
 			first?: Scalars['Int'] | null;
@@ -2229,7 +2388,7 @@ export interface QueryGenqlSelection {
 		};
 	};
 	/** Reads and enables pagination through a set of `SampledLevelPoint`. */
-	allSampledLevelPoints?: SampledLevelPointsConnectionGenqlSelection & {
+	sampledLevelPoints?: SampledLevelPointsConnectionGenqlSelection & {
 		__args?: {
 			/** Only read the first `n` values of the set. */
 			first?: Scalars['Int'] | null;
@@ -2253,7 +2412,7 @@ export interface QueryGenqlSelection {
 		};
 	};
 	/** Reads and enables pagination through a set of `SampledLevelRequest`. */
-	allSampledLevelRequests?: SampledLevelRequestsConnectionGenqlSelection & {
+	sampledLevelRequests?: SampledLevelRequestsConnectionGenqlSelection & {
 		__args?: {
 			/** Only read the first `n` values of the set. */
 			first?: Scalars['Int'] | null;
@@ -2277,7 +2436,7 @@ export interface QueryGenqlSelection {
 		};
 	};
 	/** Reads and enables pagination through a set of `SampledPersonalBestGlobal`. */
-	allSampledPersonalBestGlobals?: SampledPersonalBestGlobalsConnectionGenqlSelection & {
+	sampledPersonalBestGlobals?: SampledPersonalBestGlobalsConnectionGenqlSelection & {
 		__args?: {
 			/** Only read the first `n` values of the set. */
 			first?: Scalars['Int'] | null;
@@ -2301,7 +2460,7 @@ export interface QueryGenqlSelection {
 		};
 	};
 	/** Reads and enables pagination through a set of `SampledRecord`. */
-	allSampledRecords?: SampledRecordsConnectionGenqlSelection & {
+	sampledRecords?: SampledRecordsConnectionGenqlSelection & {
 		__args?: {
 			/** Only read the first `n` values of the set. */
 			first?: Scalars['Int'] | null;
@@ -2325,7 +2484,7 @@ export interface QueryGenqlSelection {
 		};
 	};
 	/** Reads and enables pagination through a set of `SampledRecordMedia`. */
-	allSampledRecordMedias?: SampledRecordMediasConnectionGenqlSelection & {
+	sampledRecordMedias?: SampledRecordMediaConnectionGenqlSelection & {
 		__args?: {
 			/** Only read the first `n` values of the set. */
 			first?: Scalars['Int'] | null;
@@ -2341,7 +2500,7 @@ export interface QueryGenqlSelection {
 			/** Read all values in the set after (below) this cursor. */
 			after?: Scalars['Cursor'] | null;
 			/** The method to use when ordering `SampledRecordMedia`. */
-			orderBy?: SampledRecordMediasOrderBy[] | null;
+			orderBy?: SampledRecordMediaOrderBy[] | null;
 			/** A condition to be used in determining which values should be returned by the collection. */
 			condition?: SampledRecordMediaCondition | null;
 			/** A filter to be used in determining which values should be returned by the collection. */
@@ -2349,7 +2508,7 @@ export interface QueryGenqlSelection {
 		};
 	};
 	/** Reads and enables pagination through a set of `SampledUpvote`. */
-	allSampledUpvotes?: SampledUpvotesConnectionGenqlSelection & {
+	sampledUpvotes?: SampledUpvotesConnectionGenqlSelection & {
 		__args?: {
 			/** Only read the first `n` values of the set. */
 			first?: Scalars['Int'] | null;
@@ -2373,7 +2532,7 @@ export interface QueryGenqlSelection {
 		};
 	};
 	/** Reads and enables pagination through a set of `SampledUser`. */
-	allSampledUsers?: SampledUsersConnectionGenqlSelection & {
+	sampledUsers?: SampledUsersConnectionGenqlSelection & {
 		__args?: {
 			/** Only read the first `n` values of the set. */
 			first?: Scalars['Int'] | null;
@@ -2397,7 +2556,7 @@ export interface QueryGenqlSelection {
 		};
 	};
 	/** Reads and enables pagination through a set of `SampledUserPoint`. */
-	allSampledUserPoints?: SampledUserPointsConnectionGenqlSelection & {
+	sampledUserPoints?: SampledUserPointsConnectionGenqlSelection & {
 		__args?: {
 			/** Only read the first `n` values of the set. */
 			first?: Scalars['Int'] | null;
@@ -2421,7 +2580,7 @@ export interface QueryGenqlSelection {
 		};
 	};
 	/** Reads and enables pagination through a set of `SampledVersion`. */
-	allSampledVersions?: SampledVersionsConnectionGenqlSelection & {
+	sampledVersions?: SampledVersionsConnectionGenqlSelection & {
 		__args?: {
 			/** Only read the first `n` values of the set. */
 			first?: Scalars['Int'] | null;
@@ -2445,7 +2604,7 @@ export interface QueryGenqlSelection {
 		};
 	};
 	/** Reads and enables pagination through a set of `SampledWorldRecordGlobal`. */
-	allSampledWorldRecordGlobals?: SampledWorldRecordGlobalsConnectionGenqlSelection & {
+	sampledWorldRecordGlobals?: SampledWorldRecordGlobalsConnectionGenqlSelection & {
 		__args?: {
 			/** Only read the first `n` values of the set. */
 			first?: Scalars['Int'] | null;
@@ -2469,7 +2628,7 @@ export interface QueryGenqlSelection {
 		};
 	};
 	/** Reads and enables pagination through a set of `Upvote`. */
-	allUpvotes?: UpvotesConnectionGenqlSelection & {
+	upvotes?: UpvotesConnectionGenqlSelection & {
 		__args?: {
 			/** Only read the first `n` values of the set. */
 			first?: Scalars['Int'] | null;
@@ -2493,7 +2652,7 @@ export interface QueryGenqlSelection {
 		};
 	};
 	/** Reads and enables pagination through a set of `User`. */
-	allUsers?: UsersConnectionGenqlSelection & {
+	users?: UsersConnectionGenqlSelection & {
 		__args?: {
 			/** Only read the first `n` values of the set. */
 			first?: Scalars['Int'] | null;
@@ -2517,7 +2676,7 @@ export interface QueryGenqlSelection {
 		};
 	};
 	/** Reads and enables pagination through a set of `UserPoint`. */
-	allUserPoints?: UserPointsConnectionGenqlSelection & {
+	userPoints?: UserPointsConnectionGenqlSelection & {
 		__args?: {
 			/** Only read the first `n` values of the set. */
 			first?: Scalars['Int'] | null;
@@ -2541,7 +2700,7 @@ export interface QueryGenqlSelection {
 		};
 	};
 	/** Reads and enables pagination through a set of `Version`. */
-	allVersions?: VersionsConnectionGenqlSelection & {
+	versions?: VersionsConnectionGenqlSelection & {
 		__args?: {
 			/** Only read the first `n` values of the set. */
 			first?: Scalars['Int'] | null;
@@ -2565,7 +2724,7 @@ export interface QueryGenqlSelection {
 		};
 	};
 	/** Reads and enables pagination through a set of `Vote`. */
-	allVotes?: VotesConnectionGenqlSelection & {
+	votes?: VotesConnectionGenqlSelection & {
 		__args?: {
 			/** Only read the first `n` values of the set. */
 			first?: Scalars['Int'] | null;
@@ -2589,7 +2748,7 @@ export interface QueryGenqlSelection {
 		};
 	};
 	/** Reads and enables pagination through a set of `WorldRecordGlobal`. */
-	allWorldRecordGlobals?: WorldRecordGlobalsConnectionGenqlSelection & {
+	worldRecordGlobals?: WorldRecordGlobalsConnectionGenqlSelection & {
 		__args?: {
 			/** Only read the first `n` values of the set. */
 			first?: Scalars['Int'] | null;
@@ -2612,32 +2771,28 @@ export interface QueryGenqlSelection {
 			filter?: WorldRecordGlobalFilter | null;
 		};
 	};
-	favoriteById?: FavoriteGenqlSelection & { __args: { id: Scalars['Int'] } };
-	levelById?: LevelGenqlSelection & { __args: { id: Scalars['Int'] } };
+	favorite?: FavoriteGenqlSelection & { __args: { id: Scalars['Int'] } };
+	level?: LevelGenqlSelection & { __args: { id: Scalars['Int'] } };
 	levelByHash?: LevelGenqlSelection & { __args: { hash: Scalars['String'] } };
-	levelItemById?: LevelItemGenqlSelection & { __args: { id: Scalars['Int'] } };
-	levelMetadatumById?: LevelMetadatumGenqlSelection & {
+	levelItem?: LevelItemGenqlSelection & { __args: { id: Scalars['Int'] } };
+	levelMetadatum?: LevelMetadatumGenqlSelection & {
 		__args: { id: Scalars['Int'] };
 	};
-	levelPointById?: LevelPointGenqlSelection & {
+	levelPoint?: LevelPointGenqlSelection & { __args: { id: Scalars['Int'] } };
+	levelRequest?: LevelRequestGenqlSelection & {
 		__args: { id: Scalars['Int'] };
 	};
-	levelRequestById?: LevelRequestGenqlSelection & {
+	personalBestGlobal?: PersonalBestGlobalGenqlSelection & {
 		__args: { id: Scalars['Int'] };
 	};
-	personalBestGlobalById?: PersonalBestGlobalGenqlSelection & {
-		__args: { id: Scalars['Int'] };
-	};
-	recordById?: RecordGenqlSelection & { __args: { id: Scalars['Int'] } };
-	recordMediaById?: RecordMediaGenqlSelection & {
-		__args: { id: Scalars['Int'] };
-	};
-	upvoteById?: UpvoteGenqlSelection & { __args: { id: Scalars['Int'] } };
-	userById?: UserGenqlSelection & { __args: { id: Scalars['Int'] } };
-	userPointById?: UserPointGenqlSelection & { __args: { id: Scalars['Int'] } };
-	versionById?: VersionGenqlSelection & { __args: { id: Scalars['Int'] } };
-	voteById?: VoteGenqlSelection & { __args: { id: Scalars['Int'] } };
-	worldRecordGlobalById?: WorldRecordGlobalGenqlSelection & {
+	record?: RecordGenqlSelection & { __args: { id: Scalars['Int'] } };
+	recordMedia?: RecordMediaGenqlSelection & { __args: { id: Scalars['Int'] } };
+	upvote?: UpvoteGenqlSelection & { __args: { id: Scalars['Int'] } };
+	user?: UserGenqlSelection & { __args: { id: Scalars['Int'] } };
+	userPoint?: UserPointGenqlSelection & { __args: { id: Scalars['Int'] } };
+	version?: VersionGenqlSelection & { __args: { id: Scalars['Int'] } };
+	vote?: VoteGenqlSelection & { __args: { id: Scalars['Int'] } };
+	worldRecordGlobal?: WorldRecordGlobalGenqlSelection & {
 		__args: { id: Scalars['Int'] };
 	};
 	/** Retrieves filtered level items based on specified criteria. */
@@ -2674,105 +2829,105 @@ export interface QueryGenqlSelection {
 		};
 	};
 	/** Reads a single `Favorite` using its globally unique `ID`. */
-	favorite?: FavoriteGenqlSelection & {
+	favoriteByNodeId?: FavoriteGenqlSelection & {
 		__args: {
 			/** The globally unique `ID` to be used in selecting a single `Favorite`. */
 			nodeId: Scalars['ID'];
 		};
 	};
 	/** Reads a single `Level` using its globally unique `ID`. */
-	level?: LevelGenqlSelection & {
+	levelByNodeId?: LevelGenqlSelection & {
 		__args: {
 			/** The globally unique `ID` to be used in selecting a single `Level`. */
 			nodeId: Scalars['ID'];
 		};
 	};
 	/** Reads a single `LevelItem` using its globally unique `ID`. */
-	levelItem?: LevelItemGenqlSelection & {
+	levelItemByNodeId?: LevelItemGenqlSelection & {
 		__args: {
 			/** The globally unique `ID` to be used in selecting a single `LevelItem`. */
 			nodeId: Scalars['ID'];
 		};
 	};
 	/** Reads a single `LevelMetadatum` using its globally unique `ID`. */
-	levelMetadatum?: LevelMetadatumGenqlSelection & {
+	levelMetadatumByNodeId?: LevelMetadatumGenqlSelection & {
 		__args: {
 			/** The globally unique `ID` to be used in selecting a single `LevelMetadatum`. */
 			nodeId: Scalars['ID'];
 		};
 	};
 	/** Reads a single `LevelPoint` using its globally unique `ID`. */
-	levelPoint?: LevelPointGenqlSelection & {
+	levelPointByNodeId?: LevelPointGenqlSelection & {
 		__args: {
 			/** The globally unique `ID` to be used in selecting a single `LevelPoint`. */
 			nodeId: Scalars['ID'];
 		};
 	};
 	/** Reads a single `LevelRequest` using its globally unique `ID`. */
-	levelRequest?: LevelRequestGenqlSelection & {
+	levelRequestByNodeId?: LevelRequestGenqlSelection & {
 		__args: {
 			/** The globally unique `ID` to be used in selecting a single `LevelRequest`. */
 			nodeId: Scalars['ID'];
 		};
 	};
 	/** Reads a single `PersonalBestGlobal` using its globally unique `ID`. */
-	personalBestGlobal?: PersonalBestGlobalGenqlSelection & {
+	personalBestGlobalByNodeId?: PersonalBestGlobalGenqlSelection & {
 		__args: {
 			/** The globally unique `ID` to be used in selecting a single `PersonalBestGlobal`. */
 			nodeId: Scalars['ID'];
 		};
 	};
 	/** Reads a single `Record` using its globally unique `ID`. */
-	record?: RecordGenqlSelection & {
+	recordByNodeId?: RecordGenqlSelection & {
 		__args: {
 			/** The globally unique `ID` to be used in selecting a single `Record`. */
 			nodeId: Scalars['ID'];
 		};
 	};
 	/** Reads a single `RecordMedia` using its globally unique `ID`. */
-	recordMedia?: RecordMediaGenqlSelection & {
+	recordMediaByNodeId?: RecordMediaGenqlSelection & {
 		__args: {
 			/** The globally unique `ID` to be used in selecting a single `RecordMedia`. */
 			nodeId: Scalars['ID'];
 		};
 	};
 	/** Reads a single `Upvote` using its globally unique `ID`. */
-	upvote?: UpvoteGenqlSelection & {
+	upvoteByNodeId?: UpvoteGenqlSelection & {
 		__args: {
 			/** The globally unique `ID` to be used in selecting a single `Upvote`. */
 			nodeId: Scalars['ID'];
 		};
 	};
 	/** Reads a single `User` using its globally unique `ID`. */
-	user?: UserGenqlSelection & {
+	userByNodeId?: UserGenqlSelection & {
 		__args: {
 			/** The globally unique `ID` to be used in selecting a single `User`. */
 			nodeId: Scalars['ID'];
 		};
 	};
 	/** Reads a single `UserPoint` using its globally unique `ID`. */
-	userPoint?: UserPointGenqlSelection & {
+	userPointByNodeId?: UserPointGenqlSelection & {
 		__args: {
 			/** The globally unique `ID` to be used in selecting a single `UserPoint`. */
 			nodeId: Scalars['ID'];
 		};
 	};
 	/** Reads a single `Version` using its globally unique `ID`. */
-	version?: VersionGenqlSelection & {
+	versionByNodeId?: VersionGenqlSelection & {
 		__args: {
 			/** The globally unique `ID` to be used in selecting a single `Version`. */
 			nodeId: Scalars['ID'];
 		};
 	};
 	/** Reads a single `Vote` using its globally unique `ID`. */
-	vote?: VoteGenqlSelection & {
+	voteByNodeId?: VoteGenqlSelection & {
 		__args: {
 			/** The globally unique `ID` to be used in selecting a single `Vote`. */
 			nodeId: Scalars['ID'];
 		};
 	};
 	/** Reads a single `WorldRecordGlobal` using its globally unique `ID`. */
-	worldRecordGlobal?: WorldRecordGlobalGenqlSelection & {
+	worldRecordGlobalByNodeId?: WorldRecordGlobalGenqlSelection & {
 		__args: {
 			/** The globally unique `ID` to be used in selecting a single `WorldRecordGlobal`. */
 			nodeId: Scalars['ID'];
@@ -4049,7 +4204,7 @@ export interface RecordGenqlSelection {
 	/** Reads a single `Level` that is related to this `Record`. */
 	levelByIdLevel?: LevelGenqlSelection;
 	/** Reads and enables pagination through a set of `RecordMedia`. */
-	recordMediasByIdRecord?: RecordMediasConnectionGenqlSelection & {
+	recordMediasByIdRecord?: RecordMediaConnectionGenqlSelection & {
 		__args?: {
 			/** Only read the first `n` values of the set. */
 			first?: Scalars['Int'] | null;
@@ -4065,7 +4220,7 @@ export interface RecordGenqlSelection {
 			/** Read all values in the set after (below) this cursor. */
 			after?: Scalars['Cursor'] | null;
 			/** The method to use when ordering `RecordMedia`. */
-			orderBy?: RecordMediasOrderBy[] | null;
+			orderBy?: RecordMediaOrderBy[] | null;
 			/** A condition to be used in determining which values should be returned by the collection. */
 			condition?: RecordMediaCondition | null;
 			/** A filter to be used in determining which values should be returned by the collection. */
@@ -4803,11 +4958,11 @@ export interface VoteCondition {
 }
 
 /** A connection to a list of `RecordMedia` values. */
-export interface RecordMediasConnectionGenqlSelection {
+export interface RecordMediaConnectionGenqlSelection {
 	/** A list of `RecordMedia` objects. */
 	nodes?: RecordMediaGenqlSelection;
 	/** A list of edges which contains the `RecordMedia` and cursor to aid in pagination. */
-	edges?: RecordMediasEdgeGenqlSelection;
+	edges?: RecordMediaEdgeGenqlSelection;
 	/** Information to aid in pagination. */
 	pageInfo?: PageInfoGenqlSelection;
 	/** The count of *all* `RecordMedia` you could get from the connection. */
@@ -4831,7 +4986,7 @@ export interface RecordMediaGenqlSelection {
 }
 
 /** A `RecordMedia` edge in the connection. */
-export interface RecordMediasEdgeGenqlSelection {
+export interface RecordMediaEdgeGenqlSelection {
 	/** A cursor for use in pagination. */
 	cursor?: boolean | number;
 	/** The `RecordMedia` at the end of the edge. */
@@ -5736,11 +5891,11 @@ export interface SampledRecordFilter {
 }
 
 /** A connection to a list of `SampledRecordMedia` values. */
-export interface SampledRecordMediasConnectionGenqlSelection {
+export interface SampledRecordMediaConnectionGenqlSelection {
 	/** A list of `SampledRecordMedia` objects. */
 	nodes?: SampledRecordMediaGenqlSelection;
 	/** A list of edges which contains the `SampledRecordMedia` and cursor to aid in pagination. */
-	edges?: SampledRecordMediasEdgeGenqlSelection;
+	edges?: SampledRecordMediaEdgeGenqlSelection;
 	/** Information to aid in pagination. */
 	pageInfo?: PageInfoGenqlSelection;
 	/** The count of *all* `SampledRecordMedia` you could get from the connection. */
@@ -5760,7 +5915,7 @@ export interface SampledRecordMediaGenqlSelection {
 }
 
 /** A `SampledRecordMedia` edge in the connection. */
-export interface SampledRecordMediasEdgeGenqlSelection {
+export interface SampledRecordMediaEdgeGenqlSelection {
 	/** A cursor for use in pagination. */
 	cursor?: boolean | number;
 	/** The `SampledRecordMedia` at the end of the edge. */
@@ -6428,6 +6583,945 @@ export interface UpdateWorldRecordGlobalInput {
 	clientMutationId?: Scalars['String'] | null;
 }
 
+/**
+ * The root subscription type: contains events and live queries you can subscribe to with the `subscription` operation.
+ *
+ * #### Live Queries
+ *
+ * Live query fields are differentiated by containing `(live)` at the end of their
+ * description, they are added for each field in the `Query` type. When you
+ * subscribe to a live query field, the selection set will be evaluated and sent to
+ * the client, and then most things\* that would cause the output of the selection
+ * set to change will trigger the selection set to be re-evaluated and the results
+ * to be re-sent to the client.
+ *
+ * _(\* Not everything: typically only changes to persisted data referenced by the query are detected, not computed fields.)_
+ *
+ * Live queries can be very expensive, so try and keep them small and focussed.
+ *
+ * #### Events
+ *
+ * Event fields will run their selection set when, and only when, the specified
+ * server-side event occurs. This makes them a lot more efficient than Live
+ * Queries, but it is still recommended that you keep payloads fairly small.
+ */
+export interface SubscriptionGenqlSelection {
+	/**
+	 * Exposes the root query type nested one level down. This is helpful for Relay 1
+	 * which can only query top level fields if they are in a particular form. (live)
+	 */
+	query?: QueryGenqlSelection;
+	/** The root query type must be a `Node` to work well with Relay 1 mutations. This just resolves to `query`. (live) */
+	nodeId?: boolean | number;
+	/** Fetches an object given its globally unique `ID`. (live) */
+	node?: NodeGenqlSelection & {
+		__args: {
+			/** The globally unique `ID`. */
+			nodeId: Scalars['ID'];
+		};
+	};
+	/** Reads and enables pagination through a set of `VersionInfo`. (live) */
+	versionInfos?: VersionInfosConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `VersionInfo`. */
+			orderBy?: VersionInfosOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: VersionInfoCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: VersionInfoFilter | null;
+		};
+	};
+	/** Reads and enables pagination through a set of `Favorite`. (live) */
+	favorites?: FavoritesConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `Favorite`. */
+			orderBy?: FavoritesOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: FavoriteCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: FavoriteFilter | null;
+		};
+	};
+	/** Reads and enables pagination through a set of `Level`. (live) */
+	levels?: LevelsConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `Level`. */
+			orderBy?: LevelsOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: LevelCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: LevelFilter | null;
+		};
+	};
+	/** Reads and enables pagination through a set of `LevelItem`. (live) */
+	levelItems?: LevelItemsConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `LevelItem`. */
+			orderBy?: LevelItemsOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: LevelItemCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: LevelItemFilter | null;
+		};
+	};
+	/** Reads and enables pagination through a set of `LevelMetadatum`. (live) */
+	levelMetadata?: LevelMetadataConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `LevelMetadatum`. */
+			orderBy?: LevelMetadataOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: LevelMetadatumCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: LevelMetadatumFilter | null;
+		};
+	};
+	/** Reads and enables pagination through a set of `LevelPoint`. (live) */
+	levelPoints?: LevelPointsConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `LevelPoint`. */
+			orderBy?: LevelPointsOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: LevelPointCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: LevelPointFilter | null;
+		};
+	};
+	/** Reads and enables pagination through a set of `LevelRequest`. (live) */
+	levelRequests?: LevelRequestsConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `LevelRequest`. */
+			orderBy?: LevelRequestsOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: LevelRequestCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: LevelRequestFilter | null;
+		};
+	};
+	/** Reads and enables pagination through a set of `PersonalBestGlobal`. (live) */
+	personalBestGlobals?: PersonalBestGlobalsConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `PersonalBestGlobal`. */
+			orderBy?: PersonalBestGlobalsOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: PersonalBestGlobalCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: PersonalBestGlobalFilter | null;
+		};
+	};
+	/** Reads and enables pagination through a set of `Record`. (live) */
+	records?: RecordsConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `Record`. */
+			orderBy?: RecordsOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: RecordCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: RecordFilter | null;
+		};
+	};
+	/** Reads and enables pagination through a set of `RecordMedia`. (live) */
+	recordMedias?: RecordMediaConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `RecordMedia`. */
+			orderBy?: RecordMediaOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: RecordMediaCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: RecordMediaFilter | null;
+		};
+	};
+	/** Reads and enables pagination through a set of `SampledFavorite`. (live) */
+	sampledFavorites?: SampledFavoritesConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `SampledFavorite`. */
+			orderBy?: SampledFavoritesOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: SampledFavoriteCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: SampledFavoriteFilter | null;
+		};
+	};
+	/** Reads and enables pagination through a set of `SampledLevel`. (live) */
+	sampledLevels?: SampledLevelsConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `SampledLevel`. */
+			orderBy?: SampledLevelsOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: SampledLevelCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: SampledLevelFilter | null;
+		};
+	};
+	/** Reads and enables pagination through a set of `SampledLevelItem`. (live) */
+	sampledLevelItems?: SampledLevelItemsConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `SampledLevelItem`. */
+			orderBy?: SampledLevelItemsOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: SampledLevelItemCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: SampledLevelItemFilter | null;
+		};
+	};
+	/** Reads and enables pagination through a set of `SampledLevelMetadatum`. (live) */
+	sampledLevelMetadata?: SampledLevelMetadataConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `SampledLevelMetadatum`. */
+			orderBy?: SampledLevelMetadataOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: SampledLevelMetadatumCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: SampledLevelMetadatumFilter | null;
+		};
+	};
+	/** Reads and enables pagination through a set of `SampledLevelPoint`. (live) */
+	sampledLevelPoints?: SampledLevelPointsConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `SampledLevelPoint`. */
+			orderBy?: SampledLevelPointsOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: SampledLevelPointCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: SampledLevelPointFilter | null;
+		};
+	};
+	/** Reads and enables pagination through a set of `SampledLevelRequest`. (live) */
+	sampledLevelRequests?: SampledLevelRequestsConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `SampledLevelRequest`. */
+			orderBy?: SampledLevelRequestsOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: SampledLevelRequestCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: SampledLevelRequestFilter | null;
+		};
+	};
+	/** Reads and enables pagination through a set of `SampledPersonalBestGlobal`. (live) */
+	sampledPersonalBestGlobals?: SampledPersonalBestGlobalsConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `SampledPersonalBestGlobal`. */
+			orderBy?: SampledPersonalBestGlobalsOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: SampledPersonalBestGlobalCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: SampledPersonalBestGlobalFilter | null;
+		};
+	};
+	/** Reads and enables pagination through a set of `SampledRecord`. (live) */
+	sampledRecords?: SampledRecordsConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `SampledRecord`. */
+			orderBy?: SampledRecordsOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: SampledRecordCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: SampledRecordFilter | null;
+		};
+	};
+	/** Reads and enables pagination through a set of `SampledRecordMedia`. (live) */
+	sampledRecordMedias?: SampledRecordMediaConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `SampledRecordMedia`. */
+			orderBy?: SampledRecordMediaOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: SampledRecordMediaCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: SampledRecordMediaFilter | null;
+		};
+	};
+	/** Reads and enables pagination through a set of `SampledUpvote`. (live) */
+	sampledUpvotes?: SampledUpvotesConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `SampledUpvote`. */
+			orderBy?: SampledUpvotesOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: SampledUpvoteCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: SampledUpvoteFilter | null;
+		};
+	};
+	/** Reads and enables pagination through a set of `SampledUser`. (live) */
+	sampledUsers?: SampledUsersConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `SampledUser`. */
+			orderBy?: SampledUsersOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: SampledUserCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: SampledUserFilter | null;
+		};
+	};
+	/** Reads and enables pagination through a set of `SampledUserPoint`. (live) */
+	sampledUserPoints?: SampledUserPointsConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `SampledUserPoint`. */
+			orderBy?: SampledUserPointsOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: SampledUserPointCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: SampledUserPointFilter | null;
+		};
+	};
+	/** Reads and enables pagination through a set of `SampledVersion`. (live) */
+	sampledVersions?: SampledVersionsConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `SampledVersion`. */
+			orderBy?: SampledVersionsOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: SampledVersionCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: SampledVersionFilter | null;
+		};
+	};
+	/** Reads and enables pagination through a set of `SampledWorldRecordGlobal`. (live) */
+	sampledWorldRecordGlobals?: SampledWorldRecordGlobalsConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `SampledWorldRecordGlobal`. */
+			orderBy?: SampledWorldRecordGlobalsOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: SampledWorldRecordGlobalCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: SampledWorldRecordGlobalFilter | null;
+		};
+	};
+	/** Reads and enables pagination through a set of `Upvote`. (live) */
+	upvotes?: UpvotesConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `Upvote`. */
+			orderBy?: UpvotesOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: UpvoteCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: UpvoteFilter | null;
+		};
+	};
+	/** Reads and enables pagination through a set of `User`. (live) */
+	users?: UsersConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `User`. */
+			orderBy?: UsersOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: UserCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: UserFilter | null;
+		};
+	};
+	/** Reads and enables pagination through a set of `UserPoint`. (live) */
+	userPoints?: UserPointsConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `UserPoint`. */
+			orderBy?: UserPointsOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: UserPointCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: UserPointFilter | null;
+		};
+	};
+	/** Reads and enables pagination through a set of `Version`. (live) */
+	versions?: VersionsConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `Version`. */
+			orderBy?: VersionsOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: VersionCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: VersionFilter | null;
+		};
+	};
+	/** Reads and enables pagination through a set of `Vote`. (live) */
+	votes?: VotesConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `Vote`. */
+			orderBy?: VotesOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: VoteCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: VoteFilter | null;
+		};
+	};
+	/** Reads and enables pagination through a set of `WorldRecordGlobal`. (live) */
+	worldRecordGlobals?: WorldRecordGlobalsConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `WorldRecordGlobal`. */
+			orderBy?: WorldRecordGlobalsOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: WorldRecordGlobalCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: WorldRecordGlobalFilter | null;
+		};
+	};
+	/**  (live) */
+	favorite?: FavoriteGenqlSelection & { __args: { id: Scalars['Int'] } };
+	/**  (live) */
+	level?: LevelGenqlSelection & { __args: { id: Scalars['Int'] } };
+	/**  (live) */
+	levelByHash?: LevelGenqlSelection & { __args: { hash: Scalars['String'] } };
+	/**  (live) */
+	levelItem?: LevelItemGenqlSelection & { __args: { id: Scalars['Int'] } };
+	/**  (live) */
+	levelMetadatum?: LevelMetadatumGenqlSelection & {
+		__args: { id: Scalars['Int'] };
+	};
+	/**  (live) */
+	levelPoint?: LevelPointGenqlSelection & { __args: { id: Scalars['Int'] } };
+	/**  (live) */
+	levelRequest?: LevelRequestGenqlSelection & {
+		__args: { id: Scalars['Int'] };
+	};
+	/**  (live) */
+	personalBestGlobal?: PersonalBestGlobalGenqlSelection & {
+		__args: { id: Scalars['Int'] };
+	};
+	/**  (live) */
+	record?: RecordGenqlSelection & { __args: { id: Scalars['Int'] } };
+	/**  (live) */
+	recordMedia?: RecordMediaGenqlSelection & { __args: { id: Scalars['Int'] } };
+	/**  (live) */
+	upvote?: UpvoteGenqlSelection & { __args: { id: Scalars['Int'] } };
+	/**  (live) */
+	user?: UserGenqlSelection & { __args: { id: Scalars['Int'] } };
+	/**  (live) */
+	userPoint?: UserPointGenqlSelection & { __args: { id: Scalars['Int'] } };
+	/**  (live) */
+	version?: VersionGenqlSelection & { __args: { id: Scalars['Int'] } };
+	/**  (live) */
+	vote?: VoteGenqlSelection & { __args: { id: Scalars['Int'] } };
+	/**  (live) */
+	worldRecordGlobal?: WorldRecordGlobalGenqlSelection & {
+		__args: { id: Scalars['Int'] };
+	};
+	/** Retrieves filtered level items based on specified criteria. (live) */
+	zRtm?: ZRtmConnectionGenqlSelection & {
+		__args?: {
+			pMinAuthorTime?: Scalars['Float'] | null;
+			pMaxAuthorTime?: Scalars['Float'] | null;
+			pMinRecords?: Scalars['Int'] | null;
+			pMaxRecords?: Scalars['Int'] | null;
+			pExcludedAuthorIds?: (Scalars['Int'] | null)[] | null;
+			pExcludedHashes?: (Scalars['String'] | null)[] | null;
+			pMinCheckpoints?: Scalars['Int'] | null;
+			pMaxCheckpoints?: Scalars['Int'] | null;
+			pMinFinishes?: Scalars['Int'] | null;
+			pMaxFinishes?: Scalars['Int'] | null;
+			pMinBlocks?: Scalars['Int'] | null;
+			pMaxBlocks?: Scalars['Int'] | null;
+			pSampleSize?: Scalars['Int'] | null;
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: ZRtmRecordFilter | null;
+		};
+	};
+	/** Reads a single `Favorite` using its globally unique `ID`. (live) */
+	favoriteByNodeId?: FavoriteGenqlSelection & {
+		__args: {
+			/** The globally unique `ID` to be used in selecting a single `Favorite`. */
+			nodeId: Scalars['ID'];
+		};
+	};
+	/** Reads a single `Level` using its globally unique `ID`. (live) */
+	levelByNodeId?: LevelGenqlSelection & {
+		__args: {
+			/** The globally unique `ID` to be used in selecting a single `Level`. */
+			nodeId: Scalars['ID'];
+		};
+	};
+	/** Reads a single `LevelItem` using its globally unique `ID`. (live) */
+	levelItemByNodeId?: LevelItemGenqlSelection & {
+		__args: {
+			/** The globally unique `ID` to be used in selecting a single `LevelItem`. */
+			nodeId: Scalars['ID'];
+		};
+	};
+	/** Reads a single `LevelMetadatum` using its globally unique `ID`. (live) */
+	levelMetadatumByNodeId?: LevelMetadatumGenqlSelection & {
+		__args: {
+			/** The globally unique `ID` to be used in selecting a single `LevelMetadatum`. */
+			nodeId: Scalars['ID'];
+		};
+	};
+	/** Reads a single `LevelPoint` using its globally unique `ID`. (live) */
+	levelPointByNodeId?: LevelPointGenqlSelection & {
+		__args: {
+			/** The globally unique `ID` to be used in selecting a single `LevelPoint`. */
+			nodeId: Scalars['ID'];
+		};
+	};
+	/** Reads a single `LevelRequest` using its globally unique `ID`. (live) */
+	levelRequestByNodeId?: LevelRequestGenqlSelection & {
+		__args: {
+			/** The globally unique `ID` to be used in selecting a single `LevelRequest`. */
+			nodeId: Scalars['ID'];
+		};
+	};
+	/** Reads a single `PersonalBestGlobal` using its globally unique `ID`. (live) */
+	personalBestGlobalByNodeId?: PersonalBestGlobalGenqlSelection & {
+		__args: {
+			/** The globally unique `ID` to be used in selecting a single `PersonalBestGlobal`. */
+			nodeId: Scalars['ID'];
+		};
+	};
+	/** Reads a single `Record` using its globally unique `ID`. (live) */
+	recordByNodeId?: RecordGenqlSelection & {
+		__args: {
+			/** The globally unique `ID` to be used in selecting a single `Record`. */
+			nodeId: Scalars['ID'];
+		};
+	};
+	/** Reads a single `RecordMedia` using its globally unique `ID`. (live) */
+	recordMediaByNodeId?: RecordMediaGenqlSelection & {
+		__args: {
+			/** The globally unique `ID` to be used in selecting a single `RecordMedia`. */
+			nodeId: Scalars['ID'];
+		};
+	};
+	/** Reads a single `Upvote` using its globally unique `ID`. (live) */
+	upvoteByNodeId?: UpvoteGenqlSelection & {
+		__args: {
+			/** The globally unique `ID` to be used in selecting a single `Upvote`. */
+			nodeId: Scalars['ID'];
+		};
+	};
+	/** Reads a single `User` using its globally unique `ID`. (live) */
+	userByNodeId?: UserGenqlSelection & {
+		__args: {
+			/** The globally unique `ID` to be used in selecting a single `User`. */
+			nodeId: Scalars['ID'];
+		};
+	};
+	/** Reads a single `UserPoint` using its globally unique `ID`. (live) */
+	userPointByNodeId?: UserPointGenqlSelection & {
+		__args: {
+			/** The globally unique `ID` to be used in selecting a single `UserPoint`. */
+			nodeId: Scalars['ID'];
+		};
+	};
+	/** Reads a single `Version` using its globally unique `ID`. (live) */
+	versionByNodeId?: VersionGenqlSelection & {
+		__args: {
+			/** The globally unique `ID` to be used in selecting a single `Version`. */
+			nodeId: Scalars['ID'];
+		};
+	};
+	/** Reads a single `Vote` using its globally unique `ID`. (live) */
+	voteByNodeId?: VoteGenqlSelection & {
+		__args: {
+			/** The globally unique `ID` to be used in selecting a single `Vote`. */
+			nodeId: Scalars['ID'];
+		};
+	};
+	/** Reads a single `WorldRecordGlobal` using its globally unique `ID`. (live) */
+	worldRecordGlobalByNodeId?: WorldRecordGlobalGenqlSelection & {
+		__args: {
+			/** The globally unique `ID` to be used in selecting a single `WorldRecordGlobal`. */
+			nodeId: Scalars['ID'];
+		};
+	};
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
 const Query_possibleTypes: string[] = ['Query'];
 export const isQuery = (obj?: { __typename?: any } | null): obj is Query => {
 	if (!obj?.__typename) throw new Error('__typename is missing in "isQuery"');
@@ -6735,15 +7829,13 @@ export const isVotesEdge = (
 	return VotesEdge_possibleTypes.includes(obj.__typename);
 };
 
-const RecordMediasConnection_possibleTypes: string[] = [
-	'RecordMediasConnection',
-];
-export const isRecordMediasConnection = (
+const RecordMediaConnection_possibleTypes: string[] = ['RecordMediaConnection'];
+export const isRecordMediaConnection = (
 	obj?: { __typename?: any } | null,
-): obj is RecordMediasConnection => {
+): obj is RecordMediaConnection => {
 	if (!obj?.__typename)
-		throw new Error('__typename is missing in "isRecordMediasConnection"');
-	return RecordMediasConnection_possibleTypes.includes(obj.__typename);
+		throw new Error('__typename is missing in "isRecordMediaConnection"');
+	return RecordMediaConnection_possibleTypes.includes(obj.__typename);
 };
 
 const RecordMedia_possibleTypes: string[] = ['RecordMedia'];
@@ -6755,13 +7847,13 @@ export const isRecordMedia = (
 	return RecordMedia_possibleTypes.includes(obj.__typename);
 };
 
-const RecordMediasEdge_possibleTypes: string[] = ['RecordMediasEdge'];
-export const isRecordMediasEdge = (
+const RecordMediaEdge_possibleTypes: string[] = ['RecordMediaEdge'];
+export const isRecordMediaEdge = (
 	obj?: { __typename?: any } | null,
-): obj is RecordMediasEdge => {
+): obj is RecordMediaEdge => {
 	if (!obj?.__typename)
-		throw new Error('__typename is missing in "isRecordMediasEdge"');
-	return RecordMediasEdge_possibleTypes.includes(obj.__typename);
+		throw new Error('__typename is missing in "isRecordMediaEdge"');
+	return RecordMediaEdge_possibleTypes.includes(obj.__typename);
 };
 
 const PersonalBestGlobalsEdge_possibleTypes: string[] = [
@@ -7112,17 +8204,17 @@ export const isSampledRecordsEdge = (
 	return SampledRecordsEdge_possibleTypes.includes(obj.__typename);
 };
 
-const SampledRecordMediasConnection_possibleTypes: string[] = [
-	'SampledRecordMediasConnection',
+const SampledRecordMediaConnection_possibleTypes: string[] = [
+	'SampledRecordMediaConnection',
 ];
-export const isSampledRecordMediasConnection = (
+export const isSampledRecordMediaConnection = (
 	obj?: { __typename?: any } | null,
-): obj is SampledRecordMediasConnection => {
+): obj is SampledRecordMediaConnection => {
 	if (!obj?.__typename)
 		throw new Error(
-			'__typename is missing in "isSampledRecordMediasConnection"',
+			'__typename is missing in "isSampledRecordMediaConnection"',
 		);
-	return SampledRecordMediasConnection_possibleTypes.includes(obj.__typename);
+	return SampledRecordMediaConnection_possibleTypes.includes(obj.__typename);
 };
 
 const SampledRecordMedia_possibleTypes: string[] = ['SampledRecordMedia'];
@@ -7134,15 +8226,15 @@ export const isSampledRecordMedia = (
 	return SampledRecordMedia_possibleTypes.includes(obj.__typename);
 };
 
-const SampledRecordMediasEdge_possibleTypes: string[] = [
-	'SampledRecordMediasEdge',
+const SampledRecordMediaEdge_possibleTypes: string[] = [
+	'SampledRecordMediaEdge',
 ];
-export const isSampledRecordMediasEdge = (
+export const isSampledRecordMediaEdge = (
 	obj?: { __typename?: any } | null,
-): obj is SampledRecordMediasEdge => {
+): obj is SampledRecordMediaEdge => {
 	if (!obj?.__typename)
-		throw new Error('__typename is missing in "isSampledRecordMediasEdge"');
-	return SampledRecordMediasEdge_possibleTypes.includes(obj.__typename);
+		throw new Error('__typename is missing in "isSampledRecordMediaEdge"');
+	return SampledRecordMediaEdge_possibleTypes.includes(obj.__typename);
 };
 
 const SampledUpvotesConnection_possibleTypes: string[] = [
@@ -7393,6 +8485,15 @@ export const isUpdateWorldRecordGlobalPayload = (
 	return UpdateWorldRecordGlobalPayload_possibleTypes.includes(obj.__typename);
 };
 
+const Subscription_possibleTypes: string[] = ['Subscription'];
+export const isSubscription = (
+	obj?: { __typename?: any } | null,
+): obj is Subscription => {
+	if (!obj?.__typename)
+		throw new Error('__typename is missing in "isSubscription"');
+	return Subscription_possibleTypes.includes(obj.__typename);
+};
+
 export const enumVersionInfosOrderBy = {
 	NATURAL: 'NATURAL' as const,
 	VERSION_ASC: 'VERSION_ASC' as const,
@@ -7595,7 +8696,7 @@ export const enumVotesOrderBy = {
 	PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const,
 };
 
-export const enumRecordMediasOrderBy = {
+export const enumRecordMediaOrderBy = {
 	NATURAL: 'NATURAL' as const,
 	ID_ASC: 'ID_ASC' as const,
 	ID_DESC: 'ID_DESC' as const,
@@ -7821,7 +8922,7 @@ export const enumSampledRecordsOrderBy = {
 	SPEEDS_DESC: 'SPEEDS_DESC' as const,
 };
 
-export const enumSampledRecordMediasOrderBy = {
+export const enumSampledRecordMediaOrderBy = {
 	NATURAL: 'NATURAL' as const,
 	ID_ASC: 'ID_ASC' as const,
 	ID_DESC: 'ID_DESC' as const,
