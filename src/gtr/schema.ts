@@ -161,7 +161,7 @@ export type Node = (
 /** A connection to a list of `VersionInfo` values. */
 export interface VersionInfosConnection {
 	/** A list of `VersionInfo` objects. */
-	nodes: (VersionInfo | null)[];
+	nodes: VersionInfo[];
 	/** A list of edges which contains the `VersionInfo` and cursor to aid in pagination. */
 	edges: VersionInfosEdge[];
 	/** Information to aid in pagination. */
@@ -183,7 +183,7 @@ export interface VersionInfosEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `VersionInfo` at the end of the edge. */
-	node: VersionInfo | null;
+	node: VersionInfo;
 	__typename: 'VersionInfosEdge';
 }
 
@@ -213,7 +213,7 @@ export type VersionInfosOrderBy =
 /** A connection to a list of `Favorite` values. */
 export interface FavoritesConnection {
 	/** A list of `Favorite` objects. */
-	nodes: (Favorite | null)[];
+	nodes: Favorite[];
 	/** A list of edges which contains the `Favorite` and cursor to aid in pagination. */
 	edges: FavoritesEdge[];
 	/** Information to aid in pagination. */
@@ -282,7 +282,7 @@ export type FavoritesOrderBy =
 /** A connection to a list of `PersonalBestGlobal` values. */
 export interface PersonalBestGlobalsConnection {
 	/** A list of `PersonalBestGlobal` objects. */
-	nodes: (PersonalBestGlobal | null)[];
+	nodes: PersonalBestGlobal[];
 	/** A list of edges which contains the `PersonalBestGlobal` and cursor to aid in pagination. */
 	edges: PersonalBestGlobalsEdge[];
 	/** Information to aid in pagination. */
@@ -367,7 +367,7 @@ export interface Level {
 /** A connection to a list of `LevelItem` values. */
 export interface LevelItemsConnection {
 	/** A list of `LevelItem` objects. */
-	nodes: (LevelItem | null)[];
+	nodes: LevelItem[];
 	/** A list of edges which contains the `LevelItem` and cursor to aid in pagination. */
 	edges: LevelItemsEdge[];
 	/** Information to aid in pagination. */
@@ -407,7 +407,7 @@ export interface LevelItemsEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `LevelItem` at the end of the edge. */
-	node: LevelItem | null;
+	node: LevelItem;
 	__typename: 'LevelItemsEdge';
 }
 
@@ -454,7 +454,7 @@ export type LevelItemsOrderBy =
 /** A connection to a list of `LevelMetadatum` values. */
 export interface LevelMetadataConnection {
 	/** A list of `LevelMetadatum` objects. */
-	nodes: (LevelMetadatum | null)[];
+	nodes: LevelMetadatum[];
 	/** A list of edges which contains the `LevelMetadatum` and cursor to aid in pagination. */
 	edges: LevelMetadataEdge[];
 	/** Information to aid in pagination. */
@@ -487,7 +487,7 @@ export interface LevelMetadataEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `LevelMetadatum` at the end of the edge. */
-	node: LevelMetadatum | null;
+	node: LevelMetadatum;
 	__typename: 'LevelMetadataEdge';
 }
 
@@ -520,7 +520,7 @@ export type LevelMetadataOrderBy =
 /** A connection to a list of `LevelPoint` values. */
 export interface LevelPointsConnection {
 	/** A list of `LevelPoint` objects. */
-	nodes: (LevelPoint | null)[];
+	nodes: LevelPoint[];
 	/** A list of edges which contains the `LevelPoint` and cursor to aid in pagination. */
 	edges: LevelPointsEdge[];
 	/** Information to aid in pagination. */
@@ -548,7 +548,7 @@ export interface LevelPointsEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `LevelPoint` at the end of the edge. */
-	node: LevelPoint | null;
+	node: LevelPoint;
 	__typename: 'LevelPointsEdge';
 }
 
@@ -589,7 +589,7 @@ export type PersonalBestGlobalsOrderBy =
 /** A connection to a list of `Record` values. */
 export interface RecordsConnection {
 	/** A list of `Record` objects. */
-	nodes: (Record | null)[];
+	nodes: Record[];
 	/** A list of edges which contains the `Record` and cursor to aid in pagination. */
 	edges: RecordsEdge[];
 	/** Information to aid in pagination. */
@@ -604,7 +604,7 @@ export interface RecordsEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `Record` at the end of the edge. */
-	node: Record | null;
+	node: Record;
 	__typename: 'RecordsEdge';
 }
 
@@ -637,7 +637,7 @@ export type RecordsOrderBy =
 /** A connection to a list of `Upvote` values. */
 export interface UpvotesConnection {
 	/** A list of `Upvote` objects. */
-	nodes: (Upvote | null)[];
+	nodes: Upvote[];
 	/** A list of edges which contains the `Upvote` and cursor to aid in pagination. */
 	edges: UpvotesEdge[];
 	/** Information to aid in pagination. */
@@ -667,7 +667,7 @@ export interface UpvotesEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `Upvote` at the end of the edge. */
-	node: Upvote | null;
+	node: Upvote;
 	__typename: 'UpvotesEdge';
 }
 
@@ -690,7 +690,7 @@ export type UpvotesOrderBy =
 /** A connection to a list of `WorldRecordGlobal` values. */
 export interface WorldRecordGlobalsConnection {
 	/** A list of `WorldRecordGlobal` objects. */
-	nodes: (WorldRecordGlobal | null)[];
+	nodes: WorldRecordGlobal[];
 	/** A list of edges which contains the `WorldRecordGlobal` and cursor to aid in pagination. */
 	edges: WorldRecordGlobalsEdge[];
 	/** Information to aid in pagination. */
@@ -720,7 +720,7 @@ export interface WorldRecordGlobalsEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `WorldRecordGlobal` at the end of the edge. */
-	node: WorldRecordGlobal | null;
+	node: WorldRecordGlobal;
 	__typename: 'WorldRecordGlobalsEdge';
 }
 
@@ -743,7 +743,7 @@ export type WorldRecordGlobalsOrderBy =
 /** A connection to a list of `Vote` values. */
 export interface VotesConnection {
 	/** A list of `Vote` objects. */
-	nodes: (Vote | null)[];
+	nodes: Vote[];
 	/** A list of edges which contains the `Vote` and cursor to aid in pagination. */
 	edges: VotesEdge[];
 	/** Information to aid in pagination. */
@@ -774,7 +774,7 @@ export interface VotesEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `Vote` at the end of the edge. */
-	node: Vote | null;
+	node: Vote;
 	__typename: 'VotesEdge';
 }
 
@@ -799,7 +799,7 @@ export type VotesOrderBy =
 /** A connection to a list of `RecordMedia` values. */
 export interface RecordMediasConnection {
 	/** A list of `RecordMedia` objects. */
-	nodes: (RecordMedia | null)[];
+	nodes: RecordMedia[];
 	/** A list of edges which contains the `RecordMedia` and cursor to aid in pagination. */
 	edges: RecordMediasEdge[];
 	/** Information to aid in pagination. */
@@ -827,7 +827,7 @@ export interface RecordMediasEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `RecordMedia` at the end of the edge. */
-	node: RecordMedia | null;
+	node: RecordMedia;
 	__typename: 'RecordMediasEdge';
 }
 
@@ -852,14 +852,14 @@ export interface PersonalBestGlobalsEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `PersonalBestGlobal` at the end of the edge. */
-	node: PersonalBestGlobal | null;
+	node: PersonalBestGlobal;
 	__typename: 'PersonalBestGlobalsEdge';
 }
 
 /** A connection to a list of `UserPoint` values. */
 export interface UserPointsConnection {
 	/** A list of `UserPoint` objects. */
-	nodes: (UserPoint | null)[];
+	nodes: UserPoint[];
 	/** A list of edges which contains the `UserPoint` and cursor to aid in pagination. */
 	edges: UserPointsEdge[];
 	/** Information to aid in pagination. */
@@ -889,7 +889,7 @@ export interface UserPointsEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `UserPoint` at the end of the edge. */
-	node: UserPoint | null;
+	node: UserPoint;
 	__typename: 'UserPointsEdge';
 }
 
@@ -918,14 +918,14 @@ export interface FavoritesEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `Favorite` at the end of the edge. */
-	node: Favorite | null;
+	node: Favorite;
 	__typename: 'FavoritesEdge';
 }
 
 /** A connection to a list of `Level` values. */
 export interface LevelsConnection {
 	/** A list of `Level` objects. */
-	nodes: (Level | null)[];
+	nodes: Level[];
 	/** A list of edges which contains the `Level` and cursor to aid in pagination. */
 	edges: LevelsEdge[];
 	/** Information to aid in pagination. */
@@ -940,7 +940,7 @@ export interface LevelsEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `Level` at the end of the edge. */
-	node: Level | null;
+	node: Level;
 	__typename: 'LevelsEdge';
 }
 
@@ -961,7 +961,7 @@ export type LevelsOrderBy =
 /** A connection to a list of `LevelRequest` values. */
 export interface LevelRequestsConnection {
 	/** A list of `LevelRequest` objects. */
-	nodes: (LevelRequest | null)[];
+	nodes: LevelRequest[];
 	/** A list of edges which contains the `LevelRequest` and cursor to aid in pagination. */
 	edges: LevelRequestsEdge[];
 	/** Information to aid in pagination. */
@@ -988,7 +988,7 @@ export interface LevelRequestsEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `LevelRequest` at the end of the edge. */
-	node: LevelRequest | null;
+	node: LevelRequest;
 	__typename: 'LevelRequestsEdge';
 }
 
@@ -1013,7 +1013,7 @@ export type LevelRequestsOrderBy =
 /** A connection to a list of `SampledFavorite` values. */
 export interface SampledFavoritesConnection {
 	/** A list of `SampledFavorite` objects. */
-	nodes: (SampledFavorite | null)[];
+	nodes: SampledFavorite[];
 	/** A list of edges which contains the `SampledFavorite` and cursor to aid in pagination. */
 	edges: SampledFavoritesEdge[];
 	/** Information to aid in pagination. */
@@ -1037,7 +1037,7 @@ export interface SampledFavoritesEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `SampledFavorite` at the end of the edge. */
-	node: SampledFavorite | null;
+	node: SampledFavorite;
 	__typename: 'SampledFavoritesEdge';
 }
 
@@ -1058,7 +1058,7 @@ export type SampledFavoritesOrderBy =
 /** A connection to a list of `SampledLevel` values. */
 export interface SampledLevelsConnection {
 	/** A list of `SampledLevel` objects. */
-	nodes: (SampledLevel | null)[];
+	nodes: SampledLevel[];
 	/** A list of edges which contains the `SampledLevel` and cursor to aid in pagination. */
 	edges: SampledLevelsEdge[];
 	/** Information to aid in pagination. */
@@ -1081,7 +1081,7 @@ export interface SampledLevelsEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `SampledLevel` at the end of the edge. */
-	node: SampledLevel | null;
+	node: SampledLevel;
 	__typename: 'SampledLevelsEdge';
 }
 
@@ -1100,7 +1100,7 @@ export type SampledLevelsOrderBy =
 /** A connection to a list of `SampledLevelItem` values. */
 export interface SampledLevelItemsConnection {
 	/** A list of `SampledLevelItem` objects. */
-	nodes: (SampledLevelItem | null)[];
+	nodes: SampledLevelItem[];
 	/** A list of edges which contains the `SampledLevelItem` and cursor to aid in pagination. */
 	edges: SampledLevelItemsEdge[];
 	/** Information to aid in pagination. */
@@ -1136,7 +1136,7 @@ export interface SampledLevelItemsEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `SampledLevelItem` at the end of the edge. */
-	node: SampledLevelItem | null;
+	node: SampledLevelItem;
 	__typename: 'SampledLevelItemsEdge';
 }
 
@@ -1181,7 +1181,7 @@ export type SampledLevelItemsOrderBy =
 /** A connection to a list of `SampledLevelMetadatum` values. */
 export interface SampledLevelMetadataConnection {
 	/** A list of `SampledLevelMetadatum` objects. */
-	nodes: (SampledLevelMetadatum | null)[];
+	nodes: SampledLevelMetadatum[];
 	/** A list of edges which contains the `SampledLevelMetadatum` and cursor to aid in pagination. */
 	edges: SampledLevelMetadataEdge[];
 	/** Information to aid in pagination. */
@@ -1210,7 +1210,7 @@ export interface SampledLevelMetadataEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `SampledLevelMetadatum` at the end of the edge. */
-	node: SampledLevelMetadatum | null;
+	node: SampledLevelMetadatum;
 	__typename: 'SampledLevelMetadataEdge';
 }
 
@@ -1241,7 +1241,7 @@ export type SampledLevelMetadataOrderBy =
 /** A connection to a list of `SampledLevelPoint` values. */
 export interface SampledLevelPointsConnection {
 	/** A list of `SampledLevelPoint` objects. */
-	nodes: (SampledLevelPoint | null)[];
+	nodes: SampledLevelPoint[];
 	/** A list of edges which contains the `SampledLevelPoint` and cursor to aid in pagination. */
 	edges: SampledLevelPointsEdge[];
 	/** Information to aid in pagination. */
@@ -1265,7 +1265,7 @@ export interface SampledLevelPointsEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `SampledLevelPoint` at the end of the edge. */
-	node: SampledLevelPoint | null;
+	node: SampledLevelPoint;
 	__typename: 'SampledLevelPointsEdge';
 }
 
@@ -1286,7 +1286,7 @@ export type SampledLevelPointsOrderBy =
 /** A connection to a list of `SampledLevelRequest` values. */
 export interface SampledLevelRequestsConnection {
 	/** A list of `SampledLevelRequest` objects. */
-	nodes: (SampledLevelRequest | null)[];
+	nodes: SampledLevelRequest[];
 	/** A list of edges which contains the `SampledLevelRequest` and cursor to aid in pagination. */
 	edges: SampledLevelRequestsEdge[];
 	/** Information to aid in pagination. */
@@ -1311,7 +1311,7 @@ export interface SampledLevelRequestsEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `SampledLevelRequest` at the end of the edge. */
-	node: SampledLevelRequest | null;
+	node: SampledLevelRequest;
 	__typename: 'SampledLevelRequestsEdge';
 }
 
@@ -1334,7 +1334,7 @@ export type SampledLevelRequestsOrderBy =
 /** A connection to a list of `SampledPersonalBestGlobal` values. */
 export interface SampledPersonalBestGlobalsConnection {
 	/** A list of `SampledPersonalBestGlobal` objects. */
-	nodes: (SampledPersonalBestGlobal | null)[];
+	nodes: SampledPersonalBestGlobal[];
 	/** A list of edges which contains the `SampledPersonalBestGlobal` and cursor to aid in pagination. */
 	edges: SampledPersonalBestGlobalsEdge[];
 	/** Information to aid in pagination. */
@@ -1359,7 +1359,7 @@ export interface SampledPersonalBestGlobalsEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `SampledPersonalBestGlobal` at the end of the edge. */
-	node: SampledPersonalBestGlobal | null;
+	node: SampledPersonalBestGlobal;
 	__typename: 'SampledPersonalBestGlobalsEdge';
 }
 
@@ -1382,7 +1382,7 @@ export type SampledPersonalBestGlobalsOrderBy =
 /** A connection to a list of `SampledRecord` values. */
 export interface SampledRecordsConnection {
 	/** A list of `SampledRecord` objects. */
-	nodes: (SampledRecord | null)[];
+	nodes: SampledRecord[];
 	/** A list of edges which contains the `SampledRecord` and cursor to aid in pagination. */
 	edges: SampledRecordsEdge[];
 	/** Information to aid in pagination. */
@@ -1411,7 +1411,7 @@ export interface SampledRecordsEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `SampledRecord` at the end of the edge. */
-	node: SampledRecord | null;
+	node: SampledRecord;
 	__typename: 'SampledRecordsEdge';
 }
 
@@ -1442,7 +1442,7 @@ export type SampledRecordsOrderBy =
 /** A connection to a list of `SampledRecordMedia` values. */
 export interface SampledRecordMediasConnection {
 	/** A list of `SampledRecordMedia` objects. */
-	nodes: (SampledRecordMedia | null)[];
+	nodes: SampledRecordMedia[];
 	/** A list of edges which contains the `SampledRecordMedia` and cursor to aid in pagination. */
 	edges: SampledRecordMediasEdge[];
 	/** Information to aid in pagination. */
@@ -1466,7 +1466,7 @@ export interface SampledRecordMediasEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `SampledRecordMedia` at the end of the edge. */
-	node: SampledRecordMedia | null;
+	node: SampledRecordMedia;
 	__typename: 'SampledRecordMediasEdge';
 }
 
@@ -1487,7 +1487,7 @@ export type SampledRecordMediasOrderBy =
 /** A connection to a list of `SampledUpvote` values. */
 export interface SampledUpvotesConnection {
 	/** A list of `SampledUpvote` objects. */
-	nodes: (SampledUpvote | null)[];
+	nodes: SampledUpvote[];
 	/** A list of edges which contains the `SampledUpvote` and cursor to aid in pagination. */
 	edges: SampledUpvotesEdge[];
 	/** Information to aid in pagination. */
@@ -1511,7 +1511,7 @@ export interface SampledUpvotesEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `SampledUpvote` at the end of the edge. */
-	node: SampledUpvote | null;
+	node: SampledUpvote;
 	__typename: 'SampledUpvotesEdge';
 }
 
@@ -1532,7 +1532,7 @@ export type SampledUpvotesOrderBy =
 /** A connection to a list of `SampledUser` values. */
 export interface SampledUsersConnection {
 	/** A list of `SampledUser` objects. */
-	nodes: (SampledUser | null)[];
+	nodes: SampledUser[];
 	/** A list of edges which contains the `SampledUser` and cursor to aid in pagination. */
 	edges: SampledUsersEdge[];
 	/** Information to aid in pagination. */
@@ -1558,7 +1558,7 @@ export interface SampledUsersEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `SampledUser` at the end of the edge. */
-	node: SampledUser | null;
+	node: SampledUser;
 	__typename: 'SampledUsersEdge';
 }
 
@@ -1583,7 +1583,7 @@ export type SampledUsersOrderBy =
 /** A connection to a list of `SampledUserPoint` values. */
 export interface SampledUserPointsConnection {
 	/** A list of `SampledUserPoint` objects. */
-	nodes: (SampledUserPoint | null)[];
+	nodes: SampledUserPoint[];
 	/** A list of edges which contains the `SampledUserPoint` and cursor to aid in pagination. */
 	edges: SampledUserPointsEdge[];
 	/** Information to aid in pagination. */
@@ -1609,7 +1609,7 @@ export interface SampledUserPointsEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `SampledUserPoint` at the end of the edge. */
-	node: SampledUserPoint | null;
+	node: SampledUserPoint;
 	__typename: 'SampledUserPointsEdge';
 }
 
@@ -1634,7 +1634,7 @@ export type SampledUserPointsOrderBy =
 /** A connection to a list of `SampledVersion` values. */
 export interface SampledVersionsConnection {
 	/** A list of `SampledVersion` objects. */
-	nodes: (SampledVersion | null)[];
+	nodes: SampledVersion[];
 	/** A list of edges which contains the `SampledVersion` and cursor to aid in pagination. */
 	edges: SampledVersionsEdge[];
 	/** Information to aid in pagination. */
@@ -1658,7 +1658,7 @@ export interface SampledVersionsEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `SampledVersion` at the end of the edge. */
-	node: SampledVersion | null;
+	node: SampledVersion;
 	__typename: 'SampledVersionsEdge';
 }
 
@@ -1679,7 +1679,7 @@ export type SampledVersionsOrderBy =
 /** A connection to a list of `SampledWorldRecordGlobal` values. */
 export interface SampledWorldRecordGlobalsConnection {
 	/** A list of `SampledWorldRecordGlobal` objects. */
-	nodes: (SampledWorldRecordGlobal | null)[];
+	nodes: SampledWorldRecordGlobal[];
 	/** A list of edges which contains the `SampledWorldRecordGlobal` and cursor to aid in pagination. */
 	edges: SampledWorldRecordGlobalsEdge[];
 	/** Information to aid in pagination. */
@@ -1703,7 +1703,7 @@ export interface SampledWorldRecordGlobalsEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `SampledWorldRecordGlobal` at the end of the edge. */
-	node: SampledWorldRecordGlobal | null;
+	node: SampledWorldRecordGlobal;
 	__typename: 'SampledWorldRecordGlobalsEdge';
 }
 
@@ -1724,7 +1724,7 @@ export type SampledWorldRecordGlobalsOrderBy =
 /** A connection to a list of `User` values. */
 export interface UsersConnection {
 	/** A list of `User` objects. */
-	nodes: (User | null)[];
+	nodes: User[];
 	/** A list of edges which contains the `User` and cursor to aid in pagination. */
 	edges: UsersEdge[];
 	/** Information to aid in pagination. */
@@ -1739,7 +1739,7 @@ export interface UsersEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `User` at the end of the edge. */
-	node: User | null;
+	node: User;
 	__typename: 'UsersEdge';
 }
 
@@ -1766,7 +1766,7 @@ export type UsersOrderBy =
 /** A connection to a list of `Version` values. */
 export interface VersionsConnection {
 	/** A list of `Version` objects. */
-	nodes: (Version | null)[];
+	nodes: Version[];
 	/** A list of edges which contains the `Version` and cursor to aid in pagination. */
 	edges: VersionsEdge[];
 	/** Information to aid in pagination. */
@@ -1792,7 +1792,7 @@ export interface VersionsEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `Version` at the end of the edge. */
-	node: Version | null;
+	node: Version;
 	__typename: 'VersionsEdge';
 }
 
@@ -1815,7 +1815,7 @@ export type VersionsOrderBy =
 /** A connection to a list of `ZRtmRecord` values. */
 export interface ZRtmConnection {
 	/** A list of `ZRtmRecord` objects. */
-	nodes: (ZRtmRecord | null)[];
+	nodes: ZRtmRecord[];
 	/** A list of edges which contains the `ZRtmRecord` and cursor to aid in pagination. */
 	edges: ZRtmEdge[];
 	/** The count of *all* `ZRtmRecord` you could get from the connection. */
@@ -1854,7 +1854,7 @@ export interface ZRtmEdge {
 	/** A cursor for use in pagination. */
 	cursor: Scalars['Cursor'] | null;
 	/** The `ZRtmRecord` at the end of the edge. */
-	node: ZRtmRecord | null;
+	node: ZRtmRecord;
 	__typename: 'ZRtmEdge';
 }
 
@@ -3282,30 +3282,30 @@ export interface UserFilter {
 	steamId?: BigFloatFilter | null;
 	/** Filter by the object’s `discordId` field. */
 	discordId?: BigFloatFilter | null;
-	/** Filter by the object’s `favoritesByIdUser` relation. */
-	favoritesByIdUser?: UserToManyFavoriteFilter | null;
-	/** Some related `favoritesByIdUser` exist. */
-	favoritesByIdUserExist?: Scalars['Boolean'] | null;
-	/** Filter by the object’s `personalBestGlobalsByIdUser` relation. */
-	personalBestGlobalsByIdUser?: UserToManyPersonalBestGlobalFilter | null;
-	/** Some related `personalBestGlobalsByIdUser` exist. */
-	personalBestGlobalsByIdUserExist?: Scalars['Boolean'] | null;
-	/** Filter by the object’s `userPointsByIdUser` relation. */
-	userPointsByIdUser?: UserToManyUserPointFilter | null;
-	/** Some related `userPointsByIdUser` exist. */
-	userPointsByIdUserExist?: Scalars['Boolean'] | null;
-	/** Filter by the object’s `recordsByIdUser` relation. */
-	recordsByIdUser?: UserToManyRecordFilter | null;
-	/** Some related `recordsByIdUser` exist. */
-	recordsByIdUserExist?: Scalars['Boolean'] | null;
-	/** Filter by the object’s `upvotesByIdUser` relation. */
-	upvotesByIdUser?: UserToManyUpvoteFilter | null;
-	/** Some related `upvotesByIdUser` exist. */
-	upvotesByIdUserExist?: Scalars['Boolean'] | null;
-	/** Filter by the object’s `votesByIdUser` relation. */
-	votesByIdUser?: UserToManyVoteFilter | null;
-	/** Some related `votesByIdUser` exist. */
-	votesByIdUserExist?: Scalars['Boolean'] | null;
+	/** Filter by the object’s `favoritesByIdUserList` relation. */
+	favoritesByIdUserList?: UserToManyFavoriteFilter | null;
+	/** Some related `favoritesByIdUserList` exist. */
+	favoritesByIdUserListExist?: Scalars['Boolean'] | null;
+	/** Filter by the object’s `personalBestGlobalsByIdUserList` relation. */
+	personalBestGlobalsByIdUserList?: UserToManyPersonalBestGlobalFilter | null;
+	/** Some related `personalBestGlobalsByIdUserList` exist. */
+	personalBestGlobalsByIdUserListExist?: Scalars['Boolean'] | null;
+	/** Filter by the object’s `userPointsByIdUserList` relation. */
+	userPointsByIdUserList?: UserToManyUserPointFilter | null;
+	/** Some related `userPointsByIdUserList` exist. */
+	userPointsByIdUserListExist?: Scalars['Boolean'] | null;
+	/** Filter by the object’s `recordsByIdUserList` relation. */
+	recordsByIdUserList?: UserToManyRecordFilter | null;
+	/** Some related `recordsByIdUserList` exist. */
+	recordsByIdUserListExist?: Scalars['Boolean'] | null;
+	/** Filter by the object’s `upvotesByIdUserList` relation. */
+	upvotesByIdUserList?: UserToManyUpvoteFilter | null;
+	/** Some related `upvotesByIdUserList` exist. */
+	upvotesByIdUserListExist?: Scalars['Boolean'] | null;
+	/** Filter by the object’s `votesByIdUserList` relation. */
+	votesByIdUserList?: UserToManyVoteFilter | null;
+	/** Some related `votesByIdUserList` exist. */
+	votesByIdUserListExist?: Scalars['Boolean'] | null;
 	/** Checks for all expressions in this list. */
 	and?: UserFilter[] | null;
 	/** Checks for any expressions in this list. */
@@ -3436,18 +3436,18 @@ export interface RecordFilter {
 	splits?: FloatListFilter | null;
 	/** Filter by the object’s `speeds` field. */
 	speeds?: FloatListFilter | null;
-	/** Filter by the object’s `recordMediasByIdRecord` relation. */
-	recordMediasByIdRecord?: RecordToManyRecordMediaFilter | null;
-	/** Some related `recordMediasByIdRecord` exist. */
-	recordMediasByIdRecordExist?: Scalars['Boolean'] | null;
-	/** Filter by the object’s `personalBestGlobalsByIdRecord` relation. */
-	personalBestGlobalsByIdRecord?: RecordToManyPersonalBestGlobalFilter | null;
-	/** Some related `personalBestGlobalsByIdRecord` exist. */
-	personalBestGlobalsByIdRecordExist?: Scalars['Boolean'] | null;
-	/** Filter by the object’s `worldRecordGlobalsByIdRecord` relation. */
-	worldRecordGlobalsByIdRecord?: RecordToManyWorldRecordGlobalFilter | null;
-	/** Some related `worldRecordGlobalsByIdRecord` exist. */
-	worldRecordGlobalsByIdRecordExist?: Scalars['Boolean'] | null;
+	/** Filter by the object’s `recordMediasByIdRecordList` relation. */
+	recordMediasByIdRecordList?: RecordToManyRecordMediaFilter | null;
+	/** Some related `recordMediasByIdRecordList` exist. */
+	recordMediasByIdRecordListExist?: Scalars['Boolean'] | null;
+	/** Filter by the object’s `personalBestGlobalsByIdRecordList` relation. */
+	personalBestGlobalsByIdRecordList?: RecordToManyPersonalBestGlobalFilter | null;
+	/** Some related `personalBestGlobalsByIdRecordList` exist. */
+	personalBestGlobalsByIdRecordListExist?: Scalars['Boolean'] | null;
+	/** Filter by the object’s `worldRecordGlobalsByIdRecordList` relation. */
+	worldRecordGlobalsByIdRecordList?: RecordToManyWorldRecordGlobalFilter | null;
+	/** Some related `worldRecordGlobalsByIdRecordList` exist. */
+	worldRecordGlobalsByIdRecordListExist?: Scalars['Boolean'] | null;
 	/** Filter by the object’s `userByIdUser` relation. */
 	userByIdUser?: UserFilter | null;
 	/** Filter by the object’s `levelByIdLevel` relation. */
@@ -3612,42 +3612,42 @@ export interface LevelFilter {
 	dateCreated?: DatetimeFilter | null;
 	/** Filter by the object’s `dateUpdated` field. */
 	dateUpdated?: DatetimeFilter | null;
-	/** Filter by the object’s `favoritesByIdLevel` relation. */
-	favoritesByIdLevel?: LevelToManyFavoriteFilter | null;
-	/** Some related `favoritesByIdLevel` exist. */
-	favoritesByIdLevelExist?: Scalars['Boolean'] | null;
-	/** Filter by the object’s `levelItemsByIdLevel` relation. */
-	levelItemsByIdLevel?: LevelToManyLevelItemFilter | null;
-	/** Some related `levelItemsByIdLevel` exist. */
-	levelItemsByIdLevelExist?: Scalars['Boolean'] | null;
-	/** Filter by the object’s `levelMetadataByIdLevel` relation. */
-	levelMetadataByIdLevel?: LevelToManyLevelMetadatumFilter | null;
-	/** Some related `levelMetadataByIdLevel` exist. */
-	levelMetadataByIdLevelExist?: Scalars['Boolean'] | null;
-	/** Filter by the object’s `levelPointsByIdLevel` relation. */
-	levelPointsByIdLevel?: LevelToManyLevelPointFilter | null;
-	/** Some related `levelPointsByIdLevel` exist. */
-	levelPointsByIdLevelExist?: Scalars['Boolean'] | null;
-	/** Filter by the object’s `personalBestGlobalsByIdLevel` relation. */
-	personalBestGlobalsByIdLevel?: LevelToManyPersonalBestGlobalFilter | null;
-	/** Some related `personalBestGlobalsByIdLevel` exist. */
-	personalBestGlobalsByIdLevelExist?: Scalars['Boolean'] | null;
-	/** Filter by the object’s `recordsByIdLevel` relation. */
-	recordsByIdLevel?: LevelToManyRecordFilter | null;
-	/** Some related `recordsByIdLevel` exist. */
-	recordsByIdLevelExist?: Scalars['Boolean'] | null;
-	/** Filter by the object’s `upvotesByIdLevel` relation. */
-	upvotesByIdLevel?: LevelToManyUpvoteFilter | null;
-	/** Some related `upvotesByIdLevel` exist. */
-	upvotesByIdLevelExist?: Scalars['Boolean'] | null;
-	/** Filter by the object’s `worldRecordGlobalsByIdLevel` relation. */
-	worldRecordGlobalsByIdLevel?: LevelToManyWorldRecordGlobalFilter | null;
-	/** Some related `worldRecordGlobalsByIdLevel` exist. */
-	worldRecordGlobalsByIdLevelExist?: Scalars['Boolean'] | null;
-	/** Filter by the object’s `votesByIdLevel` relation. */
-	votesByIdLevel?: LevelToManyVoteFilter | null;
-	/** Some related `votesByIdLevel` exist. */
-	votesByIdLevelExist?: Scalars['Boolean'] | null;
+	/** Filter by the object’s `favoritesByIdLevelList` relation. */
+	favoritesByIdLevelList?: LevelToManyFavoriteFilter | null;
+	/** Some related `favoritesByIdLevelList` exist. */
+	favoritesByIdLevelListExist?: Scalars['Boolean'] | null;
+	/** Filter by the object’s `levelItemsByIdLevelList` relation. */
+	levelItemsByIdLevelList?: LevelToManyLevelItemFilter | null;
+	/** Some related `levelItemsByIdLevelList` exist. */
+	levelItemsByIdLevelListExist?: Scalars['Boolean'] | null;
+	/** Filter by the object’s `levelMetadataByIdLevelList` relation. */
+	levelMetadataByIdLevelList?: LevelToManyLevelMetadatumFilter | null;
+	/** Some related `levelMetadataByIdLevelList` exist. */
+	levelMetadataByIdLevelListExist?: Scalars['Boolean'] | null;
+	/** Filter by the object’s `levelPointsByIdLevelList` relation. */
+	levelPointsByIdLevelList?: LevelToManyLevelPointFilter | null;
+	/** Some related `levelPointsByIdLevelList` exist. */
+	levelPointsByIdLevelListExist?: Scalars['Boolean'] | null;
+	/** Filter by the object’s `personalBestGlobalsByIdLevelList` relation. */
+	personalBestGlobalsByIdLevelList?: LevelToManyPersonalBestGlobalFilter | null;
+	/** Some related `personalBestGlobalsByIdLevelList` exist. */
+	personalBestGlobalsByIdLevelListExist?: Scalars['Boolean'] | null;
+	/** Filter by the object’s `recordsByIdLevelList` relation. */
+	recordsByIdLevelList?: LevelToManyRecordFilter | null;
+	/** Some related `recordsByIdLevelList` exist. */
+	recordsByIdLevelListExist?: Scalars['Boolean'] | null;
+	/** Filter by the object’s `upvotesByIdLevelList` relation. */
+	upvotesByIdLevelList?: LevelToManyUpvoteFilter | null;
+	/** Some related `upvotesByIdLevelList` exist. */
+	upvotesByIdLevelListExist?: Scalars['Boolean'] | null;
+	/** Filter by the object’s `worldRecordGlobalsByIdLevelList` relation. */
+	worldRecordGlobalsByIdLevelList?: LevelToManyWorldRecordGlobalFilter | null;
+	/** Some related `worldRecordGlobalsByIdLevelList` exist. */
+	worldRecordGlobalsByIdLevelListExist?: Scalars['Boolean'] | null;
+	/** Filter by the object’s `votesByIdLevelList` relation. */
+	votesByIdLevelList?: LevelToManyVoteFilter | null;
+	/** Some related `votesByIdLevelList` exist. */
+	votesByIdLevelListExist?: Scalars['Boolean'] | null;
 	/** Checks for all expressions in this list. */
 	and?: LevelFilter[] | null;
 	/** Checks for any expressions in this list. */

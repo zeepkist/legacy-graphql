@@ -1637,7 +1637,7 @@ type VersionInfosConnection {
 	"""
 	A list of `VersionInfo` objects.
 	"""
-	nodes: [VersionInfo]!
+	nodes: [VersionInfo!]!
 
 	"""
 	A list of edges which contains the `VersionInfo` and cursor to aid in pagination.
@@ -1686,7 +1686,7 @@ type VersionInfosEdge {
 	"""
 	The `VersionInfo` at the end of the edge.
 	"""
-	node: VersionInfo
+	node: VersionInfo!
 }
 
 """
@@ -2105,7 +2105,7 @@ type FavoritesConnection {
 	"""
 	A list of `Favorite` objects.
 	"""
-	nodes: [Favorite]!
+	nodes: [Favorite!]!
 
 	"""
 	A list of edges which contains the `Favorite` and cursor to aid in pagination.
@@ -2645,64 +2645,64 @@ input UserFilter {
 	discordId: BigFloatFilter
 
 	"""
-	Filter by the object’s `favoritesByIdUser` relation.
+	Filter by the object’s `favoritesByIdUserList` relation.
 	"""
-	favoritesByIdUser: UserToManyFavoriteFilter
+	favoritesByIdUserList: UserToManyFavoriteFilter
 
 	"""
-	Some related `favoritesByIdUser` exist.
+	Some related `favoritesByIdUserList` exist.
 	"""
-	favoritesByIdUserExist: Boolean
+	favoritesByIdUserListExist: Boolean
 
 	"""
-	Filter by the object’s `personalBestGlobalsByIdUser` relation.
+	Filter by the object’s `personalBestGlobalsByIdUserList` relation.
 	"""
-	personalBestGlobalsByIdUser: UserToManyPersonalBestGlobalFilter
+	personalBestGlobalsByIdUserList: UserToManyPersonalBestGlobalFilter
 
 	"""
-	Some related `personalBestGlobalsByIdUser` exist.
+	Some related `personalBestGlobalsByIdUserList` exist.
 	"""
-	personalBestGlobalsByIdUserExist: Boolean
+	personalBestGlobalsByIdUserListExist: Boolean
 
 	"""
-	Filter by the object’s `userPointsByIdUser` relation.
+	Filter by the object’s `userPointsByIdUserList` relation.
 	"""
-	userPointsByIdUser: UserToManyUserPointFilter
+	userPointsByIdUserList: UserToManyUserPointFilter
 
 	"""
-	Some related `userPointsByIdUser` exist.
+	Some related `userPointsByIdUserList` exist.
 	"""
-	userPointsByIdUserExist: Boolean
+	userPointsByIdUserListExist: Boolean
 
 	"""
-	Filter by the object’s `recordsByIdUser` relation.
+	Filter by the object’s `recordsByIdUserList` relation.
 	"""
-	recordsByIdUser: UserToManyRecordFilter
+	recordsByIdUserList: UserToManyRecordFilter
 
 	"""
-	Some related `recordsByIdUser` exist.
+	Some related `recordsByIdUserList` exist.
 	"""
-	recordsByIdUserExist: Boolean
+	recordsByIdUserListExist: Boolean
 
 	"""
-	Filter by the object’s `upvotesByIdUser` relation.
+	Filter by the object’s `upvotesByIdUserList` relation.
 	"""
-	upvotesByIdUser: UserToManyUpvoteFilter
+	upvotesByIdUserList: UserToManyUpvoteFilter
 
 	"""
-	Some related `upvotesByIdUser` exist.
+	Some related `upvotesByIdUserList` exist.
 	"""
-	upvotesByIdUserExist: Boolean
+	upvotesByIdUserListExist: Boolean
 
 	"""
-	Filter by the object’s `votesByIdUser` relation.
+	Filter by the object’s `votesByIdUserList` relation.
 	"""
-	votesByIdUser: UserToManyVoteFilter
+	votesByIdUserList: UserToManyVoteFilter
 
 	"""
-	Some related `votesByIdUser` exist.
+	Some related `votesByIdUserList` exist.
 	"""
-	votesByIdUserExist: Boolean
+	votesByIdUserListExist: Boolean
 
 	"""
 	Checks for all expressions in this list.
@@ -3000,34 +3000,34 @@ input RecordFilter {
 	speeds: FloatListFilter
 
 	"""
-	Filter by the object’s `recordMediasByIdRecord` relation.
+	Filter by the object’s `recordMediasByIdRecordList` relation.
 	"""
-	recordMediasByIdRecord: RecordToManyRecordMediaFilter
+	recordMediasByIdRecordList: RecordToManyRecordMediaFilter
 
 	"""
-	Some related `recordMediasByIdRecord` exist.
+	Some related `recordMediasByIdRecordList` exist.
 	"""
-	recordMediasByIdRecordExist: Boolean
+	recordMediasByIdRecordListExist: Boolean
 
 	"""
-	Filter by the object’s `personalBestGlobalsByIdRecord` relation.
+	Filter by the object’s `personalBestGlobalsByIdRecordList` relation.
 	"""
-	personalBestGlobalsByIdRecord: RecordToManyPersonalBestGlobalFilter
+	personalBestGlobalsByIdRecordList: RecordToManyPersonalBestGlobalFilter
 
 	"""
-	Some related `personalBestGlobalsByIdRecord` exist.
+	Some related `personalBestGlobalsByIdRecordList` exist.
 	"""
-	personalBestGlobalsByIdRecordExist: Boolean
+	personalBestGlobalsByIdRecordListExist: Boolean
 
 	"""
-	Filter by the object’s `worldRecordGlobalsByIdRecord` relation.
+	Filter by the object’s `worldRecordGlobalsByIdRecordList` relation.
 	"""
-	worldRecordGlobalsByIdRecord: RecordToManyWorldRecordGlobalFilter
+	worldRecordGlobalsByIdRecordList: RecordToManyWorldRecordGlobalFilter
 
 	"""
-	Some related `worldRecordGlobalsByIdRecord` exist.
+	Some related `worldRecordGlobalsByIdRecordList` exist.
 	"""
-	worldRecordGlobalsByIdRecordExist: Boolean
+	worldRecordGlobalsByIdRecordListExist: Boolean
 
 	"""
 	Filter by the object’s `userByIdUser` relation.
@@ -3400,94 +3400,94 @@ input LevelFilter {
 	dateUpdated: DatetimeFilter
 
 	"""
-	Filter by the object’s `favoritesByIdLevel` relation.
+	Filter by the object’s `favoritesByIdLevelList` relation.
 	"""
-	favoritesByIdLevel: LevelToManyFavoriteFilter
+	favoritesByIdLevelList: LevelToManyFavoriteFilter
 
 	"""
-	Some related `favoritesByIdLevel` exist.
+	Some related `favoritesByIdLevelList` exist.
 	"""
-	favoritesByIdLevelExist: Boolean
+	favoritesByIdLevelListExist: Boolean
 
 	"""
-	Filter by the object’s `levelItemsByIdLevel` relation.
+	Filter by the object’s `levelItemsByIdLevelList` relation.
 	"""
-	levelItemsByIdLevel: LevelToManyLevelItemFilter
+	levelItemsByIdLevelList: LevelToManyLevelItemFilter
 
 	"""
-	Some related `levelItemsByIdLevel` exist.
+	Some related `levelItemsByIdLevelList` exist.
 	"""
-	levelItemsByIdLevelExist: Boolean
+	levelItemsByIdLevelListExist: Boolean
 
 	"""
-	Filter by the object’s `levelMetadataByIdLevel` relation.
+	Filter by the object’s `levelMetadataByIdLevelList` relation.
 	"""
-	levelMetadataByIdLevel: LevelToManyLevelMetadatumFilter
+	levelMetadataByIdLevelList: LevelToManyLevelMetadatumFilter
 
 	"""
-	Some related `levelMetadataByIdLevel` exist.
+	Some related `levelMetadataByIdLevelList` exist.
 	"""
-	levelMetadataByIdLevelExist: Boolean
+	levelMetadataByIdLevelListExist: Boolean
 
 	"""
-	Filter by the object’s `levelPointsByIdLevel` relation.
+	Filter by the object’s `levelPointsByIdLevelList` relation.
 	"""
-	levelPointsByIdLevel: LevelToManyLevelPointFilter
+	levelPointsByIdLevelList: LevelToManyLevelPointFilter
 
 	"""
-	Some related `levelPointsByIdLevel` exist.
+	Some related `levelPointsByIdLevelList` exist.
 	"""
-	levelPointsByIdLevelExist: Boolean
+	levelPointsByIdLevelListExist: Boolean
 
 	"""
-	Filter by the object’s `personalBestGlobalsByIdLevel` relation.
+	Filter by the object’s `personalBestGlobalsByIdLevelList` relation.
 	"""
-	personalBestGlobalsByIdLevel: LevelToManyPersonalBestGlobalFilter
+	personalBestGlobalsByIdLevelList: LevelToManyPersonalBestGlobalFilter
 
 	"""
-	Some related `personalBestGlobalsByIdLevel` exist.
+	Some related `personalBestGlobalsByIdLevelList` exist.
 	"""
-	personalBestGlobalsByIdLevelExist: Boolean
+	personalBestGlobalsByIdLevelListExist: Boolean
 
 	"""
-	Filter by the object’s `recordsByIdLevel` relation.
+	Filter by the object’s `recordsByIdLevelList` relation.
 	"""
-	recordsByIdLevel: LevelToManyRecordFilter
+	recordsByIdLevelList: LevelToManyRecordFilter
 
 	"""
-	Some related `recordsByIdLevel` exist.
+	Some related `recordsByIdLevelList` exist.
 	"""
-	recordsByIdLevelExist: Boolean
+	recordsByIdLevelListExist: Boolean
 
 	"""
-	Filter by the object’s `upvotesByIdLevel` relation.
+	Filter by the object’s `upvotesByIdLevelList` relation.
 	"""
-	upvotesByIdLevel: LevelToManyUpvoteFilter
+	upvotesByIdLevelList: LevelToManyUpvoteFilter
 
 	"""
-	Some related `upvotesByIdLevel` exist.
+	Some related `upvotesByIdLevelList` exist.
 	"""
-	upvotesByIdLevelExist: Boolean
+	upvotesByIdLevelListExist: Boolean
 
 	"""
-	Filter by the object’s `worldRecordGlobalsByIdLevel` relation.
+	Filter by the object’s `worldRecordGlobalsByIdLevelList` relation.
 	"""
-	worldRecordGlobalsByIdLevel: LevelToManyWorldRecordGlobalFilter
+	worldRecordGlobalsByIdLevelList: LevelToManyWorldRecordGlobalFilter
 
 	"""
-	Some related `worldRecordGlobalsByIdLevel` exist.
+	Some related `worldRecordGlobalsByIdLevelList` exist.
 	"""
-	worldRecordGlobalsByIdLevelExist: Boolean
+	worldRecordGlobalsByIdLevelListExist: Boolean
 
 	"""
-	Filter by the object’s `votesByIdLevel` relation.
+	Filter by the object’s `votesByIdLevelList` relation.
 	"""
-	votesByIdLevel: LevelToManyVoteFilter
+	votesByIdLevelList: LevelToManyVoteFilter
 
 	"""
-	Some related `votesByIdLevel` exist.
+	Some related `votesByIdLevelList` exist.
 	"""
-	votesByIdLevelExist: Boolean
+	votesByIdLevelListExist: Boolean
 
 	"""
 	Checks for all expressions in this list.
@@ -4272,7 +4272,7 @@ type PersonalBestGlobalsConnection {
 	"""
 	A list of `PersonalBestGlobal` objects.
 	"""
-	nodes: [PersonalBestGlobal]!
+	nodes: [PersonalBestGlobal!]!
 
 	"""
 	A list of edges which contains the `PersonalBestGlobal` and cursor to aid in pagination.
@@ -4915,7 +4915,7 @@ type LevelItemsConnection {
 	"""
 	A list of `LevelItem` objects.
 	"""
-	nodes: [LevelItem]!
+	nodes: [LevelItem!]!
 
 	"""
 	A list of edges which contains the `LevelItem` and cursor to aid in pagination.
@@ -4974,7 +4974,7 @@ type LevelItemsEdge {
 	"""
 	The `LevelItem` at the end of the edge.
 	"""
-	node: LevelItem
+	node: LevelItem!
 }
 
 """
@@ -5118,7 +5118,7 @@ type LevelMetadataConnection {
 	"""
 	A list of `LevelMetadatum` objects.
 	"""
-	nodes: [LevelMetadatum]!
+	nodes: [LevelMetadatum!]!
 
 	"""
 	A list of edges which contains the `LevelMetadatum` and cursor to aid in pagination.
@@ -5170,7 +5170,7 @@ type LevelMetadataEdge {
 	"""
 	The `LevelMetadatum` at the end of the edge.
 	"""
-	node: LevelMetadatum
+	node: LevelMetadatum!
 }
 
 """
@@ -5265,7 +5265,7 @@ type LevelPointsConnection {
 	"""
 	A list of `LevelPoint` objects.
 	"""
-	nodes: [LevelPoint]!
+	nodes: [LevelPoint!]!
 
 	"""
 	A list of edges which contains the `LevelPoint` and cursor to aid in pagination.
@@ -5312,7 +5312,7 @@ type LevelPointsEdge {
 	"""
 	The `LevelPoint` at the end of the edge.
 	"""
-	node: LevelPoint
+	node: LevelPoint!
 }
 
 """
@@ -5429,7 +5429,7 @@ type RecordsConnection {
 	"""
 	A list of `Record` objects.
 	"""
-	nodes: [Record]!
+	nodes: [Record!]!
 
 	"""
 	A list of edges which contains the `Record` and cursor to aid in pagination.
@@ -5459,7 +5459,7 @@ type RecordsEdge {
 	"""
 	The `Record` at the end of the edge.
 	"""
-	node: Record
+	node: Record!
 }
 
 """
@@ -5553,7 +5553,7 @@ type UpvotesConnection {
 	"""
 	A list of `Upvote` objects.
 	"""
-	nodes: [Upvote]!
+	nodes: [Upvote!]!
 
 	"""
 	A list of edges which contains the `Upvote` and cursor to aid in pagination.
@@ -5605,7 +5605,7 @@ type UpvotesEdge {
 	"""
 	The `Upvote` at the end of the edge.
 	"""
-	node: Upvote
+	node: Upvote!
 }
 
 """
@@ -5664,7 +5664,7 @@ type WorldRecordGlobalsConnection {
 	"""
 	A list of `WorldRecordGlobal` objects.
 	"""
-	nodes: [WorldRecordGlobal]!
+	nodes: [WorldRecordGlobal!]!
 
 	"""
 	A list of edges which contains the `WorldRecordGlobal` and cursor to aid in pagination.
@@ -5716,7 +5716,7 @@ type WorldRecordGlobalsEdge {
 	"""
 	The `WorldRecordGlobal` at the end of the edge.
 	"""
-	node: WorldRecordGlobal
+	node: WorldRecordGlobal!
 }
 
 """
@@ -5776,7 +5776,7 @@ type VotesConnection {
 	"""
 	A list of `Vote` objects.
 	"""
-	nodes: [Vote]!
+	nodes: [Vote!]!
 
 	"""
 	A list of edges which contains the `Vote` and cursor to aid in pagination.
@@ -5829,7 +5829,7 @@ type VotesEdge {
 	"""
 	The `Vote` at the end of the edge.
 	"""
-	node: Vote
+	node: Vote!
 }
 
 """
@@ -5895,7 +5895,7 @@ type RecordMediasConnection {
 	"""
 	A list of `RecordMedia` objects.
 	"""
-	nodes: [RecordMedia]!
+	nodes: [RecordMedia!]!
 
 	"""
 	A list of edges which contains the `RecordMedia` and cursor to aid in pagination.
@@ -5942,7 +5942,7 @@ type RecordMediasEdge {
 	"""
 	The `RecordMedia` at the end of the edge.
 	"""
-	node: RecordMedia
+	node: RecordMedia!
 }
 
 """
@@ -6007,7 +6007,7 @@ type PersonalBestGlobalsEdge {
 	"""
 	The `PersonalBestGlobal` at the end of the edge.
 	"""
-	node: PersonalBestGlobal
+	node: PersonalBestGlobal!
 }
 
 """
@@ -6017,7 +6017,7 @@ type UserPointsConnection {
 	"""
 	A list of `UserPoint` objects.
 	"""
-	nodes: [UserPoint]!
+	nodes: [UserPoint!]!
 
 	"""
 	A list of edges which contains the `UserPoint` and cursor to aid in pagination.
@@ -6066,7 +6066,7 @@ type UserPointsEdge {
 	"""
 	The `UserPoint` at the end of the edge.
 	"""
-	node: UserPoint
+	node: UserPoint!
 }
 
 """
@@ -6145,7 +6145,7 @@ type FavoritesEdge {
 	"""
 	The `Favorite` at the end of the edge.
 	"""
-	node: Favorite
+	node: Favorite!
 }
 
 """
@@ -6155,7 +6155,7 @@ type LevelsConnection {
 	"""
 	A list of `Level` objects.
 	"""
-	nodes: [Level]!
+	nodes: [Level!]!
 
 	"""
 	A list of edges which contains the `Level` and cursor to aid in pagination.
@@ -6185,7 +6185,7 @@ type LevelsEdge {
 	"""
 	The `Level` at the end of the edge.
 	"""
-	node: Level
+	node: Level!
 }
 
 """
@@ -6237,7 +6237,7 @@ type LevelRequestsConnection {
 	"""
 	A list of `LevelRequest` objects.
 	"""
-	nodes: [LevelRequest]!
+	nodes: [LevelRequest!]!
 
 	"""
 	A list of edges which contains the `LevelRequest` and cursor to aid in pagination.
@@ -6280,7 +6280,7 @@ type LevelRequestsEdge {
 	"""
 	The `LevelRequest` at the end of the edge.
 	"""
-	node: LevelRequest
+	node: LevelRequest!
 }
 
 """
@@ -6397,7 +6397,7 @@ type SampledFavoritesConnection {
 	"""
 	A list of `SampledFavorite` objects.
 	"""
-	nodes: [SampledFavorite]!
+	nodes: [SampledFavorite!]!
 
 	"""
 	A list of edges which contains the `SampledFavorite` and cursor to aid in pagination.
@@ -6435,7 +6435,7 @@ type SampledFavoritesEdge {
 	"""
 	The `SampledFavorite` at the end of the edge.
 	"""
-	node: SampledFavorite
+	node: SampledFavorite!
 }
 
 """
@@ -6538,7 +6538,7 @@ type SampledLevelsConnection {
 	"""
 	A list of `SampledLevel` objects.
 	"""
-	nodes: [SampledLevel]!
+	nodes: [SampledLevel!]!
 
 	"""
 	A list of edges which contains the `SampledLevel` and cursor to aid in pagination.
@@ -6575,7 +6575,7 @@ type SampledLevelsEdge {
 	"""
 	The `SampledLevel` at the end of the edge.
 	"""
-	node: SampledLevel
+	node: SampledLevel!
 }
 
 """
@@ -6666,7 +6666,7 @@ type SampledLevelItemsConnection {
 	"""
 	A list of `SampledLevelItem` objects.
 	"""
-	nodes: [SampledLevelItem]!
+	nodes: [SampledLevelItem!]!
 
 	"""
 	A list of edges which contains the `SampledLevelItem` and cursor to aid in pagination.
@@ -6716,7 +6716,7 @@ type SampledLevelItemsEdge {
 	"""
 	The `SampledLevelItem` at the end of the edge.
 	"""
-	node: SampledLevelItem
+	node: SampledLevelItem!
 }
 
 """
@@ -6963,7 +6963,7 @@ type SampledLevelMetadataConnection {
 	"""
 	A list of `SampledLevelMetadatum` objects.
 	"""
-	nodes: [SampledLevelMetadatum]!
+	nodes: [SampledLevelMetadatum!]!
 
 	"""
 	A list of edges which contains the `SampledLevelMetadatum` and cursor to aid in pagination.
@@ -7006,7 +7006,7 @@ type SampledLevelMetadataEdge {
 	"""
 	The `SampledLevelMetadatum` at the end of the edge.
 	"""
-	node: SampledLevelMetadatum
+	node: SampledLevelMetadatum!
 }
 
 """
@@ -7169,7 +7169,7 @@ type SampledLevelPointsConnection {
 	"""
 	A list of `SampledLevelPoint` objects.
 	"""
-	nodes: [SampledLevelPoint]!
+	nodes: [SampledLevelPoint!]!
 
 	"""
 	A list of edges which contains the `SampledLevelPoint` and cursor to aid in pagination.
@@ -7207,7 +7207,7 @@ type SampledLevelPointsEdge {
 	"""
 	The `SampledLevelPoint` at the end of the edge.
 	"""
-	node: SampledLevelPoint
+	node: SampledLevelPoint!
 }
 
 """
@@ -7310,7 +7310,7 @@ type SampledLevelRequestsConnection {
 	"""
 	A list of `SampledLevelRequest` objects.
 	"""
-	nodes: [SampledLevelRequest]!
+	nodes: [SampledLevelRequest!]!
 
 	"""
 	A list of edges which contains the `SampledLevelRequest` and cursor to aid in pagination.
@@ -7349,7 +7349,7 @@ type SampledLevelRequestsEdge {
 	"""
 	The `SampledLevelRequest` at the end of the edge.
 	"""
-	node: SampledLevelRequest
+	node: SampledLevelRequest!
 }
 
 """
@@ -7464,7 +7464,7 @@ type SampledPersonalBestGlobalsConnection {
 	"""
 	A list of `SampledPersonalBestGlobal` objects.
 	"""
-	nodes: [SampledPersonalBestGlobal]!
+	nodes: [SampledPersonalBestGlobal!]!
 
 	"""
 	A list of edges which contains the `SampledPersonalBestGlobal` and cursor to aid in pagination.
@@ -7503,7 +7503,7 @@ type SampledPersonalBestGlobalsEdge {
 	"""
 	The `SampledPersonalBestGlobal` at the end of the edge.
 	"""
-	node: SampledPersonalBestGlobal
+	node: SampledPersonalBestGlobal!
 }
 
 """
@@ -7618,7 +7618,7 @@ type SampledRecordsConnection {
 	"""
 	A list of `SampledRecord` objects.
 	"""
-	nodes: [SampledRecord]!
+	nodes: [SampledRecord!]!
 
 	"""
 	A list of edges which contains the `SampledRecord` and cursor to aid in pagination.
@@ -7661,7 +7661,7 @@ type SampledRecordsEdge {
 	"""
 	The `SampledRecord` at the end of the edge.
 	"""
-	node: SampledRecord
+	node: SampledRecord!
 }
 
 """
@@ -7824,7 +7824,7 @@ type SampledRecordMediasConnection {
 	"""
 	A list of `SampledRecordMedia` objects.
 	"""
-	nodes: [SampledRecordMedia]!
+	nodes: [SampledRecordMedia!]!
 
 	"""
 	A list of edges which contains the `SampledRecordMedia` and cursor to aid in pagination.
@@ -7862,7 +7862,7 @@ type SampledRecordMediasEdge {
 	"""
 	The `SampledRecordMedia` at the end of the edge.
 	"""
-	node: SampledRecordMedia
+	node: SampledRecordMedia!
 }
 
 """
@@ -7965,7 +7965,7 @@ type SampledUpvotesConnection {
 	"""
 	A list of `SampledUpvote` objects.
 	"""
-	nodes: [SampledUpvote]!
+	nodes: [SampledUpvote!]!
 
 	"""
 	A list of edges which contains the `SampledUpvote` and cursor to aid in pagination.
@@ -8003,7 +8003,7 @@ type SampledUpvotesEdge {
 	"""
 	The `SampledUpvote` at the end of the edge.
 	"""
-	node: SampledUpvote
+	node: SampledUpvote!
 }
 
 """
@@ -8106,7 +8106,7 @@ type SampledUsersConnection {
 	"""
 	A list of `SampledUser` objects.
 	"""
-	nodes: [SampledUser]!
+	nodes: [SampledUser!]!
 
 	"""
 	A list of edges which contains the `SampledUser` and cursor to aid in pagination.
@@ -8146,7 +8146,7 @@ type SampledUsersEdge {
 	"""
 	The `SampledUser` at the end of the edge.
 	"""
-	node: SampledUser
+	node: SampledUser!
 }
 
 """
@@ -8273,7 +8273,7 @@ type SampledUserPointsConnection {
 	"""
 	A list of `SampledUserPoint` objects.
 	"""
-	nodes: [SampledUserPoint]!
+	nodes: [SampledUserPoint!]!
 
 	"""
 	A list of edges which contains the `SampledUserPoint` and cursor to aid in pagination.
@@ -8313,7 +8313,7 @@ type SampledUserPointsEdge {
 	"""
 	The `SampledUserPoint` at the end of the edge.
 	"""
-	node: SampledUserPoint
+	node: SampledUserPoint!
 }
 
 """
@@ -8440,7 +8440,7 @@ type SampledVersionsConnection {
 	"""
 	A list of `SampledVersion` objects.
 	"""
-	nodes: [SampledVersion]!
+	nodes: [SampledVersion!]!
 
 	"""
 	A list of edges which contains the `SampledVersion` and cursor to aid in pagination.
@@ -8478,7 +8478,7 @@ type SampledVersionsEdge {
 	"""
 	The `SampledVersion` at the end of the edge.
 	"""
-	node: SampledVersion
+	node: SampledVersion!
 }
 
 """
@@ -8581,7 +8581,7 @@ type SampledWorldRecordGlobalsConnection {
 	"""
 	A list of `SampledWorldRecordGlobal` objects.
 	"""
-	nodes: [SampledWorldRecordGlobal]!
+	nodes: [SampledWorldRecordGlobal!]!
 
 	"""
 	A list of edges which contains the `SampledWorldRecordGlobal` and cursor to aid in pagination.
@@ -8619,7 +8619,7 @@ type SampledWorldRecordGlobalsEdge {
 	"""
 	The `SampledWorldRecordGlobal` at the end of the edge.
 	"""
-	node: SampledWorldRecordGlobal
+	node: SampledWorldRecordGlobal!
 }
 
 """
@@ -8722,7 +8722,7 @@ type UsersConnection {
 	"""
 	A list of `User` objects.
 	"""
-	nodes: [User]!
+	nodes: [User!]!
 
 	"""
 	A list of edges which contains the `User` and cursor to aid in pagination.
@@ -8752,7 +8752,7 @@ type UsersEdge {
 	"""
 	The `User` at the end of the edge.
 	"""
-	node: User
+	node: User!
 }
 
 """
@@ -8825,7 +8825,7 @@ type VersionsConnection {
 	"""
 	A list of `Version` objects.
 	"""
-	nodes: [Version]!
+	nodes: [Version!]!
 
 	"""
 	A list of edges which contains the `Version` and cursor to aid in pagination.
@@ -8867,7 +8867,7 @@ type VersionsEdge {
 	"""
 	The `Version` at the end of the edge.
 	"""
-	node: Version
+	node: Version!
 }
 
 """
@@ -8971,7 +8971,7 @@ type ZRtmConnection {
 	"""
 	A list of `ZRtmRecord` objects.
 	"""
-	nodes: [ZRtmRecord]!
+	nodes: [ZRtmRecord!]!
 
 	"""
 	A list of edges which contains the `ZRtmRecord` and cursor to aid in pagination.
@@ -9023,7 +9023,7 @@ type ZRtmEdge {
 	"""
 	The `ZRtmRecord` at the end of the edge.
 	"""
-	node: ZRtmRecord
+	node: ZRtmRecord!
 }
 
 """

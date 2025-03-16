@@ -30,7 +30,7 @@
 		"lint:ci": "biome check",
 		"test": "ava",
 		"coverage": "c8 --all --src=dist --skip-full ava",
-		"document": "typedoc && prettier --write docs/",
+		"document": "typedoc",
 		"generate:gtr": "genql --endpoint https://graphql.zeepki.st --language typescript --output src/gtr --clientName gtr",
 		"generate:gtr-beta": "genql --endpoint https://graphql-beta.zeepki.st --language typescript --output src/gtr-beta --clientName gtrBeta",
 		"publish:gtr": "rover subgraph publish zeepkist@current --schema src/gtr/schema.graphql --name GTR --routing-url https://graphql.zeepki.st",
@@ -68,10 +68,6 @@
 		}
 	},
 	"pnpm": {
-		"onlyBuiltDependencies": [
-			"@apollo/rover",
-			"@biomejs/biome",
-			"esbuild"
-		]
+		"onlyBuiltDependencies": ["@apollo/rover", "@biomejs/biome", "esbuild"]
 	}
 }
