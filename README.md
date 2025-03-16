@@ -6,6 +6,11 @@ Download the GTR mod for Zeepkist in [Modkist] (Zeepkist's Mod Loader) or on [mo
 
 Please note that as this is an ever green package that automatically updates types when it detects the schemas change, breaking changes may occur in minor releases.
 
+## Changelogs
+
+- [`gtr` Schema Changelogs](https://studio.apollographql.com/graph/zeepkist/variant/current/changelog)
+- [`gtrBeta` Schema Changelogs](https://studio.apollographql.com/graph/zeepkist/variant/beta/changelog)
+
 ## Usage
 
 ### CDN
