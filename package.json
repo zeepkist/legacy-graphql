@@ -13,7 +13,7 @@
 	"funding": "https://github.com/sponsors/wopian",
 	"type": "module",
 	"main": "dist/index.js",
-	"packageManager": "pnpm@10.6.2",
+	"packageManager": "pnpm@10.6.3",
 	"exports": {
 		".": {
 			"import": "./dist/index.js",
