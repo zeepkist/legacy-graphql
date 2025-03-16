@@ -67,7 +67,11 @@
 			}
 		}
 	},
-	"renovate": {
-		"extends": ["local>wopian/renovate-config"]
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"@apollo/rover",
+			"@biomejs/biome",
+			"esbuild"
+		]
 	}
 }
