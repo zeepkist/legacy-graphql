@@ -2685,5 +2685,616 @@ export default {
 			clientMutationId: [7],
 			__typename: [7],
 		},
+		Subscription: {
+			query: [0],
+			nodeId: [2],
+			node: [
+				1,
+				{
+					nodeId: [2, 'ID!'],
+				},
+			],
+			allVersionInfos: [
+				3,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [13, '[VersionInfosOrderBy!]'],
+					condition: [14],
+					filter: [15],
+				},
+			],
+			allFavorites: [
+				19,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [23, '[FavoritesOrderBy!]'],
+					condition: [24],
+					filter: [25],
+				},
+			],
+			allLevels: [
+				116,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [118, '[LevelsOrderBy!]'],
+					condition: [119],
+					filter: [42],
+				},
+			],
+			allLevelItems: [
+				68,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [71, '[LevelItemsOrderBy!]'],
+					condition: [72],
+					filter: [45],
+				},
+			],
+			allLevelMetadata: [
+				73,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [76, '[LevelMetadataOrderBy!]'],
+					condition: [77],
+					filter: [47],
+				},
+			],
+			allLevelPoints: [
+				78,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [81, '[LevelPointsOrderBy!]'],
+					condition: [82],
+					filter: [51],
+				},
+			],
+			allLevelRequests: [
+				120,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [123, '[LevelRequestsOrderBy!]'],
+					condition: [124],
+					filter: [125],
+				},
+			],
+			allPersonalBestGlobals: [
+				64,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [83, '[PersonalBestGlobalsOrderBy!]'],
+					condition: [84],
+					filter: [32],
+				},
+			],
+			allRecords: [
+				85,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [87, '[RecordsOrderBy!]'],
+					condition: [88],
+					filter: [33],
+				},
+			],
+			allRecordMedias: [
+				104,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [107, '[RecordMediasOrderBy!]'],
+					condition: [108],
+					filter: [38],
+				},
+			],
+			allSampledFavorites: [
+				126,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [129, '[SampledFavoritesOrderBy!]'],
+					condition: [130],
+					filter: [131],
+				},
+			],
+			allSampledLevels: [
+				132,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [135, '[SampledLevelsOrderBy!]'],
+					condition: [136],
+					filter: [137],
+				},
+			],
+			allSampledLevelItems: [
+				138,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [141, '[SampledLevelItemsOrderBy!]'],
+					condition: [142],
+					filter: [143],
+				},
+			],
+			allSampledLevelMetadata: [
+				144,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [147, '[SampledLevelMetadataOrderBy!]'],
+					condition: [148],
+					filter: [149],
+				},
+			],
+			allSampledLevelPoints: [
+				150,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [153, '[SampledLevelPointsOrderBy!]'],
+					condition: [154],
+					filter: [155],
+				},
+			],
+			allSampledLevelRequests: [
+				156,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [159, '[SampledLevelRequestsOrderBy!]'],
+					condition: [160],
+					filter: [161],
+				},
+			],
+			allSampledPersonalBestGlobals: [
+				162,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [165, '[SampledPersonalBestGlobalsOrderBy!]'],
+					condition: [166],
+					filter: [167],
+				},
+			],
+			allSampledRecords: [
+				168,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [171, '[SampledRecordsOrderBy!]'],
+					condition: [172],
+					filter: [173],
+				},
+			],
+			allSampledRecordMedias: [
+				174,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [177, '[SampledRecordMediasOrderBy!]'],
+					condition: [178],
+					filter: [179],
+				},
+			],
+			allSampledUpvotes: [
+				180,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [183, '[SampledUpvotesOrderBy!]'],
+					condition: [184],
+					filter: [185],
+				},
+			],
+			allSampledUsers: [
+				186,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [189, '[SampledUsersOrderBy!]'],
+					condition: [190],
+					filter: [191],
+				},
+			],
+			allSampledUserPoints: [
+				192,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [195, '[SampledUserPointsOrderBy!]'],
+					condition: [196],
+					filter: [197],
+				},
+			],
+			allSampledVersions: [
+				198,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [201, '[SampledVersionsOrderBy!]'],
+					condition: [202],
+					filter: [203],
+				},
+			],
+			allSampledWorldRecordGlobals: [
+				204,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [207, '[SampledWorldRecordGlobalsOrderBy!]'],
+					condition: [208],
+					filter: [209],
+				},
+			],
+			allUpvotes: [
+				89,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [92, '[UpvotesOrderBy!]'],
+					condition: [93],
+					filter: [55],
+				},
+			],
+			allUsers: [
+				210,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [212, '[UsersOrderBy!]'],
+					condition: [213],
+					filter: [27],
+				},
+			],
+			allUserPoints: [
+				110,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [113, '[UserPointsOrderBy!]'],
+					condition: [114],
+					filter: [60],
+				},
+			],
+			allVersions: [
+				214,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [217, '[VersionsOrderBy!]'],
+					condition: [218],
+					filter: [219],
+				},
+			],
+			allVotes: [
+				99,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [102, '[VotesOrderBy!]'],
+					condition: [103],
+					filter: [58],
+				},
+			],
+			allWorldRecordGlobals: [
+				94,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [97, '[WorldRecordGlobalsOrderBy!]'],
+					condition: [98],
+					filter: [41],
+				},
+			],
+			favoriteById: [
+				20,
+				{
+					id: [12, 'Int!'],
+				},
+			],
+			levelById: [
+				67,
+				{
+					id: [12, 'Int!'],
+				},
+			],
+			levelByHash: [
+				67,
+				{
+					hash: [7, 'String!'],
+				},
+			],
+			levelItemById: [
+				69,
+				{
+					id: [12, 'Int!'],
+				},
+			],
+			levelMetadatumById: [
+				74,
+				{
+					id: [12, 'Int!'],
+				},
+			],
+			levelPointById: [
+				79,
+				{
+					id: [12, 'Int!'],
+				},
+			],
+			levelRequestById: [
+				121,
+				{
+					id: [12, 'Int!'],
+				},
+			],
+			personalBestGlobalById: [
+				65,
+				{
+					id: [12, 'Int!'],
+				},
+			],
+			recordById: [
+				66,
+				{
+					id: [12, 'Int!'],
+				},
+			],
+			recordMediaById: [
+				105,
+				{
+					id: [12, 'Int!'],
+				},
+			],
+			upvoteById: [
+				90,
+				{
+					id: [12, 'Int!'],
+				},
+			],
+			userById: [
+				21,
+				{
+					id: [12, 'Int!'],
+				},
+			],
+			userPointById: [
+				111,
+				{
+					id: [12, 'Int!'],
+				},
+			],
+			versionById: [
+				215,
+				{
+					id: [12, 'Int!'],
+				},
+			],
+			voteById: [
+				100,
+				{
+					id: [12, 'Int!'],
+				},
+			],
+			worldRecordGlobalById: [
+				95,
+				{
+					id: [12, 'Int!'],
+				},
+			],
+			zRtm: [
+				220,
+				{
+					pMinAuthorTime: [35],
+					pMaxAuthorTime: [35],
+					pMinRecords: [12],
+					pMaxRecords: [12],
+					pExcludedAuthorIds: [12, '[Int]'],
+					pExcludedHashes: [7, '[String]'],
+					pMinCheckpoints: [12],
+					pMaxCheckpoints: [12],
+					pMinFinishes: [12],
+					pMaxFinishes: [12],
+					pMinBlocks: [12],
+					pMaxBlocks: [12],
+					pSampleSize: [12],
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					filter: [223],
+				},
+			],
+			favorite: [
+				20,
+				{
+					nodeId: [2, 'ID!'],
+				},
+			],
+			level: [
+				67,
+				{
+					nodeId: [2, 'ID!'],
+				},
+			],
+			levelItem: [
+				69,
+				{
+					nodeId: [2, 'ID!'],
+				},
+			],
+			levelMetadatum: [
+				74,
+				{
+					nodeId: [2, 'ID!'],
+				},
+			],
+			levelPoint: [
+				79,
+				{
+					nodeId: [2, 'ID!'],
+				},
+			],
+			levelRequest: [
+				121,
+				{
+					nodeId: [2, 'ID!'],
+				},
+			],
+			personalBestGlobal: [
+				65,
+				{
+					nodeId: [2, 'ID!'],
+				},
+			],
+			record: [
+				66,
+				{
+					nodeId: [2, 'ID!'],
+				},
+			],
+			recordMedia: [
+				105,
+				{
+					nodeId: [2, 'ID!'],
+				},
+			],
+			upvote: [
+				90,
+				{
+					nodeId: [2, 'ID!'],
+				},
+			],
+			user: [
+				21,
+				{
+					nodeId: [2, 'ID!'],
+				},
+			],
+			userPoint: [
+				111,
+				{
+					nodeId: [2, 'ID!'],
+				},
+			],
+			version: [
+				215,
+				{
+					nodeId: [2, 'ID!'],
+				},
+			],
+			vote: [
+				100,
+				{
+					nodeId: [2, 'ID!'],
+				},
+			],
+			worldRecordGlobal: [
+				95,
+				{
+					nodeId: [2, 'ID!'],
+				},
+			],
+			__typename: [7],
+		},
 	},
 };

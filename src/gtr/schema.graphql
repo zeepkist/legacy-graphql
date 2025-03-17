@@ -9189,3 +9189,1708 @@ input UpdateWorldRecordGlobalInput {
 	"""
 	clientMutationId: String
 }
+
+"""
+The root subscription type: contains events and live queries you can subscribe to with the `subscription` operation.
+
+#### Live Queries
+
+Live query fields are differentiated by containing `(live)` at the end of their
+description, they are added for each field in the `Query` type. When you
+subscribe to a live query field, the selection set will be evaluated and sent to
+the client, and then most things\* that would cause the output of the selection
+set to change will trigger the selection set to be re-evaluated and the results
+to be re-sent to the client.
+
+_(\* Not everything: typically only changes to persisted data referenced by the query are detected, not computed fields.)_
+
+Live queries can be very expensive, so try and keep them small and focussed.
+
+#### Events
+
+Event fields will run their selection set when, and only when, the specified
+server-side event occurs. This makes them a lot more efficient than Live
+Queries, but it is still recommended that you keep payloads fairly small.
+"""
+type Subscription {
+	"""
+	Exposes the root query type nested one level down. This is helpful for Relay 1
+	which can only query top level fields if they are in a particular form. (live)
+	"""
+	query: Query!
+
+	"""
+	The root query type must be a `Node` to work well with Relay 1 mutations. This just resolves to `query`. (live)
+	"""
+	nodeId: ID!
+
+	"""
+	Fetches an object given its globally unique `ID`. (live)
+	"""
+	node(
+		"""
+		The globally unique `ID`.
+		"""
+		nodeId: ID!
+	): Node
+
+	"""
+	Reads and enables pagination through a set of `VersionInfo`. (live)
+	"""
+	allVersionInfos(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `VersionInfo`.
+		"""
+		orderBy: [VersionInfosOrderBy!] = [NATURAL]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: VersionInfoCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: VersionInfoFilter
+	): VersionInfosConnection
+
+	"""
+	Reads and enables pagination through a set of `Favorite`. (live)
+	"""
+	allFavorites(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `Favorite`.
+		"""
+		orderBy: [FavoritesOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: FavoriteCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: FavoriteFilter
+	): FavoritesConnection
+
+	"""
+	Reads and enables pagination through a set of `Level`. (live)
+	"""
+	allLevels(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `Level`.
+		"""
+		orderBy: [LevelsOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: LevelCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: LevelFilter
+	): LevelsConnection
+
+	"""
+	Reads and enables pagination through a set of `LevelItem`. (live)
+	"""
+	allLevelItems(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `LevelItem`.
+		"""
+		orderBy: [LevelItemsOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: LevelItemCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: LevelItemFilter
+	): LevelItemsConnection
+
+	"""
+	Reads and enables pagination through a set of `LevelMetadatum`. (live)
+	"""
+	allLevelMetadata(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `LevelMetadatum`.
+		"""
+		orderBy: [LevelMetadataOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: LevelMetadatumCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: LevelMetadatumFilter
+	): LevelMetadataConnection
+
+	"""
+	Reads and enables pagination through a set of `LevelPoint`. (live)
+	"""
+	allLevelPoints(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `LevelPoint`.
+		"""
+		orderBy: [LevelPointsOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: LevelPointCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: LevelPointFilter
+	): LevelPointsConnection
+
+	"""
+	Reads and enables pagination through a set of `LevelRequest`. (live)
+	"""
+	allLevelRequests(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `LevelRequest`.
+		"""
+		orderBy: [LevelRequestsOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: LevelRequestCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: LevelRequestFilter
+	): LevelRequestsConnection
+
+	"""
+	Reads and enables pagination through a set of `PersonalBestGlobal`. (live)
+	"""
+	allPersonalBestGlobals(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `PersonalBestGlobal`.
+		"""
+		orderBy: [PersonalBestGlobalsOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: PersonalBestGlobalCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: PersonalBestGlobalFilter
+	): PersonalBestGlobalsConnection
+
+	"""
+	Reads and enables pagination through a set of `Record`. (live)
+	"""
+	allRecords(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `Record`.
+		"""
+		orderBy: [RecordsOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: RecordCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: RecordFilter
+	): RecordsConnection
+
+	"""
+	Reads and enables pagination through a set of `RecordMedia`. (live)
+	"""
+	allRecordMedias(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `RecordMedia`.
+		"""
+		orderBy: [RecordMediasOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: RecordMediaCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: RecordMediaFilter
+	): RecordMediasConnection
+
+	"""
+	Reads and enables pagination through a set of `SampledFavorite`. (live)
+	"""
+	allSampledFavorites(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `SampledFavorite`.
+		"""
+		orderBy: [SampledFavoritesOrderBy!] = [NATURAL]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: SampledFavoriteCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: SampledFavoriteFilter
+	): SampledFavoritesConnection
+
+	"""
+	Reads and enables pagination through a set of `SampledLevel`. (live)
+	"""
+	allSampledLevels(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `SampledLevel`.
+		"""
+		orderBy: [SampledLevelsOrderBy!] = [NATURAL]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: SampledLevelCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: SampledLevelFilter
+	): SampledLevelsConnection
+
+	"""
+	Reads and enables pagination through a set of `SampledLevelItem`. (live)
+	"""
+	allSampledLevelItems(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `SampledLevelItem`.
+		"""
+		orderBy: [SampledLevelItemsOrderBy!] = [NATURAL]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: SampledLevelItemCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: SampledLevelItemFilter
+	): SampledLevelItemsConnection
+
+	"""
+	Reads and enables pagination through a set of `SampledLevelMetadatum`. (live)
+	"""
+	allSampledLevelMetadata(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `SampledLevelMetadatum`.
+		"""
+		orderBy: [SampledLevelMetadataOrderBy!] = [NATURAL]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: SampledLevelMetadatumCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: SampledLevelMetadatumFilter
+	): SampledLevelMetadataConnection
+
+	"""
+	Reads and enables pagination through a set of `SampledLevelPoint`. (live)
+	"""
+	allSampledLevelPoints(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `SampledLevelPoint`.
+		"""
+		orderBy: [SampledLevelPointsOrderBy!] = [NATURAL]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: SampledLevelPointCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: SampledLevelPointFilter
+	): SampledLevelPointsConnection
+
+	"""
+	Reads and enables pagination through a set of `SampledLevelRequest`. (live)
+	"""
+	allSampledLevelRequests(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `SampledLevelRequest`.
+		"""
+		orderBy: [SampledLevelRequestsOrderBy!] = [NATURAL]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: SampledLevelRequestCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: SampledLevelRequestFilter
+	): SampledLevelRequestsConnection
+
+	"""
+	Reads and enables pagination through a set of `SampledPersonalBestGlobal`. (live)
+	"""
+	allSampledPersonalBestGlobals(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `SampledPersonalBestGlobal`.
+		"""
+		orderBy: [SampledPersonalBestGlobalsOrderBy!] = [NATURAL]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: SampledPersonalBestGlobalCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: SampledPersonalBestGlobalFilter
+	): SampledPersonalBestGlobalsConnection
+
+	"""
+	Reads and enables pagination through a set of `SampledRecord`. (live)
+	"""
+	allSampledRecords(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `SampledRecord`.
+		"""
+		orderBy: [SampledRecordsOrderBy!] = [NATURAL]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: SampledRecordCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: SampledRecordFilter
+	): SampledRecordsConnection
+
+	"""
+	Reads and enables pagination through a set of `SampledRecordMedia`. (live)
+	"""
+	allSampledRecordMedias(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `SampledRecordMedia`.
+		"""
+		orderBy: [SampledRecordMediasOrderBy!] = [NATURAL]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: SampledRecordMediaCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: SampledRecordMediaFilter
+	): SampledRecordMediasConnection
+
+	"""
+	Reads and enables pagination through a set of `SampledUpvote`. (live)
+	"""
+	allSampledUpvotes(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `SampledUpvote`.
+		"""
+		orderBy: [SampledUpvotesOrderBy!] = [NATURAL]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: SampledUpvoteCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: SampledUpvoteFilter
+	): SampledUpvotesConnection
+
+	"""
+	Reads and enables pagination through a set of `SampledUser`. (live)
+	"""
+	allSampledUsers(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `SampledUser`.
+		"""
+		orderBy: [SampledUsersOrderBy!] = [NATURAL]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: SampledUserCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: SampledUserFilter
+	): SampledUsersConnection
+
+	"""
+	Reads and enables pagination through a set of `SampledUserPoint`. (live)
+	"""
+	allSampledUserPoints(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `SampledUserPoint`.
+		"""
+		orderBy: [SampledUserPointsOrderBy!] = [NATURAL]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: SampledUserPointCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: SampledUserPointFilter
+	): SampledUserPointsConnection
+
+	"""
+	Reads and enables pagination through a set of `SampledVersion`. (live)
+	"""
+	allSampledVersions(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `SampledVersion`.
+		"""
+		orderBy: [SampledVersionsOrderBy!] = [NATURAL]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: SampledVersionCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: SampledVersionFilter
+	): SampledVersionsConnection
+
+	"""
+	Reads and enables pagination through a set of `SampledWorldRecordGlobal`. (live)
+	"""
+	allSampledWorldRecordGlobals(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `SampledWorldRecordGlobal`.
+		"""
+		orderBy: [SampledWorldRecordGlobalsOrderBy!] = [NATURAL]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: SampledWorldRecordGlobalCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: SampledWorldRecordGlobalFilter
+	): SampledWorldRecordGlobalsConnection
+
+	"""
+	Reads and enables pagination through a set of `Upvote`. (live)
+	"""
+	allUpvotes(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `Upvote`.
+		"""
+		orderBy: [UpvotesOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: UpvoteCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: UpvoteFilter
+	): UpvotesConnection
+
+	"""
+	Reads and enables pagination through a set of `User`. (live)
+	"""
+	allUsers(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `User`.
+		"""
+		orderBy: [UsersOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: UserCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: UserFilter
+	): UsersConnection
+
+	"""
+	Reads and enables pagination through a set of `UserPoint`. (live)
+	"""
+	allUserPoints(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `UserPoint`.
+		"""
+		orderBy: [UserPointsOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: UserPointCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: UserPointFilter
+	): UserPointsConnection
+
+	"""
+	Reads and enables pagination through a set of `Version`. (live)
+	"""
+	allVersions(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `Version`.
+		"""
+		orderBy: [VersionsOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: VersionCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: VersionFilter
+	): VersionsConnection
+
+	"""
+	Reads and enables pagination through a set of `Vote`. (live)
+	"""
+	allVotes(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `Vote`.
+		"""
+		orderBy: [VotesOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: VoteCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: VoteFilter
+	): VotesConnection
+
+	"""
+	Reads and enables pagination through a set of `WorldRecordGlobal`. (live)
+	"""
+	allWorldRecordGlobals(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `WorldRecordGlobal`.
+		"""
+		orderBy: [WorldRecordGlobalsOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: WorldRecordGlobalCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: WorldRecordGlobalFilter
+	): WorldRecordGlobalsConnection
+
+	"""
+	(live)
+	"""
+	favoriteById(id: Int!): Favorite
+
+	"""
+	(live)
+	"""
+	levelById(id: Int!): Level
+
+	"""
+	(live)
+	"""
+	levelByHash(hash: String!): Level
+
+	"""
+	(live)
+	"""
+	levelItemById(id: Int!): LevelItem
+
+	"""
+	(live)
+	"""
+	levelMetadatumById(id: Int!): LevelMetadatum
+
+	"""
+	(live)
+	"""
+	levelPointById(id: Int!): LevelPoint
+
+	"""
+	(live)
+	"""
+	levelRequestById(id: Int!): LevelRequest
+
+	"""
+	(live)
+	"""
+	personalBestGlobalById(id: Int!): PersonalBestGlobal
+
+	"""
+	(live)
+	"""
+	recordById(id: Int!): Record
+
+	"""
+	(live)
+	"""
+	recordMediaById(id: Int!): RecordMedia
+
+	"""
+	(live)
+	"""
+	upvoteById(id: Int!): Upvote
+
+	"""
+	(live)
+	"""
+	userById(id: Int!): User
+
+	"""
+	(live)
+	"""
+	userPointById(id: Int!): UserPoint
+
+	"""
+	(live)
+	"""
+	versionById(id: Int!): Version
+
+	"""
+	(live)
+	"""
+	voteById(id: Int!): Vote
+
+	"""
+	(live)
+	"""
+	worldRecordGlobalById(id: Int!): WorldRecordGlobal
+
+	"""
+	Retrieves filtered level items based on specified criteria. (live)
+	"""
+	zRtm(
+		pMinAuthorTime: Float
+		pMaxAuthorTime: Float
+		pMinRecords: Int
+		pMaxRecords: Int
+		pExcludedAuthorIds: [Int]
+		pExcludedHashes: [String]
+		pMinCheckpoints: Int
+		pMaxCheckpoints: Int
+		pMinFinishes: Int
+		pMaxFinishes: Int
+		pMinBlocks: Int
+		pMaxBlocks: Int
+		pSampleSize: Int
+
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: ZRtmRecordFilter
+	): ZRtmConnection
+
+	"""
+	Reads a single `Favorite` using its globally unique `ID`. (live)
+	"""
+	favorite(
+		"""
+		The globally unique `ID` to be used in selecting a single `Favorite`.
+		"""
+		nodeId: ID!
+	): Favorite
+
+	"""
+	Reads a single `Level` using its globally unique `ID`. (live)
+	"""
+	level(
+		"""
+		The globally unique `ID` to be used in selecting a single `Level`.
+		"""
+		nodeId: ID!
+	): Level
+
+	"""
+	Reads a single `LevelItem` using its globally unique `ID`. (live)
+	"""
+	levelItem(
+		"""
+		The globally unique `ID` to be used in selecting a single `LevelItem`.
+		"""
+		nodeId: ID!
+	): LevelItem
+
+	"""
+	Reads a single `LevelMetadatum` using its globally unique `ID`. (live)
+	"""
+	levelMetadatum(
+		"""
+		The globally unique `ID` to be used in selecting a single `LevelMetadatum`.
+		"""
+		nodeId: ID!
+	): LevelMetadatum
+
+	"""
+	Reads a single `LevelPoint` using its globally unique `ID`. (live)
+	"""
+	levelPoint(
+		"""
+		The globally unique `ID` to be used in selecting a single `LevelPoint`.
+		"""
+		nodeId: ID!
+	): LevelPoint
+
+	"""
+	Reads a single `LevelRequest` using its globally unique `ID`. (live)
+	"""
+	levelRequest(
+		"""
+		The globally unique `ID` to be used in selecting a single `LevelRequest`.
+		"""
+		nodeId: ID!
+	): LevelRequest
+
+	"""
+	Reads a single `PersonalBestGlobal` using its globally unique `ID`. (live)
+	"""
+	personalBestGlobal(
+		"""
+		The globally unique `ID` to be used in selecting a single `PersonalBestGlobal`.
+		"""
+		nodeId: ID!
+	): PersonalBestGlobal
+
+	"""
+	Reads a single `Record` using its globally unique `ID`. (live)
+	"""
+	record(
+		"""
+		The globally unique `ID` to be used in selecting a single `Record`.
+		"""
+		nodeId: ID!
+	): Record
+
+	"""
+	Reads a single `RecordMedia` using its globally unique `ID`. (live)
+	"""
+	recordMedia(
+		"""
+		The globally unique `ID` to be used in selecting a single `RecordMedia`.
+		"""
+		nodeId: ID!
+	): RecordMedia
+
+	"""
+	Reads a single `Upvote` using its globally unique `ID`. (live)
+	"""
+	upvote(
+		"""
+		The globally unique `ID` to be used in selecting a single `Upvote`.
+		"""
+		nodeId: ID!
+	): Upvote
+
+	"""
+	Reads a single `User` using its globally unique `ID`. (live)
+	"""
+	user(
+		"""
+		The globally unique `ID` to be used in selecting a single `User`.
+		"""
+		nodeId: ID!
+	): User
+
+	"""
+	Reads a single `UserPoint` using its globally unique `ID`. (live)
+	"""
+	userPoint(
+		"""
+		The globally unique `ID` to be used in selecting a single `UserPoint`.
+		"""
+		nodeId: ID!
+	): UserPoint
+
+	"""
+	Reads a single `Version` using its globally unique `ID`. (live)
+	"""
+	version(
+		"""
+		The globally unique `ID` to be used in selecting a single `Version`.
+		"""
+		nodeId: ID!
+	): Version
+
+	"""
+	Reads a single `Vote` using its globally unique `ID`. (live)
+	"""
+	vote(
+		"""
+		The globally unique `ID` to be used in selecting a single `Vote`.
+		"""
+		nodeId: ID!
+	): Vote
+
+	"""
+	Reads a single `WorldRecordGlobal` using its globally unique `ID`. (live)
+	"""
+	worldRecordGlobal(
+		"""
+		The globally unique `ID` to be used in selecting a single `WorldRecordGlobal`.
+		"""
+		nodeId: ID!
+	): WorldRecordGlobal
+}
