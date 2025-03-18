@@ -13,14 +13,10 @@ Please note that as this is an ever green package that automatically updates typ
 
 ## GraphQL IDEs
 
-Explore and test your GraphQL queries on the GraphiQL or Apollo Explorer sites.
+Explore and test your GraphQL queries on the GraphiQL IDE:
 
-- `gtr`:
-  - GraphiQL: https://graphql.zeepki.st/graphiql
-  - Apollo Explorer: https://studio.apollographql.com/graph/zeepkist/variant/current/explorer  
-- `gtrBeta`:
-  - GraphiQL: https://graphql-beta.zeepki.st/graphiql
-  - Apollo Explorer: https://studio.apollographql.com/graph/zeepkist/variant/beta/explorer  
+- `gtr`: https://graphql.zeepki.st
+- `gtrBeta`: https://graphql-beta.zeepki.st
 
 ## Usage
 
