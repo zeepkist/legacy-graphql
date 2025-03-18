@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@apollo/rover':
-        specifier: ^0.27.2
-        version: 0.27.2
+        specifier: ^0.28.0
+        version: 0.28.1
       '@ava/typescript':
         specifier: ^5.0.0
         version: 5.0.0
@@ -59,8 +59,8 @@ importers:
 
 packages:
 
-  '@apollo/rover@0.27.2':
-    resolution: {integrity: sha512-dgoBdY5S5JiuiLPENo9McxKjBi2cxdHaW0wxf1Skmv+JtJobtoBvYjWl4QixenSY3B4oGiMNPCCTJaRByxd+OQ==}
+  '@apollo/rover@0.28.1':
+    resolution: {integrity: sha512-50Fv7OfBgLTWSh7AtlLk3NNY7QFnDtG8cHtuxAPbnck26crFDxe3pL0RN5tMJ8b7ukvZ+Xu7Xz4gkUKOGhV3sw==}
     engines: {node: '>=14', npm: '>=6'}
     hasBin: true
 
@@ -2386,7 +2386,7 @@ packages:
 
 snapshots:
 
-  '@apollo/rover@0.27.2':
+  '@apollo/rover@0.28.1':
     dependencies:
       axios: 1.8.1
       axios-proxy-builder: 0.1.2
