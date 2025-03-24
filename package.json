@@ -22,6 +22,38 @@
 		"./gtr": {
 			"import": "./dist/gtr/index.js",
 			"require": "./dist/gtr/index.js"
+		},
+		"./gtr/schema": {
+			"import": "./dist/gtr/schema.js",
+			"require": "./dist/gtr/schema.js"
+		},
+		"./gtr/schema.graphql": {
+			"import": "./dist/gtr/schema.graphql",
+			"require": "./dist/gtr/schema.graphql"
+		},
+		"./gtr/types": {
+			"import": "./dist/gtr/types.js",
+			"require": "./dist/gtr/types.js"
+		},
+		"./gtr-beta": {
+			"import": "./dist/gtr-beta/index.js",
+			"require": "./dist/gtr-beta/index.js"
+		},
+		"./gtr-beta/schema": {
+			"import": "./dist/gtr-beta/schema.js",
+			"require": "./dist/gtr-beta/schema.js"
+		},
+		"./gtr-beta/schema.graphql": {
+			"import": "./dist/gtr-beta/schema.graphql",
+			"require": "./dist/gtr-beta/schema.graphql"
+		},
+		"./gtr-beta/types": {
+			"import": "./dist/gtr-beta/types.js",
+			"require": "./dist/gtr-beta/types.js"
+		},
+		"./runtime": {
+			"import": "./dist/runtime/index.js",
+			"require": "./dist/runtime/index.js"
 		}
 	},
 	"scripts": {
@@ -68,6 +100,10 @@
 		}
 	},
 	"pnpm": {
-		"onlyBuiltDependencies": ["@apollo/rover", "@biomejs/biome", "esbuild"]
+		"onlyBuiltDependencies": [
+			"@apollo/rover",
+			"@biomejs/biome",
+			"esbuild"
+		]
 	}
 }
