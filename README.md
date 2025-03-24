@@ -13,7 +13,7 @@ Please note that as this is an ever green package that automatically updates typ
 
 ## GraphQL IDEs
 
-Explore and test your GraphQL queries on the GraphiQL sandbox:
+Explore and test your GraphQL queries on the GraphiQL IDE:
 
 - `gtr`: https://graphql.zeepki.st
 - `gtrBeta`: https://graphql-beta.zeepki.st
