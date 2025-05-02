@@ -1167,6 +1167,10 @@ export type UsersOrderBy =
 	| 'USER_POINT_MAX_WORLD_RECORDS_DESC'
 	| 'USER_POINT_MIN_WORLD_RECORDS_ASC'
 	| 'USER_POINT_MIN_WORLD_RECORDS_DESC'
+	| 'USER_POINT_MAX_TOTAL_POINTS_ASC'
+	| 'USER_POINT_MAX_TOTAL_POINTS_DESC'
+	| 'USER_POINT_MIN_TOTAL_POINTS_ASC'
+	| 'USER_POINT_MIN_TOTAL_POINTS_DESC'
 	| 'RECORD_COUNT_ASC'
 	| 'RECORD_COUNT_DESC'
 	| 'RECORD_MAX_ID_ASC'
@@ -1885,6 +1889,7 @@ export interface UserPoint {
 	dateUpdated: Scalars['Datetime'] | null;
 	rank: Scalars['Int'];
 	worldRecords: Scalars['Int'] | null;
+	totalPoints: Scalars['Int'];
 	/** Reads a single `User` that is related to this `UserPoint`. */
 	user: User | null;
 	__typename: 'UserPoint';
@@ -1916,6 +1921,8 @@ export type UserPointsOrderBy =
 	| 'RANK_DESC'
 	| 'WORLD_RECORDS_ASC'
 	| 'WORLD_RECORDS_DESC'
+	| 'TOTAL_POINTS_ASC'
+	| 'TOTAL_POINTS_DESC'
 	| 'PRIMARY_KEY_ASC'
 	| 'PRIMARY_KEY_DESC'
 	| 'USER_ID_ASC'
@@ -4307,6 +4314,8 @@ export interface UserPointFilter {
 	rank?: IntFilter | null;
 	/** Filter by the object’s `worldRecords` field. */
 	worldRecords?: IntFilter | null;
+	/** Filter by the object’s `totalPoints` field. */
+	totalPoints?: IntFilter | null;
 	/** Filter by the object’s `user` relation. */
 	user?: UserFilter | null;
 	/** Checks for all expressions in this list. */
@@ -5995,6 +6004,7 @@ export interface UserPointGenqlSelection {
 	dateUpdated?: boolean | number;
 	rank?: boolean | number;
 	worldRecords?: boolean | number;
+	totalPoints?: boolean | number;
 	/** Reads a single `User` that is related to this `UserPoint`. */
 	user?: UserGenqlSelection;
 	__typename?: boolean | number;
@@ -6030,6 +6040,8 @@ export interface UserPointCondition {
 	rank?: Scalars['Int'] | null;
 	/** Checks for equality with the object’s `worldRecords` field. */
 	worldRecords?: Scalars['Int'] | null;
+	/** Checks for equality with the object’s `totalPoints` field. */
+	totalPoints?: Scalars['Int'] | null;
 }
 
 /** A connection to a list of `Level` values, with data from `Favorite`. */
@@ -8862,6 +8874,10 @@ export const enumUsersOrderBy = {
 	USER_POINT_MIN_WORLD_RECORDS_ASC: 'USER_POINT_MIN_WORLD_RECORDS_ASC' as const,
 	USER_POINT_MIN_WORLD_RECORDS_DESC:
 		'USER_POINT_MIN_WORLD_RECORDS_DESC' as const,
+	USER_POINT_MAX_TOTAL_POINTS_ASC: 'USER_POINT_MAX_TOTAL_POINTS_ASC' as const,
+	USER_POINT_MAX_TOTAL_POINTS_DESC: 'USER_POINT_MAX_TOTAL_POINTS_DESC' as const,
+	USER_POINT_MIN_TOTAL_POINTS_ASC: 'USER_POINT_MIN_TOTAL_POINTS_ASC' as const,
+	USER_POINT_MIN_TOTAL_POINTS_DESC: 'USER_POINT_MIN_TOTAL_POINTS_DESC' as const,
 	RECORD_COUNT_ASC: 'RECORD_COUNT_ASC' as const,
 	RECORD_COUNT_DESC: 'RECORD_COUNT_DESC' as const,
 	RECORD_MAX_ID_ASC: 'RECORD_MAX_ID_ASC' as const,
@@ -9400,6 +9416,8 @@ export const enumUserPointsOrderBy = {
 	RANK_DESC: 'RANK_DESC' as const,
 	WORLD_RECORDS_ASC: 'WORLD_RECORDS_ASC' as const,
 	WORLD_RECORDS_DESC: 'WORLD_RECORDS_DESC' as const,
+	TOTAL_POINTS_ASC: 'TOTAL_POINTS_ASC' as const,
+	TOTAL_POINTS_DESC: 'TOTAL_POINTS_DESC' as const,
 	PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
 	PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const,
 	USER_ID_ASC: 'USER_ID_ASC' as const,

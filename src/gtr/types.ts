@@ -1092,6 +1092,7 @@ export default {
 			dateUpdated: [17],
 			rank: [26],
 			worldRecords: [26],
+			totalPoints: [26],
 			userByIdUser: [27],
 			and: [59],
 			or: [59],
@@ -1630,6 +1631,7 @@ export default {
 			dateUpdated: [6],
 			rank: [12],
 			worldRecords: [12],
+			totalPoints: [12],
 			userByIdUser: [21],
 			__typename: [7],
 		},
@@ -1647,6 +1649,7 @@ export default {
 			dateUpdated: [6],
 			rank: [12],
 			worldRecords: [12],
+			totalPoints: [12],
 			__typename: [7],
 		},
 		FavoritesEdge: {

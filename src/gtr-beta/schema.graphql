@@ -3820,6 +3820,11 @@ input UserPointFilter {
 	worldRecords: IntFilter
 
 	"""
+	Filter by the object’s `totalPoints` field.
+	"""
+	totalPoints: IntFilter
+
+	"""
 	Filter by the object’s `user` relation.
 	"""
 	user: UserFilter
@@ -6392,6 +6397,10 @@ enum UsersOrderBy {
 	USER_POINT_MAX_WORLD_RECORDS_DESC
 	USER_POINT_MIN_WORLD_RECORDS_ASC
 	USER_POINT_MIN_WORLD_RECORDS_DESC
+	USER_POINT_MAX_TOTAL_POINTS_ASC
+	USER_POINT_MAX_TOTAL_POINTS_DESC
+	USER_POINT_MIN_TOTAL_POINTS_ASC
+	USER_POINT_MIN_TOTAL_POINTS_DESC
 	RECORD_COUNT_ASC
 	RECORD_COUNT_DESC
 	RECORD_MAX_ID_ASC
@@ -7813,6 +7822,7 @@ type UserPoint implements Node {
 	dateUpdated: Datetime
 	rank: Int!
 	worldRecords: Int
+	totalPoints: Int!
 
 	"""
 	Reads a single `User` that is related to this `UserPoint`.
@@ -7854,6 +7864,8 @@ enum UserPointsOrderBy {
 	RANK_DESC
 	WORLD_RECORDS_ASC
 	WORLD_RECORDS_DESC
+	TOTAL_POINTS_ASC
+	TOTAL_POINTS_DESC
 	PRIMARY_KEY_ASC
 	PRIMARY_KEY_DESC
 	USER_ID_ASC
@@ -7911,6 +7923,11 @@ input UserPointCondition {
 	Checks for equality with the object’s `worldRecords` field.
 	"""
 	worldRecords: Int
+
+	"""
+	Checks for equality with the object’s `totalPoints` field.
+	"""
+	totalPoints: Int
 }
 
 """
