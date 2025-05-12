@@ -79,10 +79,6 @@
 		}
 	},
 	"pnpm": {
-		"onlyBuiltDependencies": [
-			"@apollo/rover",
-			"@biomejs/biome",
-			"esbuild"
-		]
+		"onlyBuiltDependencies": ["@apollo/rover", "@biomejs/biome", "esbuild"]
 	}
 }
