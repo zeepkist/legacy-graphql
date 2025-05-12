@@ -19,19 +19,15 @@
 			"import": "./dist/index.js",
 			"require": "./dist/index.js"
 		},
-		"./gtr": {
-			"import": "./dist/gtr/index.js",
-			"require": "./dist/gtr/index.js"
-		},
-		"./gtr/schema": {
+		"./schema": {
 			"import": "./dist/gtr/schema.js",
 			"require": "./dist/gtr/schema.js"
 		},
-		"./gtr/schema.graphql": {
+		"./schema.graphql": {
 			"import": "./dist/gtr/schema.graphql",
 			"require": "./dist/gtr/schema.graphql"
 		},
-		"./gtr/types": {
+		"./types": {
 			"import": "./dist/gtr/types.js",
 			"require": "./dist/gtr/types.js"
 		},
