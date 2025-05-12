@@ -9,7 +9,7 @@ plugins:
         - breaking: true
           release: major
         - type: '*!'
-          breaking: true
+          release: major
         - revert: true
           release: patch
         - type: feat
