@@ -8,6 +8,8 @@ plugins:
       releaseRules:
         - breaking: true
           release: major
+        - type: '*!'
+          breaking: true
         - revert: true
           release: patch
         - type: feat
