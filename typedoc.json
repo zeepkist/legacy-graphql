@@ -1,5 +1,5 @@
 {
-	"entryPoints": ["src/index.ts", "src/gtr/index.ts"],
+	"entryPoints": ["src/index.ts"],
 	"hideGenerator": true,
 	"searchInComments": true,
 	"sort": ["kind", "required-first", "enum-value-ascending"],
