@@ -1,4 +1,4 @@
-# Zeepkist GraphQL Clients
+# @zeepkist/graphql
 
 Fully typed TypeScript GraphQL client (powered by GenQL) for Zeepkist, providing the [GTR and Workshop] GraphQL API for Zeepkist.
 
