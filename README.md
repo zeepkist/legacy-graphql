@@ -1,20 +1,25 @@
 # Zeepkist GraphQL Clients
 
-Fully typed TypeScript GraphQL clients for Zeepkist, including [GTR and Workshop] GraphQL APIs for Zeepkist.
+Fully typed TypeScript GraphQL client (powered by GenQL) for Zeepkist, providing the [GTR and Workshop] GraphQL API for Zeepkist.
 
 Download the GTR mod for Zeepkist in [Modkist] (Zeepkist's Mod Loader) or on [mod.io]
 
-Please note that as this is an ever green package that automatically updates types when it detects the schemas change, breaking changes may occur in minor releases.
+Please note that as this is an ever green package that automatically updates types when it detects the schemas change, breaking changes to the schema may occur in minor releases.
 
 ## Changelogs
 
-- [`gtr` Schema Changelogs](https://studio.apollographql.com/graph/zeepkist/variant/current/changelog)
+- [Schema Changelogs](https://studio.apollographql.com/graph/zeepkist/variant/current/changelog)
 
 ## GraphQL IDEs
 
-Explore and test your GraphQL queries on the GraphiQL IDE:
+Explore and test your GraphQL queries on the GraphiQL IDE:  https://graphql.zeepki.st
 
-- `gtr`: https://graphql.zeepki.st
+## Convert GraphQL to GenQL Syntax
+
+Use the online converter provided by GenQL to quickly convert a GrapQL query to a format usable by
+this library:
+
+- https://genql.dev/converter
 
 ## Usage
 
@@ -22,10 +27,10 @@ Explore and test your GraphQL queries on the GraphiQL IDE:
 
 ```html
 <script type="module">
-  import { gtr } from 'https://esm.run/@zeepkist/graphql'
+  import { client } from 'https://esm.run/@zeepkist/graphql'
 
-  const gtrResponse = await gtr.query({
-	...
+  const response = await client.query({
+    ...
   })
 </script>
 ```
@@ -33,10 +38,10 @@ Explore and test your GraphQL queries on the GraphiQL IDE:
 ### Deno
 
 ```js
-import { gtr } from 'https://esm.run/@zeepkist/graphql'
+import { client } from 'https://esm.run/@zeepkist/graphql'
 
-const gtrResponse = await gtr.query({
-...
+const response = await client.query({
+  ...
 })
 ```
 
@@ -54,27 +59,65 @@ npm install @zeepkist/graphql
 #### Import and use
 
 ```ts
-import { gtr } from '@zeepkist/graphql'
+import { client } from '@zeepkist/graphql'
 
-const gtrResponse = await gtr.query({
-...
+const response = await client.query({
+  ...
 })
 ```
 
 #### Enums
 
-Enums can be imported from the specific service you are using, for example:
+Enums can be imported, for example:
 
 ```ts
-import { gtr } from '@zeepkist/graphql'
-import { enumUserPointsOrderBy } from '@zeepkist/graphql/gtr'
+import {
+  client,
+  enumLevelsOrderBy,
+  RecordGenqlSelection,
+  QueryGenqlSelection,
+} from '@zeepkist/graphql'
 
-const response = await gtr.query({
-  allPlayerPoints: {
+const recordFragment: RecordGenqlSelection = {
+  time: true,
+  user: {
+    steamId: true,
+    steamName: true,
+  }
+}
+
+const query: QueryGenqlSelection = {
+  levels: {
     __args: {
-      orderBy: [enumUserPointsOrderBy.POINTS_DESC]
+      first: 10,
+      orderBy: [enumLevelsOrderBy.LEVEL_POINT_COUNT_DESC]
+    },
+    nodes: {
+      personalBestGlobals: {
+        totalCount: true,
+      },
+      // Get the world record from the worldRecordGlobal
+      worldRecordGlobals: {
+        nodes: {
+          record: recordFragment
+        }
+      },
+      // Get the world record by filtering records for records that have a worldRecordGlobal relation
+      records: {
+        __args: {
+          filter: {
+            worldRecordGlobalsExist: true,
+          }
+        },
+        nodes: recordFragment
+      }
     }
   }
+}
+
+const response = await client.query({
+  __name: 'GetExampleQuery',
+  ...query
 })
 ```
 

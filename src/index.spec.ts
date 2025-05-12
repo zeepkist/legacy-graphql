@@ -1,6 +1,12 @@
 import test from 'ava';
-import { gtr } from './index.js';
+import { client, createClient } from './index.js';
 
-test('GTR API exists', (t) => {
-	t.is(typeof gtr.query, 'function');
+test('createClient creates custom client', (t) => {
+	const customClient = createClient();
+
+	t.is(typeof customClient.query, 'function');
+});
+
+test('Pre-defined client exists', (t) => {
+	t.is(typeof client.query, 'function');
 });
