@@ -9,14 +9,12 @@ Please note that as this is an ever green package that automatically updates typ
 ## Changelogs
 
 - [`gtr` Schema Changelogs](https://studio.apollographql.com/graph/zeepkist/variant/current/changelog)
-- [`gtrBeta` Schema Changelogs](https://studio.apollographql.com/graph/zeepkist/variant/beta/changelog)
 
 ## GraphQL IDEs
 
 Explore and test your GraphQL queries on the GraphiQL IDE:
 
 - `gtr`: https://graphql.zeepki.st
-- `gtrBeta`: https://graphql-beta.zeepki.st
 
 ## Usage
 
@@ -24,13 +22,9 @@ Explore and test your GraphQL queries on the GraphiQL IDE:
 
 ```html
 <script type="module">
-  import { gtr, gtrBeta } from 'https://esm.run/@zeepkist/graphql'
+  import { gtr } from 'https://esm.run/@zeepkist/graphql'
 
   const gtrResponse = await gtr.query({
-	...
-  })
-
-  const betaResponse = await gtrBeta.query({
 	...
   })
 </script>
@@ -39,13 +33,9 @@ Explore and test your GraphQL queries on the GraphiQL IDE:
 ### Deno
 
 ```js
-import { gtr, gtrBeta } from 'https://esm.run/@zeepkist/graphql'
+import { gtr } from 'https://esm.run/@zeepkist/graphql'
 
 const gtrResponse = await gtr.query({
-...
-})
-
-const betaResponse = await gtrBeta.query({
 ...
 })
 ```
@@ -64,13 +54,9 @@ npm install @zeepkist/graphql
 #### Import and use
 
 ```ts
-import { gtr, gtrBeta } from '@zeepkist/graphql'
+import { gtr } from '@zeepkist/graphql'
 
 const gtrResponse = await gtr.query({
-...
-})
-
-const betaResponse = await gtrBeta.query({
 ...
 })
 ```

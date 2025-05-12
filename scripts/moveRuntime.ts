@@ -2,7 +2,7 @@ import { readFile, readdir, rename, rm, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
 const runtimePath = 'runtime';
-const apis = ['gtr', 'gtr-beta'];
+const apis = ['gtr'];
 
 try {
 	// Move runtime to top level

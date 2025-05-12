@@ -1,7 +1,7 @@
 export default {
 	scalars: [
 		2, 5, 6, 7, 9, 11, 12, 13, 22, 23, 35, 48, 70, 75, 80, 82, 86, 91, 96, 101,
-		106, 112, 117, 122, 127, 132,
+		105, 122, 128, 136, 156, 164,
 	],
 	types: {
 		Query: {
@@ -13,7 +13,7 @@ export default {
 					nodeId: [2, 'ID!'],
 				},
 			],
-			allVersionInfos: [
+			versionInfos: [
 				3,
 				{
 					first: [12],
@@ -26,7 +26,7 @@ export default {
 					filter: [15],
 				},
 			],
-			allFavorites: [
+			favorites: [
 				19,
 				{
 					first: [12],
@@ -39,20 +39,20 @@ export default {
 					filter: [25],
 				},
 			],
-			allLevels: [
-				115,
+			levels: [
+				151,
 				{
 					first: [12],
 					last: [12],
 					offset: [12],
 					before: [9],
 					after: [9],
-					orderBy: [117, '[LevelsOrderBy!]'],
-					condition: [118],
+					orderBy: [128, '[LevelsOrderBy!]'],
+					condition: [129],
 					filter: [41],
 				},
 			],
-			allLevelItems: [
+			levelItems: [
 				67,
 				{
 					first: [12],
@@ -65,7 +65,7 @@ export default {
 					filter: [44],
 				},
 			],
-			allLevelMetadata: [
+			levelMetadata: [
 				72,
 				{
 					first: [12],
@@ -78,7 +78,7 @@ export default {
 					filter: [46],
 				},
 			],
-			allLevelPoints: [
+			levelPoints: [
 				77,
 				{
 					first: [12],
@@ -91,20 +91,20 @@ export default {
 					filter: [50],
 				},
 			],
-			allLevelRequests: [
-				119,
+			levelRequests: [
+				153,
 				{
 					first: [12],
 					last: [12],
 					offset: [12],
 					before: [9],
 					after: [9],
-					orderBy: [122, '[LevelRequestsOrderBy!]'],
-					condition: [123],
-					filter: [124],
+					orderBy: [156, '[LevelRequestsOrderBy!]'],
+					condition: [157],
+					filter: [158],
 				},
 			],
-			allPersonalBestGlobals: [
+			personalBestGlobals: [
 				63,
 				{
 					first: [12],
@@ -117,7 +117,7 @@ export default {
 					filter: [32],
 				},
 			],
-			allRecords: [
+			records: [
 				84,
 				{
 					first: [12],
@@ -130,20 +130,20 @@ export default {
 					filter: [33],
 				},
 			],
-			allRecordMedias: [
-				104,
+			recordMedias: [
+				120,
 				{
 					first: [12],
 					last: [12],
 					offset: [12],
 					before: [9],
 					after: [9],
-					orderBy: [106, '[RecordMediasOrderBy!]'],
-					condition: [107],
+					orderBy: [122, '[RecordMediaOrderBy!]'],
+					condition: [123],
 					filter: [37],
 				},
 			],
-			allUpvotes: [
+			upvotes: [
 				88,
 				{
 					first: [12],
@@ -156,46 +156,46 @@ export default {
 					filter: [54],
 				},
 			],
-			allUsers: [
-				125,
+			users: [
+				159,
 				{
 					first: [12],
 					last: [12],
 					offset: [12],
 					before: [9],
 					after: [9],
-					orderBy: [127, '[UsersOrderBy!]'],
-					condition: [128],
+					orderBy: [105, '[UsersOrderBy!]'],
+					condition: [106],
 					filter: [27],
 				},
 			],
-			allUserPoints: [
-				109,
+			userPoints: [
+				133,
 				{
 					first: [12],
 					last: [12],
 					offset: [12],
 					before: [9],
 					after: [9],
-					orderBy: [112, '[UserPointsOrderBy!]'],
-					condition: [113],
+					orderBy: [136, '[UserPointsOrderBy!]'],
+					condition: [137],
 					filter: [59],
 				},
 			],
-			allVersions: [
-				129,
+			versions: [
+				161,
 				{
 					first: [12],
 					last: [12],
 					offset: [12],
 					before: [9],
 					after: [9],
-					orderBy: [132, '[VersionsOrderBy!]'],
-					condition: [133],
-					filter: [134],
+					orderBy: [164, '[VersionsOrderBy!]'],
+					condition: [165],
+					filter: [166],
 				},
 			],
-			allVotes: [
+			votes: [
 				98,
 				{
 					first: [12],
@@ -208,7 +208,7 @@ export default {
 					filter: [57],
 				},
 			],
-			allWorldRecordGlobals: [
+			worldRecordGlobals: [
 				93,
 				{
 					first: [12],
@@ -221,13 +221,13 @@ export default {
 					filter: [40],
 				},
 			],
-			favoriteById: [
+			favorite: [
 				20,
 				{
 					id: [12, 'Int!'],
 				},
 			],
-			levelById: [
+			level: [
 				66,
 				{
 					id: [12, 'Int!'],
@@ -239,92 +239,92 @@ export default {
 					hash: [7, 'String!'],
 				},
 			],
-			levelItemById: [
+			levelItem: [
 				68,
 				{
 					id: [12, 'Int!'],
 				},
 			],
-			levelMetadatumById: [
+			levelMetadatum: [
 				73,
 				{
 					id: [12, 'Int!'],
 				},
 			],
-			levelPointById: [
+			levelPoint: [
 				78,
 				{
 					id: [12, 'Int!'],
 				},
 			],
-			levelRequestById: [
-				120,
+			levelRequest: [
+				154,
 				{
 					id: [12, 'Int!'],
 				},
 			],
-			personalBestGlobalById: [
+			personalBestGlobal: [
 				64,
 				{
 					id: [12, 'Int!'],
 				},
 			],
-			recordById: [
+			record: [
 				65,
 				{
 					id: [12, 'Int!'],
 				},
 			],
-			recordMediaById: [
-				103,
+			recordMedia: [
+				119,
 				{
 					id: [12, 'Int!'],
 				},
 			],
-			recordMediaByIdRecord: [
-				103,
+			recordMediaByRecordId: [
+				119,
 				{
-					idRecord: [12, 'Int!'],
+					recordId: [12, 'Int!'],
 				},
 			],
-			upvoteById: [
+			upvote: [
 				89,
 				{
 					id: [12, 'Int!'],
 				},
 			],
-			userById: [
+			user: [
 				21,
 				{
 					id: [12, 'Int!'],
 				},
 			],
-			userPointById: [
-				110,
+			userPoint: [
+				134,
 				{
 					id: [12, 'Int!'],
 				},
 			],
-			versionById: [
-				130,
+			version: [
+				162,
 				{
 					id: [12, 'Int!'],
 				},
 			],
-			voteById: [
+			vote: [
 				99,
 				{
 					id: [12, 'Int!'],
 				},
 			],
-			worldRecordGlobalById: [
+			worldRecordGlobal: [
 				94,
 				{
 					id: [12, 'Int!'],
 				},
 			],
 			zRtm: [
-				135,
+				167,
 				{
 					pMinAuthorTime: [35],
 					pMaxAuthorTime: [35],
@@ -344,94 +344,94 @@ export default {
 					offset: [12],
 					before: [9],
 					after: [9],
-					filter: [138],
+					filter: [170],
 				},
 			],
-			favorite: [
+			favoriteByNodeId: [
 				20,
 				{
 					nodeId: [2, 'ID!'],
 				},
 			],
-			level: [
+			levelByNodeId: [
 				66,
 				{
 					nodeId: [2, 'ID!'],
 				},
 			],
-			levelItem: [
+			levelItemByNodeId: [
 				68,
 				{
 					nodeId: [2, 'ID!'],
 				},
 			],
-			levelMetadatum: [
+			levelMetadatumByNodeId: [
 				73,
 				{
 					nodeId: [2, 'ID!'],
 				},
 			],
-			levelPoint: [
+			levelPointByNodeId: [
 				78,
 				{
 					nodeId: [2, 'ID!'],
 				},
 			],
-			levelRequest: [
-				120,
+			levelRequestByNodeId: [
+				154,
 				{
 					nodeId: [2, 'ID!'],
 				},
 			],
-			personalBestGlobal: [
+			personalBestGlobalByNodeId: [
 				64,
 				{
 					nodeId: [2, 'ID!'],
 				},
 			],
-			record: [
+			recordByNodeId: [
 				65,
 				{
 					nodeId: [2, 'ID!'],
 				},
 			],
-			recordMedia: [
-				103,
+			recordMediaByNodeId: [
+				119,
 				{
 					nodeId: [2, 'ID!'],
 				},
 			],
-			upvote: [
+			upvoteByNodeId: [
 				89,
 				{
 					nodeId: [2, 'ID!'],
 				},
 			],
-			user: [
+			userByNodeId: [
 				21,
 				{
 					nodeId: [2, 'ID!'],
 				},
 			],
-			userPoint: [
-				110,
+			userPointByNodeId: [
+				134,
 				{
 					nodeId: [2, 'ID!'],
 				},
 			],
-			version: [
-				130,
+			versionByNodeId: [
+				162,
 				{
 					nodeId: [2, 'ID!'],
 				},
 			],
-			vote: [
+			voteByNodeId: [
 				99,
 				{
 					nodeId: [2, 'ID!'],
 				},
 			],
-			worldRecordGlobal: [
+			worldRecordGlobalByNodeId: [
 				94,
 				{
 					nodeId: [2, 'ID!'],
@@ -453,10 +453,10 @@ export default {
 			on_Upvote: [89],
 			on_WorldRecordGlobal: [94],
 			on_Vote: [99],
-			on_RecordMedia: [103],
-			on_UserPoint: [110],
-			on_LevelRequest: [120],
-			on_Version: [130],
+			on_RecordMedia: [119],
+			on_UserPoint: [134],
+			on_LevelRequest: [154],
+			on_Version: [162],
 			__typename: [7],
 		},
 		ID: {},
@@ -577,7 +577,7 @@ export default {
 		},
 		FavoritesConnection: {
 			nodes: [20],
-			edges: [114],
+			edges: [150],
 			pageInfo: [10],
 			totalCount: [12],
 			__typename: [7],
@@ -585,12 +585,12 @@ export default {
 		Favorite: {
 			nodeId: [2],
 			id: [12],
-			idUser: [12],
+			userId: [12],
 			dateCreated: [6],
 			dateUpdated: [6],
-			idLevel: [12],
-			userByIdUser: [21],
-			levelByIdLevel: [66],
+			levelId: [12],
+			user: [21],
+			level: [66],
 			__typename: [7],
 		},
 		User: {
@@ -602,7 +602,7 @@ export default {
 			dateUpdated: [6],
 			steamId: [22],
 			discordId: [22],
-			favoritesByIdUser: [
+			favorites: [
 				19,
 				{
 					first: [12],
@@ -615,7 +615,7 @@ export default {
 					filter: [25],
 				},
 			],
-			personalBestGlobalsByIdUser: [
+			personalBestGlobals: [
 				63,
 				{
 					first: [12],
@@ -628,20 +628,20 @@ export default {
 					filter: [32],
 				},
 			],
-			userPointsByIdUser: [
-				109,
+			userPoints: [
+				133,
 				{
 					first: [12],
 					last: [12],
 					offset: [12],
 					before: [9],
 					after: [9],
-					orderBy: [112, '[UserPointsOrderBy!]'],
-					condition: [113],
+					orderBy: [136, '[UserPointsOrderBy!]'],
+					condition: [137],
 					filter: [59],
 				},
 			],
-			recordsByIdUser: [
+			records: [
 				84,
 				{
 					first: [12],
@@ -654,7 +654,7 @@ export default {
 					filter: [33],
 				},
 			],
-			upvotesByIdUser: [
+			upvotes: [
 				88,
 				{
 					first: [12],
@@ -667,7 +667,7 @@ export default {
 					filter: [54],
 				},
 			],
-			votesByIdUser: [
+			votes: [
 				98,
 				{
 					first: [12],
@@ -680,26 +680,104 @@ export default {
 					filter: [57],
 				},
 			],
+			levelsByFavorite: [
+				138,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [128, '[LevelsOrderBy!]'],
+					condition: [129],
+					filter: [41],
+				},
+			],
+			recordsByPersonalBestGlobal: [
+				140,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [86, '[RecordsOrderBy!]'],
+					condition: [87],
+					filter: [33],
+				},
+			],
+			levelsByPersonalBestGlobal: [
+				142,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [128, '[LevelsOrderBy!]'],
+					condition: [129],
+					filter: [41],
+				},
+			],
+			levelsByRecord: [
+				144,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [128, '[LevelsOrderBy!]'],
+					condition: [129],
+					filter: [41],
+				},
+			],
+			levelsByUpvote: [
+				146,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [128, '[LevelsOrderBy!]'],
+					condition: [129],
+					filter: [41],
+				},
+			],
+			levelsByVote: [
+				148,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [128, '[LevelsOrderBy!]'],
+					condition: [129],
+					filter: [41],
+				},
+			],
 			__typename: [7],
 		},
 		BigFloat: {},
 		FavoritesOrderBy: {},
 		FavoriteCondition: {
 			id: [12],
-			idUser: [12],
+			userId: [12],
 			dateCreated: [6],
 			dateUpdated: [6],
-			idLevel: [12],
+			levelId: [12],
 			__typename: [7],
 		},
 		FavoriteFilter: {
 			id: [26],
-			idUser: [26],
+			userId: [26],
 			dateCreated: [17],
 			dateUpdated: [17],
-			idLevel: [26],
-			userByIdUser: [27],
-			levelByIdLevel: [41],
+			levelId: [26],
+			user: [27],
+			level: [41],
 			and: [25],
 			or: [25],
 			not: [25],
@@ -727,18 +805,18 @@ export default {
 			dateUpdated: [17],
 			steamId: [29],
 			discordId: [29],
-			favoritesByIdUserList: [30],
-			favoritesByIdUserListExist: [11],
-			personalBestGlobalsByIdUserList: [31],
-			personalBestGlobalsByIdUserListExist: [11],
-			userPointsByIdUserList: [58],
-			userPointsByIdUserListExist: [11],
-			recordsByIdUserList: [60],
-			recordsByIdUserListExist: [11],
-			upvotesByIdUserList: [61],
-			upvotesByIdUserListExist: [11],
-			votesByIdUserList: [62],
-			votesByIdUserListExist: [11],
+			favorites: [30],
+			favoritesExist: [11],
+			personalBestGlobals: [31],
+			personalBestGlobalsExist: [11],
+			userPoints: [58],
+			userPointsExist: [11],
+			records: [60],
+			recordsExist: [11],
+			upvotes: [61],
+			upvotesExist: [11],
+			votes: [62],
+			votesExist: [11],
 			and: [27],
 			or: [27],
 			not: [27],
@@ -786,14 +864,14 @@ export default {
 		},
 		PersonalBestGlobalFilter: {
 			id: [26],
-			idRecord: [26],
-			idUser: [26],
-			idLevel: [26],
+			recordId: [26],
+			userId: [26],
+			levelId: [26],
 			dateCreated: [17],
 			dateUpdated: [17],
-			recordByIdRecord: [33],
-			userByIdUser: [27],
-			levelByIdLevel: [41],
+			record: [33],
+			user: [27],
+			level: [41],
 			and: [32],
 			or: [32],
 			not: [32],
@@ -801,23 +879,23 @@ export default {
 		},
 		RecordFilter: {
 			id: [26],
-			idUser: [26],
+			userId: [26],
 			time: [34],
 			gameVersion: [18],
-			idLevel: [26],
+			levelId: [26],
 			modVersion: [18],
 			dateCreated: [17],
 			dateUpdated: [17],
 			splits: [36],
 			speeds: [36],
-			recordMediaByIdRecord: [37],
-			recordMediaByIdRecordExists: [11],
-			personalBestGlobalsByIdRecordList: [38],
-			personalBestGlobalsByIdRecordListExist: [11],
-			worldRecordGlobalsByIdRecordList: [39],
-			worldRecordGlobalsByIdRecordListExist: [11],
-			userByIdUser: [27],
-			levelByIdLevel: [41],
+			recordMedia: [37],
+			recordMediaExists: [11],
+			personalBestGlobals: [38],
+			personalBestGlobalsExist: [11],
+			worldRecordGlobals: [39],
+			worldRecordGlobalsExist: [11],
+			user: [27],
+			level: [41],
 			and: [33],
 			or: [33],
 			not: [33],
@@ -861,11 +939,11 @@ export default {
 		},
 		RecordMediaFilter: {
 			id: [26],
-			idRecord: [26],
+			recordId: [26],
 			ghostUrl: [18],
 			dateCreated: [17],
 			dateUpdated: [17],
-			recordByIdRecord: [33],
+			record: [33],
 			and: [37],
 			or: [37],
 			not: [37],
@@ -885,12 +963,12 @@ export default {
 		},
 		WorldRecordGlobalFilter: {
 			id: [26],
-			idRecord: [26],
-			idLevel: [26],
+			recordId: [26],
+			levelId: [26],
 			dateCreated: [17],
 			dateUpdated: [17],
-			recordByIdRecord: [33],
-			levelByIdLevel: [41],
+			record: [33],
+			level: [41],
 			and: [40],
 			or: [40],
 			not: [40],
@@ -901,24 +979,24 @@ export default {
 			hash: [18],
 			dateCreated: [17],
 			dateUpdated: [17],
-			favoritesByIdLevelList: [42],
-			favoritesByIdLevelListExist: [11],
-			levelItemsByIdLevelList: [43],
-			levelItemsByIdLevelListExist: [11],
-			levelMetadataByIdLevelList: [45],
-			levelMetadataByIdLevelListExist: [11],
-			levelPointsByIdLevelList: [49],
-			levelPointsByIdLevelListExist: [11],
-			personalBestGlobalsByIdLevelList: [51],
-			personalBestGlobalsByIdLevelListExist: [11],
-			recordsByIdLevelList: [52],
-			recordsByIdLevelListExist: [11],
-			upvotesByIdLevelList: [53],
-			upvotesByIdLevelListExist: [11],
-			worldRecordGlobalsByIdLevelList: [55],
-			worldRecordGlobalsByIdLevelListExist: [11],
-			votesByIdLevelList: [56],
-			votesByIdLevelListExist: [11],
+			favorites: [42],
+			favoritesExist: [11],
+			levelItems: [43],
+			levelItemsExist: [11],
+			levelMetadata: [45],
+			levelMetadataExist: [11],
+			levelPoints: [49],
+			levelPointsExist: [11],
+			personalBestGlobals: [51],
+			personalBestGlobalsExist: [11],
+			records: [52],
+			recordsExist: [11],
+			upvotes: [53],
+			upvotesExist: [11],
+			worldRecordGlobals: [55],
+			worldRecordGlobalsExist: [11],
+			votes: [56],
+			votesExist: [11],
 			and: [41],
 			or: [41],
 			not: [41],
@@ -938,7 +1016,7 @@ export default {
 		},
 		LevelItemFilter: {
 			id: [26],
-			idLevel: [26],
+			levelId: [26],
 			workshopId: [29],
 			authorId: [29],
 			name: [18],
@@ -954,7 +1032,7 @@ export default {
 			updatedAt: [17],
 			dateCreated: [17],
 			dateUpdated: [17],
-			levelByIdLevel: [41],
+			level: [41],
 			and: [44],
 			or: [44],
 			not: [44],
@@ -968,7 +1046,7 @@ export default {
 		},
 		LevelMetadatumFilter: {
 			id: [26],
-			idLevel: [26],
+			levelId: [26],
 			amountCheckpoints: [26],
 			amountFinishes: [26],
 			amountBlocks: [26],
@@ -977,7 +1055,7 @@ export default {
 			blocks: [47],
 			dateCreated: [17],
 			dateUpdated: [17],
-			levelByIdLevel: [41],
+			level: [41],
 			and: [46],
 			or: [46],
 			not: [46],
@@ -1012,10 +1090,10 @@ export default {
 		LevelPointFilter: {
 			id: [26],
 			points: [26],
-			idLevel: [26],
+			levelId: [26],
 			dateCreated: [17],
 			dateUpdated: [17],
-			levelByIdLevel: [41],
+			level: [41],
 			and: [50],
 			or: [50],
 			not: [50],
@@ -1041,12 +1119,12 @@ export default {
 		},
 		UpvoteFilter: {
 			id: [26],
-			idUser: [26],
-			idLevel: [26],
+			userId: [26],
+			levelId: [26],
 			dateCreated: [17],
 			dateUpdated: [17],
-			userByIdUser: [27],
-			levelByIdLevel: [41],
+			user: [27],
+			level: [41],
 			and: [54],
 			or: [54],
 			not: [54],
@@ -1066,13 +1144,13 @@ export default {
 		},
 		VoteFilter: {
 			id: [26],
-			idUser: [26],
-			idLevel: [26],
+			userId: [26],
+			levelId: [26],
 			value: [26],
 			dateCreated: [17],
 			dateUpdated: [17],
-			userByIdUser: [27],
-			levelByIdLevel: [41],
+			user: [27],
+			level: [41],
 			and: [57],
 			or: [57],
 			not: [57],
@@ -1086,14 +1164,14 @@ export default {
 		},
 		UserPointFilter: {
 			id: [26],
-			idUser: [26],
+			userId: [26],
 			points: [26],
 			dateCreated: [17],
 			dateUpdated: [17],
 			rank: [26],
 			worldRecords: [26],
 			totalPoints: [26],
-			userByIdUser: [27],
+			user: [27],
 			and: [59],
 			or: [59],
 			not: [59],
@@ -1119,7 +1197,7 @@ export default {
 		},
 		PersonalBestGlobalsConnection: {
 			nodes: [64],
-			edges: [108],
+			edges: [132],
 			pageInfo: [10],
 			totalCount: [12],
 			__typename: [7],
@@ -1127,45 +1205,45 @@ export default {
 		PersonalBestGlobal: {
 			nodeId: [2],
 			id: [12],
-			idRecord: [12],
-			idUser: [12],
-			idLevel: [12],
+			recordId: [12],
+			userId: [12],
+			levelId: [12],
 			dateCreated: [6],
 			dateUpdated: [6],
-			recordByIdRecord: [65],
-			userByIdUser: [21],
-			levelByIdLevel: [66],
+			record: [65],
+			user: [21],
+			level: [66],
 			__typename: [7],
 		},
 		Record: {
 			nodeId: [2],
 			id: [12],
-			idUser: [12],
+			userId: [12],
 			time: [35],
 			gameVersion: [7],
-			idLevel: [12],
+			levelId: [12],
 			modVersion: [7],
 			dateCreated: [6],
 			dateUpdated: [6],
 			splits: [35],
 			speeds: [35],
-			userByIdUser: [21],
-			levelByIdLevel: [66],
-			recordMediaByIdRecord: [103],
-			recordMediasByIdRecord: [
-				104,
+			user: [21],
+			level: [66],
+			recordMedia: [119],
+			recordMedias: [
+				120,
 				{
 					first: [12],
 					last: [12],
 					offset: [12],
 					before: [9],
 					after: [9],
-					orderBy: [106, '[RecordMediasOrderBy!]'],
-					condition: [107],
+					orderBy: [122, '[RecordMediaOrderBy!]'],
+					condition: [123],
 					filter: [37],
 				},
 			],
-			personalBestGlobalsByIdRecord: [
+			personalBestGlobals: [
 				63,
 				{
 					first: [12],
@@ -1178,7 +1256,7 @@ export default {
 					filter: [32],
 				},
 			],
-			worldRecordGlobalsByIdRecord: [
+			worldRecordGlobals: [
 				93,
 				{
 					first: [12],
@@ -1191,6 +1269,45 @@ export default {
 					filter: [40],
 				},
 			],
+			usersByPersonalBestGlobal: [
+				124,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [105, '[UsersOrderBy!]'],
+					condition: [106],
+					filter: [27],
+				},
+			],
+			levelsByPersonalBestGlobal: [
+				126,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [128, '[LevelsOrderBy!]'],
+					condition: [129],
+					filter: [41],
+				},
+			],
+			levelsByWorldRecordGlobal: [
+				130,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [128, '[LevelsOrderBy!]'],
+					condition: [129],
+					filter: [41],
+				},
+			],
 			__typename: [7],
 		},
 		Level: {
@@ -1199,7 +1316,7 @@ export default {
 			hash: [7],
 			dateCreated: [6],
 			dateUpdated: [6],
-			favoritesByIdLevel: [
+			favorites: [
 				19,
 				{
 					first: [12],
@@ -1212,7 +1329,7 @@ export default {
 					filter: [25],
 				},
 			],
-			levelItemsByIdLevel: [
+			levelItems: [
 				67,
 				{
 					first: [12],
@@ -1225,7 +1342,7 @@ export default {
 					filter: [44],
 				},
 			],
-			levelMetadataByIdLevel: [
+			levelMetadata: [
 				72,
 				{
 					first: [12],
@@ -1238,7 +1355,7 @@ export default {
 					filter: [46],
 				},
 			],
-			levelPointsByIdLevel: [
+			levelPoints: [
 				77,
 				{
 					first: [12],
@@ -1251,7 +1368,7 @@ export default {
 					filter: [50],
 				},
 			],
-			personalBestGlobalsByIdLevel: [
+			personalBestGlobals: [
 				63,
 				{
 					first: [12],
@@ -1264,7 +1381,7 @@ export default {
 					filter: [32],
 				},
 			],
-			recordsByIdLevel: [
+			records: [
 				84,
 				{
 					first: [12],
@@ -1277,7 +1394,7 @@ export default {
 					filter: [33],
 				},
 			],
-			upvotesByIdLevel: [
+			upvotes: [
 				88,
 				{
 					first: [12],
@@ -1290,7 +1407,7 @@ export default {
 					filter: [54],
 				},
 			],
-			worldRecordGlobalsByIdLevel: [
+			worldRecordGlobals: [
 				93,
 				{
 					first: [12],
@@ -1303,7 +1420,7 @@ export default {
 					filter: [40],
 				},
 			],
-			votesByIdLevel: [
+			votes: [
 				98,
 				{
 					first: [12],
@@ -1314,6 +1431,97 @@ export default {
 					orderBy: [101, '[VotesOrderBy!]'],
 					condition: [102],
 					filter: [57],
+				},
+			],
+			usersByFavorite: [
+				103,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [105, '[UsersOrderBy!]'],
+					condition: [106],
+					filter: [27],
+				},
+			],
+			recordsByPersonalBestGlobal: [
+				107,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [86, '[RecordsOrderBy!]'],
+					condition: [87],
+					filter: [33],
+				},
+			],
+			usersByPersonalBestGlobal: [
+				109,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [105, '[UsersOrderBy!]'],
+					condition: [106],
+					filter: [27],
+				},
+			],
+			usersByRecord: [
+				111,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [105, '[UsersOrderBy!]'],
+					condition: [106],
+					filter: [27],
+				},
+			],
+			usersByUpvote: [
+				113,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [105, '[UsersOrderBy!]'],
+					condition: [106],
+					filter: [27],
+				},
+			],
+			recordsByWorldRecordGlobal: [
+				115,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [86, '[RecordsOrderBy!]'],
+					condition: [87],
+					filter: [33],
+				},
+			],
+			usersByVote: [
+				117,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [105, '[UsersOrderBy!]'],
+					condition: [106],
+					filter: [27],
 				},
 			],
 			__typename: [7],
@@ -1328,7 +1536,7 @@ export default {
 		LevelItem: {
 			nodeId: [2],
 			id: [12],
-			idLevel: [12],
+			levelId: [12],
 			workshopId: [22],
 			authorId: [22],
 			name: [7],
@@ -1344,7 +1552,7 @@ export default {
 			updatedAt: [6],
 			dateCreated: [6],
 			dateUpdated: [6],
-			levelByIdLevel: [66],
+			level: [66],
 			__typename: [7],
 		},
 		LevelItemsEdge: {
@@ -1355,7 +1563,7 @@ export default {
 		LevelItemsOrderBy: {},
 		LevelItemCondition: {
 			id: [12],
-			idLevel: [12],
+			levelId: [12],
 			workshopId: [22],
 			authorId: [22],
 			name: [7],
@@ -1383,7 +1591,7 @@ export default {
 		LevelMetadatum: {
 			nodeId: [2],
 			id: [12],
-			idLevel: [12],
+			levelId: [12],
 			amountCheckpoints: [12],
 			amountFinishes: [12],
 			amountBlocks: [12],
@@ -1392,7 +1600,7 @@ export default {
 			blocks: [48],
 			dateCreated: [6],
 			dateUpdated: [6],
-			levelByIdLevel: [66],
+			level: [66],
 			__typename: [7],
 		},
 		LevelMetadataEdge: {
@@ -1403,7 +1611,7 @@ export default {
 		LevelMetadataOrderBy: {},
 		LevelMetadatumCondition: {
 			id: [12],
-			idLevel: [12],
+			levelId: [12],
 			amountCheckpoints: [12],
 			amountFinishes: [12],
 			amountBlocks: [12],
@@ -1425,10 +1633,10 @@ export default {
 			nodeId: [2],
 			id: [12],
 			points: [12],
-			idLevel: [12],
+			levelId: [12],
 			dateCreated: [6],
 			dateUpdated: [6],
-			levelByIdLevel: [66],
+			level: [66],
 			__typename: [7],
 		},
 		LevelPointsEdge: {
@@ -1440,7 +1648,7 @@ export default {
 		LevelPointCondition: {
 			id: [12],
 			points: [12],
-			idLevel: [12],
+			levelId: [12],
 			dateCreated: [6],
 			dateUpdated: [6],
 			__typename: [7],
@@ -1448,9 +1656,9 @@ export default {
 		PersonalBestGlobalsOrderBy: {},
 		PersonalBestGlobalCondition: {
 			id: [12],
-			idRecord: [12],
-			idUser: [12],
-			idLevel: [12],
+			recordId: [12],
+			userId: [12],
+			levelId: [12],
 			dateCreated: [6],
 			dateUpdated: [6],
 			__typename: [7],
@@ -1470,10 +1678,10 @@ export default {
 		RecordsOrderBy: {},
 		RecordCondition: {
 			id: [12],
-			idUser: [12],
+			userId: [12],
 			time: [35],
 			gameVersion: [7],
-			idLevel: [12],
+			levelId: [12],
 			modVersion: [7],
 			dateCreated: [6],
 			dateUpdated: [6],
@@ -1491,12 +1699,12 @@ export default {
 		Upvote: {
 			nodeId: [2],
 			id: [12],
-			idUser: [12],
-			idLevel: [12],
+			userId: [12],
+			levelId: [12],
 			dateCreated: [6],
 			dateUpdated: [6],
-			userByIdUser: [21],
-			levelByIdLevel: [66],
+			user: [21],
+			level: [66],
 			__typename: [7],
 		},
 		UpvotesEdge: {
@@ -1507,8 +1715,8 @@ export default {
 		UpvotesOrderBy: {},
 		UpvoteCondition: {
 			id: [12],
-			idUser: [12],
-			idLevel: [12],
+			userId: [12],
+			levelId: [12],
 			dateCreated: [6],
 			dateUpdated: [6],
 			__typename: [7],
@@ -1523,12 +1731,12 @@ export default {
 		WorldRecordGlobal: {
 			nodeId: [2],
 			id: [12],
-			idRecord: [12],
-			idLevel: [12],
+			recordId: [12],
+			levelId: [12],
 			dateCreated: [6],
 			dateUpdated: [6],
-			recordByIdRecord: [65],
-			levelByIdLevel: [66],
+			record: [65],
+			level: [66],
 			__typename: [7],
 		},
 		WorldRecordGlobalsEdge: {
@@ -1539,8 +1747,8 @@ export default {
 		WorldRecordGlobalsOrderBy: {},
 		WorldRecordGlobalCondition: {
 			id: [12],
-			idRecord: [12],
-			idLevel: [12],
+			recordId: [12],
+			levelId: [12],
 			dateCreated: [6],
 			dateUpdated: [6],
 			__typename: [7],
@@ -1555,13 +1763,13 @@ export default {
 		Vote: {
 			nodeId: [2],
 			id: [12],
-			idUser: [12],
-			idLevel: [12],
+			userId: [12],
+			levelId: [12],
 			value: [12],
 			dateCreated: [6],
 			dateUpdated: [6],
-			userByIdUser: [21],
-			levelByIdLevel: [66],
+			user: [21],
+			level: [66],
 			__typename: [7],
 		},
 		VotesEdge: {
@@ -1572,101 +1780,278 @@ export default {
 		VotesOrderBy: {},
 		VoteCondition: {
 			id: [12],
-			idUser: [12],
-			idLevel: [12],
+			userId: [12],
+			levelId: [12],
 			value: [12],
 			dateCreated: [6],
 			dateUpdated: [6],
 			__typename: [7],
 		},
-		RecordMedia: {
-			nodeId: [2],
-			id: [12],
-			idRecord: [12],
-			ghostUrl: [7],
-			dateCreated: [6],
-			dateUpdated: [6],
-			recordByIdRecord: [65],
-			__typename: [7],
-		},
-		RecordMediasConnection: {
-			nodes: [103],
-			edges: [105],
+		LevelUsersByFavoriteManyToManyConnection: {
+			nodes: [21],
+			edges: [104],
 			pageInfo: [10],
 			totalCount: [12],
 			__typename: [7],
 		},
-		RecordMediasEdge: {
+		LevelUsersByFavoriteManyToManyEdge: {
 			cursor: [9],
-			node: [103],
+			node: [21],
+			favorites: [
+				19,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [23, '[FavoritesOrderBy!]'],
+					condition: [24],
+					filter: [25],
+				},
+			],
 			__typename: [7],
 		},
-		RecordMediasOrderBy: {},
-		RecordMediaCondition: {
+		UsersOrderBy: {},
+		UserCondition: {
 			id: [12],
-			idRecord: [12],
-			ghostUrl: [7],
+			steamName: [7],
+			banned: [11],
 			dateCreated: [6],
 			dateUpdated: [6],
+			steamId: [22],
+			discordId: [22],
 			__typename: [7],
 		},
-		PersonalBestGlobalsEdge: {
-			cursor: [9],
-			node: [64],
-			__typename: [7],
-		},
-		UserPointsConnection: {
-			nodes: [110],
-			edges: [111],
+		LevelRecordsByPersonalBestGlobalManyToManyConnection: {
+			nodes: [65],
+			edges: [108],
 			pageInfo: [10],
 			totalCount: [12],
 			__typename: [7],
 		},
-		UserPoint: {
-			nodeId: [2],
-			id: [12],
-			idUser: [12],
-			points: [12],
-			dateCreated: [6],
-			dateUpdated: [6],
-			rank: [12],
-			worldRecords: [12],
-			totalPoints: [12],
-			userByIdUser: [21],
-			__typename: [7],
-		},
-		UserPointsEdge: {
+		LevelRecordsByPersonalBestGlobalManyToManyEdge: {
 			cursor: [9],
-			node: [110],
+			node: [65],
+			personalBestGlobals: [
+				63,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [82, '[PersonalBestGlobalsOrderBy!]'],
+					condition: [83],
+					filter: [32],
+				},
+			],
 			__typename: [7],
 		},
-		UserPointsOrderBy: {},
-		UserPointCondition: {
-			id: [12],
-			idUser: [12],
-			points: [12],
-			dateCreated: [6],
-			dateUpdated: [6],
-			rank: [12],
-			worldRecords: [12],
-			totalPoints: [12],
+		LevelUsersByPersonalBestGlobalManyToManyConnection: {
+			nodes: [21],
+			edges: [110],
+			pageInfo: [10],
+			totalCount: [12],
 			__typename: [7],
 		},
-		FavoritesEdge: {
+		LevelUsersByPersonalBestGlobalManyToManyEdge: {
 			cursor: [9],
-			node: [20],
+			node: [21],
+			personalBestGlobals: [
+				63,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [82, '[PersonalBestGlobalsOrderBy!]'],
+					condition: [83],
+					filter: [32],
+				},
+			],
 			__typename: [7],
 		},
-		LevelsConnection: {
-			nodes: [66],
+		LevelUsersByRecordManyToManyConnection: {
+			nodes: [21],
+			edges: [112],
+			pageInfo: [10],
+			totalCount: [12],
+			__typename: [7],
+		},
+		LevelUsersByRecordManyToManyEdge: {
+			cursor: [9],
+			node: [21],
+			records: [
+				84,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [86, '[RecordsOrderBy!]'],
+					condition: [87],
+					filter: [33],
+				},
+			],
+			__typename: [7],
+		},
+		LevelUsersByUpvoteManyToManyConnection: {
+			nodes: [21],
+			edges: [114],
+			pageInfo: [10],
+			totalCount: [12],
+			__typename: [7],
+		},
+		LevelUsersByUpvoteManyToManyEdge: {
+			cursor: [9],
+			node: [21],
+			upvotes: [
+				88,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [91, '[UpvotesOrderBy!]'],
+					condition: [92],
+					filter: [54],
+				},
+			],
+			__typename: [7],
+		},
+		LevelRecordsByWorldRecordGlobalManyToManyConnection: {
+			nodes: [65],
 			edges: [116],
 			pageInfo: [10],
 			totalCount: [12],
 			__typename: [7],
 		},
-		LevelsEdge: {
+		LevelRecordsByWorldRecordGlobalManyToManyEdge: {
+			cursor: [9],
+			node: [65],
+			worldRecordGlobals: [
+				93,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [96, '[WorldRecordGlobalsOrderBy!]'],
+					condition: [97],
+					filter: [40],
+				},
+			],
+			__typename: [7],
+		},
+		LevelUsersByVoteManyToManyConnection: {
+			nodes: [21],
+			edges: [118],
+			pageInfo: [10],
+			totalCount: [12],
+			__typename: [7],
+		},
+		LevelUsersByVoteManyToManyEdge: {
+			cursor: [9],
+			node: [21],
+			votes: [
+				98,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [101, '[VotesOrderBy!]'],
+					condition: [102],
+					filter: [57],
+				},
+			],
+			__typename: [7],
+		},
+		RecordMedia: {
+			nodeId: [2],
+			id: [12],
+			recordId: [12],
+			ghostUrl: [7],
+			dateCreated: [6],
+			dateUpdated: [6],
+			record: [65],
+			__typename: [7],
+		},
+		RecordMediaConnection: {
+			nodes: [119],
+			edges: [121],
+			pageInfo: [10],
+			totalCount: [12],
+			__typename: [7],
+		},
+		RecordMediaEdge: {
+			cursor: [9],
+			node: [119],
+			__typename: [7],
+		},
+		RecordMediaOrderBy: {},
+		RecordMediaCondition: {
+			id: [12],
+			recordId: [12],
+			ghostUrl: [7],
+			dateCreated: [6],
+			dateUpdated: [6],
+			__typename: [7],
+		},
+		RecordUsersByPersonalBestGlobalManyToManyConnection: {
+			nodes: [21],
+			edges: [125],
+			pageInfo: [10],
+			totalCount: [12],
+			__typename: [7],
+		},
+		RecordUsersByPersonalBestGlobalManyToManyEdge: {
+			cursor: [9],
+			node: [21],
+			personalBestGlobals: [
+				63,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [82, '[PersonalBestGlobalsOrderBy!]'],
+					condition: [83],
+					filter: [32],
+				},
+			],
+			__typename: [7],
+		},
+		RecordLevelsByPersonalBestGlobalManyToManyConnection: {
+			nodes: [66],
+			edges: [127],
+			pageInfo: [10],
+			totalCount: [12],
+			__typename: [7],
+		},
+		RecordLevelsByPersonalBestGlobalManyToManyEdge: {
 			cursor: [9],
 			node: [66],
+			personalBestGlobals: [
+				63,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [82, '[PersonalBestGlobalsOrderBy!]'],
+					condition: [83],
+					filter: [32],
+				},
+			],
 			__typename: [7],
 		},
 		LevelsOrderBy: {},
@@ -1677,9 +2062,243 @@ export default {
 			dateUpdated: [6],
 			__typename: [7],
 		},
+		RecordLevelsByWorldRecordGlobalManyToManyConnection: {
+			nodes: [66],
+			edges: [131],
+			pageInfo: [10],
+			totalCount: [12],
+			__typename: [7],
+		},
+		RecordLevelsByWorldRecordGlobalManyToManyEdge: {
+			cursor: [9],
+			node: [66],
+			worldRecordGlobals: [
+				93,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [96, '[WorldRecordGlobalsOrderBy!]'],
+					condition: [97],
+					filter: [40],
+				},
+			],
+			__typename: [7],
+		},
+		PersonalBestGlobalsEdge: {
+			cursor: [9],
+			node: [64],
+			__typename: [7],
+		},
+		UserPointsConnection: {
+			nodes: [134],
+			edges: [135],
+			pageInfo: [10],
+			totalCount: [12],
+			__typename: [7],
+		},
+		UserPoint: {
+			nodeId: [2],
+			id: [12],
+			userId: [12],
+			points: [12],
+			dateCreated: [6],
+			dateUpdated: [6],
+			rank: [12],
+			worldRecords: [12],
+			totalPoints: [12],
+			user: [21],
+			__typename: [7],
+		},
+		UserPointsEdge: {
+			cursor: [9],
+			node: [134],
+			__typename: [7],
+		},
+		UserPointsOrderBy: {},
+		UserPointCondition: {
+			id: [12],
+			userId: [12],
+			points: [12],
+			dateCreated: [6],
+			dateUpdated: [6],
+			rank: [12],
+			worldRecords: [12],
+			totalPoints: [12],
+			__typename: [7],
+		},
+		UserLevelsByFavoriteManyToManyConnection: {
+			nodes: [66],
+			edges: [139],
+			pageInfo: [10],
+			totalCount: [12],
+			__typename: [7],
+		},
+		UserLevelsByFavoriteManyToManyEdge: {
+			cursor: [9],
+			node: [66],
+			favorites: [
+				19,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [23, '[FavoritesOrderBy!]'],
+					condition: [24],
+					filter: [25],
+				},
+			],
+			__typename: [7],
+		},
+		UserRecordsByPersonalBestGlobalManyToManyConnection: {
+			nodes: [65],
+			edges: [141],
+			pageInfo: [10],
+			totalCount: [12],
+			__typename: [7],
+		},
+		UserRecordsByPersonalBestGlobalManyToManyEdge: {
+			cursor: [9],
+			node: [65],
+			personalBestGlobals: [
+				63,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [82, '[PersonalBestGlobalsOrderBy!]'],
+					condition: [83],
+					filter: [32],
+				},
+			],
+			__typename: [7],
+		},
+		UserLevelsByPersonalBestGlobalManyToManyConnection: {
+			nodes: [66],
+			edges: [143],
+			pageInfo: [10],
+			totalCount: [12],
+			__typename: [7],
+		},
+		UserLevelsByPersonalBestGlobalManyToManyEdge: {
+			cursor: [9],
+			node: [66],
+			personalBestGlobals: [
+				63,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [82, '[PersonalBestGlobalsOrderBy!]'],
+					condition: [83],
+					filter: [32],
+				},
+			],
+			__typename: [7],
+		},
+		UserLevelsByRecordManyToManyConnection: {
+			nodes: [66],
+			edges: [145],
+			pageInfo: [10],
+			totalCount: [12],
+			__typename: [7],
+		},
+		UserLevelsByRecordManyToManyEdge: {
+			cursor: [9],
+			node: [66],
+			records: [
+				84,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [86, '[RecordsOrderBy!]'],
+					condition: [87],
+					filter: [33],
+				},
+			],
+			__typename: [7],
+		},
+		UserLevelsByUpvoteManyToManyConnection: {
+			nodes: [66],
+			edges: [147],
+			pageInfo: [10],
+			totalCount: [12],
+			__typename: [7],
+		},
+		UserLevelsByUpvoteManyToManyEdge: {
+			cursor: [9],
+			node: [66],
+			upvotes: [
+				88,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [91, '[UpvotesOrderBy!]'],
+					condition: [92],
+					filter: [54],
+				},
+			],
+			__typename: [7],
+		},
+		UserLevelsByVoteManyToManyConnection: {
+			nodes: [66],
+			edges: [149],
+			pageInfo: [10],
+			totalCount: [12],
+			__typename: [7],
+		},
+		UserLevelsByVoteManyToManyEdge: {
+			cursor: [9],
+			node: [66],
+			votes: [
+				98,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [101, '[VotesOrderBy!]'],
+					condition: [102],
+					filter: [57],
+				},
+			],
+			__typename: [7],
+		},
+		FavoritesEdge: {
+			cursor: [9],
+			node: [20],
+			__typename: [7],
+		},
+		LevelsConnection: {
+			nodes: [66],
+			edges: [152],
+			pageInfo: [10],
+			totalCount: [12],
+			__typename: [7],
+		},
+		LevelsEdge: {
+			cursor: [9],
+			node: [66],
+			__typename: [7],
+		},
 		LevelRequestsConnection: {
-			nodes: [120],
-			edges: [121],
+			nodes: [154],
+			edges: [155],
 			pageInfo: [10],
 			totalCount: [12],
 			__typename: [7],
@@ -1696,7 +2315,7 @@ export default {
 		},
 		LevelRequestsEdge: {
 			cursor: [9],
-			node: [120],
+			node: [154],
 			__typename: [7],
 		},
 		LevelRequestsOrderBy: {},
@@ -1716,14 +2335,14 @@ export default {
 			hash: [18],
 			dateCreated: [17],
 			dateUpdated: [17],
-			and: [124],
-			or: [124],
-			not: [124],
+			and: [158],
+			or: [158],
+			not: [158],
 			__typename: [7],
 		},
 		UsersConnection: {
 			nodes: [21],
-			edges: [126],
+			edges: [160],
 			pageInfo: [10],
 			totalCount: [12],
 			__typename: [7],
@@ -1733,20 +2352,9 @@ export default {
 			node: [21],
 			__typename: [7],
 		},
-		UsersOrderBy: {},
-		UserCondition: {
-			id: [12],
-			steamName: [7],
-			banned: [11],
-			dateCreated: [6],
-			dateUpdated: [6],
-			steamId: [22],
-			discordId: [22],
-			__typename: [7],
-		},
 		VersionsConnection: {
-			nodes: [130],
-			edges: [131],
+			nodes: [162],
+			edges: [163],
 			pageInfo: [10],
 			totalCount: [12],
 			__typename: [7],
@@ -1762,7 +2370,7 @@ export default {
 		},
 		VersionsEdge: {
 			cursor: [9],
-			node: [130],
+			node: [162],
 			__typename: [7],
 		},
 		VersionsOrderBy: {},
@@ -1780,14 +2388,14 @@ export default {
 			latest: [18],
 			dateCreated: [17],
 			dateUpdated: [17],
-			and: [134],
-			or: [134],
-			not: [134],
+			and: [166],
+			or: [166],
+			not: [166],
 			__typename: [7],
 		},
 		ZRtmConnection: {
-			nodes: [136],
-			edges: [137],
+			nodes: [168],
+			edges: [169],
 			totalCount: [12],
 			__typename: [7],
 		},
@@ -1817,7 +2425,7 @@ export default {
 		},
 		ZRtmEdge: {
 			cursor: [9],
-			node: [136],
+			node: [168],
 			__typename: [7],
 		},
 		ZRtmRecordFilter: {
@@ -1842,16 +2450,16 @@ export default {
 			amountFinishes: [26],
 			amountBlocks: [26],
 			numRecords: [16],
-			and: [138],
-			or: [138],
-			not: [138],
+			and: [170],
+			or: [170],
+			not: [170],
 			__typename: [7],
 		},
 		Mutation: {
 			updateWorldRecordGlobal: [
-				140,
+				172,
 				{
-					input: [141, 'UpdateWorldRecordGlobalInput!'],
+					input: [173, 'UpdateWorldRecordGlobalInput!'],
 				},
 			],
 			__typename: [7],
@@ -1863,6 +2471,441 @@ export default {
 		},
 		UpdateWorldRecordGlobalInput: {
 			clientMutationId: [7],
+			__typename: [7],
+		},
+		Subscription: {
+			query: [0],
+			nodeId: [2],
+			node: [
+				1,
+				{
+					nodeId: [2, 'ID!'],
+				},
+			],
+			versionInfos: [
+				3,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [13, '[VersionInfosOrderBy!]'],
+					condition: [14],
+					filter: [15],
+				},
+			],
+			favorites: [
+				19,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [23, '[FavoritesOrderBy!]'],
+					condition: [24],
+					filter: [25],
+				},
+			],
+			levels: [
+				151,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [128, '[LevelsOrderBy!]'],
+					condition: [129],
+					filter: [41],
+				},
+			],
+			levelItems: [
+				67,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [70, '[LevelItemsOrderBy!]'],
+					condition: [71],
+					filter: [44],
+				},
+			],
+			levelMetadata: [
+				72,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [75, '[LevelMetadataOrderBy!]'],
+					condition: [76],
+					filter: [46],
+				},
+			],
+			levelPoints: [
+				77,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [80, '[LevelPointsOrderBy!]'],
+					condition: [81],
+					filter: [50],
+				},
+			],
+			levelRequests: [
+				153,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [156, '[LevelRequestsOrderBy!]'],
+					condition: [157],
+					filter: [158],
+				},
+			],
+			personalBestGlobals: [
+				63,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [82, '[PersonalBestGlobalsOrderBy!]'],
+					condition: [83],
+					filter: [32],
+				},
+			],
+			records: [
+				84,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [86, '[RecordsOrderBy!]'],
+					condition: [87],
+					filter: [33],
+				},
+			],
+			recordMedias: [
+				120,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [122, '[RecordMediaOrderBy!]'],
+					condition: [123],
+					filter: [37],
+				},
+			],
+			upvotes: [
+				88,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [91, '[UpvotesOrderBy!]'],
+					condition: [92],
+					filter: [54],
+				},
+			],
+			users: [
+				159,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [105, '[UsersOrderBy!]'],
+					condition: [106],
+					filter: [27],
+				},
+			],
+			userPoints: [
+				133,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [136, '[UserPointsOrderBy!]'],
+					condition: [137],
+					filter: [59],
+				},
+			],
+			versions: [
+				161,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [164, '[VersionsOrderBy!]'],
+					condition: [165],
+					filter: [166],
+				},
+			],
+			votes: [
+				98,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [101, '[VotesOrderBy!]'],
+					condition: [102],
+					filter: [57],
+				},
+			],
+			worldRecordGlobals: [
+				93,
+				{
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					orderBy: [96, '[WorldRecordGlobalsOrderBy!]'],
+					condition: [97],
+					filter: [40],
+				},
+			],
+			favorite: [
+				20,
+				{
+					id: [12, 'Int!'],
+				},
+			],
+			level: [
+				66,
+				{
+					id: [12, 'Int!'],
+				},
+			],
+			levelByHash: [
+				66,
+				{
+					hash: [7, 'String!'],
+				},
+			],
+			levelItem: [
+				68,
+				{
+					id: [12, 'Int!'],
+				},
+			],
+			levelMetadatum: [
+				73,
+				{
+					id: [12, 'Int!'],
+				},
+			],
+			levelPoint: [
+				78,
+				{
+					id: [12, 'Int!'],
+				},
+			],
+			levelRequest: [
+				154,
+				{
+					id: [12, 'Int!'],
+				},
+			],
+			personalBestGlobal: [
+				64,
+				{
+					id: [12, 'Int!'],
+				},
+			],
+			record: [
+				65,
+				{
+					id: [12, 'Int!'],
+				},
+			],
+			recordMedia: [
+				119,
+				{
+					id: [12, 'Int!'],
+				},
+			],
+			recordMediaByRecordId: [
+				119,
+				{
+					recordId: [12, 'Int!'],
+				},
+			],
+			upvote: [
+				89,
+				{
+					id: [12, 'Int!'],
+				},
+			],
+			user: [
+				21,
+				{
+					id: [12, 'Int!'],
+				},
+			],
+			userPoint: [
+				134,
+				{
+					id: [12, 'Int!'],
+				},
+			],
+			version: [
+				162,
+				{
+					id: [12, 'Int!'],
+				},
+			],
+			vote: [
+				99,
+				{
+					id: [12, 'Int!'],
+				},
+			],
+			worldRecordGlobal: [
+				94,
+				{
+					id: [12, 'Int!'],
+				},
+			],
+			zRtm: [
+				167,
+				{
+					pMinAuthorTime: [35],
+					pMaxAuthorTime: [35],
+					pMinRecords: [12],
+					pMaxRecords: [12],
+					pExcludedAuthorIds: [12, '[Int]'],
+					pExcludedHashes: [7, '[String]'],
+					pMinCheckpoints: [12],
+					pMaxCheckpoints: [12],
+					pMinFinishes: [12],
+					pMaxFinishes: [12],
+					pMinBlocks: [12],
+					pMaxBlocks: [12],
+					pSampleSize: [12],
+					first: [12],
+					last: [12],
+					offset: [12],
+					before: [9],
+					after: [9],
+					filter: [170],
+				},
+			],
+			favoriteByNodeId: [
+				20,
+				{
+					nodeId: [2, 'ID!'],
+				},
+			],
+			levelByNodeId: [
+				66,
+				{
+					nodeId: [2, 'ID!'],
+				},
+			],
+			levelItemByNodeId: [
+				68,
+				{
+					nodeId: [2, 'ID!'],
+				},
+			],
+			levelMetadatumByNodeId: [
+				73,
+				{
+					nodeId: [2, 'ID!'],
+				},
+			],
+			levelPointByNodeId: [
+				78,
+				{
+					nodeId: [2, 'ID!'],
+				},
+			],
+			levelRequestByNodeId: [
+				154,
+				{
+					nodeId: [2, 'ID!'],
+				},
+			],
+			personalBestGlobalByNodeId: [
+				64,
+				{
+					nodeId: [2, 'ID!'],
+				},
+			],
+			recordByNodeId: [
+				65,
+				{
+					nodeId: [2, 'ID!'],
+				},
+			],
+			recordMediaByNodeId: [
+				119,
+				{
+					nodeId: [2, 'ID!'],
+				},
+			],
+			upvoteByNodeId: [
+				89,
+				{
+					nodeId: [2, 'ID!'],
+				},
+			],
+			userByNodeId: [
+				21,
+				{
+					nodeId: [2, 'ID!'],
+				},
+			],
+			userPointByNodeId: [
+				134,
+				{
+					nodeId: [2, 'ID!'],
+				},
+			],
+			versionByNodeId: [
+				162,
+				{
+					nodeId: [2, 'ID!'],
+				},
+			],
+			voteByNodeId: [
+				99,
+				{
+					nodeId: [2, 'ID!'],
+				},
+			],
+			worldRecordGlobalByNodeId: [
+				94,
+				{
+					nodeId: [2, 'ID!'],
+				},
+			],
 			__typename: [7],
 		},
 	},
