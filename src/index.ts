@@ -5,5 +5,5 @@ export * from './gtr/types.js';
 import { createClient } from './gtr/index.js';
 
 export const client = createClient({
-	batch: true
+	batch: true,
 });
