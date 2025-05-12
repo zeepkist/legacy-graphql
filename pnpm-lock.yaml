@@ -15,7 +15,7 @@ importers:
         specifier: ^5.0.0
         version: 5.0.0
       '@biomejs/biome':
-        specifier: 1.9.4
+        specifier: ^1.9.4
         version: 1.9.4
       '@genql/cli':
         specifier: ^6.3.3
