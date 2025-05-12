@@ -8,25 +8,14 @@ const config = {
 	ci: true,
 	dryRun: false,
 	tagFormat: '${version}',
+  preset: 'conventionalcommits',
 	plugins: [
-		[
-			'@semantic-release/commit-analyzer',
-			{
-				preset: 'conventionalcommits',
-				releaseRules: [
-					{ type: 'docs', release: 'patch' },
-					{ type: 'build', release: 'patch' },
-					{ type: 'refactor', release: 'patch' },
-					{ type: 'feat', release: 'minor' },
-				],
-			},
-		],
-		[
-			'@semantic-release/release-notes-generator',
-			{
-				preset: 'conventionalcommits',
-			},
-		],
+		['@semantic-release/commit-analyzer', {
+			preset: 'conventionalcommits'
+		}],
+		['@semantic-release/release-notes-generator', {
+			preset: 'conventionalcommits',
+		}],
 		'@semantic-release/changelog',
 		'@semantic-release/github',
 		'@semantic-release/npm',
