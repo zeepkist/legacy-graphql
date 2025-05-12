@@ -165,6 +165,6 @@ pnpm lint
 pnpm generate
 ```
 
-[GTR and Workshop]:https://graphql.zeepki.st/graphiql
+[GTR and Workshop]:https://graphql.zeepki.st
 [Modkist]:https://zeepkist.fandom.com/wiki/Modkist_(Mod_Manager)
 [mod.io]:https://zeepkist.mod.io/zeepkist-gtr
