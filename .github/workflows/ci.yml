@@ -37,6 +37,9 @@ jobs:
       - name: Run Tests
         run: pnpm coverage
 
+      - name: Copy GraphQL Schema
+        run: pnpm move:schema
+
       - name: Commit new files
         if: success() && github.ref == 'refs/heads/develop'
         run: |

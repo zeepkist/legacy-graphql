@@ -51,6 +51,7 @@
 		"publish:gtr": "rover subgraph publish zeepkist@current --schema src/gtr/schema.graphql --name GTR --routing-url https://graphql.zeepki.st",
 		"publish-schemas": "pnpm publish:gtr",
 		"move": "tsx scripts/moveRuntime.ts",
+		"move:schema": "tsx scripts/moveSchema.ts",
 		"generate": "pnpm generate:gtr && pnpm move",
 		"start": "pnpm generate && pnpm document && pnpm lint"
 	},
@@ -82,6 +83,10 @@
 		}
 	},
 	"pnpm": {
-		"onlyBuiltDependencies": ["@apollo/rover", "@biomejs/biome", "esbuild"]
+		"onlyBuiltDependencies": [
+			"@apollo/rover",
+			"@biomejs/biome",
+			"esbuild"
+		]
 	}
 }
