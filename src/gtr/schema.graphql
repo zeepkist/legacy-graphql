@@ -1746,6 +1746,52 @@ type User implements Node {
 	): UpvotesConnection!
 
 	"""
+	Reads and enables pagination through a set of `WorldRecordGlobal`.
+	"""
+	worldRecordGlobals(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `WorldRecordGlobal`.
+		"""
+		orderBy: [WorldRecordGlobalsOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: WorldRecordGlobalCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: WorldRecordGlobalFilter
+	): WorldRecordGlobalsConnection!
+
+	"""
 	Reads and enables pagination through a set of `Vote`.
 	"""
 	votes(
@@ -2020,6 +2066,98 @@ type User implements Node {
 		"""
 		filter: LevelFilter
 	): UserLevelsByUpvoteManyToManyConnection!
+
+	"""
+	Reads and enables pagination through a set of `Record`.
+	"""
+	recordsByWorldRecordGlobal(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `Record`.
+		"""
+		orderBy: [RecordsOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: RecordCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: RecordFilter
+	): UserRecordsByWorldRecordGlobalManyToManyConnection!
+
+	"""
+	Reads and enables pagination through a set of `Level`.
+	"""
+	levelsByWorldRecordGlobal(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `Level`.
+		"""
+		orderBy: [LevelsOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: LevelCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: LevelFilter
+	): UserLevelsByWorldRecordGlobalManyToManyConnection!
 
 	"""
 	Reads and enables pagination through a set of `Level`.
@@ -2348,6 +2486,16 @@ input UserFilter {
 	Some related `upvotes` exist.
 	"""
 	upvotesExist: Boolean
+
+	"""
+	Filter by the object’s `worldRecordGlobals` relation.
+	"""
+	worldRecordGlobals: UserToManyWorldRecordGlobalFilter
+
+	"""
+	Some related `worldRecordGlobals` exist.
+	"""
+	worldRecordGlobalsExist: Boolean
 
 	"""
 	Filter by the object’s `votes` relation.
@@ -2985,6 +3133,11 @@ input WorldRecordGlobalFilter {
 	dateUpdated: DatetimeFilter
 
 	"""
+	Filter by the object’s `userId` field.
+	"""
+	userId: IntFilter
+
+	"""
 	Filter by the object’s `record` relation.
 	"""
 	record: RecordFilter
@@ -2993,6 +3146,11 @@ input WorldRecordGlobalFilter {
 	Filter by the object’s `level` relation.
 	"""
 	level: LevelFilter
+
+	"""
+	Filter by the object’s `user` relation.
+	"""
+	user: UserFilter
 
 	"""
 	Checks for all expressions in this list.
@@ -3886,6 +4044,26 @@ input UserToManyUpvoteFilter {
 }
 
 """
+A filter to be used against many `WorldRecordGlobal` object types. All fields are combined with a logical ‘and.’
+"""
+input UserToManyWorldRecordGlobalFilter {
+	"""
+	Every related `WorldRecordGlobal` matches the filter criteria. All fields are combined with a logical ‘and.’
+	"""
+	every: WorldRecordGlobalFilter
+
+	"""
+	Some related `WorldRecordGlobal` matches the filter criteria. All fields are combined with a logical ‘and.’
+	"""
+	some: WorldRecordGlobalFilter
+
+	"""
+	No related `WorldRecordGlobal` matches the filter criteria. All fields are combined with a logical ‘and.’
+	"""
+	none: WorldRecordGlobalFilter
+}
+
+"""
 A filter to be used against many `Vote` object types. All fields are combined with a logical ‘and.’
 """
 input UserToManyVoteFilter {
@@ -4265,6 +4443,52 @@ type Record implements Node {
 		"""
 		filter: LevelFilter
 	): RecordLevelsByWorldRecordGlobalManyToManyConnection!
+
+	"""
+	Reads and enables pagination through a set of `User`.
+	"""
+	usersByWorldRecordGlobal(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `User`.
+		"""
+		orderBy: [UsersOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: UserCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: UserFilter
+	): RecordUsersByWorldRecordGlobalManyToManyConnection!
 }
 
 type Level implements Node {
@@ -4966,6 +5190,52 @@ type Level implements Node {
 		"""
 		filter: RecordFilter
 	): LevelRecordsByWorldRecordGlobalManyToManyConnection!
+
+	"""
+	Reads and enables pagination through a set of `User`.
+	"""
+	usersByWorldRecordGlobal(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `User`.
+		"""
+		orderBy: [UsersOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: UserCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: UserFilter
+	): LevelUsersByWorldRecordGlobalManyToManyConnection!
 
 	"""
 	Reads and enables pagination through a set of `User`.
@@ -5741,6 +6011,10 @@ enum RecordsOrderBy {
 	WORLD_RECORD_GLOBAL_MAX_DATE_UPDATED_DESC
 	WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_ASC
 	WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_DESC
+	WORLD_RECORD_GLOBAL_MAX_ID_USER_ASC
+	WORLD_RECORD_GLOBAL_MAX_ID_USER_DESC
+	WORLD_RECORD_GLOBAL_MIN_ID_USER_ASC
+	WORLD_RECORD_GLOBAL_MIN_ID_USER_DESC
 }
 
 """
@@ -5966,6 +6240,7 @@ type WorldRecordGlobal implements Node {
 	levelId: Int!
 	dateCreated: Datetime!
 	dateUpdated: Datetime
+	userId: Int!
 
 	"""
 	Reads a single `Record` that is related to this `WorldRecordGlobal`.
@@ -5976,6 +6251,11 @@ type WorldRecordGlobal implements Node {
 	Reads a single `Level` that is related to this `WorldRecordGlobal`.
 	"""
 	level: Level
+
+	"""
+	Reads a single `User` that is related to this `WorldRecordGlobal`.
+	"""
+	user: User
 }
 
 """
@@ -6008,6 +6288,8 @@ enum WorldRecordGlobalsOrderBy {
 	DATE_CREATED_DESC
 	DATE_UPDATED_ASC
 	DATE_UPDATED_DESC
+	ID_USER_ASC
+	ID_USER_DESC
 	PRIMARY_KEY_ASC
 	PRIMARY_KEY_DESC
 	RECORD_ID_ASC
@@ -6038,6 +6320,20 @@ enum WorldRecordGlobalsOrderBy {
 	LEVEL_DATE_CREATED_DESC
 	LEVEL_DATE_UPDATED_ASC
 	LEVEL_DATE_UPDATED_DESC
+	USER_ID_ASC
+	USER_ID_DESC
+	USER_STEAM_NAME_ASC
+	USER_STEAM_NAME_DESC
+	USER_BANNED_ASC
+	USER_BANNED_DESC
+	USER_DATE_CREATED_ASC
+	USER_DATE_CREATED_DESC
+	USER_DATE_UPDATED_ASC
+	USER_DATE_UPDATED_DESC
+	USER_STEAM_ID_ASC
+	USER_STEAM_ID_DESC
+	USER_DISCORD_ID_ASC
+	USER_DISCORD_ID_DESC
 }
 
 """
@@ -6069,6 +6365,11 @@ input WorldRecordGlobalCondition {
 	Checks for equality with the object’s `dateUpdated` field.
 	"""
 	dateUpdated: Datetime
+
+	"""
+	Checks for equality with the object’s `userId` field.
+	"""
+	userId: Int
 }
 
 """
@@ -6465,6 +6766,32 @@ enum UsersOrderBy {
 	UPVOTE_MAX_DATE_UPDATED_DESC
 	UPVOTE_MIN_DATE_UPDATED_ASC
 	UPVOTE_MIN_DATE_UPDATED_DESC
+	WORLD_RECORD_GLOBAL_COUNT_ASC
+	WORLD_RECORD_GLOBAL_COUNT_DESC
+	WORLD_RECORD_GLOBAL_MAX_ID_ASC
+	WORLD_RECORD_GLOBAL_MAX_ID_DESC
+	WORLD_RECORD_GLOBAL_MIN_ID_ASC
+	WORLD_RECORD_GLOBAL_MIN_ID_DESC
+	WORLD_RECORD_GLOBAL_MAX_ID_RECORD_ASC
+	WORLD_RECORD_GLOBAL_MAX_ID_RECORD_DESC
+	WORLD_RECORD_GLOBAL_MIN_ID_RECORD_ASC
+	WORLD_RECORD_GLOBAL_MIN_ID_RECORD_DESC
+	WORLD_RECORD_GLOBAL_MAX_ID_LEVEL_ASC
+	WORLD_RECORD_GLOBAL_MAX_ID_LEVEL_DESC
+	WORLD_RECORD_GLOBAL_MIN_ID_LEVEL_ASC
+	WORLD_RECORD_GLOBAL_MIN_ID_LEVEL_DESC
+	WORLD_RECORD_GLOBAL_MAX_DATE_CREATED_ASC
+	WORLD_RECORD_GLOBAL_MAX_DATE_CREATED_DESC
+	WORLD_RECORD_GLOBAL_MIN_DATE_CREATED_ASC
+	WORLD_RECORD_GLOBAL_MIN_DATE_CREATED_DESC
+	WORLD_RECORD_GLOBAL_MAX_DATE_UPDATED_ASC
+	WORLD_RECORD_GLOBAL_MAX_DATE_UPDATED_DESC
+	WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_ASC
+	WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_DESC
+	WORLD_RECORD_GLOBAL_MAX_ID_USER_ASC
+	WORLD_RECORD_GLOBAL_MAX_ID_USER_DESC
+	WORLD_RECORD_GLOBAL_MIN_ID_USER_ASC
+	WORLD_RECORD_GLOBAL_MIN_ID_USER_DESC
 	VOTE_COUNT_ASC
 	VOTE_COUNT_DESC
 	VOTE_MAX_ID_ASC
@@ -6915,6 +7242,92 @@ type LevelRecordsByWorldRecordGlobalManyToManyEdge {
 	The `Record` at the end of the edge.
 	"""
 	node: Record!
+
+	"""
+	Reads and enables pagination through a set of `WorldRecordGlobal`.
+	"""
+	worldRecordGlobals(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `WorldRecordGlobal`.
+		"""
+		orderBy: [WorldRecordGlobalsOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: WorldRecordGlobalCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: WorldRecordGlobalFilter
+	): WorldRecordGlobalsConnection!
+}
+
+"""
+A connection to a list of `User` values, with data from `WorldRecordGlobal`.
+"""
+type LevelUsersByWorldRecordGlobalManyToManyConnection {
+	"""
+	A list of `User` objects.
+	"""
+	nodes: [User!]!
+
+	"""
+	A list of edges which contains the `User`, info from the `WorldRecordGlobal`, and the cursor to aid in pagination.
+	"""
+	edges: [LevelUsersByWorldRecordGlobalManyToManyEdge!]!
+
+	"""
+	Information to aid in pagination.
+	"""
+	pageInfo: PageInfo!
+
+	"""
+	The count of *all* `User` you could get from the connection.
+	"""
+	totalCount: Int!
+}
+
+"""
+A `User` edge in the connection, with data from `WorldRecordGlobal`.
+"""
+type LevelUsersByWorldRecordGlobalManyToManyEdge {
+	"""
+	A cursor for use in pagination.
+	"""
+	cursor: Cursor
+
+	"""
+	The `User` at the end of the edge.
+	"""
+	node: User!
 
 	"""
 	Reads and enables pagination through a set of `WorldRecordGlobal`.
@@ -7631,6 +8044,10 @@ enum LevelsOrderBy {
 	WORLD_RECORD_GLOBAL_MAX_DATE_UPDATED_DESC
 	WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_ASC
 	WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_DESC
+	WORLD_RECORD_GLOBAL_MAX_ID_USER_ASC
+	WORLD_RECORD_GLOBAL_MAX_ID_USER_DESC
+	WORLD_RECORD_GLOBAL_MIN_ID_USER_ASC
+	WORLD_RECORD_GLOBAL_MIN_ID_USER_DESC
 	VOTE_COUNT_ASC
 	VOTE_COUNT_DESC
 	VOTE_MAX_ID_ASC
@@ -7722,6 +8139,92 @@ type RecordLevelsByWorldRecordGlobalManyToManyEdge {
 	The `Level` at the end of the edge.
 	"""
 	node: Level!
+
+	"""
+	Reads and enables pagination through a set of `WorldRecordGlobal`.
+	"""
+	worldRecordGlobals(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `WorldRecordGlobal`.
+		"""
+		orderBy: [WorldRecordGlobalsOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: WorldRecordGlobalCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: WorldRecordGlobalFilter
+	): WorldRecordGlobalsConnection!
+}
+
+"""
+A connection to a list of `User` values, with data from `WorldRecordGlobal`.
+"""
+type RecordUsersByWorldRecordGlobalManyToManyConnection {
+	"""
+	A list of `User` objects.
+	"""
+	nodes: [User!]!
+
+	"""
+	A list of edges which contains the `User`, info from the `WorldRecordGlobal`, and the cursor to aid in pagination.
+	"""
+	edges: [RecordUsersByWorldRecordGlobalManyToManyEdge!]!
+
+	"""
+	Information to aid in pagination.
+	"""
+	pageInfo: PageInfo!
+
+	"""
+	The count of *all* `User` you could get from the connection.
+	"""
+	totalCount: Int!
+}
+
+"""
+A `User` edge in the connection, with data from `WorldRecordGlobal`.
+"""
+type RecordUsersByWorldRecordGlobalManyToManyEdge {
+	"""
+	A cursor for use in pagination.
+	"""
+	cursor: Cursor
+
+	"""
+	The `User` at the end of the edge.
+	"""
+	node: User!
 
 	"""
 	Reads and enables pagination through a set of `WorldRecordGlobal`.
@@ -8358,6 +8861,178 @@ type UserLevelsByUpvoteManyToManyEdge {
 		"""
 		filter: UpvoteFilter
 	): UpvotesConnection!
+}
+
+"""
+A connection to a list of `Record` values, with data from `WorldRecordGlobal`.
+"""
+type UserRecordsByWorldRecordGlobalManyToManyConnection {
+	"""
+	A list of `Record` objects.
+	"""
+	nodes: [Record!]!
+
+	"""
+	A list of edges which contains the `Record`, info from the `WorldRecordGlobal`, and the cursor to aid in pagination.
+	"""
+	edges: [UserRecordsByWorldRecordGlobalManyToManyEdge!]!
+
+	"""
+	Information to aid in pagination.
+	"""
+	pageInfo: PageInfo!
+
+	"""
+	The count of *all* `Record` you could get from the connection.
+	"""
+	totalCount: Int!
+}
+
+"""
+A `Record` edge in the connection, with data from `WorldRecordGlobal`.
+"""
+type UserRecordsByWorldRecordGlobalManyToManyEdge {
+	"""
+	A cursor for use in pagination.
+	"""
+	cursor: Cursor
+
+	"""
+	The `Record` at the end of the edge.
+	"""
+	node: Record!
+
+	"""
+	Reads and enables pagination through a set of `WorldRecordGlobal`.
+	"""
+	worldRecordGlobals(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `WorldRecordGlobal`.
+		"""
+		orderBy: [WorldRecordGlobalsOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: WorldRecordGlobalCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: WorldRecordGlobalFilter
+	): WorldRecordGlobalsConnection!
+}
+
+"""
+A connection to a list of `Level` values, with data from `WorldRecordGlobal`.
+"""
+type UserLevelsByWorldRecordGlobalManyToManyConnection {
+	"""
+	A list of `Level` objects.
+	"""
+	nodes: [Level!]!
+
+	"""
+	A list of edges which contains the `Level`, info from the `WorldRecordGlobal`, and the cursor to aid in pagination.
+	"""
+	edges: [UserLevelsByWorldRecordGlobalManyToManyEdge!]!
+
+	"""
+	Information to aid in pagination.
+	"""
+	pageInfo: PageInfo!
+
+	"""
+	The count of *all* `Level` you could get from the connection.
+	"""
+	totalCount: Int!
+}
+
+"""
+A `Level` edge in the connection, with data from `WorldRecordGlobal`.
+"""
+type UserLevelsByWorldRecordGlobalManyToManyEdge {
+	"""
+	A cursor for use in pagination.
+	"""
+	cursor: Cursor
+
+	"""
+	The `Level` at the end of the edge.
+	"""
+	node: Level!
+
+	"""
+	Reads and enables pagination through a set of `WorldRecordGlobal`.
+	"""
+	worldRecordGlobals(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `WorldRecordGlobal`.
+		"""
+		orderBy: [WorldRecordGlobalsOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: WorldRecordGlobalCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: WorldRecordGlobalFilter
+	): WorldRecordGlobalsConnection!
 }
 
 """

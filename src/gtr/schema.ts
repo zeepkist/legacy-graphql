@@ -231,6 +231,8 @@ export interface User {
 	records: RecordsConnection;
 	/** Reads and enables pagination through a set of `Upvote`. */
 	upvotes: UpvotesConnection;
+	/** Reads and enables pagination through a set of `WorldRecordGlobal`. */
+	worldRecordGlobals: WorldRecordGlobalsConnection;
 	/** Reads and enables pagination through a set of `Vote`. */
 	votes: VotesConnection;
 	/** Reads and enables pagination through a set of `Level`. */
@@ -243,6 +245,10 @@ export interface User {
 	levelsByRecord: UserLevelsByRecordManyToManyConnection;
 	/** Reads and enables pagination through a set of `Level`. */
 	levelsByUpvote: UserLevelsByUpvoteManyToManyConnection;
+	/** Reads and enables pagination through a set of `Record`. */
+	recordsByWorldRecordGlobal: UserRecordsByWorldRecordGlobalManyToManyConnection;
+	/** Reads and enables pagination through a set of `Level`. */
+	levelsByWorldRecordGlobal: UserLevelsByWorldRecordGlobalManyToManyConnection;
 	/** Reads and enables pagination through a set of `Level`. */
 	levelsByVote: UserLevelsByVoteManyToManyConnection;
 	__typename: 'User';
@@ -351,6 +357,8 @@ export interface Record {
 	levelsByPersonalBestGlobal: RecordLevelsByPersonalBestGlobalManyToManyConnection;
 	/** Reads and enables pagination through a set of `Level`. */
 	levelsByWorldRecordGlobal: RecordLevelsByWorldRecordGlobalManyToManyConnection;
+	/** Reads and enables pagination through a set of `User`. */
+	usersByWorldRecordGlobal: RecordUsersByWorldRecordGlobalManyToManyConnection;
 	__typename: 'Record';
 }
 
@@ -391,6 +399,8 @@ export interface Level {
 	usersByUpvote: LevelUsersByUpvoteManyToManyConnection;
 	/** Reads and enables pagination through a set of `Record`. */
 	recordsByWorldRecordGlobal: LevelRecordsByWorldRecordGlobalManyToManyConnection;
+	/** Reads and enables pagination through a set of `User`. */
+	usersByWorldRecordGlobal: LevelUsersByWorldRecordGlobalManyToManyConnection;
 	/** Reads and enables pagination through a set of `User`. */
 	usersByVote: LevelUsersByVoteManyToManyConnection;
 	__typename: 'Level';
@@ -810,7 +820,11 @@ export type RecordsOrderBy =
 	| 'WORLD_RECORD_GLOBAL_MAX_DATE_UPDATED_ASC'
 	| 'WORLD_RECORD_GLOBAL_MAX_DATE_UPDATED_DESC'
 	| 'WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_ASC'
-	| 'WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_DESC';
+	| 'WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_DESC'
+	| 'WORLD_RECORD_GLOBAL_MAX_ID_USER_ASC'
+	| 'WORLD_RECORD_GLOBAL_MAX_ID_USER_DESC'
+	| 'WORLD_RECORD_GLOBAL_MIN_ID_USER_ASC'
+	| 'WORLD_RECORD_GLOBAL_MIN_ID_USER_DESC';
 
 /** A connection to a list of `Upvote` values. */
 export interface UpvotesConnection {
@@ -908,10 +922,13 @@ export interface WorldRecordGlobal {
 	levelId: Scalars['Int'];
 	dateCreated: Scalars['Datetime'];
 	dateUpdated: Scalars['Datetime'] | null;
+	userId: Scalars['Int'];
 	/** Reads a single `Record` that is related to this `WorldRecordGlobal`. */
 	record: Record | null;
 	/** Reads a single `Level` that is related to this `WorldRecordGlobal`. */
 	level: Level | null;
+	/** Reads a single `User` that is related to this `WorldRecordGlobal`. */
+	user: User | null;
 	__typename: 'WorldRecordGlobal';
 }
 
@@ -937,6 +954,8 @@ export type WorldRecordGlobalsOrderBy =
 	| 'DATE_CREATED_DESC'
 	| 'DATE_UPDATED_ASC'
 	| 'DATE_UPDATED_DESC'
+	| 'ID_USER_ASC'
+	| 'ID_USER_DESC'
 	| 'PRIMARY_KEY_ASC'
 	| 'PRIMARY_KEY_DESC'
 	| 'RECORD_ID_ASC'
@@ -966,7 +985,21 @@ export type WorldRecordGlobalsOrderBy =
 	| 'LEVEL_DATE_CREATED_ASC'
 	| 'LEVEL_DATE_CREATED_DESC'
 	| 'LEVEL_DATE_UPDATED_ASC'
-	| 'LEVEL_DATE_UPDATED_DESC';
+	| 'LEVEL_DATE_UPDATED_DESC'
+	| 'USER_ID_ASC'
+	| 'USER_ID_DESC'
+	| 'USER_STEAM_NAME_ASC'
+	| 'USER_STEAM_NAME_DESC'
+	| 'USER_BANNED_ASC'
+	| 'USER_BANNED_DESC'
+	| 'USER_DATE_CREATED_ASC'
+	| 'USER_DATE_CREATED_DESC'
+	| 'USER_DATE_UPDATED_ASC'
+	| 'USER_DATE_UPDATED_DESC'
+	| 'USER_STEAM_ID_ASC'
+	| 'USER_STEAM_ID_DESC'
+	| 'USER_DISCORD_ID_ASC'
+	| 'USER_DISCORD_ID_DESC';
 
 /** A connection to a list of `Vote` values. */
 export interface VotesConnection {
@@ -1235,6 +1268,32 @@ export type UsersOrderBy =
 	| 'UPVOTE_MAX_DATE_UPDATED_DESC'
 	| 'UPVOTE_MIN_DATE_UPDATED_ASC'
 	| 'UPVOTE_MIN_DATE_UPDATED_DESC'
+	| 'WORLD_RECORD_GLOBAL_COUNT_ASC'
+	| 'WORLD_RECORD_GLOBAL_COUNT_DESC'
+	| 'WORLD_RECORD_GLOBAL_MAX_ID_ASC'
+	| 'WORLD_RECORD_GLOBAL_MAX_ID_DESC'
+	| 'WORLD_RECORD_GLOBAL_MIN_ID_ASC'
+	| 'WORLD_RECORD_GLOBAL_MIN_ID_DESC'
+	| 'WORLD_RECORD_GLOBAL_MAX_ID_RECORD_ASC'
+	| 'WORLD_RECORD_GLOBAL_MAX_ID_RECORD_DESC'
+	| 'WORLD_RECORD_GLOBAL_MIN_ID_RECORD_ASC'
+	| 'WORLD_RECORD_GLOBAL_MIN_ID_RECORD_DESC'
+	| 'WORLD_RECORD_GLOBAL_MAX_ID_LEVEL_ASC'
+	| 'WORLD_RECORD_GLOBAL_MAX_ID_LEVEL_DESC'
+	| 'WORLD_RECORD_GLOBAL_MIN_ID_LEVEL_ASC'
+	| 'WORLD_RECORD_GLOBAL_MIN_ID_LEVEL_DESC'
+	| 'WORLD_RECORD_GLOBAL_MAX_DATE_CREATED_ASC'
+	| 'WORLD_RECORD_GLOBAL_MAX_DATE_CREATED_DESC'
+	| 'WORLD_RECORD_GLOBAL_MIN_DATE_CREATED_ASC'
+	| 'WORLD_RECORD_GLOBAL_MIN_DATE_CREATED_DESC'
+	| 'WORLD_RECORD_GLOBAL_MAX_DATE_UPDATED_ASC'
+	| 'WORLD_RECORD_GLOBAL_MAX_DATE_UPDATED_DESC'
+	| 'WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_ASC'
+	| 'WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_DESC'
+	| 'WORLD_RECORD_GLOBAL_MAX_ID_USER_ASC'
+	| 'WORLD_RECORD_GLOBAL_MAX_ID_USER_DESC'
+	| 'WORLD_RECORD_GLOBAL_MIN_ID_USER_ASC'
+	| 'WORLD_RECORD_GLOBAL_MIN_ID_USER_DESC'
 	| 'VOTE_COUNT_ASC'
 	| 'VOTE_COUNT_DESC'
 	| 'VOTE_MAX_ID_ASC'
@@ -1380,6 +1439,30 @@ export interface LevelRecordsByWorldRecordGlobalManyToManyEdge {
 	/** Reads and enables pagination through a set of `WorldRecordGlobal`. */
 	worldRecordGlobals: WorldRecordGlobalsConnection;
 	__typename: 'LevelRecordsByWorldRecordGlobalManyToManyEdge';
+}
+
+/** A connection to a list of `User` values, with data from `WorldRecordGlobal`. */
+export interface LevelUsersByWorldRecordGlobalManyToManyConnection {
+	/** A list of `User` objects. */
+	nodes: User[];
+	/** A list of edges which contains the `User`, info from the `WorldRecordGlobal`, and the cursor to aid in pagination. */
+	edges: LevelUsersByWorldRecordGlobalManyToManyEdge[];
+	/** Information to aid in pagination. */
+	pageInfo: PageInfo;
+	/** The count of *all* `User` you could get from the connection. */
+	totalCount: Scalars['Int'];
+	__typename: 'LevelUsersByWorldRecordGlobalManyToManyConnection';
+}
+
+/** A `User` edge in the connection, with data from `WorldRecordGlobal`. */
+export interface LevelUsersByWorldRecordGlobalManyToManyEdge {
+	/** A cursor for use in pagination. */
+	cursor: Scalars['Cursor'] | null;
+	/** The `User` at the end of the edge. */
+	node: User;
+	/** Reads and enables pagination through a set of `WorldRecordGlobal`. */
+	worldRecordGlobals: WorldRecordGlobalsConnection;
+	__typename: 'LevelUsersByWorldRecordGlobalManyToManyEdge';
 }
 
 /** A connection to a list of `User` values, with data from `Vote`. */
@@ -1806,6 +1889,10 @@ export type LevelsOrderBy =
 	| 'WORLD_RECORD_GLOBAL_MAX_DATE_UPDATED_DESC'
 	| 'WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_ASC'
 	| 'WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_DESC'
+	| 'WORLD_RECORD_GLOBAL_MAX_ID_USER_ASC'
+	| 'WORLD_RECORD_GLOBAL_MAX_ID_USER_DESC'
+	| 'WORLD_RECORD_GLOBAL_MIN_ID_USER_ASC'
+	| 'WORLD_RECORD_GLOBAL_MIN_ID_USER_DESC'
 	| 'VOTE_COUNT_ASC'
 	| 'VOTE_COUNT_DESC'
 	| 'VOTE_MAX_ID_ASC'
@@ -1855,6 +1942,30 @@ export interface RecordLevelsByWorldRecordGlobalManyToManyEdge {
 	/** Reads and enables pagination through a set of `WorldRecordGlobal`. */
 	worldRecordGlobals: WorldRecordGlobalsConnection;
 	__typename: 'RecordLevelsByWorldRecordGlobalManyToManyEdge';
+}
+
+/** A connection to a list of `User` values, with data from `WorldRecordGlobal`. */
+export interface RecordUsersByWorldRecordGlobalManyToManyConnection {
+	/** A list of `User` objects. */
+	nodes: User[];
+	/** A list of edges which contains the `User`, info from the `WorldRecordGlobal`, and the cursor to aid in pagination. */
+	edges: RecordUsersByWorldRecordGlobalManyToManyEdge[];
+	/** Information to aid in pagination. */
+	pageInfo: PageInfo;
+	/** The count of *all* `User` you could get from the connection. */
+	totalCount: Scalars['Int'];
+	__typename: 'RecordUsersByWorldRecordGlobalManyToManyConnection';
+}
+
+/** A `User` edge in the connection, with data from `WorldRecordGlobal`. */
+export interface RecordUsersByWorldRecordGlobalManyToManyEdge {
+	/** A cursor for use in pagination. */
+	cursor: Scalars['Cursor'] | null;
+	/** The `User` at the end of the edge. */
+	node: User;
+	/** Reads and enables pagination through a set of `WorldRecordGlobal`. */
+	worldRecordGlobals: WorldRecordGlobalsConnection;
+	__typename: 'RecordUsersByWorldRecordGlobalManyToManyEdge';
 }
 
 /** A `PersonalBestGlobal` edge in the connection. */
@@ -2058,6 +2169,54 @@ export interface UserLevelsByUpvoteManyToManyEdge {
 	/** Reads and enables pagination through a set of `Upvote`. */
 	upvotes: UpvotesConnection;
 	__typename: 'UserLevelsByUpvoteManyToManyEdge';
+}
+
+/** A connection to a list of `Record` values, with data from `WorldRecordGlobal`. */
+export interface UserRecordsByWorldRecordGlobalManyToManyConnection {
+	/** A list of `Record` objects. */
+	nodes: Record[];
+	/** A list of edges which contains the `Record`, info from the `WorldRecordGlobal`, and the cursor to aid in pagination. */
+	edges: UserRecordsByWorldRecordGlobalManyToManyEdge[];
+	/** Information to aid in pagination. */
+	pageInfo: PageInfo;
+	/** The count of *all* `Record` you could get from the connection. */
+	totalCount: Scalars['Int'];
+	__typename: 'UserRecordsByWorldRecordGlobalManyToManyConnection';
+}
+
+/** A `Record` edge in the connection, with data from `WorldRecordGlobal`. */
+export interface UserRecordsByWorldRecordGlobalManyToManyEdge {
+	/** A cursor for use in pagination. */
+	cursor: Scalars['Cursor'] | null;
+	/** The `Record` at the end of the edge. */
+	node: Record;
+	/** Reads and enables pagination through a set of `WorldRecordGlobal`. */
+	worldRecordGlobals: WorldRecordGlobalsConnection;
+	__typename: 'UserRecordsByWorldRecordGlobalManyToManyEdge';
+}
+
+/** A connection to a list of `Level` values, with data from `WorldRecordGlobal`. */
+export interface UserLevelsByWorldRecordGlobalManyToManyConnection {
+	/** A list of `Level` objects. */
+	nodes: Level[];
+	/** A list of edges which contains the `Level`, info from the `WorldRecordGlobal`, and the cursor to aid in pagination. */
+	edges: UserLevelsByWorldRecordGlobalManyToManyEdge[];
+	/** Information to aid in pagination. */
+	pageInfo: PageInfo;
+	/** The count of *all* `Level` you could get from the connection. */
+	totalCount: Scalars['Int'];
+	__typename: 'UserLevelsByWorldRecordGlobalManyToManyConnection';
+}
+
+/** A `Level` edge in the connection, with data from `WorldRecordGlobal`. */
+export interface UserLevelsByWorldRecordGlobalManyToManyEdge {
+	/** A cursor for use in pagination. */
+	cursor: Scalars['Cursor'] | null;
+	/** The `Level` at the end of the edge. */
+	node: Level;
+	/** Reads and enables pagination through a set of `WorldRecordGlobal`. */
+	worldRecordGlobals: WorldRecordGlobalsConnection;
+	__typename: 'UserLevelsByWorldRecordGlobalManyToManyEdge';
 }
 
 /** A connection to a list of `Level` values, with data from `Vote`. */
@@ -3393,6 +3552,30 @@ export interface UserGenqlSelection {
 			filter?: UpvoteFilter | null;
 		};
 	};
+	/** Reads and enables pagination through a set of `WorldRecordGlobal`. */
+	worldRecordGlobals?: WorldRecordGlobalsConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `WorldRecordGlobal`. */
+			orderBy?: WorldRecordGlobalsOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: WorldRecordGlobalCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: WorldRecordGlobalFilter | null;
+		};
+	};
 	/** Reads and enables pagination through a set of `Vote`. */
 	votes?: VotesConnectionGenqlSelection & {
 		__args?: {
@@ -3515,6 +3698,54 @@ export interface UserGenqlSelection {
 	};
 	/** Reads and enables pagination through a set of `Level`. */
 	levelsByUpvote?: UserLevelsByUpvoteManyToManyConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `Level`. */
+			orderBy?: LevelsOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: LevelCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: LevelFilter | null;
+		};
+	};
+	/** Reads and enables pagination through a set of `Record`. */
+	recordsByWorldRecordGlobal?: UserRecordsByWorldRecordGlobalManyToManyConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `Record`. */
+			orderBy?: RecordsOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: RecordCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: RecordFilter | null;
+		};
+	};
+	/** Reads and enables pagination through a set of `Level`. */
+	levelsByWorldRecordGlobal?: UserLevelsByWorldRecordGlobalManyToManyConnectionGenqlSelection & {
 		__args?: {
 			/** Only read the first `n` values of the set. */
 			first?: Scalars['Int'] | null;
@@ -3668,6 +3899,10 @@ export interface UserFilter {
 	upvotes?: UserToManyUpvoteFilter | null;
 	/** Some related `upvotes` exist. */
 	upvotesExist?: Scalars['Boolean'] | null;
+	/** Filter by the object’s `worldRecordGlobals` relation. */
+	worldRecordGlobals?: UserToManyWorldRecordGlobalFilter | null;
+	/** Some related `worldRecordGlobals` exist. */
+	worldRecordGlobalsExist?: Scalars['Boolean'] | null;
 	/** Filter by the object’s `votes` relation. */
 	votes?: UserToManyVoteFilter | null;
 	/** Some related `votes` exist. */
@@ -3946,10 +4181,14 @@ export interface WorldRecordGlobalFilter {
 	dateCreated?: DatetimeFilter | null;
 	/** Filter by the object’s `dateUpdated` field. */
 	dateUpdated?: DatetimeFilter | null;
+	/** Filter by the object’s `userId` field. */
+	userId?: IntFilter | null;
 	/** Filter by the object’s `record` relation. */
 	record?: RecordFilter | null;
 	/** Filter by the object’s `level` relation. */
 	level?: LevelFilter | null;
+	/** Filter by the object’s `user` relation. */
+	user?: UserFilter | null;
 	/** Checks for all expressions in this list. */
 	and?: WorldRecordGlobalFilter[] | null;
 	/** Checks for any expressions in this list. */
@@ -4346,6 +4585,16 @@ export interface UserToManyUpvoteFilter {
 	none?: UpvoteFilter | null;
 }
 
+/** A filter to be used against many `WorldRecordGlobal` object types. All fields are combined with a logical ‘and.’ */
+export interface UserToManyWorldRecordGlobalFilter {
+	/** Every related `WorldRecordGlobal` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+	every?: WorldRecordGlobalFilter | null;
+	/** Some related `WorldRecordGlobal` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+	some?: WorldRecordGlobalFilter | null;
+	/** No related `WorldRecordGlobal` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+	none?: WorldRecordGlobalFilter | null;
+}
+
 /** A filter to be used against many `Vote` object types. All fields are combined with a logical ‘and.’ */
 export interface UserToManyVoteFilter {
 	/** Every related `Vote` matches the filter criteria. All fields are combined with a logical ‘and.’ */
@@ -4553,6 +4802,30 @@ export interface RecordGenqlSelection {
 			condition?: LevelCondition | null;
 			/** A filter to be used in determining which values should be returned by the collection. */
 			filter?: LevelFilter | null;
+		};
+	};
+	/** Reads and enables pagination through a set of `User`. */
+	usersByWorldRecordGlobal?: RecordUsersByWorldRecordGlobalManyToManyConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `User`. */
+			orderBy?: UsersOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: UserCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: UserFilter | null;
 		};
 	};
 	__typename?: boolean | number;
@@ -4924,6 +5197,30 @@ export interface LevelGenqlSelection {
 			condition?: RecordCondition | null;
 			/** A filter to be used in determining which values should be returned by the collection. */
 			filter?: RecordFilter | null;
+		};
+	};
+	/** Reads and enables pagination through a set of `User`. */
+	usersByWorldRecordGlobal?: LevelUsersByWorldRecordGlobalManyToManyConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `User`. */
+			orderBy?: UsersOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: UserCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: UserFilter | null;
 		};
 	};
 	/** Reads and enables pagination through a set of `User`. */
@@ -5313,10 +5610,13 @@ export interface WorldRecordGlobalGenqlSelection {
 	levelId?: boolean | number;
 	dateCreated?: boolean | number;
 	dateUpdated?: boolean | number;
+	userId?: boolean | number;
 	/** Reads a single `Record` that is related to this `WorldRecordGlobal`. */
 	record?: RecordGenqlSelection;
 	/** Reads a single `Level` that is related to this `WorldRecordGlobal`. */
 	level?: LevelGenqlSelection;
+	/** Reads a single `User` that is related to this `WorldRecordGlobal`. */
+	user?: UserGenqlSelection;
 	__typename?: boolean | number;
 	__scalar?: boolean | number;
 }
@@ -5346,6 +5646,8 @@ export interface WorldRecordGlobalCondition {
 	dateCreated?: Scalars['Datetime'] | null;
 	/** Checks for equality with the object’s `dateUpdated` field. */
 	dateUpdated?: Scalars['Datetime'] | null;
+	/** Checks for equality with the object’s `userId` field. */
+	userId?: Scalars['Int'] | null;
 }
 
 /** A connection to a list of `Vote` values. */
@@ -5711,6 +6013,54 @@ export interface LevelRecordsByWorldRecordGlobalManyToManyEdgeGenqlSelection {
 	__scalar?: boolean | number;
 }
 
+/** A connection to a list of `User` values, with data from `WorldRecordGlobal`. */
+export interface LevelUsersByWorldRecordGlobalManyToManyConnectionGenqlSelection {
+	/** A list of `User` objects. */
+	nodes?: UserGenqlSelection;
+	/** A list of edges which contains the `User`, info from the `WorldRecordGlobal`, and the cursor to aid in pagination. */
+	edges?: LevelUsersByWorldRecordGlobalManyToManyEdgeGenqlSelection;
+	/** Information to aid in pagination. */
+	pageInfo?: PageInfoGenqlSelection;
+	/** The count of *all* `User` you could get from the connection. */
+	totalCount?: boolean | number;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+/** A `User` edge in the connection, with data from `WorldRecordGlobal`. */
+export interface LevelUsersByWorldRecordGlobalManyToManyEdgeGenqlSelection {
+	/** A cursor for use in pagination. */
+	cursor?: boolean | number;
+	/** The `User` at the end of the edge. */
+	node?: UserGenqlSelection;
+	/** Reads and enables pagination through a set of `WorldRecordGlobal`. */
+	worldRecordGlobals?: WorldRecordGlobalsConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `WorldRecordGlobal`. */
+			orderBy?: WorldRecordGlobalsOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: WorldRecordGlobalCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: WorldRecordGlobalFilter | null;
+		};
+	};
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
 /** A connection to a list of `User` values, with data from `Vote`. */
 export interface LevelUsersByVoteManyToManyConnectionGenqlSelection {
 	/** A list of `User` objects. */
@@ -5942,6 +6292,54 @@ export interface RecordLevelsByWorldRecordGlobalManyToManyEdgeGenqlSelection {
 	cursor?: boolean | number;
 	/** The `Level` at the end of the edge. */
 	node?: LevelGenqlSelection;
+	/** Reads and enables pagination through a set of `WorldRecordGlobal`. */
+	worldRecordGlobals?: WorldRecordGlobalsConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `WorldRecordGlobal`. */
+			orderBy?: WorldRecordGlobalsOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: WorldRecordGlobalCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: WorldRecordGlobalFilter | null;
+		};
+	};
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+/** A connection to a list of `User` values, with data from `WorldRecordGlobal`. */
+export interface RecordUsersByWorldRecordGlobalManyToManyConnectionGenqlSelection {
+	/** A list of `User` objects. */
+	nodes?: UserGenqlSelection;
+	/** A list of edges which contains the `User`, info from the `WorldRecordGlobal`, and the cursor to aid in pagination. */
+	edges?: RecordUsersByWorldRecordGlobalManyToManyEdgeGenqlSelection;
+	/** Information to aid in pagination. */
+	pageInfo?: PageInfoGenqlSelection;
+	/** The count of *all* `User` you could get from the connection. */
+	totalCount?: boolean | number;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+/** A `User` edge in the connection, with data from `WorldRecordGlobal`. */
+export interface RecordUsersByWorldRecordGlobalManyToManyEdgeGenqlSelection {
+	/** A cursor for use in pagination. */
+	cursor?: boolean | number;
+	/** The `User` at the end of the edge. */
+	node?: UserGenqlSelection;
 	/** Reads and enables pagination through a set of `WorldRecordGlobal`. */
 	worldRecordGlobals?: WorldRecordGlobalsConnectionGenqlSelection & {
 		__args?: {
@@ -6278,6 +6676,102 @@ export interface UserLevelsByUpvoteManyToManyEdgeGenqlSelection {
 			condition?: UpvoteCondition | null;
 			/** A filter to be used in determining which values should be returned by the collection. */
 			filter?: UpvoteFilter | null;
+		};
+	};
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+/** A connection to a list of `Record` values, with data from `WorldRecordGlobal`. */
+export interface UserRecordsByWorldRecordGlobalManyToManyConnectionGenqlSelection {
+	/** A list of `Record` objects. */
+	nodes?: RecordGenqlSelection;
+	/** A list of edges which contains the `Record`, info from the `WorldRecordGlobal`, and the cursor to aid in pagination. */
+	edges?: UserRecordsByWorldRecordGlobalManyToManyEdgeGenqlSelection;
+	/** Information to aid in pagination. */
+	pageInfo?: PageInfoGenqlSelection;
+	/** The count of *all* `Record` you could get from the connection. */
+	totalCount?: boolean | number;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+/** A `Record` edge in the connection, with data from `WorldRecordGlobal`. */
+export interface UserRecordsByWorldRecordGlobalManyToManyEdgeGenqlSelection {
+	/** A cursor for use in pagination. */
+	cursor?: boolean | number;
+	/** The `Record` at the end of the edge. */
+	node?: RecordGenqlSelection;
+	/** Reads and enables pagination through a set of `WorldRecordGlobal`. */
+	worldRecordGlobals?: WorldRecordGlobalsConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `WorldRecordGlobal`. */
+			orderBy?: WorldRecordGlobalsOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: WorldRecordGlobalCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: WorldRecordGlobalFilter | null;
+		};
+	};
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+/** A connection to a list of `Level` values, with data from `WorldRecordGlobal`. */
+export interface UserLevelsByWorldRecordGlobalManyToManyConnectionGenqlSelection {
+	/** A list of `Level` objects. */
+	nodes?: LevelGenqlSelection;
+	/** A list of edges which contains the `Level`, info from the `WorldRecordGlobal`, and the cursor to aid in pagination. */
+	edges?: UserLevelsByWorldRecordGlobalManyToManyEdgeGenqlSelection;
+	/** Information to aid in pagination. */
+	pageInfo?: PageInfoGenqlSelection;
+	/** The count of *all* `Level` you could get from the connection. */
+	totalCount?: boolean | number;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+/** A `Level` edge in the connection, with data from `WorldRecordGlobal`. */
+export interface UserLevelsByWorldRecordGlobalManyToManyEdgeGenqlSelection {
+	/** A cursor for use in pagination. */
+	cursor?: boolean | number;
+	/** The `Level` at the end of the edge. */
+	node?: LevelGenqlSelection;
+	/** Reads and enables pagination through a set of `WorldRecordGlobal`. */
+	worldRecordGlobals?: WorldRecordGlobalsConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `WorldRecordGlobal`. */
+			orderBy?: WorldRecordGlobalsOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: WorldRecordGlobalCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: WorldRecordGlobalFilter | null;
 		};
 	};
 	__typename?: boolean | number;
@@ -7764,6 +8258,35 @@ export const isLevelRecordsByWorldRecordGlobalManyToManyEdge = (
 	);
 };
 
+const LevelUsersByWorldRecordGlobalManyToManyConnection_possibleTypes: string[] =
+	['LevelUsersByWorldRecordGlobalManyToManyConnection'];
+export const isLevelUsersByWorldRecordGlobalManyToManyConnection = (
+	obj?: { __typename?: any } | null,
+): obj is LevelUsersByWorldRecordGlobalManyToManyConnection => {
+	if (!obj?.__typename)
+		throw new Error(
+			'__typename is missing in "isLevelUsersByWorldRecordGlobalManyToManyConnection"',
+		);
+	return LevelUsersByWorldRecordGlobalManyToManyConnection_possibleTypes.includes(
+		obj.__typename,
+	);
+};
+
+const LevelUsersByWorldRecordGlobalManyToManyEdge_possibleTypes: string[] = [
+	'LevelUsersByWorldRecordGlobalManyToManyEdge',
+];
+export const isLevelUsersByWorldRecordGlobalManyToManyEdge = (
+	obj?: { __typename?: any } | null,
+): obj is LevelUsersByWorldRecordGlobalManyToManyEdge => {
+	if (!obj?.__typename)
+		throw new Error(
+			'__typename is missing in "isLevelUsersByWorldRecordGlobalManyToManyEdge"',
+		);
+	return LevelUsersByWorldRecordGlobalManyToManyEdge_possibleTypes.includes(
+		obj.__typename,
+	);
+};
+
 const LevelUsersByVoteManyToManyConnection_possibleTypes: string[] = [
 	'LevelUsersByVoteManyToManyConnection',
 ];
@@ -7902,6 +8425,35 @@ export const isRecordLevelsByWorldRecordGlobalManyToManyEdge = (
 			'__typename is missing in "isRecordLevelsByWorldRecordGlobalManyToManyEdge"',
 		);
 	return RecordLevelsByWorldRecordGlobalManyToManyEdge_possibleTypes.includes(
+		obj.__typename,
+	);
+};
+
+const RecordUsersByWorldRecordGlobalManyToManyConnection_possibleTypes: string[] =
+	['RecordUsersByWorldRecordGlobalManyToManyConnection'];
+export const isRecordUsersByWorldRecordGlobalManyToManyConnection = (
+	obj?: { __typename?: any } | null,
+): obj is RecordUsersByWorldRecordGlobalManyToManyConnection => {
+	if (!obj?.__typename)
+		throw new Error(
+			'__typename is missing in "isRecordUsersByWorldRecordGlobalManyToManyConnection"',
+		);
+	return RecordUsersByWorldRecordGlobalManyToManyConnection_possibleTypes.includes(
+		obj.__typename,
+	);
+};
+
+const RecordUsersByWorldRecordGlobalManyToManyEdge_possibleTypes: string[] = [
+	'RecordUsersByWorldRecordGlobalManyToManyEdge',
+];
+export const isRecordUsersByWorldRecordGlobalManyToManyEdge = (
+	obj?: { __typename?: any } | null,
+): obj is RecordUsersByWorldRecordGlobalManyToManyEdge => {
+	if (!obj?.__typename)
+		throw new Error(
+			'__typename is missing in "isRecordUsersByWorldRecordGlobalManyToManyEdge"',
+		);
+	return RecordUsersByWorldRecordGlobalManyToManyEdge_possibleTypes.includes(
 		obj.__typename,
 	);
 };
@@ -8088,6 +8640,64 @@ export const isUserLevelsByUpvoteManyToManyEdge = (
 			'__typename is missing in "isUserLevelsByUpvoteManyToManyEdge"',
 		);
 	return UserLevelsByUpvoteManyToManyEdge_possibleTypes.includes(
+		obj.__typename,
+	);
+};
+
+const UserRecordsByWorldRecordGlobalManyToManyConnection_possibleTypes: string[] =
+	['UserRecordsByWorldRecordGlobalManyToManyConnection'];
+export const isUserRecordsByWorldRecordGlobalManyToManyConnection = (
+	obj?: { __typename?: any } | null,
+): obj is UserRecordsByWorldRecordGlobalManyToManyConnection => {
+	if (!obj?.__typename)
+		throw new Error(
+			'__typename is missing in "isUserRecordsByWorldRecordGlobalManyToManyConnection"',
+		);
+	return UserRecordsByWorldRecordGlobalManyToManyConnection_possibleTypes.includes(
+		obj.__typename,
+	);
+};
+
+const UserRecordsByWorldRecordGlobalManyToManyEdge_possibleTypes: string[] = [
+	'UserRecordsByWorldRecordGlobalManyToManyEdge',
+];
+export const isUserRecordsByWorldRecordGlobalManyToManyEdge = (
+	obj?: { __typename?: any } | null,
+): obj is UserRecordsByWorldRecordGlobalManyToManyEdge => {
+	if (!obj?.__typename)
+		throw new Error(
+			'__typename is missing in "isUserRecordsByWorldRecordGlobalManyToManyEdge"',
+		);
+	return UserRecordsByWorldRecordGlobalManyToManyEdge_possibleTypes.includes(
+		obj.__typename,
+	);
+};
+
+const UserLevelsByWorldRecordGlobalManyToManyConnection_possibleTypes: string[] =
+	['UserLevelsByWorldRecordGlobalManyToManyConnection'];
+export const isUserLevelsByWorldRecordGlobalManyToManyConnection = (
+	obj?: { __typename?: any } | null,
+): obj is UserLevelsByWorldRecordGlobalManyToManyConnection => {
+	if (!obj?.__typename)
+		throw new Error(
+			'__typename is missing in "isUserLevelsByWorldRecordGlobalManyToManyConnection"',
+		);
+	return UserLevelsByWorldRecordGlobalManyToManyConnection_possibleTypes.includes(
+		obj.__typename,
+	);
+};
+
+const UserLevelsByWorldRecordGlobalManyToManyEdge_possibleTypes: string[] = [
+	'UserLevelsByWorldRecordGlobalManyToManyEdge',
+];
+export const isUserLevelsByWorldRecordGlobalManyToManyEdge = (
+	obj?: { __typename?: any } | null,
+): obj is UserLevelsByWorldRecordGlobalManyToManyEdge => {
+	if (!obj?.__typename)
+		throw new Error(
+			'__typename is missing in "isUserLevelsByWorldRecordGlobalManyToManyEdge"',
+		);
+	return UserLevelsByWorldRecordGlobalManyToManyEdge_possibleTypes.includes(
 		obj.__typename,
 	);
 };
@@ -8632,6 +9242,14 @@ export const enumRecordsOrderBy = {
 		'WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_ASC' as const,
 	WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_DESC:
 		'WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_DESC' as const,
+	WORLD_RECORD_GLOBAL_MAX_ID_USER_ASC:
+		'WORLD_RECORD_GLOBAL_MAX_ID_USER_ASC' as const,
+	WORLD_RECORD_GLOBAL_MAX_ID_USER_DESC:
+		'WORLD_RECORD_GLOBAL_MAX_ID_USER_DESC' as const,
+	WORLD_RECORD_GLOBAL_MIN_ID_USER_ASC:
+		'WORLD_RECORD_GLOBAL_MIN_ID_USER_ASC' as const,
+	WORLD_RECORD_GLOBAL_MIN_ID_USER_DESC:
+		'WORLD_RECORD_GLOBAL_MIN_ID_USER_DESC' as const,
 };
 
 export const enumUpvotesOrderBy = {
@@ -8684,6 +9302,8 @@ export const enumWorldRecordGlobalsOrderBy = {
 	DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
 	DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
 	DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
+	ID_USER_ASC: 'ID_USER_ASC' as const,
+	ID_USER_DESC: 'ID_USER_DESC' as const,
 	PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
 	PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const,
 	RECORD_ID_ASC: 'RECORD_ID_ASC' as const,
@@ -8714,6 +9334,20 @@ export const enumWorldRecordGlobalsOrderBy = {
 	LEVEL_DATE_CREATED_DESC: 'LEVEL_DATE_CREATED_DESC' as const,
 	LEVEL_DATE_UPDATED_ASC: 'LEVEL_DATE_UPDATED_ASC' as const,
 	LEVEL_DATE_UPDATED_DESC: 'LEVEL_DATE_UPDATED_DESC' as const,
+	USER_ID_ASC: 'USER_ID_ASC' as const,
+	USER_ID_DESC: 'USER_ID_DESC' as const,
+	USER_STEAM_NAME_ASC: 'USER_STEAM_NAME_ASC' as const,
+	USER_STEAM_NAME_DESC: 'USER_STEAM_NAME_DESC' as const,
+	USER_BANNED_ASC: 'USER_BANNED_ASC' as const,
+	USER_BANNED_DESC: 'USER_BANNED_DESC' as const,
+	USER_DATE_CREATED_ASC: 'USER_DATE_CREATED_ASC' as const,
+	USER_DATE_CREATED_DESC: 'USER_DATE_CREATED_DESC' as const,
+	USER_DATE_UPDATED_ASC: 'USER_DATE_UPDATED_ASC' as const,
+	USER_DATE_UPDATED_DESC: 'USER_DATE_UPDATED_DESC' as const,
+	USER_STEAM_ID_ASC: 'USER_STEAM_ID_ASC' as const,
+	USER_STEAM_ID_DESC: 'USER_STEAM_ID_DESC' as const,
+	USER_DISCORD_ID_ASC: 'USER_DISCORD_ID_ASC' as const,
+	USER_DISCORD_ID_DESC: 'USER_DISCORD_ID_DESC' as const,
 };
 
 export const enumVotesOrderBy = {
@@ -8942,6 +9576,52 @@ export const enumUsersOrderBy = {
 	UPVOTE_MAX_DATE_UPDATED_DESC: 'UPVOTE_MAX_DATE_UPDATED_DESC' as const,
 	UPVOTE_MIN_DATE_UPDATED_ASC: 'UPVOTE_MIN_DATE_UPDATED_ASC' as const,
 	UPVOTE_MIN_DATE_UPDATED_DESC: 'UPVOTE_MIN_DATE_UPDATED_DESC' as const,
+	WORLD_RECORD_GLOBAL_COUNT_ASC: 'WORLD_RECORD_GLOBAL_COUNT_ASC' as const,
+	WORLD_RECORD_GLOBAL_COUNT_DESC: 'WORLD_RECORD_GLOBAL_COUNT_DESC' as const,
+	WORLD_RECORD_GLOBAL_MAX_ID_ASC: 'WORLD_RECORD_GLOBAL_MAX_ID_ASC' as const,
+	WORLD_RECORD_GLOBAL_MAX_ID_DESC: 'WORLD_RECORD_GLOBAL_MAX_ID_DESC' as const,
+	WORLD_RECORD_GLOBAL_MIN_ID_ASC: 'WORLD_RECORD_GLOBAL_MIN_ID_ASC' as const,
+	WORLD_RECORD_GLOBAL_MIN_ID_DESC: 'WORLD_RECORD_GLOBAL_MIN_ID_DESC' as const,
+	WORLD_RECORD_GLOBAL_MAX_ID_RECORD_ASC:
+		'WORLD_RECORD_GLOBAL_MAX_ID_RECORD_ASC' as const,
+	WORLD_RECORD_GLOBAL_MAX_ID_RECORD_DESC:
+		'WORLD_RECORD_GLOBAL_MAX_ID_RECORD_DESC' as const,
+	WORLD_RECORD_GLOBAL_MIN_ID_RECORD_ASC:
+		'WORLD_RECORD_GLOBAL_MIN_ID_RECORD_ASC' as const,
+	WORLD_RECORD_GLOBAL_MIN_ID_RECORD_DESC:
+		'WORLD_RECORD_GLOBAL_MIN_ID_RECORD_DESC' as const,
+	WORLD_RECORD_GLOBAL_MAX_ID_LEVEL_ASC:
+		'WORLD_RECORD_GLOBAL_MAX_ID_LEVEL_ASC' as const,
+	WORLD_RECORD_GLOBAL_MAX_ID_LEVEL_DESC:
+		'WORLD_RECORD_GLOBAL_MAX_ID_LEVEL_DESC' as const,
+	WORLD_RECORD_GLOBAL_MIN_ID_LEVEL_ASC:
+		'WORLD_RECORD_GLOBAL_MIN_ID_LEVEL_ASC' as const,
+	WORLD_RECORD_GLOBAL_MIN_ID_LEVEL_DESC:
+		'WORLD_RECORD_GLOBAL_MIN_ID_LEVEL_DESC' as const,
+	WORLD_RECORD_GLOBAL_MAX_DATE_CREATED_ASC:
+		'WORLD_RECORD_GLOBAL_MAX_DATE_CREATED_ASC' as const,
+	WORLD_RECORD_GLOBAL_MAX_DATE_CREATED_DESC:
+		'WORLD_RECORD_GLOBAL_MAX_DATE_CREATED_DESC' as const,
+	WORLD_RECORD_GLOBAL_MIN_DATE_CREATED_ASC:
+		'WORLD_RECORD_GLOBAL_MIN_DATE_CREATED_ASC' as const,
+	WORLD_RECORD_GLOBAL_MIN_DATE_CREATED_DESC:
+		'WORLD_RECORD_GLOBAL_MIN_DATE_CREATED_DESC' as const,
+	WORLD_RECORD_GLOBAL_MAX_DATE_UPDATED_ASC:
+		'WORLD_RECORD_GLOBAL_MAX_DATE_UPDATED_ASC' as const,
+	WORLD_RECORD_GLOBAL_MAX_DATE_UPDATED_DESC:
+		'WORLD_RECORD_GLOBAL_MAX_DATE_UPDATED_DESC' as const,
+	WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_ASC:
+		'WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_ASC' as const,
+	WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_DESC:
+		'WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_DESC' as const,
+	WORLD_RECORD_GLOBAL_MAX_ID_USER_ASC:
+		'WORLD_RECORD_GLOBAL_MAX_ID_USER_ASC' as const,
+	WORLD_RECORD_GLOBAL_MAX_ID_USER_DESC:
+		'WORLD_RECORD_GLOBAL_MAX_ID_USER_DESC' as const,
+	WORLD_RECORD_GLOBAL_MIN_ID_USER_ASC:
+		'WORLD_RECORD_GLOBAL_MIN_ID_USER_ASC' as const,
+	WORLD_RECORD_GLOBAL_MIN_ID_USER_DESC:
+		'WORLD_RECORD_GLOBAL_MIN_ID_USER_DESC' as const,
 	VOTE_COUNT_ASC: 'VOTE_COUNT_ASC' as const,
 	VOTE_COUNT_DESC: 'VOTE_COUNT_DESC' as const,
 	VOTE_MAX_ID_ASC: 'VOTE_MAX_ID_ASC' as const,
@@ -9372,6 +10052,14 @@ export const enumLevelsOrderBy = {
 		'WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_ASC' as const,
 	WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_DESC:
 		'WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_DESC' as const,
+	WORLD_RECORD_GLOBAL_MAX_ID_USER_ASC:
+		'WORLD_RECORD_GLOBAL_MAX_ID_USER_ASC' as const,
+	WORLD_RECORD_GLOBAL_MAX_ID_USER_DESC:
+		'WORLD_RECORD_GLOBAL_MAX_ID_USER_DESC' as const,
+	WORLD_RECORD_GLOBAL_MIN_ID_USER_ASC:
+		'WORLD_RECORD_GLOBAL_MIN_ID_USER_ASC' as const,
+	WORLD_RECORD_GLOBAL_MIN_ID_USER_DESC:
+		'WORLD_RECORD_GLOBAL_MIN_ID_USER_DESC' as const,
 	VOTE_COUNT_ASC: 'VOTE_COUNT_ASC' as const,
 	VOTE_COUNT_DESC: 'VOTE_COUNT_DESC' as const,
 	VOTE_MAX_ID_ASC: 'VOTE_MAX_ID_ASC' as const,
