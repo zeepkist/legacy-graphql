@@ -9,8 +9,6 @@ import {
 } from '../runtime/index.js';
 // @ts-nocheck
 import type {
-	Mutation,
-	MutationGenqlSelection,
 	Query,
 	QueryGenqlSelection,
 	Subscription,
@@ -27,10 +25,6 @@ export interface Client {
 	query<R extends QueryGenqlSelection>(
 		request: R & { __name?: string },
 	): Promise<FieldsSelection<Query, R>>;
-
-	mutation<R extends MutationGenqlSelection>(
-		request: R & { __name?: string },
-	): Promise<FieldsSelection<Mutation, R>>;
 }
 
 export const createClient = (options?: ClientOptions): Client =>
@@ -55,13 +49,6 @@ export const generateQueryOp: (
 	fields: QueryGenqlSelection & { __name?: string },
 ) => GraphqlOperation = (fields) =>
 	generateGraphqlOperation('query', typeMap.Query!, fields as any);
-
-export type MutationResult<fields extends MutationGenqlSelection> =
-	FieldsSelection<Mutation, fields>;
-export const generateMutationOp: (
-	fields: MutationGenqlSelection & { __name?: string },
-) => GraphqlOperation = (fields) =>
-	generateGraphqlOperation('mutation', typeMap.Mutation!, fields as any);
 
 export type SubscriptionResult<fields extends SubscriptionGenqlSelection> =
 	FieldsSelection<Subscription, fields>;
