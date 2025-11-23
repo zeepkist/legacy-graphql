@@ -118,9 +118,9 @@ export type Node = (
 	| LevelItem
 	| LevelMetadatum
 	| LevelPoint
-	| WorldRecordGlobal
-	| Vote
 	| LevelPointsHistory
+	| Vote
+	| WorldRecordGlobal
 	| ZslLevel
 	| ZslRound
 	| ZslSeason
@@ -185,12 +185,12 @@ export interface User {
 	userPoints: UserPointsConnection;
 	/** Reads and enables pagination through a set of `Record`. */
 	records: RecordsConnection;
-	/** Reads and enables pagination through a set of `WorldRecordGlobal`. */
-	worldRecordGlobals: WorldRecordGlobalsConnection;
-	/** Reads and enables pagination through a set of `Vote`. */
-	votes: VotesConnection;
 	/** Reads and enables pagination through a set of `UserPointsHistory`. */
 	userPointsHistories: UserPointsHistoriesConnection;
+	/** Reads and enables pagination through a set of `Vote`. */
+	votes: VotesConnection;
+	/** Reads and enables pagination through a set of `WorldRecordGlobal`. */
+	worldRecordGlobals: WorldRecordGlobalsConnection;
 	/** Reads and enables pagination through a set of `ZslLevelResult`. */
 	zslLevelResults: ZslLevelResultsConnection;
 	/** Reads and enables pagination through a set of `ZslRoundResult`. */
@@ -205,10 +205,10 @@ export interface User {
 	levelsByPersonalBestGlobal: UserLevelsByPersonalBestGlobalManyToManyConnection;
 	/** Reads and enables pagination through a set of `Level`. */
 	levelsByRecord: UserLevelsByRecordManyToManyConnection;
-	/** Reads and enables pagination through a set of `Record`. */
-	recordsByWorldRecordGlobal: UserRecordsByWorldRecordGlobalManyToManyConnection;
 	/** Reads and enables pagination through a set of `Level`. */
 	levelsByVote: UserLevelsByVoteManyToManyConnection;
+	/** Reads and enables pagination through a set of `Record`. */
+	recordsByWorldRecordGlobal: UserRecordsByWorldRecordGlobalManyToManyConnection;
 	/** Reads and enables pagination through a set of `ZslLevel`. */
 	zslLevelsByZslLevelResult: UserZslLevelsByZslLevelResultManyToManyConnection;
 	/** Reads and enables pagination through a set of `Record`. */
@@ -351,10 +351,14 @@ export interface Level {
 	levelMetadata: LevelMetadataConnection;
 	/** Reads and enables pagination through a set of `LevelPoint`. */
 	levelPoints: LevelPointsConnection;
+	/** Reads and enables pagination through a set of `LevelPointsHistory`. */
+	levelPointsHistories: LevelPointsHistoriesConnection;
 	/** Reads and enables pagination through a set of `PersonalBestGlobal`. */
 	personalBestGlobals: PersonalBestGlobalsConnection;
 	/** Reads and enables pagination through a set of `Record`. */
 	records: RecordsConnection;
+	/** Reads and enables pagination through a set of `Vote`. */
+	votes: VotesConnection;
 	/** Reads a single `WorldRecordGlobal` that is related to this `Level`. */
 	worldRecordGlobal: WorldRecordGlobal | null;
 	/**
@@ -362,10 +366,6 @@ export interface Level {
 	 * Reads and enables pagination through a set of `WorldRecordGlobal`.
 	 */
 	worldRecordGlobals: WorldRecordGlobalsConnection;
-	/** Reads and enables pagination through a set of `Vote`. */
-	votes: VotesConnection;
-	/** Reads and enables pagination through a set of `LevelPointsHistory`. */
-	levelPointsHistories: LevelPointsHistoriesConnection;
 	/** Reads and enables pagination through a set of `ZslLevel`. */
 	zslLevels: ZslLevelsConnection;
 	/** Reads and enables pagination through a set of `User`. */
@@ -1350,6 +1350,329 @@ export type LevelPointsOrderBy =
 	| 'LEVEL_DATE_UPDATED_ASC'
 	| 'LEVEL_DATE_UPDATED_DESC';
 
+/** A connection to a list of `LevelPointsHistory` values. */
+export interface LevelPointsHistoriesConnection {
+	/** A list of `LevelPointsHistory` objects. */
+	nodes: LevelPointsHistory[];
+	/** A list of edges which contains the `LevelPointsHistory` and cursor to aid in pagination. */
+	edges: LevelPointsHistoriesEdge[];
+	/** Information to aid in pagination. */
+	pageInfo: PageInfo;
+	/** The count of *all* `LevelPointsHistory` you could get from the connection. */
+	totalCount: Scalars['Int'];
+	/** Aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	aggregates: LevelPointsHistoryAggregates | null;
+	/** Grouped aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	groupedAggregates: LevelPointsHistoryAggregates[] | null;
+	__typename: 'LevelPointsHistoriesConnection';
+}
+
+export interface LevelPointsHistory {
+	/** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+	nodeId: Scalars['ID'];
+	id: Scalars['Int'];
+	levelId: Scalars['Int'];
+	points: Scalars['Int'];
+	dateCreated: Scalars['Datetime'];
+	dateUpdated: Scalars['Datetime'] | null;
+	rating: Scalars['Float'];
+	modifierLength: Scalars['Float'];
+	modifierCompetitiveness: Scalars['Float'];
+	modifierRating: Scalars['Float'];
+	modifierPopularity: Scalars['Float'];
+	cutPenalty: Scalars['Float'];
+	/** Reads a single `Level` that is related to this `LevelPointsHistory`. */
+	level: Level | null;
+	__typename: 'LevelPointsHistory';
+}
+
+/** A `LevelPointsHistory` edge in the connection. */
+export interface LevelPointsHistoriesEdge {
+	/** A cursor for use in pagination. */
+	cursor: Scalars['Cursor'] | null;
+	/** The `LevelPointsHistory` at the end of the edge. */
+	node: LevelPointsHistory;
+	__typename: 'LevelPointsHistoriesEdge';
+}
+
+export interface LevelPointsHistoryAggregates {
+	keys: Scalars['String'][] | null;
+	/** Sum aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	sum: LevelPointsHistorySumAggregates | null;
+	/** Distinct count aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	distinctCount: LevelPointsHistoryDistinctCountAggregates | null;
+	/** Minimum aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	min: LevelPointsHistoryMinAggregates | null;
+	/** Maximum aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	max: LevelPointsHistoryMaxAggregates | null;
+	/** Mean average aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	average: LevelPointsHistoryAverageAggregates | null;
+	/** Sample standard deviation aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	stddevSample: LevelPointsHistoryStddevSampleAggregates | null;
+	/** Population standard deviation aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	stddevPopulation: LevelPointsHistoryStddevPopulationAggregates | null;
+	/** Sample variance aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	varianceSample: LevelPointsHistoryVarianceSampleAggregates | null;
+	/** Population variance aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	variancePopulation: LevelPointsHistoryVariancePopulationAggregates | null;
+	__typename: 'LevelPointsHistoryAggregates';
+}
+
+export interface LevelPointsHistorySumAggregates {
+	/** Sum of id across the matching connection */
+	id: Scalars['BigInt'];
+	/** Sum of levelId across the matching connection */
+	levelId: Scalars['BigInt'];
+	/** Sum of points across the matching connection */
+	points: Scalars['BigInt'];
+	/** Sum of rating across the matching connection */
+	rating: Scalars['Float'];
+	/** Sum of modifierLength across the matching connection */
+	modifierLength: Scalars['Float'];
+	/** Sum of modifierCompetitiveness across the matching connection */
+	modifierCompetitiveness: Scalars['Float'];
+	/** Sum of modifierRating across the matching connection */
+	modifierRating: Scalars['Float'];
+	/** Sum of modifierPopularity across the matching connection */
+	modifierPopularity: Scalars['Float'];
+	/** Sum of cutPenalty across the matching connection */
+	cutPenalty: Scalars['Float'];
+	__typename: 'LevelPointsHistorySumAggregates';
+}
+
+export interface LevelPointsHistoryDistinctCountAggregates {
+	/** Distinct count of id across the matching connection */
+	id: Scalars['BigInt'] | null;
+	/** Distinct count of levelId across the matching connection */
+	levelId: Scalars['BigInt'] | null;
+	/** Distinct count of points across the matching connection */
+	points: Scalars['BigInt'] | null;
+	/** Distinct count of dateCreated across the matching connection */
+	dateCreated: Scalars['BigInt'] | null;
+	/** Distinct count of dateUpdated across the matching connection */
+	dateUpdated: Scalars['BigInt'] | null;
+	/** Distinct count of rating across the matching connection */
+	rating: Scalars['BigInt'] | null;
+	/** Distinct count of modifierLength across the matching connection */
+	modifierLength: Scalars['BigInt'] | null;
+	/** Distinct count of modifierCompetitiveness across the matching connection */
+	modifierCompetitiveness: Scalars['BigInt'] | null;
+	/** Distinct count of modifierRating across the matching connection */
+	modifierRating: Scalars['BigInt'] | null;
+	/** Distinct count of modifierPopularity across the matching connection */
+	modifierPopularity: Scalars['BigInt'] | null;
+	/** Distinct count of cutPenalty across the matching connection */
+	cutPenalty: Scalars['BigInt'] | null;
+	__typename: 'LevelPointsHistoryDistinctCountAggregates';
+}
+
+export interface LevelPointsHistoryMinAggregates {
+	/** Minimum of id across the matching connection */
+	id: Scalars['Int'] | null;
+	/** Minimum of levelId across the matching connection */
+	levelId: Scalars['Int'] | null;
+	/** Minimum of points across the matching connection */
+	points: Scalars['Int'] | null;
+	/** Minimum of rating across the matching connection */
+	rating: Scalars['Float'] | null;
+	/** Minimum of modifierLength across the matching connection */
+	modifierLength: Scalars['Float'] | null;
+	/** Minimum of modifierCompetitiveness across the matching connection */
+	modifierCompetitiveness: Scalars['Float'] | null;
+	/** Minimum of modifierRating across the matching connection */
+	modifierRating: Scalars['Float'] | null;
+	/** Minimum of modifierPopularity across the matching connection */
+	modifierPopularity: Scalars['Float'] | null;
+	/** Minimum of cutPenalty across the matching connection */
+	cutPenalty: Scalars['Float'] | null;
+	__typename: 'LevelPointsHistoryMinAggregates';
+}
+
+export interface LevelPointsHistoryMaxAggregates {
+	/** Maximum of id across the matching connection */
+	id: Scalars['Int'] | null;
+	/** Maximum of levelId across the matching connection */
+	levelId: Scalars['Int'] | null;
+	/** Maximum of points across the matching connection */
+	points: Scalars['Int'] | null;
+	/** Maximum of rating across the matching connection */
+	rating: Scalars['Float'] | null;
+	/** Maximum of modifierLength across the matching connection */
+	modifierLength: Scalars['Float'] | null;
+	/** Maximum of modifierCompetitiveness across the matching connection */
+	modifierCompetitiveness: Scalars['Float'] | null;
+	/** Maximum of modifierRating across the matching connection */
+	modifierRating: Scalars['Float'] | null;
+	/** Maximum of modifierPopularity across the matching connection */
+	modifierPopularity: Scalars['Float'] | null;
+	/** Maximum of cutPenalty across the matching connection */
+	cutPenalty: Scalars['Float'] | null;
+	__typename: 'LevelPointsHistoryMaxAggregates';
+}
+
+export interface LevelPointsHistoryAverageAggregates {
+	/** Mean average of id across the matching connection */
+	id: Scalars['BigFloat'] | null;
+	/** Mean average of levelId across the matching connection */
+	levelId: Scalars['BigFloat'] | null;
+	/** Mean average of points across the matching connection */
+	points: Scalars['BigFloat'] | null;
+	/** Mean average of rating across the matching connection */
+	rating: Scalars['Float'] | null;
+	/** Mean average of modifierLength across the matching connection */
+	modifierLength: Scalars['Float'] | null;
+	/** Mean average of modifierCompetitiveness across the matching connection */
+	modifierCompetitiveness: Scalars['Float'] | null;
+	/** Mean average of modifierRating across the matching connection */
+	modifierRating: Scalars['Float'] | null;
+	/** Mean average of modifierPopularity across the matching connection */
+	modifierPopularity: Scalars['Float'] | null;
+	/** Mean average of cutPenalty across the matching connection */
+	cutPenalty: Scalars['Float'] | null;
+	__typename: 'LevelPointsHistoryAverageAggregates';
+}
+
+export interface LevelPointsHistoryStddevSampleAggregates {
+	/** Sample standard deviation of id across the matching connection */
+	id: Scalars['BigFloat'] | null;
+	/** Sample standard deviation of levelId across the matching connection */
+	levelId: Scalars['BigFloat'] | null;
+	/** Sample standard deviation of points across the matching connection */
+	points: Scalars['BigFloat'] | null;
+	/** Sample standard deviation of rating across the matching connection */
+	rating: Scalars['Float'] | null;
+	/** Sample standard deviation of modifierLength across the matching connection */
+	modifierLength: Scalars['Float'] | null;
+	/** Sample standard deviation of modifierCompetitiveness across the matching connection */
+	modifierCompetitiveness: Scalars['Float'] | null;
+	/** Sample standard deviation of modifierRating across the matching connection */
+	modifierRating: Scalars['Float'] | null;
+	/** Sample standard deviation of modifierPopularity across the matching connection */
+	modifierPopularity: Scalars['Float'] | null;
+	/** Sample standard deviation of cutPenalty across the matching connection */
+	cutPenalty: Scalars['Float'] | null;
+	__typename: 'LevelPointsHistoryStddevSampleAggregates';
+}
+
+export interface LevelPointsHistoryStddevPopulationAggregates {
+	/** Population standard deviation of id across the matching connection */
+	id: Scalars['BigFloat'] | null;
+	/** Population standard deviation of levelId across the matching connection */
+	levelId: Scalars['BigFloat'] | null;
+	/** Population standard deviation of points across the matching connection */
+	points: Scalars['BigFloat'] | null;
+	/** Population standard deviation of rating across the matching connection */
+	rating: Scalars['Float'] | null;
+	/** Population standard deviation of modifierLength across the matching connection */
+	modifierLength: Scalars['Float'] | null;
+	/** Population standard deviation of modifierCompetitiveness across the matching connection */
+	modifierCompetitiveness: Scalars['Float'] | null;
+	/** Population standard deviation of modifierRating across the matching connection */
+	modifierRating: Scalars['Float'] | null;
+	/** Population standard deviation of modifierPopularity across the matching connection */
+	modifierPopularity: Scalars['Float'] | null;
+	/** Population standard deviation of cutPenalty across the matching connection */
+	cutPenalty: Scalars['Float'] | null;
+	__typename: 'LevelPointsHistoryStddevPopulationAggregates';
+}
+
+export interface LevelPointsHistoryVarianceSampleAggregates {
+	/** Sample variance of id across the matching connection */
+	id: Scalars['BigFloat'] | null;
+	/** Sample variance of levelId across the matching connection */
+	levelId: Scalars['BigFloat'] | null;
+	/** Sample variance of points across the matching connection */
+	points: Scalars['BigFloat'] | null;
+	/** Sample variance of rating across the matching connection */
+	rating: Scalars['Float'] | null;
+	/** Sample variance of modifierLength across the matching connection */
+	modifierLength: Scalars['Float'] | null;
+	/** Sample variance of modifierCompetitiveness across the matching connection */
+	modifierCompetitiveness: Scalars['Float'] | null;
+	/** Sample variance of modifierRating across the matching connection */
+	modifierRating: Scalars['Float'] | null;
+	/** Sample variance of modifierPopularity across the matching connection */
+	modifierPopularity: Scalars['Float'] | null;
+	/** Sample variance of cutPenalty across the matching connection */
+	cutPenalty: Scalars['Float'] | null;
+	__typename: 'LevelPointsHistoryVarianceSampleAggregates';
+}
+
+export interface LevelPointsHistoryVariancePopulationAggregates {
+	/** Population variance of id across the matching connection */
+	id: Scalars['BigFloat'] | null;
+	/** Population variance of levelId across the matching connection */
+	levelId: Scalars['BigFloat'] | null;
+	/** Population variance of points across the matching connection */
+	points: Scalars['BigFloat'] | null;
+	/** Population variance of rating across the matching connection */
+	rating: Scalars['Float'] | null;
+	/** Population variance of modifierLength across the matching connection */
+	modifierLength: Scalars['Float'] | null;
+	/** Population variance of modifierCompetitiveness across the matching connection */
+	modifierCompetitiveness: Scalars['Float'] | null;
+	/** Population variance of modifierRating across the matching connection */
+	modifierRating: Scalars['Float'] | null;
+	/** Population variance of modifierPopularity across the matching connection */
+	modifierPopularity: Scalars['Float'] | null;
+	/** Population variance of cutPenalty across the matching connection */
+	cutPenalty: Scalars['Float'] | null;
+	__typename: 'LevelPointsHistoryVariancePopulationAggregates';
+}
+
+/** Grouping methods for `LevelPointsHistory` for usage during aggregation. */
+export type LevelPointsHistoryGroupBy =
+	| 'ID_LEVEL'
+	| 'POINTS'
+	| 'DATE_CREATED'
+	| 'DATE_CREATED_TRUNCATED_TO_HOUR'
+	| 'DATE_CREATED_TRUNCATED_TO_DAY'
+	| 'DATE_UPDATED'
+	| 'DATE_UPDATED_TRUNCATED_TO_HOUR'
+	| 'DATE_UPDATED_TRUNCATED_TO_DAY'
+	| 'RATING'
+	| 'MODIFIER_LENGTH'
+	| 'MODIFIER_COMPETITIVENESS'
+	| 'MODIFIER_RATING'
+	| 'MODIFIER_POPULARITY'
+	| 'CUT_PENALTY';
+
+/** Methods to use when ordering `LevelPointsHistory`. */
+export type LevelPointsHistoriesOrderBy =
+	| 'NATURAL'
+	| 'ID_ASC'
+	| 'ID_DESC'
+	| 'ID_LEVEL_ASC'
+	| 'ID_LEVEL_DESC'
+	| 'POINTS_ASC'
+	| 'POINTS_DESC'
+	| 'DATE_CREATED_ASC'
+	| 'DATE_CREATED_DESC'
+	| 'DATE_UPDATED_ASC'
+	| 'DATE_UPDATED_DESC'
+	| 'RATING_ASC'
+	| 'RATING_DESC'
+	| 'MODIFIER_LENGTH_ASC'
+	| 'MODIFIER_LENGTH_DESC'
+	| 'MODIFIER_COMPETITIVENESS_ASC'
+	| 'MODIFIER_COMPETITIVENESS_DESC'
+	| 'MODIFIER_RATING_ASC'
+	| 'MODIFIER_RATING_DESC'
+	| 'MODIFIER_POPULARITY_ASC'
+	| 'MODIFIER_POPULARITY_DESC'
+	| 'CUT_PENALTY_ASC'
+	| 'CUT_PENALTY_DESC'
+	| 'PRIMARY_KEY_ASC'
+	| 'PRIMARY_KEY_DESC'
+	| 'LEVEL_ID_ASC'
+	| 'LEVEL_ID_DESC'
+	| 'LEVEL_HASH_ASC'
+	| 'LEVEL_HASH_DESC'
+	| 'LEVEL_DATE_CREATED_ASC'
+	| 'LEVEL_DATE_CREATED_DESC'
+	| 'LEVEL_DATE_UPDATED_ASC'
+	| 'LEVEL_DATE_UPDATED_DESC';
+
 /** Methods to use when ordering `PersonalBestGlobal`. */
 export type PersonalBestGlobalsOrderBy =
 	| 'NATURAL'
@@ -2105,6 +2428,235 @@ export type RecordsOrderBy =
 	| 'ZSL_LEVEL_RESULTS_VARIANCE_POPULATION_DATE_UPDATED_ASC'
 	| 'ZSL_LEVEL_RESULTS_VARIANCE_POPULATION_DATE_UPDATED_DESC';
 
+/** A connection to a list of `Vote` values. */
+export interface VotesConnection {
+	/** A list of `Vote` objects. */
+	nodes: Vote[];
+	/** A list of edges which contains the `Vote` and cursor to aid in pagination. */
+	edges: VotesEdge[];
+	/** Information to aid in pagination. */
+	pageInfo: PageInfo;
+	/** The count of *all* `Vote` you could get from the connection. */
+	totalCount: Scalars['Int'];
+	/** Aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	aggregates: VoteAggregates | null;
+	/** Grouped aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	groupedAggregates: VoteAggregates[] | null;
+	__typename: 'VotesConnection';
+}
+
+export interface Vote {
+	/** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+	nodeId: Scalars['ID'];
+	id: Scalars['Int'];
+	userId: Scalars['Int'];
+	levelId: Scalars['Int'];
+	value: Scalars['Int'];
+	dateCreated: Scalars['Datetime'];
+	dateUpdated: Scalars['Datetime'] | null;
+	/** Reads a single `User` that is related to this `Vote`. */
+	user: User | null;
+	/** Reads a single `Level` that is related to this `Vote`. */
+	level: Level | null;
+	__typename: 'Vote';
+}
+
+/** A `Vote` edge in the connection. */
+export interface VotesEdge {
+	/** A cursor for use in pagination. */
+	cursor: Scalars['Cursor'] | null;
+	/** The `Vote` at the end of the edge. */
+	node: Vote;
+	__typename: 'VotesEdge';
+}
+
+export interface VoteAggregates {
+	keys: Scalars['String'][] | null;
+	/** Sum aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	sum: VoteSumAggregates | null;
+	/** Distinct count aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	distinctCount: VoteDistinctCountAggregates | null;
+	/** Minimum aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	min: VoteMinAggregates | null;
+	/** Maximum aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	max: VoteMaxAggregates | null;
+	/** Mean average aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	average: VoteAverageAggregates | null;
+	/** Sample standard deviation aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	stddevSample: VoteStddevSampleAggregates | null;
+	/** Population standard deviation aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	stddevPopulation: VoteStddevPopulationAggregates | null;
+	/** Sample variance aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	varianceSample: VoteVarianceSampleAggregates | null;
+	/** Population variance aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	variancePopulation: VoteVariancePopulationAggregates | null;
+	__typename: 'VoteAggregates';
+}
+
+export interface VoteSumAggregates {
+	/** Sum of id across the matching connection */
+	id: Scalars['BigInt'];
+	/** Sum of userId across the matching connection */
+	userId: Scalars['BigInt'];
+	/** Sum of levelId across the matching connection */
+	levelId: Scalars['BigInt'];
+	/** Sum of value across the matching connection */
+	value: Scalars['BigInt'];
+	__typename: 'VoteSumAggregates';
+}
+
+export interface VoteDistinctCountAggregates {
+	/** Distinct count of id across the matching connection */
+	id: Scalars['BigInt'] | null;
+	/** Distinct count of userId across the matching connection */
+	userId: Scalars['BigInt'] | null;
+	/** Distinct count of levelId across the matching connection */
+	levelId: Scalars['BigInt'] | null;
+	/** Distinct count of value across the matching connection */
+	value: Scalars['BigInt'] | null;
+	/** Distinct count of dateCreated across the matching connection */
+	dateCreated: Scalars['BigInt'] | null;
+	/** Distinct count of dateUpdated across the matching connection */
+	dateUpdated: Scalars['BigInt'] | null;
+	__typename: 'VoteDistinctCountAggregates';
+}
+
+export interface VoteMinAggregates {
+	/** Minimum of id across the matching connection */
+	id: Scalars['Int'] | null;
+	/** Minimum of userId across the matching connection */
+	userId: Scalars['Int'] | null;
+	/** Minimum of levelId across the matching connection */
+	levelId: Scalars['Int'] | null;
+	/** Minimum of value across the matching connection */
+	value: Scalars['Int'] | null;
+	__typename: 'VoteMinAggregates';
+}
+
+export interface VoteMaxAggregates {
+	/** Maximum of id across the matching connection */
+	id: Scalars['Int'] | null;
+	/** Maximum of userId across the matching connection */
+	userId: Scalars['Int'] | null;
+	/** Maximum of levelId across the matching connection */
+	levelId: Scalars['Int'] | null;
+	/** Maximum of value across the matching connection */
+	value: Scalars['Int'] | null;
+	__typename: 'VoteMaxAggregates';
+}
+
+export interface VoteAverageAggregates {
+	/** Mean average of id across the matching connection */
+	id: Scalars['BigFloat'] | null;
+	/** Mean average of userId across the matching connection */
+	userId: Scalars['BigFloat'] | null;
+	/** Mean average of levelId across the matching connection */
+	levelId: Scalars['BigFloat'] | null;
+	/** Mean average of value across the matching connection */
+	value: Scalars['BigFloat'] | null;
+	__typename: 'VoteAverageAggregates';
+}
+
+export interface VoteStddevSampleAggregates {
+	/** Sample standard deviation of id across the matching connection */
+	id: Scalars['BigFloat'] | null;
+	/** Sample standard deviation of userId across the matching connection */
+	userId: Scalars['BigFloat'] | null;
+	/** Sample standard deviation of levelId across the matching connection */
+	levelId: Scalars['BigFloat'] | null;
+	/** Sample standard deviation of value across the matching connection */
+	value: Scalars['BigFloat'] | null;
+	__typename: 'VoteStddevSampleAggregates';
+}
+
+export interface VoteStddevPopulationAggregates {
+	/** Population standard deviation of id across the matching connection */
+	id: Scalars['BigFloat'] | null;
+	/** Population standard deviation of userId across the matching connection */
+	userId: Scalars['BigFloat'] | null;
+	/** Population standard deviation of levelId across the matching connection */
+	levelId: Scalars['BigFloat'] | null;
+	/** Population standard deviation of value across the matching connection */
+	value: Scalars['BigFloat'] | null;
+	__typename: 'VoteStddevPopulationAggregates';
+}
+
+export interface VoteVarianceSampleAggregates {
+	/** Sample variance of id across the matching connection */
+	id: Scalars['BigFloat'] | null;
+	/** Sample variance of userId across the matching connection */
+	userId: Scalars['BigFloat'] | null;
+	/** Sample variance of levelId across the matching connection */
+	levelId: Scalars['BigFloat'] | null;
+	/** Sample variance of value across the matching connection */
+	value: Scalars['BigFloat'] | null;
+	__typename: 'VoteVarianceSampleAggregates';
+}
+
+export interface VoteVariancePopulationAggregates {
+	/** Population variance of id across the matching connection */
+	id: Scalars['BigFloat'] | null;
+	/** Population variance of userId across the matching connection */
+	userId: Scalars['BigFloat'] | null;
+	/** Population variance of levelId across the matching connection */
+	levelId: Scalars['BigFloat'] | null;
+	/** Population variance of value across the matching connection */
+	value: Scalars['BigFloat'] | null;
+	__typename: 'VoteVariancePopulationAggregates';
+}
+
+/** Grouping methods for `Vote` for usage during aggregation. */
+export type VoteGroupBy =
+	| 'ID_USER'
+	| 'ID_LEVEL'
+	| 'VALUE'
+	| 'DATE_CREATED'
+	| 'DATE_CREATED_TRUNCATED_TO_HOUR'
+	| 'DATE_CREATED_TRUNCATED_TO_DAY'
+	| 'DATE_UPDATED'
+	| 'DATE_UPDATED_TRUNCATED_TO_HOUR'
+	| 'DATE_UPDATED_TRUNCATED_TO_DAY';
+
+/** Methods to use when ordering `Vote`. */
+export type VotesOrderBy =
+	| 'NATURAL'
+	| 'ID_ASC'
+	| 'ID_DESC'
+	| 'ID_USER_ASC'
+	| 'ID_USER_DESC'
+	| 'ID_LEVEL_ASC'
+	| 'ID_LEVEL_DESC'
+	| 'VALUE_ASC'
+	| 'VALUE_DESC'
+	| 'DATE_CREATED_ASC'
+	| 'DATE_CREATED_DESC'
+	| 'DATE_UPDATED_ASC'
+	| 'DATE_UPDATED_DESC'
+	| 'PRIMARY_KEY_ASC'
+	| 'PRIMARY_KEY_DESC'
+	| 'USER_ID_ASC'
+	| 'USER_ID_DESC'
+	| 'USER_STEAM_NAME_ASC'
+	| 'USER_STEAM_NAME_DESC'
+	| 'USER_BANNED_ASC'
+	| 'USER_BANNED_DESC'
+	| 'USER_DATE_CREATED_ASC'
+	| 'USER_DATE_CREATED_DESC'
+	| 'USER_DATE_UPDATED_ASC'
+	| 'USER_DATE_UPDATED_DESC'
+	| 'USER_STEAM_ID_ASC'
+	| 'USER_STEAM_ID_DESC'
+	| 'USER_DISCORD_ID_ASC'
+	| 'USER_DISCORD_ID_DESC'
+	| 'LEVEL_ID_ASC'
+	| 'LEVEL_ID_DESC'
+	| 'LEVEL_HASH_ASC'
+	| 'LEVEL_HASH_DESC'
+	| 'LEVEL_DATE_CREATED_ASC'
+	| 'LEVEL_DATE_CREATED_DESC'
+	| 'LEVEL_DATE_UPDATED_ASC'
+	| 'LEVEL_DATE_UPDATED_DESC';
+
 export interface WorldRecordGlobal {
 	/** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
 	nodeId: Scalars['ID'];
@@ -2354,558 +2906,6 @@ export type WorldRecordGlobalsOrderBy =
 	| 'USER_STEAM_ID_DESC'
 	| 'USER_DISCORD_ID_ASC'
 	| 'USER_DISCORD_ID_DESC';
-
-/** A connection to a list of `Vote` values. */
-export interface VotesConnection {
-	/** A list of `Vote` objects. */
-	nodes: Vote[];
-	/** A list of edges which contains the `Vote` and cursor to aid in pagination. */
-	edges: VotesEdge[];
-	/** Information to aid in pagination. */
-	pageInfo: PageInfo;
-	/** The count of *all* `Vote` you could get from the connection. */
-	totalCount: Scalars['Int'];
-	/** Aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	aggregates: VoteAggregates | null;
-	/** Grouped aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	groupedAggregates: VoteAggregates[] | null;
-	__typename: 'VotesConnection';
-}
-
-export interface Vote {
-	/** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
-	nodeId: Scalars['ID'];
-	id: Scalars['Int'];
-	userId: Scalars['Int'];
-	levelId: Scalars['Int'];
-	value: Scalars['Int'];
-	dateCreated: Scalars['Datetime'];
-	dateUpdated: Scalars['Datetime'] | null;
-	/** Reads a single `User` that is related to this `Vote`. */
-	user: User | null;
-	/** Reads a single `Level` that is related to this `Vote`. */
-	level: Level | null;
-	__typename: 'Vote';
-}
-
-/** A `Vote` edge in the connection. */
-export interface VotesEdge {
-	/** A cursor for use in pagination. */
-	cursor: Scalars['Cursor'] | null;
-	/** The `Vote` at the end of the edge. */
-	node: Vote;
-	__typename: 'VotesEdge';
-}
-
-export interface VoteAggregates {
-	keys: Scalars['String'][] | null;
-	/** Sum aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	sum: VoteSumAggregates | null;
-	/** Distinct count aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	distinctCount: VoteDistinctCountAggregates | null;
-	/** Minimum aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	min: VoteMinAggregates | null;
-	/** Maximum aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	max: VoteMaxAggregates | null;
-	/** Mean average aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	average: VoteAverageAggregates | null;
-	/** Sample standard deviation aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	stddevSample: VoteStddevSampleAggregates | null;
-	/** Population standard deviation aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	stddevPopulation: VoteStddevPopulationAggregates | null;
-	/** Sample variance aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	varianceSample: VoteVarianceSampleAggregates | null;
-	/** Population variance aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	variancePopulation: VoteVariancePopulationAggregates | null;
-	__typename: 'VoteAggregates';
-}
-
-export interface VoteSumAggregates {
-	/** Sum of id across the matching connection */
-	id: Scalars['BigInt'];
-	/** Sum of userId across the matching connection */
-	userId: Scalars['BigInt'];
-	/** Sum of levelId across the matching connection */
-	levelId: Scalars['BigInt'];
-	/** Sum of value across the matching connection */
-	value: Scalars['BigInt'];
-	__typename: 'VoteSumAggregates';
-}
-
-export interface VoteDistinctCountAggregates {
-	/** Distinct count of id across the matching connection */
-	id: Scalars['BigInt'] | null;
-	/** Distinct count of userId across the matching connection */
-	userId: Scalars['BigInt'] | null;
-	/** Distinct count of levelId across the matching connection */
-	levelId: Scalars['BigInt'] | null;
-	/** Distinct count of value across the matching connection */
-	value: Scalars['BigInt'] | null;
-	/** Distinct count of dateCreated across the matching connection */
-	dateCreated: Scalars['BigInt'] | null;
-	/** Distinct count of dateUpdated across the matching connection */
-	dateUpdated: Scalars['BigInt'] | null;
-	__typename: 'VoteDistinctCountAggregates';
-}
-
-export interface VoteMinAggregates {
-	/** Minimum of id across the matching connection */
-	id: Scalars['Int'] | null;
-	/** Minimum of userId across the matching connection */
-	userId: Scalars['Int'] | null;
-	/** Minimum of levelId across the matching connection */
-	levelId: Scalars['Int'] | null;
-	/** Minimum of value across the matching connection */
-	value: Scalars['Int'] | null;
-	__typename: 'VoteMinAggregates';
-}
-
-export interface VoteMaxAggregates {
-	/** Maximum of id across the matching connection */
-	id: Scalars['Int'] | null;
-	/** Maximum of userId across the matching connection */
-	userId: Scalars['Int'] | null;
-	/** Maximum of levelId across the matching connection */
-	levelId: Scalars['Int'] | null;
-	/** Maximum of value across the matching connection */
-	value: Scalars['Int'] | null;
-	__typename: 'VoteMaxAggregates';
-}
-
-export interface VoteAverageAggregates {
-	/** Mean average of id across the matching connection */
-	id: Scalars['BigFloat'] | null;
-	/** Mean average of userId across the matching connection */
-	userId: Scalars['BigFloat'] | null;
-	/** Mean average of levelId across the matching connection */
-	levelId: Scalars['BigFloat'] | null;
-	/** Mean average of value across the matching connection */
-	value: Scalars['BigFloat'] | null;
-	__typename: 'VoteAverageAggregates';
-}
-
-export interface VoteStddevSampleAggregates {
-	/** Sample standard deviation of id across the matching connection */
-	id: Scalars['BigFloat'] | null;
-	/** Sample standard deviation of userId across the matching connection */
-	userId: Scalars['BigFloat'] | null;
-	/** Sample standard deviation of levelId across the matching connection */
-	levelId: Scalars['BigFloat'] | null;
-	/** Sample standard deviation of value across the matching connection */
-	value: Scalars['BigFloat'] | null;
-	__typename: 'VoteStddevSampleAggregates';
-}
-
-export interface VoteStddevPopulationAggregates {
-	/** Population standard deviation of id across the matching connection */
-	id: Scalars['BigFloat'] | null;
-	/** Population standard deviation of userId across the matching connection */
-	userId: Scalars['BigFloat'] | null;
-	/** Population standard deviation of levelId across the matching connection */
-	levelId: Scalars['BigFloat'] | null;
-	/** Population standard deviation of value across the matching connection */
-	value: Scalars['BigFloat'] | null;
-	__typename: 'VoteStddevPopulationAggregates';
-}
-
-export interface VoteVarianceSampleAggregates {
-	/** Sample variance of id across the matching connection */
-	id: Scalars['BigFloat'] | null;
-	/** Sample variance of userId across the matching connection */
-	userId: Scalars['BigFloat'] | null;
-	/** Sample variance of levelId across the matching connection */
-	levelId: Scalars['BigFloat'] | null;
-	/** Sample variance of value across the matching connection */
-	value: Scalars['BigFloat'] | null;
-	__typename: 'VoteVarianceSampleAggregates';
-}
-
-export interface VoteVariancePopulationAggregates {
-	/** Population variance of id across the matching connection */
-	id: Scalars['BigFloat'] | null;
-	/** Population variance of userId across the matching connection */
-	userId: Scalars['BigFloat'] | null;
-	/** Population variance of levelId across the matching connection */
-	levelId: Scalars['BigFloat'] | null;
-	/** Population variance of value across the matching connection */
-	value: Scalars['BigFloat'] | null;
-	__typename: 'VoteVariancePopulationAggregates';
-}
-
-/** Grouping methods for `Vote` for usage during aggregation. */
-export type VoteGroupBy =
-	| 'ID_USER'
-	| 'ID_LEVEL'
-	| 'VALUE'
-	| 'DATE_CREATED'
-	| 'DATE_CREATED_TRUNCATED_TO_HOUR'
-	| 'DATE_CREATED_TRUNCATED_TO_DAY'
-	| 'DATE_UPDATED'
-	| 'DATE_UPDATED_TRUNCATED_TO_HOUR'
-	| 'DATE_UPDATED_TRUNCATED_TO_DAY';
-
-/** Methods to use when ordering `Vote`. */
-export type VotesOrderBy =
-	| 'NATURAL'
-	| 'ID_ASC'
-	| 'ID_DESC'
-	| 'ID_USER_ASC'
-	| 'ID_USER_DESC'
-	| 'ID_LEVEL_ASC'
-	| 'ID_LEVEL_DESC'
-	| 'VALUE_ASC'
-	| 'VALUE_DESC'
-	| 'DATE_CREATED_ASC'
-	| 'DATE_CREATED_DESC'
-	| 'DATE_UPDATED_ASC'
-	| 'DATE_UPDATED_DESC'
-	| 'PRIMARY_KEY_ASC'
-	| 'PRIMARY_KEY_DESC'
-	| 'USER_ID_ASC'
-	| 'USER_ID_DESC'
-	| 'USER_STEAM_NAME_ASC'
-	| 'USER_STEAM_NAME_DESC'
-	| 'USER_BANNED_ASC'
-	| 'USER_BANNED_DESC'
-	| 'USER_DATE_CREATED_ASC'
-	| 'USER_DATE_CREATED_DESC'
-	| 'USER_DATE_UPDATED_ASC'
-	| 'USER_DATE_UPDATED_DESC'
-	| 'USER_STEAM_ID_ASC'
-	| 'USER_STEAM_ID_DESC'
-	| 'USER_DISCORD_ID_ASC'
-	| 'USER_DISCORD_ID_DESC'
-	| 'LEVEL_ID_ASC'
-	| 'LEVEL_ID_DESC'
-	| 'LEVEL_HASH_ASC'
-	| 'LEVEL_HASH_DESC'
-	| 'LEVEL_DATE_CREATED_ASC'
-	| 'LEVEL_DATE_CREATED_DESC'
-	| 'LEVEL_DATE_UPDATED_ASC'
-	| 'LEVEL_DATE_UPDATED_DESC';
-
-/** A connection to a list of `LevelPointsHistory` values. */
-export interface LevelPointsHistoriesConnection {
-	/** A list of `LevelPointsHistory` objects. */
-	nodes: LevelPointsHistory[];
-	/** A list of edges which contains the `LevelPointsHistory` and cursor to aid in pagination. */
-	edges: LevelPointsHistoriesEdge[];
-	/** Information to aid in pagination. */
-	pageInfo: PageInfo;
-	/** The count of *all* `LevelPointsHistory` you could get from the connection. */
-	totalCount: Scalars['Int'];
-	/** Aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	aggregates: LevelPointsHistoryAggregates | null;
-	/** Grouped aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	groupedAggregates: LevelPointsHistoryAggregates[] | null;
-	__typename: 'LevelPointsHistoriesConnection';
-}
-
-export interface LevelPointsHistory {
-	/** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
-	nodeId: Scalars['ID'];
-	id: Scalars['Int'];
-	levelId: Scalars['Int'];
-	points: Scalars['Int'];
-	dateCreated: Scalars['Datetime'];
-	dateUpdated: Scalars['Datetime'] | null;
-	rating: Scalars['Float'];
-	modifierLength: Scalars['Float'];
-	modifierCompetitiveness: Scalars['Float'];
-	modifierRating: Scalars['Float'];
-	modifierPopularity: Scalars['Float'];
-	cutPenalty: Scalars['Float'];
-	/** Reads a single `Level` that is related to this `LevelPointsHistory`. */
-	level: Level | null;
-	__typename: 'LevelPointsHistory';
-}
-
-/** A `LevelPointsHistory` edge in the connection. */
-export interface LevelPointsHistoriesEdge {
-	/** A cursor for use in pagination. */
-	cursor: Scalars['Cursor'] | null;
-	/** The `LevelPointsHistory` at the end of the edge. */
-	node: LevelPointsHistory;
-	__typename: 'LevelPointsHistoriesEdge';
-}
-
-export interface LevelPointsHistoryAggregates {
-	keys: Scalars['String'][] | null;
-	/** Sum aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	sum: LevelPointsHistorySumAggregates | null;
-	/** Distinct count aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	distinctCount: LevelPointsHistoryDistinctCountAggregates | null;
-	/** Minimum aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	min: LevelPointsHistoryMinAggregates | null;
-	/** Maximum aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	max: LevelPointsHistoryMaxAggregates | null;
-	/** Mean average aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	average: LevelPointsHistoryAverageAggregates | null;
-	/** Sample standard deviation aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	stddevSample: LevelPointsHistoryStddevSampleAggregates | null;
-	/** Population standard deviation aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	stddevPopulation: LevelPointsHistoryStddevPopulationAggregates | null;
-	/** Sample variance aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	varianceSample: LevelPointsHistoryVarianceSampleAggregates | null;
-	/** Population variance aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	variancePopulation: LevelPointsHistoryVariancePopulationAggregates | null;
-	__typename: 'LevelPointsHistoryAggregates';
-}
-
-export interface LevelPointsHistorySumAggregates {
-	/** Sum of id across the matching connection */
-	id: Scalars['BigInt'];
-	/** Sum of levelId across the matching connection */
-	levelId: Scalars['BigInt'];
-	/** Sum of points across the matching connection */
-	points: Scalars['BigInt'];
-	/** Sum of rating across the matching connection */
-	rating: Scalars['Float'];
-	/** Sum of modifierLength across the matching connection */
-	modifierLength: Scalars['Float'];
-	/** Sum of modifierCompetitiveness across the matching connection */
-	modifierCompetitiveness: Scalars['Float'];
-	/** Sum of modifierRating across the matching connection */
-	modifierRating: Scalars['Float'];
-	/** Sum of modifierPopularity across the matching connection */
-	modifierPopularity: Scalars['Float'];
-	/** Sum of cutPenalty across the matching connection */
-	cutPenalty: Scalars['Float'];
-	__typename: 'LevelPointsHistorySumAggregates';
-}
-
-export interface LevelPointsHistoryDistinctCountAggregates {
-	/** Distinct count of id across the matching connection */
-	id: Scalars['BigInt'] | null;
-	/** Distinct count of levelId across the matching connection */
-	levelId: Scalars['BigInt'] | null;
-	/** Distinct count of points across the matching connection */
-	points: Scalars['BigInt'] | null;
-	/** Distinct count of dateCreated across the matching connection */
-	dateCreated: Scalars['BigInt'] | null;
-	/** Distinct count of dateUpdated across the matching connection */
-	dateUpdated: Scalars['BigInt'] | null;
-	/** Distinct count of rating across the matching connection */
-	rating: Scalars['BigInt'] | null;
-	/** Distinct count of modifierLength across the matching connection */
-	modifierLength: Scalars['BigInt'] | null;
-	/** Distinct count of modifierCompetitiveness across the matching connection */
-	modifierCompetitiveness: Scalars['BigInt'] | null;
-	/** Distinct count of modifierRating across the matching connection */
-	modifierRating: Scalars['BigInt'] | null;
-	/** Distinct count of modifierPopularity across the matching connection */
-	modifierPopularity: Scalars['BigInt'] | null;
-	/** Distinct count of cutPenalty across the matching connection */
-	cutPenalty: Scalars['BigInt'] | null;
-	__typename: 'LevelPointsHistoryDistinctCountAggregates';
-}
-
-export interface LevelPointsHistoryMinAggregates {
-	/** Minimum of id across the matching connection */
-	id: Scalars['Int'] | null;
-	/** Minimum of levelId across the matching connection */
-	levelId: Scalars['Int'] | null;
-	/** Minimum of points across the matching connection */
-	points: Scalars['Int'] | null;
-	/** Minimum of rating across the matching connection */
-	rating: Scalars['Float'] | null;
-	/** Minimum of modifierLength across the matching connection */
-	modifierLength: Scalars['Float'] | null;
-	/** Minimum of modifierCompetitiveness across the matching connection */
-	modifierCompetitiveness: Scalars['Float'] | null;
-	/** Minimum of modifierRating across the matching connection */
-	modifierRating: Scalars['Float'] | null;
-	/** Minimum of modifierPopularity across the matching connection */
-	modifierPopularity: Scalars['Float'] | null;
-	/** Minimum of cutPenalty across the matching connection */
-	cutPenalty: Scalars['Float'] | null;
-	__typename: 'LevelPointsHistoryMinAggregates';
-}
-
-export interface LevelPointsHistoryMaxAggregates {
-	/** Maximum of id across the matching connection */
-	id: Scalars['Int'] | null;
-	/** Maximum of levelId across the matching connection */
-	levelId: Scalars['Int'] | null;
-	/** Maximum of points across the matching connection */
-	points: Scalars['Int'] | null;
-	/** Maximum of rating across the matching connection */
-	rating: Scalars['Float'] | null;
-	/** Maximum of modifierLength across the matching connection */
-	modifierLength: Scalars['Float'] | null;
-	/** Maximum of modifierCompetitiveness across the matching connection */
-	modifierCompetitiveness: Scalars['Float'] | null;
-	/** Maximum of modifierRating across the matching connection */
-	modifierRating: Scalars['Float'] | null;
-	/** Maximum of modifierPopularity across the matching connection */
-	modifierPopularity: Scalars['Float'] | null;
-	/** Maximum of cutPenalty across the matching connection */
-	cutPenalty: Scalars['Float'] | null;
-	__typename: 'LevelPointsHistoryMaxAggregates';
-}
-
-export interface LevelPointsHistoryAverageAggregates {
-	/** Mean average of id across the matching connection */
-	id: Scalars['BigFloat'] | null;
-	/** Mean average of levelId across the matching connection */
-	levelId: Scalars['BigFloat'] | null;
-	/** Mean average of points across the matching connection */
-	points: Scalars['BigFloat'] | null;
-	/** Mean average of rating across the matching connection */
-	rating: Scalars['Float'] | null;
-	/** Mean average of modifierLength across the matching connection */
-	modifierLength: Scalars['Float'] | null;
-	/** Mean average of modifierCompetitiveness across the matching connection */
-	modifierCompetitiveness: Scalars['Float'] | null;
-	/** Mean average of modifierRating across the matching connection */
-	modifierRating: Scalars['Float'] | null;
-	/** Mean average of modifierPopularity across the matching connection */
-	modifierPopularity: Scalars['Float'] | null;
-	/** Mean average of cutPenalty across the matching connection */
-	cutPenalty: Scalars['Float'] | null;
-	__typename: 'LevelPointsHistoryAverageAggregates';
-}
-
-export interface LevelPointsHistoryStddevSampleAggregates {
-	/** Sample standard deviation of id across the matching connection */
-	id: Scalars['BigFloat'] | null;
-	/** Sample standard deviation of levelId across the matching connection */
-	levelId: Scalars['BigFloat'] | null;
-	/** Sample standard deviation of points across the matching connection */
-	points: Scalars['BigFloat'] | null;
-	/** Sample standard deviation of rating across the matching connection */
-	rating: Scalars['Float'] | null;
-	/** Sample standard deviation of modifierLength across the matching connection */
-	modifierLength: Scalars['Float'] | null;
-	/** Sample standard deviation of modifierCompetitiveness across the matching connection */
-	modifierCompetitiveness: Scalars['Float'] | null;
-	/** Sample standard deviation of modifierRating across the matching connection */
-	modifierRating: Scalars['Float'] | null;
-	/** Sample standard deviation of modifierPopularity across the matching connection */
-	modifierPopularity: Scalars['Float'] | null;
-	/** Sample standard deviation of cutPenalty across the matching connection */
-	cutPenalty: Scalars['Float'] | null;
-	__typename: 'LevelPointsHistoryStddevSampleAggregates';
-}
-
-export interface LevelPointsHistoryStddevPopulationAggregates {
-	/** Population standard deviation of id across the matching connection */
-	id: Scalars['BigFloat'] | null;
-	/** Population standard deviation of levelId across the matching connection */
-	levelId: Scalars['BigFloat'] | null;
-	/** Population standard deviation of points across the matching connection */
-	points: Scalars['BigFloat'] | null;
-	/** Population standard deviation of rating across the matching connection */
-	rating: Scalars['Float'] | null;
-	/** Population standard deviation of modifierLength across the matching connection */
-	modifierLength: Scalars['Float'] | null;
-	/** Population standard deviation of modifierCompetitiveness across the matching connection */
-	modifierCompetitiveness: Scalars['Float'] | null;
-	/** Population standard deviation of modifierRating across the matching connection */
-	modifierRating: Scalars['Float'] | null;
-	/** Population standard deviation of modifierPopularity across the matching connection */
-	modifierPopularity: Scalars['Float'] | null;
-	/** Population standard deviation of cutPenalty across the matching connection */
-	cutPenalty: Scalars['Float'] | null;
-	__typename: 'LevelPointsHistoryStddevPopulationAggregates';
-}
-
-export interface LevelPointsHistoryVarianceSampleAggregates {
-	/** Sample variance of id across the matching connection */
-	id: Scalars['BigFloat'] | null;
-	/** Sample variance of levelId across the matching connection */
-	levelId: Scalars['BigFloat'] | null;
-	/** Sample variance of points across the matching connection */
-	points: Scalars['BigFloat'] | null;
-	/** Sample variance of rating across the matching connection */
-	rating: Scalars['Float'] | null;
-	/** Sample variance of modifierLength across the matching connection */
-	modifierLength: Scalars['Float'] | null;
-	/** Sample variance of modifierCompetitiveness across the matching connection */
-	modifierCompetitiveness: Scalars['Float'] | null;
-	/** Sample variance of modifierRating across the matching connection */
-	modifierRating: Scalars['Float'] | null;
-	/** Sample variance of modifierPopularity across the matching connection */
-	modifierPopularity: Scalars['Float'] | null;
-	/** Sample variance of cutPenalty across the matching connection */
-	cutPenalty: Scalars['Float'] | null;
-	__typename: 'LevelPointsHistoryVarianceSampleAggregates';
-}
-
-export interface LevelPointsHistoryVariancePopulationAggregates {
-	/** Population variance of id across the matching connection */
-	id: Scalars['BigFloat'] | null;
-	/** Population variance of levelId across the matching connection */
-	levelId: Scalars['BigFloat'] | null;
-	/** Population variance of points across the matching connection */
-	points: Scalars['BigFloat'] | null;
-	/** Population variance of rating across the matching connection */
-	rating: Scalars['Float'] | null;
-	/** Population variance of modifierLength across the matching connection */
-	modifierLength: Scalars['Float'] | null;
-	/** Population variance of modifierCompetitiveness across the matching connection */
-	modifierCompetitiveness: Scalars['Float'] | null;
-	/** Population variance of modifierRating across the matching connection */
-	modifierRating: Scalars['Float'] | null;
-	/** Population variance of modifierPopularity across the matching connection */
-	modifierPopularity: Scalars['Float'] | null;
-	/** Population variance of cutPenalty across the matching connection */
-	cutPenalty: Scalars['Float'] | null;
-	__typename: 'LevelPointsHistoryVariancePopulationAggregates';
-}
-
-/** Grouping methods for `LevelPointsHistory` for usage during aggregation. */
-export type LevelPointsHistoryGroupBy =
-	| 'ID_LEVEL'
-	| 'POINTS'
-	| 'DATE_CREATED'
-	| 'DATE_CREATED_TRUNCATED_TO_HOUR'
-	| 'DATE_CREATED_TRUNCATED_TO_DAY'
-	| 'DATE_UPDATED'
-	| 'DATE_UPDATED_TRUNCATED_TO_HOUR'
-	| 'DATE_UPDATED_TRUNCATED_TO_DAY'
-	| 'RATING'
-	| 'MODIFIER_LENGTH'
-	| 'MODIFIER_COMPETITIVENESS'
-	| 'MODIFIER_RATING'
-	| 'MODIFIER_POPULARITY'
-	| 'CUT_PENALTY';
-
-/** Methods to use when ordering `LevelPointsHistory`. */
-export type LevelPointsHistoriesOrderBy =
-	| 'NATURAL'
-	| 'ID_ASC'
-	| 'ID_DESC'
-	| 'ID_LEVEL_ASC'
-	| 'ID_LEVEL_DESC'
-	| 'POINTS_ASC'
-	| 'POINTS_DESC'
-	| 'DATE_CREATED_ASC'
-	| 'DATE_CREATED_DESC'
-	| 'DATE_UPDATED_ASC'
-	| 'DATE_UPDATED_DESC'
-	| 'RATING_ASC'
-	| 'RATING_DESC'
-	| 'MODIFIER_LENGTH_ASC'
-	| 'MODIFIER_LENGTH_DESC'
-	| 'MODIFIER_COMPETITIVENESS_ASC'
-	| 'MODIFIER_COMPETITIVENESS_DESC'
-	| 'MODIFIER_RATING_ASC'
-	| 'MODIFIER_RATING_DESC'
-	| 'MODIFIER_POPULARITY_ASC'
-	| 'MODIFIER_POPULARITY_DESC'
-	| 'CUT_PENALTY_ASC'
-	| 'CUT_PENALTY_DESC'
-	| 'PRIMARY_KEY_ASC'
-	| 'PRIMARY_KEY_DESC'
-	| 'LEVEL_ID_ASC'
-	| 'LEVEL_ID_DESC'
-	| 'LEVEL_HASH_ASC'
-	| 'LEVEL_HASH_DESC'
-	| 'LEVEL_DATE_CREATED_ASC'
-	| 'LEVEL_DATE_CREATED_DESC'
-	| 'LEVEL_DATE_UPDATED_ASC'
-	| 'LEVEL_DATE_UPDATED_DESC';
 
 /** A connection to a list of `ZslLevel` values. */
 export interface ZslLevelsConnection {
@@ -4513,58 +4513,6 @@ export type UsersOrderBy =
 	| 'RECORD_MAX_SPEEDS_DESC'
 	| 'RECORD_MIN_SPEEDS_ASC'
 	| 'RECORD_MIN_SPEEDS_DESC'
-	| 'WORLD_RECORD_GLOBAL_COUNT_ASC'
-	| 'WORLD_RECORD_GLOBAL_COUNT_DESC'
-	| 'WORLD_RECORD_GLOBAL_MAX_ID_ASC'
-	| 'WORLD_RECORD_GLOBAL_MAX_ID_DESC'
-	| 'WORLD_RECORD_GLOBAL_MIN_ID_ASC'
-	| 'WORLD_RECORD_GLOBAL_MIN_ID_DESC'
-	| 'WORLD_RECORD_GLOBAL_MAX_ID_RECORD_ASC'
-	| 'WORLD_RECORD_GLOBAL_MAX_ID_RECORD_DESC'
-	| 'WORLD_RECORD_GLOBAL_MIN_ID_RECORD_ASC'
-	| 'WORLD_RECORD_GLOBAL_MIN_ID_RECORD_DESC'
-	| 'WORLD_RECORD_GLOBAL_MAX_ID_LEVEL_ASC'
-	| 'WORLD_RECORD_GLOBAL_MAX_ID_LEVEL_DESC'
-	| 'WORLD_RECORD_GLOBAL_MIN_ID_LEVEL_ASC'
-	| 'WORLD_RECORD_GLOBAL_MIN_ID_LEVEL_DESC'
-	| 'WORLD_RECORD_GLOBAL_MAX_DATE_CREATED_ASC'
-	| 'WORLD_RECORD_GLOBAL_MAX_DATE_CREATED_DESC'
-	| 'WORLD_RECORD_GLOBAL_MIN_DATE_CREATED_ASC'
-	| 'WORLD_RECORD_GLOBAL_MIN_DATE_CREATED_DESC'
-	| 'WORLD_RECORD_GLOBAL_MAX_DATE_UPDATED_ASC'
-	| 'WORLD_RECORD_GLOBAL_MAX_DATE_UPDATED_DESC'
-	| 'WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_ASC'
-	| 'WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_DESC'
-	| 'WORLD_RECORD_GLOBAL_MAX_ID_USER_ASC'
-	| 'WORLD_RECORD_GLOBAL_MAX_ID_USER_DESC'
-	| 'WORLD_RECORD_GLOBAL_MIN_ID_USER_ASC'
-	| 'WORLD_RECORD_GLOBAL_MIN_ID_USER_DESC'
-	| 'VOTE_COUNT_ASC'
-	| 'VOTE_COUNT_DESC'
-	| 'VOTE_MAX_ID_ASC'
-	| 'VOTE_MAX_ID_DESC'
-	| 'VOTE_MIN_ID_ASC'
-	| 'VOTE_MIN_ID_DESC'
-	| 'VOTE_MAX_ID_USER_ASC'
-	| 'VOTE_MAX_ID_USER_DESC'
-	| 'VOTE_MIN_ID_USER_ASC'
-	| 'VOTE_MIN_ID_USER_DESC'
-	| 'VOTE_MAX_ID_LEVEL_ASC'
-	| 'VOTE_MAX_ID_LEVEL_DESC'
-	| 'VOTE_MIN_ID_LEVEL_ASC'
-	| 'VOTE_MIN_ID_LEVEL_DESC'
-	| 'VOTE_MAX_VALUE_ASC'
-	| 'VOTE_MAX_VALUE_DESC'
-	| 'VOTE_MIN_VALUE_ASC'
-	| 'VOTE_MIN_VALUE_DESC'
-	| 'VOTE_MAX_DATE_CREATED_ASC'
-	| 'VOTE_MAX_DATE_CREATED_DESC'
-	| 'VOTE_MIN_DATE_CREATED_ASC'
-	| 'VOTE_MIN_DATE_CREATED_DESC'
-	| 'VOTE_MAX_DATE_UPDATED_ASC'
-	| 'VOTE_MAX_DATE_UPDATED_DESC'
-	| 'VOTE_MIN_DATE_UPDATED_ASC'
-	| 'VOTE_MIN_DATE_UPDATED_DESC'
 	| 'USER_POINTS_HISTORY_COUNT_ASC'
 	| 'USER_POINTS_HISTORY_COUNT_DESC'
 	| 'USER_POINTS_HISTORY_MAX_ID_ASC'
@@ -4599,6 +4547,58 @@ export type UsersOrderBy =
 	| 'USER_POINTS_HISTORY_MAX_DATE_UPDATED_DESC'
 	| 'USER_POINTS_HISTORY_MIN_DATE_UPDATED_ASC'
 	| 'USER_POINTS_HISTORY_MIN_DATE_UPDATED_DESC'
+	| 'VOTE_COUNT_ASC'
+	| 'VOTE_COUNT_DESC'
+	| 'VOTE_MAX_ID_ASC'
+	| 'VOTE_MAX_ID_DESC'
+	| 'VOTE_MIN_ID_ASC'
+	| 'VOTE_MIN_ID_DESC'
+	| 'VOTE_MAX_ID_USER_ASC'
+	| 'VOTE_MAX_ID_USER_DESC'
+	| 'VOTE_MIN_ID_USER_ASC'
+	| 'VOTE_MIN_ID_USER_DESC'
+	| 'VOTE_MAX_ID_LEVEL_ASC'
+	| 'VOTE_MAX_ID_LEVEL_DESC'
+	| 'VOTE_MIN_ID_LEVEL_ASC'
+	| 'VOTE_MIN_ID_LEVEL_DESC'
+	| 'VOTE_MAX_VALUE_ASC'
+	| 'VOTE_MAX_VALUE_DESC'
+	| 'VOTE_MIN_VALUE_ASC'
+	| 'VOTE_MIN_VALUE_DESC'
+	| 'VOTE_MAX_DATE_CREATED_ASC'
+	| 'VOTE_MAX_DATE_CREATED_DESC'
+	| 'VOTE_MIN_DATE_CREATED_ASC'
+	| 'VOTE_MIN_DATE_CREATED_DESC'
+	| 'VOTE_MAX_DATE_UPDATED_ASC'
+	| 'VOTE_MAX_DATE_UPDATED_DESC'
+	| 'VOTE_MIN_DATE_UPDATED_ASC'
+	| 'VOTE_MIN_DATE_UPDATED_DESC'
+	| 'WORLD_RECORD_GLOBAL_COUNT_ASC'
+	| 'WORLD_RECORD_GLOBAL_COUNT_DESC'
+	| 'WORLD_RECORD_GLOBAL_MAX_ID_ASC'
+	| 'WORLD_RECORD_GLOBAL_MAX_ID_DESC'
+	| 'WORLD_RECORD_GLOBAL_MIN_ID_ASC'
+	| 'WORLD_RECORD_GLOBAL_MIN_ID_DESC'
+	| 'WORLD_RECORD_GLOBAL_MAX_ID_RECORD_ASC'
+	| 'WORLD_RECORD_GLOBAL_MAX_ID_RECORD_DESC'
+	| 'WORLD_RECORD_GLOBAL_MIN_ID_RECORD_ASC'
+	| 'WORLD_RECORD_GLOBAL_MIN_ID_RECORD_DESC'
+	| 'WORLD_RECORD_GLOBAL_MAX_ID_LEVEL_ASC'
+	| 'WORLD_RECORD_GLOBAL_MAX_ID_LEVEL_DESC'
+	| 'WORLD_RECORD_GLOBAL_MIN_ID_LEVEL_ASC'
+	| 'WORLD_RECORD_GLOBAL_MIN_ID_LEVEL_DESC'
+	| 'WORLD_RECORD_GLOBAL_MAX_DATE_CREATED_ASC'
+	| 'WORLD_RECORD_GLOBAL_MAX_DATE_CREATED_DESC'
+	| 'WORLD_RECORD_GLOBAL_MIN_DATE_CREATED_ASC'
+	| 'WORLD_RECORD_GLOBAL_MIN_DATE_CREATED_DESC'
+	| 'WORLD_RECORD_GLOBAL_MAX_DATE_UPDATED_ASC'
+	| 'WORLD_RECORD_GLOBAL_MAX_DATE_UPDATED_DESC'
+	| 'WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_ASC'
+	| 'WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_DESC'
+	| 'WORLD_RECORD_GLOBAL_MAX_ID_USER_ASC'
+	| 'WORLD_RECORD_GLOBAL_MAX_ID_USER_DESC'
+	| 'WORLD_RECORD_GLOBAL_MIN_ID_USER_ASC'
+	| 'WORLD_RECORD_GLOBAL_MIN_ID_USER_DESC'
 	| 'ZSL_LEVEL_RESULT_COUNT_ASC'
 	| 'ZSL_LEVEL_RESULT_COUNT_DESC'
 	| 'ZSL_LEVEL_RESULT_MAX_ID_LEVEL_ASC'
@@ -5397,226 +5397,6 @@ export type UsersOrderBy =
 	| 'RECORDS_VARIANCE_POPULATION_SPLITS_DESC'
 	| 'RECORDS_VARIANCE_POPULATION_SPEEDS_ASC'
 	| 'RECORDS_VARIANCE_POPULATION_SPEEDS_DESC'
-	| 'WORLD_RECORD_GLOBALS_COUNT_ASC'
-	| 'WORLD_RECORD_GLOBALS_COUNT_DESC'
-	| 'WORLD_RECORD_GLOBALS_SUM_ID_ASC'
-	| 'WORLD_RECORD_GLOBALS_SUM_ID_DESC'
-	| 'WORLD_RECORD_GLOBALS_SUM_ID_RECORD_ASC'
-	| 'WORLD_RECORD_GLOBALS_SUM_ID_RECORD_DESC'
-	| 'WORLD_RECORD_GLOBALS_SUM_ID_LEVEL_ASC'
-	| 'WORLD_RECORD_GLOBALS_SUM_ID_LEVEL_DESC'
-	| 'WORLD_RECORD_GLOBALS_SUM_DATE_CREATED_ASC'
-	| 'WORLD_RECORD_GLOBALS_SUM_DATE_CREATED_DESC'
-	| 'WORLD_RECORD_GLOBALS_SUM_DATE_UPDATED_ASC'
-	| 'WORLD_RECORD_GLOBALS_SUM_DATE_UPDATED_DESC'
-	| 'WORLD_RECORD_GLOBALS_SUM_ID_USER_ASC'
-	| 'WORLD_RECORD_GLOBALS_SUM_ID_USER_DESC'
-	| 'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_ASC'
-	| 'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_DESC'
-	| 'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_RECORD_ASC'
-	| 'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_RECORD_DESC'
-	| 'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_LEVEL_ASC'
-	| 'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_LEVEL_DESC'
-	| 'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_DATE_CREATED_ASC'
-	| 'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_DATE_CREATED_DESC'
-	| 'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_DATE_UPDATED_ASC'
-	| 'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_DATE_UPDATED_DESC'
-	| 'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_USER_ASC'
-	| 'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_USER_DESC'
-	| 'WORLD_RECORD_GLOBALS_MIN_ID_ASC'
-	| 'WORLD_RECORD_GLOBALS_MIN_ID_DESC'
-	| 'WORLD_RECORD_GLOBALS_MIN_ID_RECORD_ASC'
-	| 'WORLD_RECORD_GLOBALS_MIN_ID_RECORD_DESC'
-	| 'WORLD_RECORD_GLOBALS_MIN_ID_LEVEL_ASC'
-	| 'WORLD_RECORD_GLOBALS_MIN_ID_LEVEL_DESC'
-	| 'WORLD_RECORD_GLOBALS_MIN_DATE_CREATED_ASC'
-	| 'WORLD_RECORD_GLOBALS_MIN_DATE_CREATED_DESC'
-	| 'WORLD_RECORD_GLOBALS_MIN_DATE_UPDATED_ASC'
-	| 'WORLD_RECORD_GLOBALS_MIN_DATE_UPDATED_DESC'
-	| 'WORLD_RECORD_GLOBALS_MIN_ID_USER_ASC'
-	| 'WORLD_RECORD_GLOBALS_MIN_ID_USER_DESC'
-	| 'WORLD_RECORD_GLOBALS_MAX_ID_ASC'
-	| 'WORLD_RECORD_GLOBALS_MAX_ID_DESC'
-	| 'WORLD_RECORD_GLOBALS_MAX_ID_RECORD_ASC'
-	| 'WORLD_RECORD_GLOBALS_MAX_ID_RECORD_DESC'
-	| 'WORLD_RECORD_GLOBALS_MAX_ID_LEVEL_ASC'
-	| 'WORLD_RECORD_GLOBALS_MAX_ID_LEVEL_DESC'
-	| 'WORLD_RECORD_GLOBALS_MAX_DATE_CREATED_ASC'
-	| 'WORLD_RECORD_GLOBALS_MAX_DATE_CREATED_DESC'
-	| 'WORLD_RECORD_GLOBALS_MAX_DATE_UPDATED_ASC'
-	| 'WORLD_RECORD_GLOBALS_MAX_DATE_UPDATED_DESC'
-	| 'WORLD_RECORD_GLOBALS_MAX_ID_USER_ASC'
-	| 'WORLD_RECORD_GLOBALS_MAX_ID_USER_DESC'
-	| 'WORLD_RECORD_GLOBALS_AVERAGE_ID_ASC'
-	| 'WORLD_RECORD_GLOBALS_AVERAGE_ID_DESC'
-	| 'WORLD_RECORD_GLOBALS_AVERAGE_ID_RECORD_ASC'
-	| 'WORLD_RECORD_GLOBALS_AVERAGE_ID_RECORD_DESC'
-	| 'WORLD_RECORD_GLOBALS_AVERAGE_ID_LEVEL_ASC'
-	| 'WORLD_RECORD_GLOBALS_AVERAGE_ID_LEVEL_DESC'
-	| 'WORLD_RECORD_GLOBALS_AVERAGE_DATE_CREATED_ASC'
-	| 'WORLD_RECORD_GLOBALS_AVERAGE_DATE_CREATED_DESC'
-	| 'WORLD_RECORD_GLOBALS_AVERAGE_DATE_UPDATED_ASC'
-	| 'WORLD_RECORD_GLOBALS_AVERAGE_DATE_UPDATED_DESC'
-	| 'WORLD_RECORD_GLOBALS_AVERAGE_ID_USER_ASC'
-	| 'WORLD_RECORD_GLOBALS_AVERAGE_ID_USER_DESC'
-	| 'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_ASC'
-	| 'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_DESC'
-	| 'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_RECORD_ASC'
-	| 'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_RECORD_DESC'
-	| 'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_LEVEL_ASC'
-	| 'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_LEVEL_DESC'
-	| 'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_DATE_CREATED_ASC'
-	| 'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_DATE_CREATED_DESC'
-	| 'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_DATE_UPDATED_ASC'
-	| 'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_DATE_UPDATED_DESC'
-	| 'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_USER_ASC'
-	| 'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_USER_DESC'
-	| 'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_ASC'
-	| 'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_DESC'
-	| 'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_RECORD_ASC'
-	| 'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_RECORD_DESC'
-	| 'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_LEVEL_ASC'
-	| 'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_LEVEL_DESC'
-	| 'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_DATE_CREATED_ASC'
-	| 'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_DATE_CREATED_DESC'
-	| 'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_DATE_UPDATED_ASC'
-	| 'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_DATE_UPDATED_DESC'
-	| 'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_USER_ASC'
-	| 'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_USER_DESC'
-	| 'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_ASC'
-	| 'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_DESC'
-	| 'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_RECORD_ASC'
-	| 'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_RECORD_DESC'
-	| 'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_LEVEL_ASC'
-	| 'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_LEVEL_DESC'
-	| 'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_DATE_CREATED_ASC'
-	| 'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_DATE_CREATED_DESC'
-	| 'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_DATE_UPDATED_ASC'
-	| 'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_DATE_UPDATED_DESC'
-	| 'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_USER_ASC'
-	| 'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_USER_DESC'
-	| 'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_ASC'
-	| 'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_DESC'
-	| 'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_RECORD_ASC'
-	| 'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_RECORD_DESC'
-	| 'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_LEVEL_ASC'
-	| 'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_LEVEL_DESC'
-	| 'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_DATE_CREATED_ASC'
-	| 'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_DATE_CREATED_DESC'
-	| 'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_DATE_UPDATED_ASC'
-	| 'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_DATE_UPDATED_DESC'
-	| 'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_USER_ASC'
-	| 'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_USER_DESC'
-	| 'VOTES_COUNT_ASC'
-	| 'VOTES_COUNT_DESC'
-	| 'VOTES_SUM_ID_ASC'
-	| 'VOTES_SUM_ID_DESC'
-	| 'VOTES_SUM_ID_USER_ASC'
-	| 'VOTES_SUM_ID_USER_DESC'
-	| 'VOTES_SUM_ID_LEVEL_ASC'
-	| 'VOTES_SUM_ID_LEVEL_DESC'
-	| 'VOTES_SUM_VALUE_ASC'
-	| 'VOTES_SUM_VALUE_DESC'
-	| 'VOTES_SUM_DATE_CREATED_ASC'
-	| 'VOTES_SUM_DATE_CREATED_DESC'
-	| 'VOTES_SUM_DATE_UPDATED_ASC'
-	| 'VOTES_SUM_DATE_UPDATED_DESC'
-	| 'VOTES_DISTINCT_COUNT_ID_ASC'
-	| 'VOTES_DISTINCT_COUNT_ID_DESC'
-	| 'VOTES_DISTINCT_COUNT_ID_USER_ASC'
-	| 'VOTES_DISTINCT_COUNT_ID_USER_DESC'
-	| 'VOTES_DISTINCT_COUNT_ID_LEVEL_ASC'
-	| 'VOTES_DISTINCT_COUNT_ID_LEVEL_DESC'
-	| 'VOTES_DISTINCT_COUNT_VALUE_ASC'
-	| 'VOTES_DISTINCT_COUNT_VALUE_DESC'
-	| 'VOTES_DISTINCT_COUNT_DATE_CREATED_ASC'
-	| 'VOTES_DISTINCT_COUNT_DATE_CREATED_DESC'
-	| 'VOTES_DISTINCT_COUNT_DATE_UPDATED_ASC'
-	| 'VOTES_DISTINCT_COUNT_DATE_UPDATED_DESC'
-	| 'VOTES_MIN_ID_ASC'
-	| 'VOTES_MIN_ID_DESC'
-	| 'VOTES_MIN_ID_USER_ASC'
-	| 'VOTES_MIN_ID_USER_DESC'
-	| 'VOTES_MIN_ID_LEVEL_ASC'
-	| 'VOTES_MIN_ID_LEVEL_DESC'
-	| 'VOTES_MIN_VALUE_ASC'
-	| 'VOTES_MIN_VALUE_DESC'
-	| 'VOTES_MIN_DATE_CREATED_ASC'
-	| 'VOTES_MIN_DATE_CREATED_DESC'
-	| 'VOTES_MIN_DATE_UPDATED_ASC'
-	| 'VOTES_MIN_DATE_UPDATED_DESC'
-	| 'VOTES_MAX_ID_ASC'
-	| 'VOTES_MAX_ID_DESC'
-	| 'VOTES_MAX_ID_USER_ASC'
-	| 'VOTES_MAX_ID_USER_DESC'
-	| 'VOTES_MAX_ID_LEVEL_ASC'
-	| 'VOTES_MAX_ID_LEVEL_DESC'
-	| 'VOTES_MAX_VALUE_ASC'
-	| 'VOTES_MAX_VALUE_DESC'
-	| 'VOTES_MAX_DATE_CREATED_ASC'
-	| 'VOTES_MAX_DATE_CREATED_DESC'
-	| 'VOTES_MAX_DATE_UPDATED_ASC'
-	| 'VOTES_MAX_DATE_UPDATED_DESC'
-	| 'VOTES_AVERAGE_ID_ASC'
-	| 'VOTES_AVERAGE_ID_DESC'
-	| 'VOTES_AVERAGE_ID_USER_ASC'
-	| 'VOTES_AVERAGE_ID_USER_DESC'
-	| 'VOTES_AVERAGE_ID_LEVEL_ASC'
-	| 'VOTES_AVERAGE_ID_LEVEL_DESC'
-	| 'VOTES_AVERAGE_VALUE_ASC'
-	| 'VOTES_AVERAGE_VALUE_DESC'
-	| 'VOTES_AVERAGE_DATE_CREATED_ASC'
-	| 'VOTES_AVERAGE_DATE_CREATED_DESC'
-	| 'VOTES_AVERAGE_DATE_UPDATED_ASC'
-	| 'VOTES_AVERAGE_DATE_UPDATED_DESC'
-	| 'VOTES_STDDEV_SAMPLE_ID_ASC'
-	| 'VOTES_STDDEV_SAMPLE_ID_DESC'
-	| 'VOTES_STDDEV_SAMPLE_ID_USER_ASC'
-	| 'VOTES_STDDEV_SAMPLE_ID_USER_DESC'
-	| 'VOTES_STDDEV_SAMPLE_ID_LEVEL_ASC'
-	| 'VOTES_STDDEV_SAMPLE_ID_LEVEL_DESC'
-	| 'VOTES_STDDEV_SAMPLE_VALUE_ASC'
-	| 'VOTES_STDDEV_SAMPLE_VALUE_DESC'
-	| 'VOTES_STDDEV_SAMPLE_DATE_CREATED_ASC'
-	| 'VOTES_STDDEV_SAMPLE_DATE_CREATED_DESC'
-	| 'VOTES_STDDEV_SAMPLE_DATE_UPDATED_ASC'
-	| 'VOTES_STDDEV_SAMPLE_DATE_UPDATED_DESC'
-	| 'VOTES_STDDEV_POPULATION_ID_ASC'
-	| 'VOTES_STDDEV_POPULATION_ID_DESC'
-	| 'VOTES_STDDEV_POPULATION_ID_USER_ASC'
-	| 'VOTES_STDDEV_POPULATION_ID_USER_DESC'
-	| 'VOTES_STDDEV_POPULATION_ID_LEVEL_ASC'
-	| 'VOTES_STDDEV_POPULATION_ID_LEVEL_DESC'
-	| 'VOTES_STDDEV_POPULATION_VALUE_ASC'
-	| 'VOTES_STDDEV_POPULATION_VALUE_DESC'
-	| 'VOTES_STDDEV_POPULATION_DATE_CREATED_ASC'
-	| 'VOTES_STDDEV_POPULATION_DATE_CREATED_DESC'
-	| 'VOTES_STDDEV_POPULATION_DATE_UPDATED_ASC'
-	| 'VOTES_STDDEV_POPULATION_DATE_UPDATED_DESC'
-	| 'VOTES_VARIANCE_SAMPLE_ID_ASC'
-	| 'VOTES_VARIANCE_SAMPLE_ID_DESC'
-	| 'VOTES_VARIANCE_SAMPLE_ID_USER_ASC'
-	| 'VOTES_VARIANCE_SAMPLE_ID_USER_DESC'
-	| 'VOTES_VARIANCE_SAMPLE_ID_LEVEL_ASC'
-	| 'VOTES_VARIANCE_SAMPLE_ID_LEVEL_DESC'
-	| 'VOTES_VARIANCE_SAMPLE_VALUE_ASC'
-	| 'VOTES_VARIANCE_SAMPLE_VALUE_DESC'
-	| 'VOTES_VARIANCE_SAMPLE_DATE_CREATED_ASC'
-	| 'VOTES_VARIANCE_SAMPLE_DATE_CREATED_DESC'
-	| 'VOTES_VARIANCE_SAMPLE_DATE_UPDATED_ASC'
-	| 'VOTES_VARIANCE_SAMPLE_DATE_UPDATED_DESC'
-	| 'VOTES_VARIANCE_POPULATION_ID_ASC'
-	| 'VOTES_VARIANCE_POPULATION_ID_DESC'
-	| 'VOTES_VARIANCE_POPULATION_ID_USER_ASC'
-	| 'VOTES_VARIANCE_POPULATION_ID_USER_DESC'
-	| 'VOTES_VARIANCE_POPULATION_ID_LEVEL_ASC'
-	| 'VOTES_VARIANCE_POPULATION_ID_LEVEL_DESC'
-	| 'VOTES_VARIANCE_POPULATION_VALUE_ASC'
-	| 'VOTES_VARIANCE_POPULATION_VALUE_DESC'
-	| 'VOTES_VARIANCE_POPULATION_DATE_CREATED_ASC'
-	| 'VOTES_VARIANCE_POPULATION_DATE_CREATED_DESC'
-	| 'VOTES_VARIANCE_POPULATION_DATE_UPDATED_ASC'
-	| 'VOTES_VARIANCE_POPULATION_DATE_UPDATED_DESC'
 	| 'USER_POINTS_HISTORIES_COUNT_ASC'
 	| 'USER_POINTS_HISTORIES_COUNT_DESC'
 	| 'USER_POINTS_HISTORIES_SUM_ID_ASC'
@@ -5763,6 +5543,226 @@ export type UsersOrderBy =
 	| 'USER_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_CREATED_DESC'
 	| 'USER_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_UPDATED_ASC'
 	| 'USER_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_UPDATED_DESC'
+	| 'VOTES_COUNT_ASC'
+	| 'VOTES_COUNT_DESC'
+	| 'VOTES_SUM_ID_ASC'
+	| 'VOTES_SUM_ID_DESC'
+	| 'VOTES_SUM_ID_USER_ASC'
+	| 'VOTES_SUM_ID_USER_DESC'
+	| 'VOTES_SUM_ID_LEVEL_ASC'
+	| 'VOTES_SUM_ID_LEVEL_DESC'
+	| 'VOTES_SUM_VALUE_ASC'
+	| 'VOTES_SUM_VALUE_DESC'
+	| 'VOTES_SUM_DATE_CREATED_ASC'
+	| 'VOTES_SUM_DATE_CREATED_DESC'
+	| 'VOTES_SUM_DATE_UPDATED_ASC'
+	| 'VOTES_SUM_DATE_UPDATED_DESC'
+	| 'VOTES_DISTINCT_COUNT_ID_ASC'
+	| 'VOTES_DISTINCT_COUNT_ID_DESC'
+	| 'VOTES_DISTINCT_COUNT_ID_USER_ASC'
+	| 'VOTES_DISTINCT_COUNT_ID_USER_DESC'
+	| 'VOTES_DISTINCT_COUNT_ID_LEVEL_ASC'
+	| 'VOTES_DISTINCT_COUNT_ID_LEVEL_DESC'
+	| 'VOTES_DISTINCT_COUNT_VALUE_ASC'
+	| 'VOTES_DISTINCT_COUNT_VALUE_DESC'
+	| 'VOTES_DISTINCT_COUNT_DATE_CREATED_ASC'
+	| 'VOTES_DISTINCT_COUNT_DATE_CREATED_DESC'
+	| 'VOTES_DISTINCT_COUNT_DATE_UPDATED_ASC'
+	| 'VOTES_DISTINCT_COUNT_DATE_UPDATED_DESC'
+	| 'VOTES_MIN_ID_ASC'
+	| 'VOTES_MIN_ID_DESC'
+	| 'VOTES_MIN_ID_USER_ASC'
+	| 'VOTES_MIN_ID_USER_DESC'
+	| 'VOTES_MIN_ID_LEVEL_ASC'
+	| 'VOTES_MIN_ID_LEVEL_DESC'
+	| 'VOTES_MIN_VALUE_ASC'
+	| 'VOTES_MIN_VALUE_DESC'
+	| 'VOTES_MIN_DATE_CREATED_ASC'
+	| 'VOTES_MIN_DATE_CREATED_DESC'
+	| 'VOTES_MIN_DATE_UPDATED_ASC'
+	| 'VOTES_MIN_DATE_UPDATED_DESC'
+	| 'VOTES_MAX_ID_ASC'
+	| 'VOTES_MAX_ID_DESC'
+	| 'VOTES_MAX_ID_USER_ASC'
+	| 'VOTES_MAX_ID_USER_DESC'
+	| 'VOTES_MAX_ID_LEVEL_ASC'
+	| 'VOTES_MAX_ID_LEVEL_DESC'
+	| 'VOTES_MAX_VALUE_ASC'
+	| 'VOTES_MAX_VALUE_DESC'
+	| 'VOTES_MAX_DATE_CREATED_ASC'
+	| 'VOTES_MAX_DATE_CREATED_DESC'
+	| 'VOTES_MAX_DATE_UPDATED_ASC'
+	| 'VOTES_MAX_DATE_UPDATED_DESC'
+	| 'VOTES_AVERAGE_ID_ASC'
+	| 'VOTES_AVERAGE_ID_DESC'
+	| 'VOTES_AVERAGE_ID_USER_ASC'
+	| 'VOTES_AVERAGE_ID_USER_DESC'
+	| 'VOTES_AVERAGE_ID_LEVEL_ASC'
+	| 'VOTES_AVERAGE_ID_LEVEL_DESC'
+	| 'VOTES_AVERAGE_VALUE_ASC'
+	| 'VOTES_AVERAGE_VALUE_DESC'
+	| 'VOTES_AVERAGE_DATE_CREATED_ASC'
+	| 'VOTES_AVERAGE_DATE_CREATED_DESC'
+	| 'VOTES_AVERAGE_DATE_UPDATED_ASC'
+	| 'VOTES_AVERAGE_DATE_UPDATED_DESC'
+	| 'VOTES_STDDEV_SAMPLE_ID_ASC'
+	| 'VOTES_STDDEV_SAMPLE_ID_DESC'
+	| 'VOTES_STDDEV_SAMPLE_ID_USER_ASC'
+	| 'VOTES_STDDEV_SAMPLE_ID_USER_DESC'
+	| 'VOTES_STDDEV_SAMPLE_ID_LEVEL_ASC'
+	| 'VOTES_STDDEV_SAMPLE_ID_LEVEL_DESC'
+	| 'VOTES_STDDEV_SAMPLE_VALUE_ASC'
+	| 'VOTES_STDDEV_SAMPLE_VALUE_DESC'
+	| 'VOTES_STDDEV_SAMPLE_DATE_CREATED_ASC'
+	| 'VOTES_STDDEV_SAMPLE_DATE_CREATED_DESC'
+	| 'VOTES_STDDEV_SAMPLE_DATE_UPDATED_ASC'
+	| 'VOTES_STDDEV_SAMPLE_DATE_UPDATED_DESC'
+	| 'VOTES_STDDEV_POPULATION_ID_ASC'
+	| 'VOTES_STDDEV_POPULATION_ID_DESC'
+	| 'VOTES_STDDEV_POPULATION_ID_USER_ASC'
+	| 'VOTES_STDDEV_POPULATION_ID_USER_DESC'
+	| 'VOTES_STDDEV_POPULATION_ID_LEVEL_ASC'
+	| 'VOTES_STDDEV_POPULATION_ID_LEVEL_DESC'
+	| 'VOTES_STDDEV_POPULATION_VALUE_ASC'
+	| 'VOTES_STDDEV_POPULATION_VALUE_DESC'
+	| 'VOTES_STDDEV_POPULATION_DATE_CREATED_ASC'
+	| 'VOTES_STDDEV_POPULATION_DATE_CREATED_DESC'
+	| 'VOTES_STDDEV_POPULATION_DATE_UPDATED_ASC'
+	| 'VOTES_STDDEV_POPULATION_DATE_UPDATED_DESC'
+	| 'VOTES_VARIANCE_SAMPLE_ID_ASC'
+	| 'VOTES_VARIANCE_SAMPLE_ID_DESC'
+	| 'VOTES_VARIANCE_SAMPLE_ID_USER_ASC'
+	| 'VOTES_VARIANCE_SAMPLE_ID_USER_DESC'
+	| 'VOTES_VARIANCE_SAMPLE_ID_LEVEL_ASC'
+	| 'VOTES_VARIANCE_SAMPLE_ID_LEVEL_DESC'
+	| 'VOTES_VARIANCE_SAMPLE_VALUE_ASC'
+	| 'VOTES_VARIANCE_SAMPLE_VALUE_DESC'
+	| 'VOTES_VARIANCE_SAMPLE_DATE_CREATED_ASC'
+	| 'VOTES_VARIANCE_SAMPLE_DATE_CREATED_DESC'
+	| 'VOTES_VARIANCE_SAMPLE_DATE_UPDATED_ASC'
+	| 'VOTES_VARIANCE_SAMPLE_DATE_UPDATED_DESC'
+	| 'VOTES_VARIANCE_POPULATION_ID_ASC'
+	| 'VOTES_VARIANCE_POPULATION_ID_DESC'
+	| 'VOTES_VARIANCE_POPULATION_ID_USER_ASC'
+	| 'VOTES_VARIANCE_POPULATION_ID_USER_DESC'
+	| 'VOTES_VARIANCE_POPULATION_ID_LEVEL_ASC'
+	| 'VOTES_VARIANCE_POPULATION_ID_LEVEL_DESC'
+	| 'VOTES_VARIANCE_POPULATION_VALUE_ASC'
+	| 'VOTES_VARIANCE_POPULATION_VALUE_DESC'
+	| 'VOTES_VARIANCE_POPULATION_DATE_CREATED_ASC'
+	| 'VOTES_VARIANCE_POPULATION_DATE_CREATED_DESC'
+	| 'VOTES_VARIANCE_POPULATION_DATE_UPDATED_ASC'
+	| 'VOTES_VARIANCE_POPULATION_DATE_UPDATED_DESC'
+	| 'WORLD_RECORD_GLOBALS_COUNT_ASC'
+	| 'WORLD_RECORD_GLOBALS_COUNT_DESC'
+	| 'WORLD_RECORD_GLOBALS_SUM_ID_ASC'
+	| 'WORLD_RECORD_GLOBALS_SUM_ID_DESC'
+	| 'WORLD_RECORD_GLOBALS_SUM_ID_RECORD_ASC'
+	| 'WORLD_RECORD_GLOBALS_SUM_ID_RECORD_DESC'
+	| 'WORLD_RECORD_GLOBALS_SUM_ID_LEVEL_ASC'
+	| 'WORLD_RECORD_GLOBALS_SUM_ID_LEVEL_DESC'
+	| 'WORLD_RECORD_GLOBALS_SUM_DATE_CREATED_ASC'
+	| 'WORLD_RECORD_GLOBALS_SUM_DATE_CREATED_DESC'
+	| 'WORLD_RECORD_GLOBALS_SUM_DATE_UPDATED_ASC'
+	| 'WORLD_RECORD_GLOBALS_SUM_DATE_UPDATED_DESC'
+	| 'WORLD_RECORD_GLOBALS_SUM_ID_USER_ASC'
+	| 'WORLD_RECORD_GLOBALS_SUM_ID_USER_DESC'
+	| 'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_ASC'
+	| 'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_DESC'
+	| 'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_RECORD_ASC'
+	| 'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_RECORD_DESC'
+	| 'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_LEVEL_ASC'
+	| 'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_LEVEL_DESC'
+	| 'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_DATE_CREATED_ASC'
+	| 'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_DATE_CREATED_DESC'
+	| 'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_DATE_UPDATED_ASC'
+	| 'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_DATE_UPDATED_DESC'
+	| 'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_USER_ASC'
+	| 'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_USER_DESC'
+	| 'WORLD_RECORD_GLOBALS_MIN_ID_ASC'
+	| 'WORLD_RECORD_GLOBALS_MIN_ID_DESC'
+	| 'WORLD_RECORD_GLOBALS_MIN_ID_RECORD_ASC'
+	| 'WORLD_RECORD_GLOBALS_MIN_ID_RECORD_DESC'
+	| 'WORLD_RECORD_GLOBALS_MIN_ID_LEVEL_ASC'
+	| 'WORLD_RECORD_GLOBALS_MIN_ID_LEVEL_DESC'
+	| 'WORLD_RECORD_GLOBALS_MIN_DATE_CREATED_ASC'
+	| 'WORLD_RECORD_GLOBALS_MIN_DATE_CREATED_DESC'
+	| 'WORLD_RECORD_GLOBALS_MIN_DATE_UPDATED_ASC'
+	| 'WORLD_RECORD_GLOBALS_MIN_DATE_UPDATED_DESC'
+	| 'WORLD_RECORD_GLOBALS_MIN_ID_USER_ASC'
+	| 'WORLD_RECORD_GLOBALS_MIN_ID_USER_DESC'
+	| 'WORLD_RECORD_GLOBALS_MAX_ID_ASC'
+	| 'WORLD_RECORD_GLOBALS_MAX_ID_DESC'
+	| 'WORLD_RECORD_GLOBALS_MAX_ID_RECORD_ASC'
+	| 'WORLD_RECORD_GLOBALS_MAX_ID_RECORD_DESC'
+	| 'WORLD_RECORD_GLOBALS_MAX_ID_LEVEL_ASC'
+	| 'WORLD_RECORD_GLOBALS_MAX_ID_LEVEL_DESC'
+	| 'WORLD_RECORD_GLOBALS_MAX_DATE_CREATED_ASC'
+	| 'WORLD_RECORD_GLOBALS_MAX_DATE_CREATED_DESC'
+	| 'WORLD_RECORD_GLOBALS_MAX_DATE_UPDATED_ASC'
+	| 'WORLD_RECORD_GLOBALS_MAX_DATE_UPDATED_DESC'
+	| 'WORLD_RECORD_GLOBALS_MAX_ID_USER_ASC'
+	| 'WORLD_RECORD_GLOBALS_MAX_ID_USER_DESC'
+	| 'WORLD_RECORD_GLOBALS_AVERAGE_ID_ASC'
+	| 'WORLD_RECORD_GLOBALS_AVERAGE_ID_DESC'
+	| 'WORLD_RECORD_GLOBALS_AVERAGE_ID_RECORD_ASC'
+	| 'WORLD_RECORD_GLOBALS_AVERAGE_ID_RECORD_DESC'
+	| 'WORLD_RECORD_GLOBALS_AVERAGE_ID_LEVEL_ASC'
+	| 'WORLD_RECORD_GLOBALS_AVERAGE_ID_LEVEL_DESC'
+	| 'WORLD_RECORD_GLOBALS_AVERAGE_DATE_CREATED_ASC'
+	| 'WORLD_RECORD_GLOBALS_AVERAGE_DATE_CREATED_DESC'
+	| 'WORLD_RECORD_GLOBALS_AVERAGE_DATE_UPDATED_ASC'
+	| 'WORLD_RECORD_GLOBALS_AVERAGE_DATE_UPDATED_DESC'
+	| 'WORLD_RECORD_GLOBALS_AVERAGE_ID_USER_ASC'
+	| 'WORLD_RECORD_GLOBALS_AVERAGE_ID_USER_DESC'
+	| 'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_ASC'
+	| 'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_DESC'
+	| 'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_RECORD_ASC'
+	| 'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_RECORD_DESC'
+	| 'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_LEVEL_ASC'
+	| 'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_LEVEL_DESC'
+	| 'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_DATE_CREATED_ASC'
+	| 'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_DATE_CREATED_DESC'
+	| 'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_DATE_UPDATED_ASC'
+	| 'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_DATE_UPDATED_DESC'
+	| 'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_USER_ASC'
+	| 'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_USER_DESC'
+	| 'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_ASC'
+	| 'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_DESC'
+	| 'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_RECORD_ASC'
+	| 'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_RECORD_DESC'
+	| 'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_LEVEL_ASC'
+	| 'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_LEVEL_DESC'
+	| 'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_DATE_CREATED_ASC'
+	| 'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_DATE_CREATED_DESC'
+	| 'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_DATE_UPDATED_ASC'
+	| 'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_DATE_UPDATED_DESC'
+	| 'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_USER_ASC'
+	| 'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_USER_DESC'
+	| 'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_ASC'
+	| 'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_DESC'
+	| 'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_RECORD_ASC'
+	| 'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_RECORD_DESC'
+	| 'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_LEVEL_ASC'
+	| 'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_LEVEL_DESC'
+	| 'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_DATE_CREATED_ASC'
+	| 'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_DATE_CREATED_DESC'
+	| 'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_DATE_UPDATED_ASC'
+	| 'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_DATE_UPDATED_DESC'
+	| 'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_USER_ASC'
+	| 'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_USER_DESC'
+	| 'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_ASC'
+	| 'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_DESC'
+	| 'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_RECORD_ASC'
+	| 'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_RECORD_DESC'
+	| 'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_LEVEL_ASC'
+	| 'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_LEVEL_DESC'
+	| 'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_DATE_CREATED_ASC'
+	| 'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_DATE_CREATED_DESC'
+	| 'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_DATE_UPDATED_ASC'
+	| 'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_DATE_UPDATED_DESC'
+	| 'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_USER_ASC'
+	| 'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_USER_DESC'
 	| 'ZSL_LEVEL_RESULTS_COUNT_ASC'
 	| 'ZSL_LEVEL_RESULTS_COUNT_DESC'
 	| 'ZSL_LEVEL_RESULTS_SUM_ID_LEVEL_ASC'
@@ -6901,6 +6901,52 @@ export type LevelsOrderBy =
 	| 'LEVEL_POINT_MAX_CUT_PENALTY_DESC'
 	| 'LEVEL_POINT_MIN_CUT_PENALTY_ASC'
 	| 'LEVEL_POINT_MIN_CUT_PENALTY_DESC'
+	| 'LEVEL_POINTS_HISTORY_COUNT_ASC'
+	| 'LEVEL_POINTS_HISTORY_COUNT_DESC'
+	| 'LEVEL_POINTS_HISTORY_MAX_ID_ASC'
+	| 'LEVEL_POINTS_HISTORY_MAX_ID_DESC'
+	| 'LEVEL_POINTS_HISTORY_MIN_ID_ASC'
+	| 'LEVEL_POINTS_HISTORY_MIN_ID_DESC'
+	| 'LEVEL_POINTS_HISTORY_MAX_ID_LEVEL_ASC'
+	| 'LEVEL_POINTS_HISTORY_MAX_ID_LEVEL_DESC'
+	| 'LEVEL_POINTS_HISTORY_MIN_ID_LEVEL_ASC'
+	| 'LEVEL_POINTS_HISTORY_MIN_ID_LEVEL_DESC'
+	| 'LEVEL_POINTS_HISTORY_MAX_POINTS_ASC'
+	| 'LEVEL_POINTS_HISTORY_MAX_POINTS_DESC'
+	| 'LEVEL_POINTS_HISTORY_MIN_POINTS_ASC'
+	| 'LEVEL_POINTS_HISTORY_MIN_POINTS_DESC'
+	| 'LEVEL_POINTS_HISTORY_MAX_DATE_CREATED_ASC'
+	| 'LEVEL_POINTS_HISTORY_MAX_DATE_CREATED_DESC'
+	| 'LEVEL_POINTS_HISTORY_MIN_DATE_CREATED_ASC'
+	| 'LEVEL_POINTS_HISTORY_MIN_DATE_CREATED_DESC'
+	| 'LEVEL_POINTS_HISTORY_MAX_DATE_UPDATED_ASC'
+	| 'LEVEL_POINTS_HISTORY_MAX_DATE_UPDATED_DESC'
+	| 'LEVEL_POINTS_HISTORY_MIN_DATE_UPDATED_ASC'
+	| 'LEVEL_POINTS_HISTORY_MIN_DATE_UPDATED_DESC'
+	| 'LEVEL_POINTS_HISTORY_MAX_RATING_ASC'
+	| 'LEVEL_POINTS_HISTORY_MAX_RATING_DESC'
+	| 'LEVEL_POINTS_HISTORY_MIN_RATING_ASC'
+	| 'LEVEL_POINTS_HISTORY_MIN_RATING_DESC'
+	| 'LEVEL_POINTS_HISTORY_MAX_MODIFIER_LENGTH_ASC'
+	| 'LEVEL_POINTS_HISTORY_MAX_MODIFIER_LENGTH_DESC'
+	| 'LEVEL_POINTS_HISTORY_MIN_MODIFIER_LENGTH_ASC'
+	| 'LEVEL_POINTS_HISTORY_MIN_MODIFIER_LENGTH_DESC'
+	| 'LEVEL_POINTS_HISTORY_MAX_MODIFIER_COMPETITIVENESS_ASC'
+	| 'LEVEL_POINTS_HISTORY_MAX_MODIFIER_COMPETITIVENESS_DESC'
+	| 'LEVEL_POINTS_HISTORY_MIN_MODIFIER_COMPETITIVENESS_ASC'
+	| 'LEVEL_POINTS_HISTORY_MIN_MODIFIER_COMPETITIVENESS_DESC'
+	| 'LEVEL_POINTS_HISTORY_MAX_MODIFIER_RATING_ASC'
+	| 'LEVEL_POINTS_HISTORY_MAX_MODIFIER_RATING_DESC'
+	| 'LEVEL_POINTS_HISTORY_MIN_MODIFIER_RATING_ASC'
+	| 'LEVEL_POINTS_HISTORY_MIN_MODIFIER_RATING_DESC'
+	| 'LEVEL_POINTS_HISTORY_MAX_MODIFIER_POPULARITY_ASC'
+	| 'LEVEL_POINTS_HISTORY_MAX_MODIFIER_POPULARITY_DESC'
+	| 'LEVEL_POINTS_HISTORY_MIN_MODIFIER_POPULARITY_ASC'
+	| 'LEVEL_POINTS_HISTORY_MIN_MODIFIER_POPULARITY_DESC'
+	| 'LEVEL_POINTS_HISTORY_MAX_CUT_PENALTY_ASC'
+	| 'LEVEL_POINTS_HISTORY_MAX_CUT_PENALTY_DESC'
+	| 'LEVEL_POINTS_HISTORY_MIN_CUT_PENALTY_ASC'
+	| 'LEVEL_POINTS_HISTORY_MIN_CUT_PENALTY_DESC'
 	| 'PERSONAL_BEST_GLOBAL_COUNT_ASC'
 	| 'PERSONAL_BEST_GLOBAL_COUNT_DESC'
 	| 'PERSONAL_BEST_GLOBAL_MAX_ID_ASC'
@@ -6969,18 +7015,6 @@ export type LevelsOrderBy =
 	| 'RECORD_MAX_SPEEDS_DESC'
 	| 'RECORD_MIN_SPEEDS_ASC'
 	| 'RECORD_MIN_SPEEDS_DESC'
-	| 'WORLD_RECORD_GLOBAL_ID_ASC'
-	| 'WORLD_RECORD_GLOBAL_ID_DESC'
-	| 'WORLD_RECORD_GLOBAL_ID_RECORD_ASC'
-	| 'WORLD_RECORD_GLOBAL_ID_RECORD_DESC'
-	| 'WORLD_RECORD_GLOBAL_ID_LEVEL_ASC'
-	| 'WORLD_RECORD_GLOBAL_ID_LEVEL_DESC'
-	| 'WORLD_RECORD_GLOBAL_DATE_CREATED_ASC'
-	| 'WORLD_RECORD_GLOBAL_DATE_CREATED_DESC'
-	| 'WORLD_RECORD_GLOBAL_DATE_UPDATED_ASC'
-	| 'WORLD_RECORD_GLOBAL_DATE_UPDATED_DESC'
-	| 'WORLD_RECORD_GLOBAL_ID_USER_ASC'
-	| 'WORLD_RECORD_GLOBAL_ID_USER_DESC'
 	| 'VOTE_COUNT_ASC'
 	| 'VOTE_COUNT_DESC'
 	| 'VOTE_MAX_ID_ASC'
@@ -7007,52 +7041,18 @@ export type LevelsOrderBy =
 	| 'VOTE_MAX_DATE_UPDATED_DESC'
 	| 'VOTE_MIN_DATE_UPDATED_ASC'
 	| 'VOTE_MIN_DATE_UPDATED_DESC'
-	| 'LEVEL_POINTS_HISTORY_COUNT_ASC'
-	| 'LEVEL_POINTS_HISTORY_COUNT_DESC'
-	| 'LEVEL_POINTS_HISTORY_MAX_ID_ASC'
-	| 'LEVEL_POINTS_HISTORY_MAX_ID_DESC'
-	| 'LEVEL_POINTS_HISTORY_MIN_ID_ASC'
-	| 'LEVEL_POINTS_HISTORY_MIN_ID_DESC'
-	| 'LEVEL_POINTS_HISTORY_MAX_ID_LEVEL_ASC'
-	| 'LEVEL_POINTS_HISTORY_MAX_ID_LEVEL_DESC'
-	| 'LEVEL_POINTS_HISTORY_MIN_ID_LEVEL_ASC'
-	| 'LEVEL_POINTS_HISTORY_MIN_ID_LEVEL_DESC'
-	| 'LEVEL_POINTS_HISTORY_MAX_POINTS_ASC'
-	| 'LEVEL_POINTS_HISTORY_MAX_POINTS_DESC'
-	| 'LEVEL_POINTS_HISTORY_MIN_POINTS_ASC'
-	| 'LEVEL_POINTS_HISTORY_MIN_POINTS_DESC'
-	| 'LEVEL_POINTS_HISTORY_MAX_DATE_CREATED_ASC'
-	| 'LEVEL_POINTS_HISTORY_MAX_DATE_CREATED_DESC'
-	| 'LEVEL_POINTS_HISTORY_MIN_DATE_CREATED_ASC'
-	| 'LEVEL_POINTS_HISTORY_MIN_DATE_CREATED_DESC'
-	| 'LEVEL_POINTS_HISTORY_MAX_DATE_UPDATED_ASC'
-	| 'LEVEL_POINTS_HISTORY_MAX_DATE_UPDATED_DESC'
-	| 'LEVEL_POINTS_HISTORY_MIN_DATE_UPDATED_ASC'
-	| 'LEVEL_POINTS_HISTORY_MIN_DATE_UPDATED_DESC'
-	| 'LEVEL_POINTS_HISTORY_MAX_RATING_ASC'
-	| 'LEVEL_POINTS_HISTORY_MAX_RATING_DESC'
-	| 'LEVEL_POINTS_HISTORY_MIN_RATING_ASC'
-	| 'LEVEL_POINTS_HISTORY_MIN_RATING_DESC'
-	| 'LEVEL_POINTS_HISTORY_MAX_MODIFIER_LENGTH_ASC'
-	| 'LEVEL_POINTS_HISTORY_MAX_MODIFIER_LENGTH_DESC'
-	| 'LEVEL_POINTS_HISTORY_MIN_MODIFIER_LENGTH_ASC'
-	| 'LEVEL_POINTS_HISTORY_MIN_MODIFIER_LENGTH_DESC'
-	| 'LEVEL_POINTS_HISTORY_MAX_MODIFIER_COMPETITIVENESS_ASC'
-	| 'LEVEL_POINTS_HISTORY_MAX_MODIFIER_COMPETITIVENESS_DESC'
-	| 'LEVEL_POINTS_HISTORY_MIN_MODIFIER_COMPETITIVENESS_ASC'
-	| 'LEVEL_POINTS_HISTORY_MIN_MODIFIER_COMPETITIVENESS_DESC'
-	| 'LEVEL_POINTS_HISTORY_MAX_MODIFIER_RATING_ASC'
-	| 'LEVEL_POINTS_HISTORY_MAX_MODIFIER_RATING_DESC'
-	| 'LEVEL_POINTS_HISTORY_MIN_MODIFIER_RATING_ASC'
-	| 'LEVEL_POINTS_HISTORY_MIN_MODIFIER_RATING_DESC'
-	| 'LEVEL_POINTS_HISTORY_MAX_MODIFIER_POPULARITY_ASC'
-	| 'LEVEL_POINTS_HISTORY_MAX_MODIFIER_POPULARITY_DESC'
-	| 'LEVEL_POINTS_HISTORY_MIN_MODIFIER_POPULARITY_ASC'
-	| 'LEVEL_POINTS_HISTORY_MIN_MODIFIER_POPULARITY_DESC'
-	| 'LEVEL_POINTS_HISTORY_MAX_CUT_PENALTY_ASC'
-	| 'LEVEL_POINTS_HISTORY_MAX_CUT_PENALTY_DESC'
-	| 'LEVEL_POINTS_HISTORY_MIN_CUT_PENALTY_ASC'
-	| 'LEVEL_POINTS_HISTORY_MIN_CUT_PENALTY_DESC'
+	| 'WORLD_RECORD_GLOBAL_ID_ASC'
+	| 'WORLD_RECORD_GLOBAL_ID_DESC'
+	| 'WORLD_RECORD_GLOBAL_ID_RECORD_ASC'
+	| 'WORLD_RECORD_GLOBAL_ID_RECORD_DESC'
+	| 'WORLD_RECORD_GLOBAL_ID_LEVEL_ASC'
+	| 'WORLD_RECORD_GLOBAL_ID_LEVEL_DESC'
+	| 'WORLD_RECORD_GLOBAL_DATE_CREATED_ASC'
+	| 'WORLD_RECORD_GLOBAL_DATE_CREATED_DESC'
+	| 'WORLD_RECORD_GLOBAL_DATE_UPDATED_ASC'
+	| 'WORLD_RECORD_GLOBAL_DATE_UPDATED_DESC'
+	| 'WORLD_RECORD_GLOBAL_ID_USER_ASC'
+	| 'WORLD_RECORD_GLOBAL_ID_USER_DESC'
 	| 'ZSL_LEVEL_COUNT_ASC'
 	| 'ZSL_LEVEL_COUNT_DESC'
 	| 'ZSL_LEVEL_MAX_ID_ASC'
@@ -7857,6 +7857,206 @@ export type LevelsOrderBy =
 	| 'LEVEL_POINTS_VARIANCE_POPULATION_MODIFIER_POPULARITY_DESC'
 	| 'LEVEL_POINTS_VARIANCE_POPULATION_CUT_PENALTY_ASC'
 	| 'LEVEL_POINTS_VARIANCE_POPULATION_CUT_PENALTY_DESC'
+	| 'LEVEL_POINTS_HISTORIES_COUNT_ASC'
+	| 'LEVEL_POINTS_HISTORIES_COUNT_DESC'
+	| 'LEVEL_POINTS_HISTORIES_SUM_ID_ASC'
+	| 'LEVEL_POINTS_HISTORIES_SUM_ID_DESC'
+	| 'LEVEL_POINTS_HISTORIES_SUM_ID_LEVEL_ASC'
+	| 'LEVEL_POINTS_HISTORIES_SUM_ID_LEVEL_DESC'
+	| 'LEVEL_POINTS_HISTORIES_SUM_POINTS_ASC'
+	| 'LEVEL_POINTS_HISTORIES_SUM_POINTS_DESC'
+	| 'LEVEL_POINTS_HISTORIES_SUM_DATE_CREATED_ASC'
+	| 'LEVEL_POINTS_HISTORIES_SUM_DATE_CREATED_DESC'
+	| 'LEVEL_POINTS_HISTORIES_SUM_DATE_UPDATED_ASC'
+	| 'LEVEL_POINTS_HISTORIES_SUM_DATE_UPDATED_DESC'
+	| 'LEVEL_POINTS_HISTORIES_SUM_RATING_ASC'
+	| 'LEVEL_POINTS_HISTORIES_SUM_RATING_DESC'
+	| 'LEVEL_POINTS_HISTORIES_SUM_MODIFIER_LENGTH_ASC'
+	| 'LEVEL_POINTS_HISTORIES_SUM_MODIFIER_LENGTH_DESC'
+	| 'LEVEL_POINTS_HISTORIES_SUM_MODIFIER_COMPETITIVENESS_ASC'
+	| 'LEVEL_POINTS_HISTORIES_SUM_MODIFIER_COMPETITIVENESS_DESC'
+	| 'LEVEL_POINTS_HISTORIES_SUM_MODIFIER_RATING_ASC'
+	| 'LEVEL_POINTS_HISTORIES_SUM_MODIFIER_RATING_DESC'
+	| 'LEVEL_POINTS_HISTORIES_SUM_MODIFIER_POPULARITY_ASC'
+	| 'LEVEL_POINTS_HISTORIES_SUM_MODIFIER_POPULARITY_DESC'
+	| 'LEVEL_POINTS_HISTORIES_SUM_CUT_PENALTY_ASC'
+	| 'LEVEL_POINTS_HISTORIES_SUM_CUT_PENALTY_DESC'
+	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_ID_ASC'
+	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_ID_DESC'
+	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_ID_LEVEL_ASC'
+	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_ID_LEVEL_DESC'
+	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_POINTS_ASC'
+	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_POINTS_DESC'
+	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_DATE_CREATED_ASC'
+	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_DATE_CREATED_DESC'
+	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_DATE_UPDATED_ASC'
+	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_DATE_UPDATED_DESC'
+	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_RATING_ASC'
+	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_RATING_DESC'
+	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_LENGTH_ASC'
+	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_LENGTH_DESC'
+	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_COMPETITIVENESS_ASC'
+	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_COMPETITIVENESS_DESC'
+	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_RATING_ASC'
+	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_RATING_DESC'
+	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_POPULARITY_ASC'
+	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_POPULARITY_DESC'
+	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_CUT_PENALTY_ASC'
+	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_CUT_PENALTY_DESC'
+	| 'LEVEL_POINTS_HISTORIES_MIN_ID_ASC'
+	| 'LEVEL_POINTS_HISTORIES_MIN_ID_DESC'
+	| 'LEVEL_POINTS_HISTORIES_MIN_ID_LEVEL_ASC'
+	| 'LEVEL_POINTS_HISTORIES_MIN_ID_LEVEL_DESC'
+	| 'LEVEL_POINTS_HISTORIES_MIN_POINTS_ASC'
+	| 'LEVEL_POINTS_HISTORIES_MIN_POINTS_DESC'
+	| 'LEVEL_POINTS_HISTORIES_MIN_DATE_CREATED_ASC'
+	| 'LEVEL_POINTS_HISTORIES_MIN_DATE_CREATED_DESC'
+	| 'LEVEL_POINTS_HISTORIES_MIN_DATE_UPDATED_ASC'
+	| 'LEVEL_POINTS_HISTORIES_MIN_DATE_UPDATED_DESC'
+	| 'LEVEL_POINTS_HISTORIES_MIN_RATING_ASC'
+	| 'LEVEL_POINTS_HISTORIES_MIN_RATING_DESC'
+	| 'LEVEL_POINTS_HISTORIES_MIN_MODIFIER_LENGTH_ASC'
+	| 'LEVEL_POINTS_HISTORIES_MIN_MODIFIER_LENGTH_DESC'
+	| 'LEVEL_POINTS_HISTORIES_MIN_MODIFIER_COMPETITIVENESS_ASC'
+	| 'LEVEL_POINTS_HISTORIES_MIN_MODIFIER_COMPETITIVENESS_DESC'
+	| 'LEVEL_POINTS_HISTORIES_MIN_MODIFIER_RATING_ASC'
+	| 'LEVEL_POINTS_HISTORIES_MIN_MODIFIER_RATING_DESC'
+	| 'LEVEL_POINTS_HISTORIES_MIN_MODIFIER_POPULARITY_ASC'
+	| 'LEVEL_POINTS_HISTORIES_MIN_MODIFIER_POPULARITY_DESC'
+	| 'LEVEL_POINTS_HISTORIES_MIN_CUT_PENALTY_ASC'
+	| 'LEVEL_POINTS_HISTORIES_MIN_CUT_PENALTY_DESC'
+	| 'LEVEL_POINTS_HISTORIES_MAX_ID_ASC'
+	| 'LEVEL_POINTS_HISTORIES_MAX_ID_DESC'
+	| 'LEVEL_POINTS_HISTORIES_MAX_ID_LEVEL_ASC'
+	| 'LEVEL_POINTS_HISTORIES_MAX_ID_LEVEL_DESC'
+	| 'LEVEL_POINTS_HISTORIES_MAX_POINTS_ASC'
+	| 'LEVEL_POINTS_HISTORIES_MAX_POINTS_DESC'
+	| 'LEVEL_POINTS_HISTORIES_MAX_DATE_CREATED_ASC'
+	| 'LEVEL_POINTS_HISTORIES_MAX_DATE_CREATED_DESC'
+	| 'LEVEL_POINTS_HISTORIES_MAX_DATE_UPDATED_ASC'
+	| 'LEVEL_POINTS_HISTORIES_MAX_DATE_UPDATED_DESC'
+	| 'LEVEL_POINTS_HISTORIES_MAX_RATING_ASC'
+	| 'LEVEL_POINTS_HISTORIES_MAX_RATING_DESC'
+	| 'LEVEL_POINTS_HISTORIES_MAX_MODIFIER_LENGTH_ASC'
+	| 'LEVEL_POINTS_HISTORIES_MAX_MODIFIER_LENGTH_DESC'
+	| 'LEVEL_POINTS_HISTORIES_MAX_MODIFIER_COMPETITIVENESS_ASC'
+	| 'LEVEL_POINTS_HISTORIES_MAX_MODIFIER_COMPETITIVENESS_DESC'
+	| 'LEVEL_POINTS_HISTORIES_MAX_MODIFIER_RATING_ASC'
+	| 'LEVEL_POINTS_HISTORIES_MAX_MODIFIER_RATING_DESC'
+	| 'LEVEL_POINTS_HISTORIES_MAX_MODIFIER_POPULARITY_ASC'
+	| 'LEVEL_POINTS_HISTORIES_MAX_MODIFIER_POPULARITY_DESC'
+	| 'LEVEL_POINTS_HISTORIES_MAX_CUT_PENALTY_ASC'
+	| 'LEVEL_POINTS_HISTORIES_MAX_CUT_PENALTY_DESC'
+	| 'LEVEL_POINTS_HISTORIES_AVERAGE_ID_ASC'
+	| 'LEVEL_POINTS_HISTORIES_AVERAGE_ID_DESC'
+	| 'LEVEL_POINTS_HISTORIES_AVERAGE_ID_LEVEL_ASC'
+	| 'LEVEL_POINTS_HISTORIES_AVERAGE_ID_LEVEL_DESC'
+	| 'LEVEL_POINTS_HISTORIES_AVERAGE_POINTS_ASC'
+	| 'LEVEL_POINTS_HISTORIES_AVERAGE_POINTS_DESC'
+	| 'LEVEL_POINTS_HISTORIES_AVERAGE_DATE_CREATED_ASC'
+	| 'LEVEL_POINTS_HISTORIES_AVERAGE_DATE_CREATED_DESC'
+	| 'LEVEL_POINTS_HISTORIES_AVERAGE_DATE_UPDATED_ASC'
+	| 'LEVEL_POINTS_HISTORIES_AVERAGE_DATE_UPDATED_DESC'
+	| 'LEVEL_POINTS_HISTORIES_AVERAGE_RATING_ASC'
+	| 'LEVEL_POINTS_HISTORIES_AVERAGE_RATING_DESC'
+	| 'LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_LENGTH_ASC'
+	| 'LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_LENGTH_DESC'
+	| 'LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_COMPETITIVENESS_ASC'
+	| 'LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_COMPETITIVENESS_DESC'
+	| 'LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_RATING_ASC'
+	| 'LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_RATING_DESC'
+	| 'LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_POPULARITY_ASC'
+	| 'LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_POPULARITY_DESC'
+	| 'LEVEL_POINTS_HISTORIES_AVERAGE_CUT_PENALTY_ASC'
+	| 'LEVEL_POINTS_HISTORIES_AVERAGE_CUT_PENALTY_DESC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_ID_ASC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_ID_DESC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_ID_LEVEL_ASC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_ID_LEVEL_DESC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_POINTS_ASC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_POINTS_DESC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_DATE_CREATED_ASC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_DATE_CREATED_DESC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_DATE_UPDATED_ASC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_DATE_UPDATED_DESC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_RATING_ASC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_RATING_DESC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_LENGTH_ASC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_LENGTH_DESC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_COMPETITIVENESS_ASC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_COMPETITIVENESS_DESC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_RATING_ASC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_RATING_DESC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_POPULARITY_ASC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_POPULARITY_DESC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_CUT_PENALTY_ASC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_CUT_PENALTY_DESC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_ID_ASC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_ID_DESC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_ID_LEVEL_ASC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_ID_LEVEL_DESC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_POINTS_ASC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_POINTS_DESC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_DATE_CREATED_ASC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_DATE_CREATED_DESC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_DATE_UPDATED_ASC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_DATE_UPDATED_DESC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_RATING_ASC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_RATING_DESC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_LENGTH_ASC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_LENGTH_DESC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_COMPETITIVENESS_ASC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_COMPETITIVENESS_DESC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_RATING_ASC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_RATING_DESC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_POPULARITY_ASC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_POPULARITY_DESC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_CUT_PENALTY_ASC'
+	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_CUT_PENALTY_DESC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_ID_ASC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_ID_DESC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_ID_LEVEL_ASC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_ID_LEVEL_DESC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_POINTS_ASC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_POINTS_DESC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_DATE_CREATED_ASC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_DATE_CREATED_DESC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_DATE_UPDATED_ASC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_DATE_UPDATED_DESC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_RATING_ASC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_RATING_DESC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_LENGTH_ASC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_LENGTH_DESC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_COMPETITIVENESS_ASC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_COMPETITIVENESS_DESC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_RATING_ASC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_RATING_DESC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_POPULARITY_ASC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_POPULARITY_DESC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_CUT_PENALTY_ASC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_CUT_PENALTY_DESC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_ID_ASC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_ID_DESC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_ID_LEVEL_ASC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_ID_LEVEL_DESC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_POINTS_ASC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_POINTS_DESC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_CREATED_ASC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_CREATED_DESC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_UPDATED_ASC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_UPDATED_DESC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_RATING_ASC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_RATING_DESC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_LENGTH_ASC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_LENGTH_DESC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_COMPETITIVENESS_ASC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_COMPETITIVENESS_DESC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_RATING_ASC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_RATING_DESC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_POPULARITY_ASC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_POPULARITY_DESC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_CUT_PENALTY_ASC'
+	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_CUT_PENALTY_DESC'
 	| 'PERSONAL_BEST_GLOBALS_COUNT_ASC'
 	| 'PERSONAL_BEST_GLOBALS_COUNT_DESC'
 	| 'PERSONAL_BEST_GLOBALS_SUM_ID_ASC'
@@ -8259,206 +8459,6 @@ export type LevelsOrderBy =
 	| 'VOTES_VARIANCE_POPULATION_DATE_CREATED_DESC'
 	| 'VOTES_VARIANCE_POPULATION_DATE_UPDATED_ASC'
 	| 'VOTES_VARIANCE_POPULATION_DATE_UPDATED_DESC'
-	| 'LEVEL_POINTS_HISTORIES_COUNT_ASC'
-	| 'LEVEL_POINTS_HISTORIES_COUNT_DESC'
-	| 'LEVEL_POINTS_HISTORIES_SUM_ID_ASC'
-	| 'LEVEL_POINTS_HISTORIES_SUM_ID_DESC'
-	| 'LEVEL_POINTS_HISTORIES_SUM_ID_LEVEL_ASC'
-	| 'LEVEL_POINTS_HISTORIES_SUM_ID_LEVEL_DESC'
-	| 'LEVEL_POINTS_HISTORIES_SUM_POINTS_ASC'
-	| 'LEVEL_POINTS_HISTORIES_SUM_POINTS_DESC'
-	| 'LEVEL_POINTS_HISTORIES_SUM_DATE_CREATED_ASC'
-	| 'LEVEL_POINTS_HISTORIES_SUM_DATE_CREATED_DESC'
-	| 'LEVEL_POINTS_HISTORIES_SUM_DATE_UPDATED_ASC'
-	| 'LEVEL_POINTS_HISTORIES_SUM_DATE_UPDATED_DESC'
-	| 'LEVEL_POINTS_HISTORIES_SUM_RATING_ASC'
-	| 'LEVEL_POINTS_HISTORIES_SUM_RATING_DESC'
-	| 'LEVEL_POINTS_HISTORIES_SUM_MODIFIER_LENGTH_ASC'
-	| 'LEVEL_POINTS_HISTORIES_SUM_MODIFIER_LENGTH_DESC'
-	| 'LEVEL_POINTS_HISTORIES_SUM_MODIFIER_COMPETITIVENESS_ASC'
-	| 'LEVEL_POINTS_HISTORIES_SUM_MODIFIER_COMPETITIVENESS_DESC'
-	| 'LEVEL_POINTS_HISTORIES_SUM_MODIFIER_RATING_ASC'
-	| 'LEVEL_POINTS_HISTORIES_SUM_MODIFIER_RATING_DESC'
-	| 'LEVEL_POINTS_HISTORIES_SUM_MODIFIER_POPULARITY_ASC'
-	| 'LEVEL_POINTS_HISTORIES_SUM_MODIFIER_POPULARITY_DESC'
-	| 'LEVEL_POINTS_HISTORIES_SUM_CUT_PENALTY_ASC'
-	| 'LEVEL_POINTS_HISTORIES_SUM_CUT_PENALTY_DESC'
-	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_ID_ASC'
-	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_ID_DESC'
-	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_ID_LEVEL_ASC'
-	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_ID_LEVEL_DESC'
-	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_POINTS_ASC'
-	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_POINTS_DESC'
-	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_DATE_CREATED_ASC'
-	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_DATE_CREATED_DESC'
-	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_DATE_UPDATED_ASC'
-	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_DATE_UPDATED_DESC'
-	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_RATING_ASC'
-	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_RATING_DESC'
-	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_LENGTH_ASC'
-	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_LENGTH_DESC'
-	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_COMPETITIVENESS_ASC'
-	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_COMPETITIVENESS_DESC'
-	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_RATING_ASC'
-	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_RATING_DESC'
-	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_POPULARITY_ASC'
-	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_POPULARITY_DESC'
-	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_CUT_PENALTY_ASC'
-	| 'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_CUT_PENALTY_DESC'
-	| 'LEVEL_POINTS_HISTORIES_MIN_ID_ASC'
-	| 'LEVEL_POINTS_HISTORIES_MIN_ID_DESC'
-	| 'LEVEL_POINTS_HISTORIES_MIN_ID_LEVEL_ASC'
-	| 'LEVEL_POINTS_HISTORIES_MIN_ID_LEVEL_DESC'
-	| 'LEVEL_POINTS_HISTORIES_MIN_POINTS_ASC'
-	| 'LEVEL_POINTS_HISTORIES_MIN_POINTS_DESC'
-	| 'LEVEL_POINTS_HISTORIES_MIN_DATE_CREATED_ASC'
-	| 'LEVEL_POINTS_HISTORIES_MIN_DATE_CREATED_DESC'
-	| 'LEVEL_POINTS_HISTORIES_MIN_DATE_UPDATED_ASC'
-	| 'LEVEL_POINTS_HISTORIES_MIN_DATE_UPDATED_DESC'
-	| 'LEVEL_POINTS_HISTORIES_MIN_RATING_ASC'
-	| 'LEVEL_POINTS_HISTORIES_MIN_RATING_DESC'
-	| 'LEVEL_POINTS_HISTORIES_MIN_MODIFIER_LENGTH_ASC'
-	| 'LEVEL_POINTS_HISTORIES_MIN_MODIFIER_LENGTH_DESC'
-	| 'LEVEL_POINTS_HISTORIES_MIN_MODIFIER_COMPETITIVENESS_ASC'
-	| 'LEVEL_POINTS_HISTORIES_MIN_MODIFIER_COMPETITIVENESS_DESC'
-	| 'LEVEL_POINTS_HISTORIES_MIN_MODIFIER_RATING_ASC'
-	| 'LEVEL_POINTS_HISTORIES_MIN_MODIFIER_RATING_DESC'
-	| 'LEVEL_POINTS_HISTORIES_MIN_MODIFIER_POPULARITY_ASC'
-	| 'LEVEL_POINTS_HISTORIES_MIN_MODIFIER_POPULARITY_DESC'
-	| 'LEVEL_POINTS_HISTORIES_MIN_CUT_PENALTY_ASC'
-	| 'LEVEL_POINTS_HISTORIES_MIN_CUT_PENALTY_DESC'
-	| 'LEVEL_POINTS_HISTORIES_MAX_ID_ASC'
-	| 'LEVEL_POINTS_HISTORIES_MAX_ID_DESC'
-	| 'LEVEL_POINTS_HISTORIES_MAX_ID_LEVEL_ASC'
-	| 'LEVEL_POINTS_HISTORIES_MAX_ID_LEVEL_DESC'
-	| 'LEVEL_POINTS_HISTORIES_MAX_POINTS_ASC'
-	| 'LEVEL_POINTS_HISTORIES_MAX_POINTS_DESC'
-	| 'LEVEL_POINTS_HISTORIES_MAX_DATE_CREATED_ASC'
-	| 'LEVEL_POINTS_HISTORIES_MAX_DATE_CREATED_DESC'
-	| 'LEVEL_POINTS_HISTORIES_MAX_DATE_UPDATED_ASC'
-	| 'LEVEL_POINTS_HISTORIES_MAX_DATE_UPDATED_DESC'
-	| 'LEVEL_POINTS_HISTORIES_MAX_RATING_ASC'
-	| 'LEVEL_POINTS_HISTORIES_MAX_RATING_DESC'
-	| 'LEVEL_POINTS_HISTORIES_MAX_MODIFIER_LENGTH_ASC'
-	| 'LEVEL_POINTS_HISTORIES_MAX_MODIFIER_LENGTH_DESC'
-	| 'LEVEL_POINTS_HISTORIES_MAX_MODIFIER_COMPETITIVENESS_ASC'
-	| 'LEVEL_POINTS_HISTORIES_MAX_MODIFIER_COMPETITIVENESS_DESC'
-	| 'LEVEL_POINTS_HISTORIES_MAX_MODIFIER_RATING_ASC'
-	| 'LEVEL_POINTS_HISTORIES_MAX_MODIFIER_RATING_DESC'
-	| 'LEVEL_POINTS_HISTORIES_MAX_MODIFIER_POPULARITY_ASC'
-	| 'LEVEL_POINTS_HISTORIES_MAX_MODIFIER_POPULARITY_DESC'
-	| 'LEVEL_POINTS_HISTORIES_MAX_CUT_PENALTY_ASC'
-	| 'LEVEL_POINTS_HISTORIES_MAX_CUT_PENALTY_DESC'
-	| 'LEVEL_POINTS_HISTORIES_AVERAGE_ID_ASC'
-	| 'LEVEL_POINTS_HISTORIES_AVERAGE_ID_DESC'
-	| 'LEVEL_POINTS_HISTORIES_AVERAGE_ID_LEVEL_ASC'
-	| 'LEVEL_POINTS_HISTORIES_AVERAGE_ID_LEVEL_DESC'
-	| 'LEVEL_POINTS_HISTORIES_AVERAGE_POINTS_ASC'
-	| 'LEVEL_POINTS_HISTORIES_AVERAGE_POINTS_DESC'
-	| 'LEVEL_POINTS_HISTORIES_AVERAGE_DATE_CREATED_ASC'
-	| 'LEVEL_POINTS_HISTORIES_AVERAGE_DATE_CREATED_DESC'
-	| 'LEVEL_POINTS_HISTORIES_AVERAGE_DATE_UPDATED_ASC'
-	| 'LEVEL_POINTS_HISTORIES_AVERAGE_DATE_UPDATED_DESC'
-	| 'LEVEL_POINTS_HISTORIES_AVERAGE_RATING_ASC'
-	| 'LEVEL_POINTS_HISTORIES_AVERAGE_RATING_DESC'
-	| 'LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_LENGTH_ASC'
-	| 'LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_LENGTH_DESC'
-	| 'LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_COMPETITIVENESS_ASC'
-	| 'LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_COMPETITIVENESS_DESC'
-	| 'LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_RATING_ASC'
-	| 'LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_RATING_DESC'
-	| 'LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_POPULARITY_ASC'
-	| 'LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_POPULARITY_DESC'
-	| 'LEVEL_POINTS_HISTORIES_AVERAGE_CUT_PENALTY_ASC'
-	| 'LEVEL_POINTS_HISTORIES_AVERAGE_CUT_PENALTY_DESC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_ID_ASC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_ID_DESC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_ID_LEVEL_ASC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_ID_LEVEL_DESC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_POINTS_ASC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_POINTS_DESC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_DATE_CREATED_ASC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_DATE_CREATED_DESC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_DATE_UPDATED_ASC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_DATE_UPDATED_DESC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_RATING_ASC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_RATING_DESC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_LENGTH_ASC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_LENGTH_DESC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_COMPETITIVENESS_ASC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_COMPETITIVENESS_DESC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_RATING_ASC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_RATING_DESC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_POPULARITY_ASC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_POPULARITY_DESC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_CUT_PENALTY_ASC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_CUT_PENALTY_DESC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_ID_ASC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_ID_DESC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_ID_LEVEL_ASC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_ID_LEVEL_DESC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_POINTS_ASC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_POINTS_DESC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_DATE_CREATED_ASC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_DATE_CREATED_DESC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_DATE_UPDATED_ASC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_DATE_UPDATED_DESC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_RATING_ASC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_RATING_DESC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_LENGTH_ASC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_LENGTH_DESC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_COMPETITIVENESS_ASC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_COMPETITIVENESS_DESC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_RATING_ASC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_RATING_DESC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_POPULARITY_ASC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_POPULARITY_DESC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_CUT_PENALTY_ASC'
-	| 'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_CUT_PENALTY_DESC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_ID_ASC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_ID_DESC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_ID_LEVEL_ASC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_ID_LEVEL_DESC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_POINTS_ASC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_POINTS_DESC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_DATE_CREATED_ASC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_DATE_CREATED_DESC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_DATE_UPDATED_ASC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_DATE_UPDATED_DESC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_RATING_ASC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_RATING_DESC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_LENGTH_ASC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_LENGTH_DESC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_COMPETITIVENESS_ASC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_COMPETITIVENESS_DESC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_RATING_ASC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_RATING_DESC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_POPULARITY_ASC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_POPULARITY_DESC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_CUT_PENALTY_ASC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_CUT_PENALTY_DESC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_ID_ASC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_ID_DESC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_ID_LEVEL_ASC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_ID_LEVEL_DESC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_POINTS_ASC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_POINTS_DESC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_CREATED_ASC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_CREATED_DESC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_UPDATED_ASC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_UPDATED_DESC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_RATING_ASC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_RATING_DESC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_LENGTH_ASC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_LENGTH_DESC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_COMPETITIVENESS_ASC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_COMPETITIVENESS_DESC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_RATING_ASC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_RATING_DESC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_POPULARITY_ASC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_POPULARITY_DESC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_CUT_PENALTY_ASC'
-	| 'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_CUT_PENALTY_DESC'
 	| 'ZSL_LEVELS_COUNT_ASC'
 	| 'ZSL_LEVELS_COUNT_DESC'
 	| 'ZSL_LEVELS_SUM_ID_ASC'
@@ -10370,34 +10370,6 @@ export interface UserLevelsByRecordManyToManyEdge {
 	__typename: 'UserLevelsByRecordManyToManyEdge';
 }
 
-/** A connection to a list of `Record` values, with data from `WorldRecordGlobal`. */
-export interface UserRecordsByWorldRecordGlobalManyToManyConnection {
-	/** A list of `Record` objects. */
-	nodes: Record[];
-	/** A list of edges which contains the `Record`, info from the `WorldRecordGlobal`, and the cursor to aid in pagination. */
-	edges: UserRecordsByWorldRecordGlobalManyToManyEdge[];
-	/** Information to aid in pagination. */
-	pageInfo: PageInfo;
-	/** The count of *all* `Record` you could get from the connection. */
-	totalCount: Scalars['Int'];
-	/** Aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	aggregates: RecordAggregates | null;
-	/** Grouped aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	groupedAggregates: RecordAggregates[] | null;
-	__typename: 'UserRecordsByWorldRecordGlobalManyToManyConnection';
-}
-
-/** A `Record` edge in the connection, with data from `WorldRecordGlobal`. */
-export interface UserRecordsByWorldRecordGlobalManyToManyEdge {
-	/** A cursor for use in pagination. */
-	cursor: Scalars['Cursor'] | null;
-	/** The `Record` at the end of the edge. */
-	node: Record;
-	/** Reads and enables pagination through a set of `WorldRecordGlobal`. */
-	worldRecordGlobals: WorldRecordGlobalsConnection;
-	__typename: 'UserRecordsByWorldRecordGlobalManyToManyEdge';
-}
-
 /** A connection to a list of `Level` values, with data from `Vote`. */
 export interface UserLevelsByVoteManyToManyConnection {
 	/** A list of `Level` objects. */
@@ -10424,6 +10396,34 @@ export interface UserLevelsByVoteManyToManyEdge {
 	/** Reads and enables pagination through a set of `Vote`. */
 	votes: VotesConnection;
 	__typename: 'UserLevelsByVoteManyToManyEdge';
+}
+
+/** A connection to a list of `Record` values, with data from `WorldRecordGlobal`. */
+export interface UserRecordsByWorldRecordGlobalManyToManyConnection {
+	/** A list of `Record` objects. */
+	nodes: Record[];
+	/** A list of edges which contains the `Record`, info from the `WorldRecordGlobal`, and the cursor to aid in pagination. */
+	edges: UserRecordsByWorldRecordGlobalManyToManyEdge[];
+	/** Information to aid in pagination. */
+	pageInfo: PageInfo;
+	/** The count of *all* `Record` you could get from the connection. */
+	totalCount: Scalars['Int'];
+	/** Aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	aggregates: RecordAggregates | null;
+	/** Grouped aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	groupedAggregates: RecordAggregates[] | null;
+	__typename: 'UserRecordsByWorldRecordGlobalManyToManyConnection';
+}
+
+/** A `Record` edge in the connection, with data from `WorldRecordGlobal`. */
+export interface UserRecordsByWorldRecordGlobalManyToManyEdge {
+	/** A cursor for use in pagination. */
+	cursor: Scalars['Cursor'] | null;
+	/** The `Record` at the end of the edge. */
+	node: Record;
+	/** Reads and enables pagination through a set of `WorldRecordGlobal`. */
+	worldRecordGlobals: WorldRecordGlobalsConnection;
+	__typename: 'UserRecordsByWorldRecordGlobalManyToManyEdge';
 }
 
 /** A connection to a list of `ZslLevel` values, with data from `ZslLevelResult`. */
@@ -12257,9 +12257,9 @@ export interface NodeGenqlSelection {
 	on_LevelItem?: LevelItemGenqlSelection;
 	on_LevelMetadatum?: LevelMetadatumGenqlSelection;
 	on_LevelPoint?: LevelPointGenqlSelection;
-	on_WorldRecordGlobal?: WorldRecordGlobalGenqlSelection;
-	on_Vote?: VoteGenqlSelection;
 	on_LevelPointsHistory?: LevelPointsHistoryGenqlSelection;
+	on_Vote?: VoteGenqlSelection;
+	on_WorldRecordGlobal?: WorldRecordGlobalGenqlSelection;
 	on_ZslLevel?: ZslLevelGenqlSelection;
 	on_ZslRound?: ZslRoundGenqlSelection;
 	on_ZslSeason?: ZslSeasonGenqlSelection;
@@ -12423,8 +12423,8 @@ export interface UserGenqlSelection {
 			filter?: RecordFilter | null;
 		};
 	};
-	/** Reads and enables pagination through a set of `WorldRecordGlobal`. */
-	worldRecordGlobals?: WorldRecordGlobalsConnectionGenqlSelection & {
+	/** Reads and enables pagination through a set of `UserPointsHistory`. */
+	userPointsHistories?: UserPointsHistoriesConnectionGenqlSelection & {
 		__args?: {
 			/** Only read the first `n` values of the set. */
 			first?: Scalars['Int'] | null;
@@ -12439,12 +12439,12 @@ export interface UserGenqlSelection {
 			before?: Scalars['Cursor'] | null;
 			/** Read all values in the set after (below) this cursor. */
 			after?: Scalars['Cursor'] | null;
-			/** The method to use when ordering `WorldRecordGlobal`. */
-			orderBy?: WorldRecordGlobalsOrderBy[] | null;
+			/** The method to use when ordering `UserPointsHistory`. */
+			orderBy?: UserPointsHistoriesOrderBy[] | null;
 			/** A condition to be used in determining which values should be returned by the collection. */
-			condition?: WorldRecordGlobalCondition | null;
+			condition?: UserPointsHistoryCondition | null;
 			/** A filter to be used in determining which values should be returned by the collection. */
-			filter?: WorldRecordGlobalFilter | null;
+			filter?: UserPointsHistoryFilter | null;
 		};
 	};
 	/** Reads and enables pagination through a set of `Vote`. */
@@ -12471,8 +12471,8 @@ export interface UserGenqlSelection {
 			filter?: VoteFilter | null;
 		};
 	};
-	/** Reads and enables pagination through a set of `UserPointsHistory`. */
-	userPointsHistories?: UserPointsHistoriesConnectionGenqlSelection & {
+	/** Reads and enables pagination through a set of `WorldRecordGlobal`. */
+	worldRecordGlobals?: WorldRecordGlobalsConnectionGenqlSelection & {
 		__args?: {
 			/** Only read the first `n` values of the set. */
 			first?: Scalars['Int'] | null;
@@ -12487,12 +12487,12 @@ export interface UserGenqlSelection {
 			before?: Scalars['Cursor'] | null;
 			/** Read all values in the set after (below) this cursor. */
 			after?: Scalars['Cursor'] | null;
-			/** The method to use when ordering `UserPointsHistory`. */
-			orderBy?: UserPointsHistoriesOrderBy[] | null;
+			/** The method to use when ordering `WorldRecordGlobal`. */
+			orderBy?: WorldRecordGlobalsOrderBy[] | null;
 			/** A condition to be used in determining which values should be returned by the collection. */
-			condition?: UserPointsHistoryCondition | null;
+			condition?: WorldRecordGlobalCondition | null;
 			/** A filter to be used in determining which values should be returned by the collection. */
-			filter?: UserPointsHistoryFilter | null;
+			filter?: WorldRecordGlobalFilter | null;
 		};
 	};
 	/** Reads and enables pagination through a set of `ZslLevelResult`. */
@@ -12663,30 +12663,6 @@ export interface UserGenqlSelection {
 			filter?: LevelFilter | null;
 		};
 	};
-	/** Reads and enables pagination through a set of `Record`. */
-	recordsByWorldRecordGlobal?: UserRecordsByWorldRecordGlobalManyToManyConnectionGenqlSelection & {
-		__args?: {
-			/** Only read the first `n` values of the set. */
-			first?: Scalars['Int'] | null;
-			/** Only read the last `n` values of the set. */
-			last?: Scalars['Int'] | null;
-			/**
-			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
-			 * based pagination. May not be used with `last`.
-			 */
-			offset?: Scalars['Int'] | null;
-			/** Read all values in the set before (above) this cursor. */
-			before?: Scalars['Cursor'] | null;
-			/** Read all values in the set after (below) this cursor. */
-			after?: Scalars['Cursor'] | null;
-			/** The method to use when ordering `Record`. */
-			orderBy?: RecordsOrderBy[] | null;
-			/** A condition to be used in determining which values should be returned by the collection. */
-			condition?: RecordCondition | null;
-			/** A filter to be used in determining which values should be returned by the collection. */
-			filter?: RecordFilter | null;
-		};
-	};
 	/** Reads and enables pagination through a set of `Level`. */
 	levelsByVote?: UserLevelsByVoteManyToManyConnectionGenqlSelection & {
 		__args?: {
@@ -12709,6 +12685,30 @@ export interface UserGenqlSelection {
 			condition?: LevelCondition | null;
 			/** A filter to be used in determining which values should be returned by the collection. */
 			filter?: LevelFilter | null;
+		};
+	};
+	/** Reads and enables pagination through a set of `Record`. */
+	recordsByWorldRecordGlobal?: UserRecordsByWorldRecordGlobalManyToManyConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `Record`. */
+			orderBy?: RecordsOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: RecordCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: RecordFilter | null;
 		};
 	};
 	/** Reads and enables pagination through a set of `ZslLevel`. */
@@ -12936,18 +12936,18 @@ export interface UserFilter {
 	records?: UserToManyRecordFilter | null;
 	/** Some related `records` exist. */
 	recordsExist?: Scalars['Boolean'] | null;
-	/** Filter by the object’s `worldRecordGlobals` relation. */
-	worldRecordGlobals?: UserToManyWorldRecordGlobalFilter | null;
-	/** Some related `worldRecordGlobals` exist. */
-	worldRecordGlobalsExist?: Scalars['Boolean'] | null;
-	/** Filter by the object’s `votes` relation. */
-	votes?: UserToManyVoteFilter | null;
-	/** Some related `votes` exist. */
-	votesExist?: Scalars['Boolean'] | null;
 	/** Filter by the object’s `userPointsHistories` relation. */
 	userPointsHistories?: UserToManyUserPointsHistoryFilter | null;
 	/** Some related `userPointsHistories` exist. */
 	userPointsHistoriesExist?: Scalars['Boolean'] | null;
+	/** Filter by the object’s `votes` relation. */
+	votes?: UserToManyVoteFilter | null;
+	/** Some related `votes` exist. */
+	votesExist?: Scalars['Boolean'] | null;
+	/** Filter by the object’s `worldRecordGlobals` relation. */
+	worldRecordGlobals?: UserToManyWorldRecordGlobalFilter | null;
+	/** Some related `worldRecordGlobals` exist. */
+	worldRecordGlobalsExist?: Scalars['Boolean'] | null;
 	/** Filter by the object’s `zslLevelResults` relation. */
 	zslLevelResults?: UserToManyZslLevelResultFilter | null;
 	/** Some related `zslLevelResults` exist. */
@@ -13561,6 +13561,10 @@ export interface LevelFilter {
 	levelPoints?: LevelToManyLevelPointFilter | null;
 	/** Some related `levelPoints` exist. */
 	levelPointsExist?: Scalars['Boolean'] | null;
+	/** Filter by the object’s `levelPointsHistories` relation. */
+	levelPointsHistories?: LevelToManyLevelPointsHistoryFilter | null;
+	/** Some related `levelPointsHistories` exist. */
+	levelPointsHistoriesExist?: Scalars['Boolean'] | null;
 	/** Filter by the object’s `personalBestGlobals` relation. */
 	personalBestGlobals?: LevelToManyPersonalBestGlobalFilter | null;
 	/** Some related `personalBestGlobals` exist. */
@@ -13569,18 +13573,14 @@ export interface LevelFilter {
 	records?: LevelToManyRecordFilter | null;
 	/** Some related `records` exist. */
 	recordsExist?: Scalars['Boolean'] | null;
-	/** Filter by the object’s `worldRecordGlobal` relation. */
-	worldRecordGlobal?: WorldRecordGlobalFilter | null;
-	/** A related `worldRecordGlobal` exists. */
-	worldRecordGlobalExists?: Scalars['Boolean'] | null;
 	/** Filter by the object’s `votes` relation. */
 	votes?: LevelToManyVoteFilter | null;
 	/** Some related `votes` exist. */
 	votesExist?: Scalars['Boolean'] | null;
-	/** Filter by the object’s `levelPointsHistories` relation. */
-	levelPointsHistories?: LevelToManyLevelPointsHistoryFilter | null;
-	/** Some related `levelPointsHistories` exist. */
-	levelPointsHistoriesExist?: Scalars['Boolean'] | null;
+	/** Filter by the object’s `worldRecordGlobal` relation. */
+	worldRecordGlobal?: WorldRecordGlobalFilter | null;
+	/** A related `worldRecordGlobal` exists. */
+	worldRecordGlobalExists?: Scalars['Boolean'] | null;
 	/** Filter by the object’s `zslLevels` relation. */
 	zslLevels?: LevelToManyZslLevelFilter | null;
 	/** Some related `zslLevels` exist. */
@@ -14172,6 +14172,186 @@ export interface LevelPointVariancePopulationAggregateFilter {
 	cutPenalty?: FloatFilter | null;
 }
 
+/** A filter to be used against many `LevelPointsHistory` object types. All fields are combined with a logical ‘and.’ */
+export interface LevelToManyLevelPointsHistoryFilter {
+	/** Every related `LevelPointsHistory` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+	every?: LevelPointsHistoryFilter | null;
+	/** Some related `LevelPointsHistory` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+	some?: LevelPointsHistoryFilter | null;
+	/** No related `LevelPointsHistory` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+	none?: LevelPointsHistoryFilter | null;
+	/** Aggregates across related `LevelPointsHistory` match the filter criteria. */
+	aggregates?: LevelPointsHistoryAggregatesFilter | null;
+}
+
+/** A filter to be used against `LevelPointsHistory` object types. All fields are combined with a logical ‘and.’ */
+export interface LevelPointsHistoryFilter {
+	/** Filter by the object’s `id` field. */
+	id?: IntFilter | null;
+	/** Filter by the object’s `levelId` field. */
+	levelId?: IntFilter | null;
+	/** Filter by the object’s `points` field. */
+	points?: IntFilter | null;
+	/** Filter by the object’s `dateCreated` field. */
+	dateCreated?: DatetimeFilter | null;
+	/** Filter by the object’s `dateUpdated` field. */
+	dateUpdated?: DatetimeFilter | null;
+	/** Filter by the object’s `rating` field. */
+	rating?: FloatFilter | null;
+	/** Filter by the object’s `modifierLength` field. */
+	modifierLength?: FloatFilter | null;
+	/** Filter by the object’s `modifierCompetitiveness` field. */
+	modifierCompetitiveness?: FloatFilter | null;
+	/** Filter by the object’s `modifierRating` field. */
+	modifierRating?: FloatFilter | null;
+	/** Filter by the object’s `modifierPopularity` field. */
+	modifierPopularity?: FloatFilter | null;
+	/** Filter by the object’s `cutPenalty` field. */
+	cutPenalty?: FloatFilter | null;
+	/** Filter by the object’s `level` relation. */
+	level?: LevelFilter | null;
+	/** Checks for all expressions in this list. */
+	and?: LevelPointsHistoryFilter[] | null;
+	/** Checks for any expressions in this list. */
+	or?: LevelPointsHistoryFilter[] | null;
+	/** Negates the expression. */
+	not?: LevelPointsHistoryFilter | null;
+}
+
+/** A filter to be used against aggregates of `LevelPointsHistory` object types. */
+export interface LevelPointsHistoryAggregatesFilter {
+	/** A filter that must pass for the relevant `LevelPointsHistory` object to be included within the aggregate. */
+	filter?: LevelPointsHistoryFilter | null;
+	/** Sum aggregate over matching `LevelPointsHistory` objects. */
+	sum?: LevelPointsHistorySumAggregateFilter | null;
+	/** Distinct count aggregate over matching `LevelPointsHistory` objects. */
+	distinctCount?: LevelPointsHistoryDistinctCountAggregateFilter | null;
+	/** Minimum aggregate over matching `LevelPointsHistory` objects. */
+	min?: LevelPointsHistoryMinAggregateFilter | null;
+	/** Maximum aggregate over matching `LevelPointsHistory` objects. */
+	max?: LevelPointsHistoryMaxAggregateFilter | null;
+	/** Mean average aggregate over matching `LevelPointsHistory` objects. */
+	average?: LevelPointsHistoryAverageAggregateFilter | null;
+	/** Sample standard deviation aggregate over matching `LevelPointsHistory` objects. */
+	stddevSample?: LevelPointsHistoryStddevSampleAggregateFilter | null;
+	/** Population standard deviation aggregate over matching `LevelPointsHistory` objects. */
+	stddevPopulation?: LevelPointsHistoryStddevPopulationAggregateFilter | null;
+	/** Sample variance aggregate over matching `LevelPointsHistory` objects. */
+	varianceSample?: LevelPointsHistoryVarianceSampleAggregateFilter | null;
+	/** Population variance aggregate over matching `LevelPointsHistory` objects. */
+	variancePopulation?: LevelPointsHistoryVariancePopulationAggregateFilter | null;
+}
+
+export interface LevelPointsHistorySumAggregateFilter {
+	id?: BigIntFilter | null;
+	levelId?: BigIntFilter | null;
+	points?: BigIntFilter | null;
+	rating?: FloatFilter | null;
+	modifierLength?: FloatFilter | null;
+	modifierCompetitiveness?: FloatFilter | null;
+	modifierRating?: FloatFilter | null;
+	modifierPopularity?: FloatFilter | null;
+	cutPenalty?: FloatFilter | null;
+}
+
+export interface LevelPointsHistoryDistinctCountAggregateFilter {
+	id?: BigIntFilter | null;
+	levelId?: BigIntFilter | null;
+	points?: BigIntFilter | null;
+	dateCreated?: BigIntFilter | null;
+	dateUpdated?: BigIntFilter | null;
+	rating?: BigIntFilter | null;
+	modifierLength?: BigIntFilter | null;
+	modifierCompetitiveness?: BigIntFilter | null;
+	modifierRating?: BigIntFilter | null;
+	modifierPopularity?: BigIntFilter | null;
+	cutPenalty?: BigIntFilter | null;
+}
+
+export interface LevelPointsHistoryMinAggregateFilter {
+	id?: IntFilter | null;
+	levelId?: IntFilter | null;
+	points?: IntFilter | null;
+	rating?: FloatFilter | null;
+	modifierLength?: FloatFilter | null;
+	modifierCompetitiveness?: FloatFilter | null;
+	modifierRating?: FloatFilter | null;
+	modifierPopularity?: FloatFilter | null;
+	cutPenalty?: FloatFilter | null;
+}
+
+export interface LevelPointsHistoryMaxAggregateFilter {
+	id?: IntFilter | null;
+	levelId?: IntFilter | null;
+	points?: IntFilter | null;
+	rating?: FloatFilter | null;
+	modifierLength?: FloatFilter | null;
+	modifierCompetitiveness?: FloatFilter | null;
+	modifierRating?: FloatFilter | null;
+	modifierPopularity?: FloatFilter | null;
+	cutPenalty?: FloatFilter | null;
+}
+
+export interface LevelPointsHistoryAverageAggregateFilter {
+	id?: BigFloatFilter | null;
+	levelId?: BigFloatFilter | null;
+	points?: BigFloatFilter | null;
+	rating?: FloatFilter | null;
+	modifierLength?: FloatFilter | null;
+	modifierCompetitiveness?: FloatFilter | null;
+	modifierRating?: FloatFilter | null;
+	modifierPopularity?: FloatFilter | null;
+	cutPenalty?: FloatFilter | null;
+}
+
+export interface LevelPointsHistoryStddevSampleAggregateFilter {
+	id?: BigFloatFilter | null;
+	levelId?: BigFloatFilter | null;
+	points?: BigFloatFilter | null;
+	rating?: FloatFilter | null;
+	modifierLength?: FloatFilter | null;
+	modifierCompetitiveness?: FloatFilter | null;
+	modifierRating?: FloatFilter | null;
+	modifierPopularity?: FloatFilter | null;
+	cutPenalty?: FloatFilter | null;
+}
+
+export interface LevelPointsHistoryStddevPopulationAggregateFilter {
+	id?: BigFloatFilter | null;
+	levelId?: BigFloatFilter | null;
+	points?: BigFloatFilter | null;
+	rating?: FloatFilter | null;
+	modifierLength?: FloatFilter | null;
+	modifierCompetitiveness?: FloatFilter | null;
+	modifierRating?: FloatFilter | null;
+	modifierPopularity?: FloatFilter | null;
+	cutPenalty?: FloatFilter | null;
+}
+
+export interface LevelPointsHistoryVarianceSampleAggregateFilter {
+	id?: BigFloatFilter | null;
+	levelId?: BigFloatFilter | null;
+	points?: BigFloatFilter | null;
+	rating?: FloatFilter | null;
+	modifierLength?: FloatFilter | null;
+	modifierCompetitiveness?: FloatFilter | null;
+	modifierRating?: FloatFilter | null;
+	modifierPopularity?: FloatFilter | null;
+	cutPenalty?: FloatFilter | null;
+}
+
+export interface LevelPointsHistoryVariancePopulationAggregateFilter {
+	id?: BigFloatFilter | null;
+	levelId?: BigFloatFilter | null;
+	points?: BigFloatFilter | null;
+	rating?: FloatFilter | null;
+	modifierLength?: FloatFilter | null;
+	modifierCompetitiveness?: FloatFilter | null;
+	modifierRating?: FloatFilter | null;
+	modifierPopularity?: FloatFilter | null;
+	cutPenalty?: FloatFilter | null;
+}
+
 /** A filter to be used against many `PersonalBestGlobal` object types. All fields are combined with a logical ‘and.’ */
 export interface LevelToManyPersonalBestGlobalFilter {
 	/** Every related `PersonalBestGlobal` matches the filter criteria. All fields are combined with a logical ‘and.’ */
@@ -14414,186 +14594,6 @@ export interface VoteVariancePopulationAggregateFilter {
 	userId?: BigFloatFilter | null;
 	levelId?: BigFloatFilter | null;
 	value?: BigFloatFilter | null;
-}
-
-/** A filter to be used against many `LevelPointsHistory` object types. All fields are combined with a logical ‘and.’ */
-export interface LevelToManyLevelPointsHistoryFilter {
-	/** Every related `LevelPointsHistory` matches the filter criteria. All fields are combined with a logical ‘and.’ */
-	every?: LevelPointsHistoryFilter | null;
-	/** Some related `LevelPointsHistory` matches the filter criteria. All fields are combined with a logical ‘and.’ */
-	some?: LevelPointsHistoryFilter | null;
-	/** No related `LevelPointsHistory` matches the filter criteria. All fields are combined with a logical ‘and.’ */
-	none?: LevelPointsHistoryFilter | null;
-	/** Aggregates across related `LevelPointsHistory` match the filter criteria. */
-	aggregates?: LevelPointsHistoryAggregatesFilter | null;
-}
-
-/** A filter to be used against `LevelPointsHistory` object types. All fields are combined with a logical ‘and.’ */
-export interface LevelPointsHistoryFilter {
-	/** Filter by the object’s `id` field. */
-	id?: IntFilter | null;
-	/** Filter by the object’s `levelId` field. */
-	levelId?: IntFilter | null;
-	/** Filter by the object’s `points` field. */
-	points?: IntFilter | null;
-	/** Filter by the object’s `dateCreated` field. */
-	dateCreated?: DatetimeFilter | null;
-	/** Filter by the object’s `dateUpdated` field. */
-	dateUpdated?: DatetimeFilter | null;
-	/** Filter by the object’s `rating` field. */
-	rating?: FloatFilter | null;
-	/** Filter by the object’s `modifierLength` field. */
-	modifierLength?: FloatFilter | null;
-	/** Filter by the object’s `modifierCompetitiveness` field. */
-	modifierCompetitiveness?: FloatFilter | null;
-	/** Filter by the object’s `modifierRating` field. */
-	modifierRating?: FloatFilter | null;
-	/** Filter by the object’s `modifierPopularity` field. */
-	modifierPopularity?: FloatFilter | null;
-	/** Filter by the object’s `cutPenalty` field. */
-	cutPenalty?: FloatFilter | null;
-	/** Filter by the object’s `level` relation. */
-	level?: LevelFilter | null;
-	/** Checks for all expressions in this list. */
-	and?: LevelPointsHistoryFilter[] | null;
-	/** Checks for any expressions in this list. */
-	or?: LevelPointsHistoryFilter[] | null;
-	/** Negates the expression. */
-	not?: LevelPointsHistoryFilter | null;
-}
-
-/** A filter to be used against aggregates of `LevelPointsHistory` object types. */
-export interface LevelPointsHistoryAggregatesFilter {
-	/** A filter that must pass for the relevant `LevelPointsHistory` object to be included within the aggregate. */
-	filter?: LevelPointsHistoryFilter | null;
-	/** Sum aggregate over matching `LevelPointsHistory` objects. */
-	sum?: LevelPointsHistorySumAggregateFilter | null;
-	/** Distinct count aggregate over matching `LevelPointsHistory` objects. */
-	distinctCount?: LevelPointsHistoryDistinctCountAggregateFilter | null;
-	/** Minimum aggregate over matching `LevelPointsHistory` objects. */
-	min?: LevelPointsHistoryMinAggregateFilter | null;
-	/** Maximum aggregate over matching `LevelPointsHistory` objects. */
-	max?: LevelPointsHistoryMaxAggregateFilter | null;
-	/** Mean average aggregate over matching `LevelPointsHistory` objects. */
-	average?: LevelPointsHistoryAverageAggregateFilter | null;
-	/** Sample standard deviation aggregate over matching `LevelPointsHistory` objects. */
-	stddevSample?: LevelPointsHistoryStddevSampleAggregateFilter | null;
-	/** Population standard deviation aggregate over matching `LevelPointsHistory` objects. */
-	stddevPopulation?: LevelPointsHistoryStddevPopulationAggregateFilter | null;
-	/** Sample variance aggregate over matching `LevelPointsHistory` objects. */
-	varianceSample?: LevelPointsHistoryVarianceSampleAggregateFilter | null;
-	/** Population variance aggregate over matching `LevelPointsHistory` objects. */
-	variancePopulation?: LevelPointsHistoryVariancePopulationAggregateFilter | null;
-}
-
-export interface LevelPointsHistorySumAggregateFilter {
-	id?: BigIntFilter | null;
-	levelId?: BigIntFilter | null;
-	points?: BigIntFilter | null;
-	rating?: FloatFilter | null;
-	modifierLength?: FloatFilter | null;
-	modifierCompetitiveness?: FloatFilter | null;
-	modifierRating?: FloatFilter | null;
-	modifierPopularity?: FloatFilter | null;
-	cutPenalty?: FloatFilter | null;
-}
-
-export interface LevelPointsHistoryDistinctCountAggregateFilter {
-	id?: BigIntFilter | null;
-	levelId?: BigIntFilter | null;
-	points?: BigIntFilter | null;
-	dateCreated?: BigIntFilter | null;
-	dateUpdated?: BigIntFilter | null;
-	rating?: BigIntFilter | null;
-	modifierLength?: BigIntFilter | null;
-	modifierCompetitiveness?: BigIntFilter | null;
-	modifierRating?: BigIntFilter | null;
-	modifierPopularity?: BigIntFilter | null;
-	cutPenalty?: BigIntFilter | null;
-}
-
-export interface LevelPointsHistoryMinAggregateFilter {
-	id?: IntFilter | null;
-	levelId?: IntFilter | null;
-	points?: IntFilter | null;
-	rating?: FloatFilter | null;
-	modifierLength?: FloatFilter | null;
-	modifierCompetitiveness?: FloatFilter | null;
-	modifierRating?: FloatFilter | null;
-	modifierPopularity?: FloatFilter | null;
-	cutPenalty?: FloatFilter | null;
-}
-
-export interface LevelPointsHistoryMaxAggregateFilter {
-	id?: IntFilter | null;
-	levelId?: IntFilter | null;
-	points?: IntFilter | null;
-	rating?: FloatFilter | null;
-	modifierLength?: FloatFilter | null;
-	modifierCompetitiveness?: FloatFilter | null;
-	modifierRating?: FloatFilter | null;
-	modifierPopularity?: FloatFilter | null;
-	cutPenalty?: FloatFilter | null;
-}
-
-export interface LevelPointsHistoryAverageAggregateFilter {
-	id?: BigFloatFilter | null;
-	levelId?: BigFloatFilter | null;
-	points?: BigFloatFilter | null;
-	rating?: FloatFilter | null;
-	modifierLength?: FloatFilter | null;
-	modifierCompetitiveness?: FloatFilter | null;
-	modifierRating?: FloatFilter | null;
-	modifierPopularity?: FloatFilter | null;
-	cutPenalty?: FloatFilter | null;
-}
-
-export interface LevelPointsHistoryStddevSampleAggregateFilter {
-	id?: BigFloatFilter | null;
-	levelId?: BigFloatFilter | null;
-	points?: BigFloatFilter | null;
-	rating?: FloatFilter | null;
-	modifierLength?: FloatFilter | null;
-	modifierCompetitiveness?: FloatFilter | null;
-	modifierRating?: FloatFilter | null;
-	modifierPopularity?: FloatFilter | null;
-	cutPenalty?: FloatFilter | null;
-}
-
-export interface LevelPointsHistoryStddevPopulationAggregateFilter {
-	id?: BigFloatFilter | null;
-	levelId?: BigFloatFilter | null;
-	points?: BigFloatFilter | null;
-	rating?: FloatFilter | null;
-	modifierLength?: FloatFilter | null;
-	modifierCompetitiveness?: FloatFilter | null;
-	modifierRating?: FloatFilter | null;
-	modifierPopularity?: FloatFilter | null;
-	cutPenalty?: FloatFilter | null;
-}
-
-export interface LevelPointsHistoryVarianceSampleAggregateFilter {
-	id?: BigFloatFilter | null;
-	levelId?: BigFloatFilter | null;
-	points?: BigFloatFilter | null;
-	rating?: FloatFilter | null;
-	modifierLength?: FloatFilter | null;
-	modifierCompetitiveness?: FloatFilter | null;
-	modifierRating?: FloatFilter | null;
-	modifierPopularity?: FloatFilter | null;
-	cutPenalty?: FloatFilter | null;
-}
-
-export interface LevelPointsHistoryVariancePopulationAggregateFilter {
-	id?: BigFloatFilter | null;
-	levelId?: BigFloatFilter | null;
-	points?: BigFloatFilter | null;
-	rating?: FloatFilter | null;
-	modifierLength?: FloatFilter | null;
-	modifierCompetitiveness?: FloatFilter | null;
-	modifierRating?: FloatFilter | null;
-	modifierPopularity?: FloatFilter | null;
-	cutPenalty?: FloatFilter | null;
 }
 
 /** A filter to be used against many `ZslLevel` object types. All fields are combined with a logical ‘and.’ */
@@ -15722,30 +15722,6 @@ export interface UserToManyRecordFilter {
 	aggregates?: RecordAggregatesFilter | null;
 }
 
-/** A filter to be used against many `WorldRecordGlobal` object types. All fields are combined with a logical ‘and.’ */
-export interface UserToManyWorldRecordGlobalFilter {
-	/** Every related `WorldRecordGlobal` matches the filter criteria. All fields are combined with a logical ‘and.’ */
-	every?: WorldRecordGlobalFilter | null;
-	/** Some related `WorldRecordGlobal` matches the filter criteria. All fields are combined with a logical ‘and.’ */
-	some?: WorldRecordGlobalFilter | null;
-	/** No related `WorldRecordGlobal` matches the filter criteria. All fields are combined with a logical ‘and.’ */
-	none?: WorldRecordGlobalFilter | null;
-	/** Aggregates across related `WorldRecordGlobal` match the filter criteria. */
-	aggregates?: WorldRecordGlobalAggregatesFilter | null;
-}
-
-/** A filter to be used against many `Vote` object types. All fields are combined with a logical ‘and.’ */
-export interface UserToManyVoteFilter {
-	/** Every related `Vote` matches the filter criteria. All fields are combined with a logical ‘and.’ */
-	every?: VoteFilter | null;
-	/** Some related `Vote` matches the filter criteria. All fields are combined with a logical ‘and.’ */
-	some?: VoteFilter | null;
-	/** No related `Vote` matches the filter criteria. All fields are combined with a logical ‘and.’ */
-	none?: VoteFilter | null;
-	/** Aggregates across related `Vote` match the filter criteria. */
-	aggregates?: VoteAggregatesFilter | null;
-}
-
 /** A filter to be used against many `UserPointsHistory` object types. All fields are combined with a logical ‘and.’ */
 export interface UserToManyUserPointsHistoryFilter {
 	/** Every related `UserPointsHistory` matches the filter criteria. All fields are combined with a logical ‘and.’ */
@@ -15891,6 +15867,30 @@ export interface UserPointsHistoryVariancePopulationAggregateFilter {
 	totalPoints?: BigFloatFilter | null;
 	rank?: BigFloatFilter | null;
 	worldRecords?: BigFloatFilter | null;
+}
+
+/** A filter to be used against many `Vote` object types. All fields are combined with a logical ‘and.’ */
+export interface UserToManyVoteFilter {
+	/** Every related `Vote` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+	every?: VoteFilter | null;
+	/** Some related `Vote` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+	some?: VoteFilter | null;
+	/** No related `Vote` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+	none?: VoteFilter | null;
+	/** Aggregates across related `Vote` match the filter criteria. */
+	aggregates?: VoteAggregatesFilter | null;
+}
+
+/** A filter to be used against many `WorldRecordGlobal` object types. All fields are combined with a logical ‘and.’ */
+export interface UserToManyWorldRecordGlobalFilter {
+	/** Every related `WorldRecordGlobal` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+	every?: WorldRecordGlobalFilter | null;
+	/** Some related `WorldRecordGlobal` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+	some?: WorldRecordGlobalFilter | null;
+	/** No related `WorldRecordGlobal` matches the filter criteria. All fields are combined with a logical ‘and.’ */
+	none?: WorldRecordGlobalFilter | null;
+	/** Aggregates across related `WorldRecordGlobal` match the filter criteria. */
+	aggregates?: WorldRecordGlobalAggregatesFilter | null;
 }
 
 /** A filter to be used against many `ZslLevelResult` object types. All fields are combined with a logical ‘and.’ */
@@ -16318,6 +16318,30 @@ export interface LevelGenqlSelection {
 			filter?: LevelPointFilter | null;
 		};
 	};
+	/** Reads and enables pagination through a set of `LevelPointsHistory`. */
+	levelPointsHistories?: LevelPointsHistoriesConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `LevelPointsHistory`. */
+			orderBy?: LevelPointsHistoriesOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: LevelPointsHistoryCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: LevelPointsHistoryFilter | null;
+		};
+	};
 	/** Reads and enables pagination through a set of `PersonalBestGlobal`. */
 	personalBestGlobals?: PersonalBestGlobalsConnectionGenqlSelection & {
 		__args?: {
@@ -16366,6 +16390,30 @@ export interface LevelGenqlSelection {
 			filter?: RecordFilter | null;
 		};
 	};
+	/** Reads and enables pagination through a set of `Vote`. */
+	votes?: VotesConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `Vote`. */
+			orderBy?: VotesOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: VoteCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: VoteFilter | null;
+		};
+	};
 	/** Reads a single `WorldRecordGlobal` that is related to this `Level`. */
 	worldRecordGlobal?: WorldRecordGlobalGenqlSelection;
 	/**
@@ -16393,54 +16441,6 @@ export interface LevelGenqlSelection {
 			condition?: WorldRecordGlobalCondition | null;
 			/** A filter to be used in determining which values should be returned by the collection. */
 			filter?: WorldRecordGlobalFilter | null;
-		};
-	};
-	/** Reads and enables pagination through a set of `Vote`. */
-	votes?: VotesConnectionGenqlSelection & {
-		__args?: {
-			/** Only read the first `n` values of the set. */
-			first?: Scalars['Int'] | null;
-			/** Only read the last `n` values of the set. */
-			last?: Scalars['Int'] | null;
-			/**
-			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
-			 * based pagination. May not be used with `last`.
-			 */
-			offset?: Scalars['Int'] | null;
-			/** Read all values in the set before (above) this cursor. */
-			before?: Scalars['Cursor'] | null;
-			/** Read all values in the set after (below) this cursor. */
-			after?: Scalars['Cursor'] | null;
-			/** The method to use when ordering `Vote`. */
-			orderBy?: VotesOrderBy[] | null;
-			/** A condition to be used in determining which values should be returned by the collection. */
-			condition?: VoteCondition | null;
-			/** A filter to be used in determining which values should be returned by the collection. */
-			filter?: VoteFilter | null;
-		};
-	};
-	/** Reads and enables pagination through a set of `LevelPointsHistory`. */
-	levelPointsHistories?: LevelPointsHistoriesConnectionGenqlSelection & {
-		__args?: {
-			/** Only read the first `n` values of the set. */
-			first?: Scalars['Int'] | null;
-			/** Only read the last `n` values of the set. */
-			last?: Scalars['Int'] | null;
-			/**
-			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
-			 * based pagination. May not be used with `last`.
-			 */
-			offset?: Scalars['Int'] | null;
-			/** Read all values in the set before (above) this cursor. */
-			before?: Scalars['Cursor'] | null;
-			/** Read all values in the set after (below) this cursor. */
-			after?: Scalars['Cursor'] | null;
-			/** The method to use when ordering `LevelPointsHistory`. */
-			orderBy?: LevelPointsHistoriesOrderBy[] | null;
-			/** A condition to be used in determining which values should be returned by the collection. */
-			condition?: LevelPointsHistoryCondition | null;
-			/** A filter to be used in determining which values should be returned by the collection. */
-			filter?: LevelPointsHistoryFilter | null;
 		};
 	};
 	/** Reads and enables pagination through a set of `ZslLevel`. */
@@ -18013,956 +18013,6 @@ export interface LevelPointCondition {
 	cutPenalty?: Scalars['Float'] | null;
 }
 
-/**
- * A condition to be used against `PersonalBestGlobal` object types. All fields are
- * tested for equality and combined with a logical ‘and.’
- */
-export interface PersonalBestGlobalCondition {
-	/** Checks for equality with the object’s `id` field. */
-	id?: Scalars['Int'] | null;
-	/** Checks for equality with the object’s `recordId` field. */
-	recordId?: Scalars['Int'] | null;
-	/** Checks for equality with the object’s `userId` field. */
-	userId?: Scalars['Int'] | null;
-	/** Checks for equality with the object’s `levelId` field. */
-	levelId?: Scalars['Int'] | null;
-	/** Checks for equality with the object’s `dateCreated` field. */
-	dateCreated?: Scalars['Datetime'] | null;
-	/** Checks for equality with the object’s `dateUpdated` field. */
-	dateUpdated?: Scalars['Datetime'] | null;
-}
-
-/** A connection to a list of `Record` values. */
-export interface RecordsConnectionGenqlSelection {
-	/** A list of `Record` objects. */
-	nodes?: RecordGenqlSelection;
-	/** A list of edges which contains the `Record` and cursor to aid in pagination. */
-	edges?: RecordsEdgeGenqlSelection;
-	/** Information to aid in pagination. */
-	pageInfo?: PageInfoGenqlSelection;
-	/** The count of *all* `Record` you could get from the connection. */
-	totalCount?: boolean | number;
-	/** Aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	aggregates?: RecordAggregatesGenqlSelection;
-	/** Grouped aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	groupedAggregates?: RecordAggregatesGenqlSelection & {
-		__args: {
-			/** The method to use when grouping `Record` for these aggregates. */
-			groupBy: RecordGroupBy[];
-			/** Conditions on the grouped aggregates. */
-			having?: RecordHavingInput | null;
-		};
-	};
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-/** A `Record` edge in the connection. */
-export interface RecordsEdgeGenqlSelection {
-	/** A cursor for use in pagination. */
-	cursor?: boolean | number;
-	/** The `Record` at the end of the edge. */
-	node?: RecordGenqlSelection;
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-export interface RecordAggregatesGenqlSelection {
-	keys?: boolean | number;
-	/** Sum aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	sum?: RecordSumAggregatesGenqlSelection;
-	/** Distinct count aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	distinctCount?: RecordDistinctCountAggregatesGenqlSelection;
-	/** Minimum aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	min?: RecordMinAggregatesGenqlSelection;
-	/** Maximum aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	max?: RecordMaxAggregatesGenqlSelection;
-	/** Mean average aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	average?: RecordAverageAggregatesGenqlSelection;
-	/** Sample standard deviation aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	stddevSample?: RecordStddevSampleAggregatesGenqlSelection;
-	/** Population standard deviation aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	stddevPopulation?: RecordStddevPopulationAggregatesGenqlSelection;
-	/** Sample variance aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	varianceSample?: RecordVarianceSampleAggregatesGenqlSelection;
-	/** Population variance aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	variancePopulation?: RecordVariancePopulationAggregatesGenqlSelection;
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-export interface RecordSumAggregatesGenqlSelection {
-	/** Sum of id across the matching connection */
-	id?: boolean | number;
-	/** Sum of userId across the matching connection */
-	userId?: boolean | number;
-	/** Sum of time across the matching connection */
-	time?: boolean | number;
-	/** Sum of levelId across the matching connection */
-	levelId?: boolean | number;
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-export interface RecordDistinctCountAggregatesGenqlSelection {
-	/** Distinct count of id across the matching connection */
-	id?: boolean | number;
-	/** Distinct count of userId across the matching connection */
-	userId?: boolean | number;
-	/** Distinct count of time across the matching connection */
-	time?: boolean | number;
-	/** Distinct count of gameVersion across the matching connection */
-	gameVersion?: boolean | number;
-	/** Distinct count of levelId across the matching connection */
-	levelId?: boolean | number;
-	/** Distinct count of modVersion across the matching connection */
-	modVersion?: boolean | number;
-	/** Distinct count of dateCreated across the matching connection */
-	dateCreated?: boolean | number;
-	/** Distinct count of dateUpdated across the matching connection */
-	dateUpdated?: boolean | number;
-	/** Distinct count of splits across the matching connection */
-	splits?: boolean | number;
-	/** Distinct count of speeds across the matching connection */
-	speeds?: boolean | number;
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-export interface RecordMinAggregatesGenqlSelection {
-	/** Minimum of id across the matching connection */
-	id?: boolean | number;
-	/** Minimum of userId across the matching connection */
-	userId?: boolean | number;
-	/** Minimum of time across the matching connection */
-	time?: boolean | number;
-	/** Minimum of levelId across the matching connection */
-	levelId?: boolean | number;
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-export interface RecordMaxAggregatesGenqlSelection {
-	/** Maximum of id across the matching connection */
-	id?: boolean | number;
-	/** Maximum of userId across the matching connection */
-	userId?: boolean | number;
-	/** Maximum of time across the matching connection */
-	time?: boolean | number;
-	/** Maximum of levelId across the matching connection */
-	levelId?: boolean | number;
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-export interface RecordAverageAggregatesGenqlSelection {
-	/** Mean average of id across the matching connection */
-	id?: boolean | number;
-	/** Mean average of userId across the matching connection */
-	userId?: boolean | number;
-	/** Mean average of time across the matching connection */
-	time?: boolean | number;
-	/** Mean average of levelId across the matching connection */
-	levelId?: boolean | number;
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-export interface RecordStddevSampleAggregatesGenqlSelection {
-	/** Sample standard deviation of id across the matching connection */
-	id?: boolean | number;
-	/** Sample standard deviation of userId across the matching connection */
-	userId?: boolean | number;
-	/** Sample standard deviation of time across the matching connection */
-	time?: boolean | number;
-	/** Sample standard deviation of levelId across the matching connection */
-	levelId?: boolean | number;
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-export interface RecordStddevPopulationAggregatesGenqlSelection {
-	/** Population standard deviation of id across the matching connection */
-	id?: boolean | number;
-	/** Population standard deviation of userId across the matching connection */
-	userId?: boolean | number;
-	/** Population standard deviation of time across the matching connection */
-	time?: boolean | number;
-	/** Population standard deviation of levelId across the matching connection */
-	levelId?: boolean | number;
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-export interface RecordVarianceSampleAggregatesGenqlSelection {
-	/** Sample variance of id across the matching connection */
-	id?: boolean | number;
-	/** Sample variance of userId across the matching connection */
-	userId?: boolean | number;
-	/** Sample variance of time across the matching connection */
-	time?: boolean | number;
-	/** Sample variance of levelId across the matching connection */
-	levelId?: boolean | number;
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-export interface RecordVariancePopulationAggregatesGenqlSelection {
-	/** Population variance of id across the matching connection */
-	id?: boolean | number;
-	/** Population variance of userId across the matching connection */
-	userId?: boolean | number;
-	/** Population variance of time across the matching connection */
-	time?: boolean | number;
-	/** Population variance of levelId across the matching connection */
-	levelId?: boolean | number;
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-/** Conditions for `Record` aggregates. */
-export interface RecordHavingInput {
-	AND?: RecordHavingInput[] | null;
-	OR?: RecordHavingInput[] | null;
-	sum?: RecordHavingSumInput | null;
-	distinctCount?: RecordHavingDistinctCountInput | null;
-	min?: RecordHavingMinInput | null;
-	max?: RecordHavingMaxInput | null;
-	average?: RecordHavingAverageInput | null;
-	stddevSample?: RecordHavingStddevSampleInput | null;
-	stddevPopulation?: RecordHavingStddevPopulationInput | null;
-	varianceSample?: RecordHavingVarianceSampleInput | null;
-	variancePopulation?: RecordHavingVariancePopulationInput | null;
-}
-
-export interface RecordHavingSumInput {
-	id?: HavingIntFilter | null;
-	userId?: HavingIntFilter | null;
-	time?: HavingFloatFilter | null;
-	levelId?: HavingIntFilter | null;
-	dateCreated?: HavingDatetimeFilter | null;
-	dateUpdated?: HavingDatetimeFilter | null;
-}
-
-export interface RecordHavingDistinctCountInput {
-	id?: HavingIntFilter | null;
-	userId?: HavingIntFilter | null;
-	time?: HavingFloatFilter | null;
-	levelId?: HavingIntFilter | null;
-	dateCreated?: HavingDatetimeFilter | null;
-	dateUpdated?: HavingDatetimeFilter | null;
-}
-
-export interface RecordHavingMinInput {
-	id?: HavingIntFilter | null;
-	userId?: HavingIntFilter | null;
-	time?: HavingFloatFilter | null;
-	levelId?: HavingIntFilter | null;
-	dateCreated?: HavingDatetimeFilter | null;
-	dateUpdated?: HavingDatetimeFilter | null;
-}
-
-export interface RecordHavingMaxInput {
-	id?: HavingIntFilter | null;
-	userId?: HavingIntFilter | null;
-	time?: HavingFloatFilter | null;
-	levelId?: HavingIntFilter | null;
-	dateCreated?: HavingDatetimeFilter | null;
-	dateUpdated?: HavingDatetimeFilter | null;
-}
-
-export interface RecordHavingAverageInput {
-	id?: HavingIntFilter | null;
-	userId?: HavingIntFilter | null;
-	time?: HavingFloatFilter | null;
-	levelId?: HavingIntFilter | null;
-	dateCreated?: HavingDatetimeFilter | null;
-	dateUpdated?: HavingDatetimeFilter | null;
-}
-
-export interface RecordHavingStddevSampleInput {
-	id?: HavingIntFilter | null;
-	userId?: HavingIntFilter | null;
-	time?: HavingFloatFilter | null;
-	levelId?: HavingIntFilter | null;
-	dateCreated?: HavingDatetimeFilter | null;
-	dateUpdated?: HavingDatetimeFilter | null;
-}
-
-export interface RecordHavingStddevPopulationInput {
-	id?: HavingIntFilter | null;
-	userId?: HavingIntFilter | null;
-	time?: HavingFloatFilter | null;
-	levelId?: HavingIntFilter | null;
-	dateCreated?: HavingDatetimeFilter | null;
-	dateUpdated?: HavingDatetimeFilter | null;
-}
-
-export interface RecordHavingVarianceSampleInput {
-	id?: HavingIntFilter | null;
-	userId?: HavingIntFilter | null;
-	time?: HavingFloatFilter | null;
-	levelId?: HavingIntFilter | null;
-	dateCreated?: HavingDatetimeFilter | null;
-	dateUpdated?: HavingDatetimeFilter | null;
-}
-
-export interface RecordHavingVariancePopulationInput {
-	id?: HavingIntFilter | null;
-	userId?: HavingIntFilter | null;
-	time?: HavingFloatFilter | null;
-	levelId?: HavingIntFilter | null;
-	dateCreated?: HavingDatetimeFilter | null;
-	dateUpdated?: HavingDatetimeFilter | null;
-}
-
-/** A condition to be used against `Record` object types. All fields are tested for equality and combined with a logical ‘and.’ */
-export interface RecordCondition {
-	/** Checks for equality with the object’s `id` field. */
-	id?: Scalars['Int'] | null;
-	/** Checks for equality with the object’s `userId` field. */
-	userId?: Scalars['Int'] | null;
-	/** Checks for equality with the object’s `time` field. */
-	time?: Scalars['Float'] | null;
-	/** Checks for equality with the object’s `gameVersion` field. */
-	gameVersion?: Scalars['String'] | null;
-	/** Checks for equality with the object’s `levelId` field. */
-	levelId?: Scalars['Int'] | null;
-	/** Checks for equality with the object’s `modVersion` field. */
-	modVersion?: Scalars['String'] | null;
-	/** Checks for equality with the object’s `dateCreated` field. */
-	dateCreated?: Scalars['Datetime'] | null;
-	/** Checks for equality with the object’s `dateUpdated` field. */
-	dateUpdated?: Scalars['Datetime'] | null;
-	/** Checks for equality with the object’s `splits` field. */
-	splits?: (Scalars['Float'] | null)[] | null;
-	/** Checks for equality with the object’s `speeds` field. */
-	speeds?: (Scalars['Float'] | null)[] | null;
-}
-
-export interface WorldRecordGlobalGenqlSelection {
-	/** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
-	nodeId?: boolean | number;
-	id?: boolean | number;
-	recordId?: boolean | number;
-	levelId?: boolean | number;
-	dateCreated?: boolean | number;
-	dateUpdated?: boolean | number;
-	userId?: boolean | number;
-	/** Reads a single `Record` that is related to this `WorldRecordGlobal`. */
-	record?: RecordGenqlSelection;
-	/** Reads a single `Level` that is related to this `WorldRecordGlobal`. */
-	level?: LevelGenqlSelection;
-	/** Reads a single `User` that is related to this `WorldRecordGlobal`. */
-	user?: UserGenqlSelection;
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-/** A connection to a list of `WorldRecordGlobal` values. */
-export interface WorldRecordGlobalsConnectionGenqlSelection {
-	/** A list of `WorldRecordGlobal` objects. */
-	nodes?: WorldRecordGlobalGenqlSelection;
-	/** A list of edges which contains the `WorldRecordGlobal` and cursor to aid in pagination. */
-	edges?: WorldRecordGlobalsEdgeGenqlSelection;
-	/** Information to aid in pagination. */
-	pageInfo?: PageInfoGenqlSelection;
-	/** The count of *all* `WorldRecordGlobal` you could get from the connection. */
-	totalCount?: boolean | number;
-	/** Aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	aggregates?: WorldRecordGlobalAggregatesGenqlSelection;
-	/** Grouped aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	groupedAggregates?: WorldRecordGlobalAggregatesGenqlSelection & {
-		__args: {
-			/** The method to use when grouping `WorldRecordGlobal` for these aggregates. */
-			groupBy: WorldRecordGlobalGroupBy[];
-			/** Conditions on the grouped aggregates. */
-			having?: WorldRecordGlobalHavingInput | null;
-		};
-	};
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-/** A `WorldRecordGlobal` edge in the connection. */
-export interface WorldRecordGlobalsEdgeGenqlSelection {
-	/** A cursor for use in pagination. */
-	cursor?: boolean | number;
-	/** The `WorldRecordGlobal` at the end of the edge. */
-	node?: WorldRecordGlobalGenqlSelection;
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-export interface WorldRecordGlobalAggregatesGenqlSelection {
-	keys?: boolean | number;
-	/** Sum aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	sum?: WorldRecordGlobalSumAggregatesGenqlSelection;
-	/** Distinct count aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	distinctCount?: WorldRecordGlobalDistinctCountAggregatesGenqlSelection;
-	/** Minimum aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	min?: WorldRecordGlobalMinAggregatesGenqlSelection;
-	/** Maximum aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	max?: WorldRecordGlobalMaxAggregatesGenqlSelection;
-	/** Mean average aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	average?: WorldRecordGlobalAverageAggregatesGenqlSelection;
-	/** Sample standard deviation aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	stddevSample?: WorldRecordGlobalStddevSampleAggregatesGenqlSelection;
-	/** Population standard deviation aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	stddevPopulation?: WorldRecordGlobalStddevPopulationAggregatesGenqlSelection;
-	/** Sample variance aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	varianceSample?: WorldRecordGlobalVarianceSampleAggregatesGenqlSelection;
-	/** Population variance aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	variancePopulation?: WorldRecordGlobalVariancePopulationAggregatesGenqlSelection;
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-export interface WorldRecordGlobalSumAggregatesGenqlSelection {
-	/** Sum of id across the matching connection */
-	id?: boolean | number;
-	/** Sum of recordId across the matching connection */
-	recordId?: boolean | number;
-	/** Sum of levelId across the matching connection */
-	levelId?: boolean | number;
-	/** Sum of userId across the matching connection */
-	userId?: boolean | number;
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-export interface WorldRecordGlobalDistinctCountAggregatesGenqlSelection {
-	/** Distinct count of id across the matching connection */
-	id?: boolean | number;
-	/** Distinct count of recordId across the matching connection */
-	recordId?: boolean | number;
-	/** Distinct count of levelId across the matching connection */
-	levelId?: boolean | number;
-	/** Distinct count of dateCreated across the matching connection */
-	dateCreated?: boolean | number;
-	/** Distinct count of dateUpdated across the matching connection */
-	dateUpdated?: boolean | number;
-	/** Distinct count of userId across the matching connection */
-	userId?: boolean | number;
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-export interface WorldRecordGlobalMinAggregatesGenqlSelection {
-	/** Minimum of id across the matching connection */
-	id?: boolean | number;
-	/** Minimum of recordId across the matching connection */
-	recordId?: boolean | number;
-	/** Minimum of levelId across the matching connection */
-	levelId?: boolean | number;
-	/** Minimum of userId across the matching connection */
-	userId?: boolean | number;
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-export interface WorldRecordGlobalMaxAggregatesGenqlSelection {
-	/** Maximum of id across the matching connection */
-	id?: boolean | number;
-	/** Maximum of recordId across the matching connection */
-	recordId?: boolean | number;
-	/** Maximum of levelId across the matching connection */
-	levelId?: boolean | number;
-	/** Maximum of userId across the matching connection */
-	userId?: boolean | number;
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-export interface WorldRecordGlobalAverageAggregatesGenqlSelection {
-	/** Mean average of id across the matching connection */
-	id?: boolean | number;
-	/** Mean average of recordId across the matching connection */
-	recordId?: boolean | number;
-	/** Mean average of levelId across the matching connection */
-	levelId?: boolean | number;
-	/** Mean average of userId across the matching connection */
-	userId?: boolean | number;
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-export interface WorldRecordGlobalStddevSampleAggregatesGenqlSelection {
-	/** Sample standard deviation of id across the matching connection */
-	id?: boolean | number;
-	/** Sample standard deviation of recordId across the matching connection */
-	recordId?: boolean | number;
-	/** Sample standard deviation of levelId across the matching connection */
-	levelId?: boolean | number;
-	/** Sample standard deviation of userId across the matching connection */
-	userId?: boolean | number;
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-export interface WorldRecordGlobalStddevPopulationAggregatesGenqlSelection {
-	/** Population standard deviation of id across the matching connection */
-	id?: boolean | number;
-	/** Population standard deviation of recordId across the matching connection */
-	recordId?: boolean | number;
-	/** Population standard deviation of levelId across the matching connection */
-	levelId?: boolean | number;
-	/** Population standard deviation of userId across the matching connection */
-	userId?: boolean | number;
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-export interface WorldRecordGlobalVarianceSampleAggregatesGenqlSelection {
-	/** Sample variance of id across the matching connection */
-	id?: boolean | number;
-	/** Sample variance of recordId across the matching connection */
-	recordId?: boolean | number;
-	/** Sample variance of levelId across the matching connection */
-	levelId?: boolean | number;
-	/** Sample variance of userId across the matching connection */
-	userId?: boolean | number;
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-export interface WorldRecordGlobalVariancePopulationAggregatesGenqlSelection {
-	/** Population variance of id across the matching connection */
-	id?: boolean | number;
-	/** Population variance of recordId across the matching connection */
-	recordId?: boolean | number;
-	/** Population variance of levelId across the matching connection */
-	levelId?: boolean | number;
-	/** Population variance of userId across the matching connection */
-	userId?: boolean | number;
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-/** Conditions for `WorldRecordGlobal` aggregates. */
-export interface WorldRecordGlobalHavingInput {
-	AND?: WorldRecordGlobalHavingInput[] | null;
-	OR?: WorldRecordGlobalHavingInput[] | null;
-	sum?: WorldRecordGlobalHavingSumInput | null;
-	distinctCount?: WorldRecordGlobalHavingDistinctCountInput | null;
-	min?: WorldRecordGlobalHavingMinInput | null;
-	max?: WorldRecordGlobalHavingMaxInput | null;
-	average?: WorldRecordGlobalHavingAverageInput | null;
-	stddevSample?: WorldRecordGlobalHavingStddevSampleInput | null;
-	stddevPopulation?: WorldRecordGlobalHavingStddevPopulationInput | null;
-	varianceSample?: WorldRecordGlobalHavingVarianceSampleInput | null;
-	variancePopulation?: WorldRecordGlobalHavingVariancePopulationInput | null;
-}
-
-export interface WorldRecordGlobalHavingSumInput {
-	id?: HavingIntFilter | null;
-	recordId?: HavingIntFilter | null;
-	levelId?: HavingIntFilter | null;
-	dateCreated?: HavingDatetimeFilter | null;
-	dateUpdated?: HavingDatetimeFilter | null;
-	userId?: HavingIntFilter | null;
-}
-
-export interface WorldRecordGlobalHavingDistinctCountInput {
-	id?: HavingIntFilter | null;
-	recordId?: HavingIntFilter | null;
-	levelId?: HavingIntFilter | null;
-	dateCreated?: HavingDatetimeFilter | null;
-	dateUpdated?: HavingDatetimeFilter | null;
-	userId?: HavingIntFilter | null;
-}
-
-export interface WorldRecordGlobalHavingMinInput {
-	id?: HavingIntFilter | null;
-	recordId?: HavingIntFilter | null;
-	levelId?: HavingIntFilter | null;
-	dateCreated?: HavingDatetimeFilter | null;
-	dateUpdated?: HavingDatetimeFilter | null;
-	userId?: HavingIntFilter | null;
-}
-
-export interface WorldRecordGlobalHavingMaxInput {
-	id?: HavingIntFilter | null;
-	recordId?: HavingIntFilter | null;
-	levelId?: HavingIntFilter | null;
-	dateCreated?: HavingDatetimeFilter | null;
-	dateUpdated?: HavingDatetimeFilter | null;
-	userId?: HavingIntFilter | null;
-}
-
-export interface WorldRecordGlobalHavingAverageInput {
-	id?: HavingIntFilter | null;
-	recordId?: HavingIntFilter | null;
-	levelId?: HavingIntFilter | null;
-	dateCreated?: HavingDatetimeFilter | null;
-	dateUpdated?: HavingDatetimeFilter | null;
-	userId?: HavingIntFilter | null;
-}
-
-export interface WorldRecordGlobalHavingStddevSampleInput {
-	id?: HavingIntFilter | null;
-	recordId?: HavingIntFilter | null;
-	levelId?: HavingIntFilter | null;
-	dateCreated?: HavingDatetimeFilter | null;
-	dateUpdated?: HavingDatetimeFilter | null;
-	userId?: HavingIntFilter | null;
-}
-
-export interface WorldRecordGlobalHavingStddevPopulationInput {
-	id?: HavingIntFilter | null;
-	recordId?: HavingIntFilter | null;
-	levelId?: HavingIntFilter | null;
-	dateCreated?: HavingDatetimeFilter | null;
-	dateUpdated?: HavingDatetimeFilter | null;
-	userId?: HavingIntFilter | null;
-}
-
-export interface WorldRecordGlobalHavingVarianceSampleInput {
-	id?: HavingIntFilter | null;
-	recordId?: HavingIntFilter | null;
-	levelId?: HavingIntFilter | null;
-	dateCreated?: HavingDatetimeFilter | null;
-	dateUpdated?: HavingDatetimeFilter | null;
-	userId?: HavingIntFilter | null;
-}
-
-export interface WorldRecordGlobalHavingVariancePopulationInput {
-	id?: HavingIntFilter | null;
-	recordId?: HavingIntFilter | null;
-	levelId?: HavingIntFilter | null;
-	dateCreated?: HavingDatetimeFilter | null;
-	dateUpdated?: HavingDatetimeFilter | null;
-	userId?: HavingIntFilter | null;
-}
-
-/**
- * A condition to be used against `WorldRecordGlobal` object types. All fields are
- * tested for equality and combined with a logical ‘and.’
- */
-export interface WorldRecordGlobalCondition {
-	/** Checks for equality with the object’s `id` field. */
-	id?: Scalars['Int'] | null;
-	/** Checks for equality with the object’s `recordId` field. */
-	recordId?: Scalars['Int'] | null;
-	/** Checks for equality with the object’s `levelId` field. */
-	levelId?: Scalars['Int'] | null;
-	/** Checks for equality with the object’s `dateCreated` field. */
-	dateCreated?: Scalars['Datetime'] | null;
-	/** Checks for equality with the object’s `dateUpdated` field. */
-	dateUpdated?: Scalars['Datetime'] | null;
-	/** Checks for equality with the object’s `userId` field. */
-	userId?: Scalars['Int'] | null;
-}
-
-/** A connection to a list of `Vote` values. */
-export interface VotesConnectionGenqlSelection {
-	/** A list of `Vote` objects. */
-	nodes?: VoteGenqlSelection;
-	/** A list of edges which contains the `Vote` and cursor to aid in pagination. */
-	edges?: VotesEdgeGenqlSelection;
-	/** Information to aid in pagination. */
-	pageInfo?: PageInfoGenqlSelection;
-	/** The count of *all* `Vote` you could get from the connection. */
-	totalCount?: boolean | number;
-	/** Aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	aggregates?: VoteAggregatesGenqlSelection;
-	/** Grouped aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	groupedAggregates?: VoteAggregatesGenqlSelection & {
-		__args: {
-			/** The method to use when grouping `Vote` for these aggregates. */
-			groupBy: VoteGroupBy[];
-			/** Conditions on the grouped aggregates. */
-			having?: VoteHavingInput | null;
-		};
-	};
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-export interface VoteGenqlSelection {
-	/** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
-	nodeId?: boolean | number;
-	id?: boolean | number;
-	userId?: boolean | number;
-	levelId?: boolean | number;
-	value?: boolean | number;
-	dateCreated?: boolean | number;
-	dateUpdated?: boolean | number;
-	/** Reads a single `User` that is related to this `Vote`. */
-	user?: UserGenqlSelection;
-	/** Reads a single `Level` that is related to this `Vote`. */
-	level?: LevelGenqlSelection;
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-/** A `Vote` edge in the connection. */
-export interface VotesEdgeGenqlSelection {
-	/** A cursor for use in pagination. */
-	cursor?: boolean | number;
-	/** The `Vote` at the end of the edge. */
-	node?: VoteGenqlSelection;
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-export interface VoteAggregatesGenqlSelection {
-	keys?: boolean | number;
-	/** Sum aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	sum?: VoteSumAggregatesGenqlSelection;
-	/** Distinct count aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	distinctCount?: VoteDistinctCountAggregatesGenqlSelection;
-	/** Minimum aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	min?: VoteMinAggregatesGenqlSelection;
-	/** Maximum aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	max?: VoteMaxAggregatesGenqlSelection;
-	/** Mean average aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	average?: VoteAverageAggregatesGenqlSelection;
-	/** Sample standard deviation aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	stddevSample?: VoteStddevSampleAggregatesGenqlSelection;
-	/** Population standard deviation aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	stddevPopulation?: VoteStddevPopulationAggregatesGenqlSelection;
-	/** Sample variance aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	varianceSample?: VoteVarianceSampleAggregatesGenqlSelection;
-	/** Population variance aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	variancePopulation?: VoteVariancePopulationAggregatesGenqlSelection;
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-export interface VoteSumAggregatesGenqlSelection {
-	/** Sum of id across the matching connection */
-	id?: boolean | number;
-	/** Sum of userId across the matching connection */
-	userId?: boolean | number;
-	/** Sum of levelId across the matching connection */
-	levelId?: boolean | number;
-	/** Sum of value across the matching connection */
-	value?: boolean | number;
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-export interface VoteDistinctCountAggregatesGenqlSelection {
-	/** Distinct count of id across the matching connection */
-	id?: boolean | number;
-	/** Distinct count of userId across the matching connection */
-	userId?: boolean | number;
-	/** Distinct count of levelId across the matching connection */
-	levelId?: boolean | number;
-	/** Distinct count of value across the matching connection */
-	value?: boolean | number;
-	/** Distinct count of dateCreated across the matching connection */
-	dateCreated?: boolean | number;
-	/** Distinct count of dateUpdated across the matching connection */
-	dateUpdated?: boolean | number;
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-export interface VoteMinAggregatesGenqlSelection {
-	/** Minimum of id across the matching connection */
-	id?: boolean | number;
-	/** Minimum of userId across the matching connection */
-	userId?: boolean | number;
-	/** Minimum of levelId across the matching connection */
-	levelId?: boolean | number;
-	/** Minimum of value across the matching connection */
-	value?: boolean | number;
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-export interface VoteMaxAggregatesGenqlSelection {
-	/** Maximum of id across the matching connection */
-	id?: boolean | number;
-	/** Maximum of userId across the matching connection */
-	userId?: boolean | number;
-	/** Maximum of levelId across the matching connection */
-	levelId?: boolean | number;
-	/** Maximum of value across the matching connection */
-	value?: boolean | number;
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-export interface VoteAverageAggregatesGenqlSelection {
-	/** Mean average of id across the matching connection */
-	id?: boolean | number;
-	/** Mean average of userId across the matching connection */
-	userId?: boolean | number;
-	/** Mean average of levelId across the matching connection */
-	levelId?: boolean | number;
-	/** Mean average of value across the matching connection */
-	value?: boolean | number;
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-export interface VoteStddevSampleAggregatesGenqlSelection {
-	/** Sample standard deviation of id across the matching connection */
-	id?: boolean | number;
-	/** Sample standard deviation of userId across the matching connection */
-	userId?: boolean | number;
-	/** Sample standard deviation of levelId across the matching connection */
-	levelId?: boolean | number;
-	/** Sample standard deviation of value across the matching connection */
-	value?: boolean | number;
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-export interface VoteStddevPopulationAggregatesGenqlSelection {
-	/** Population standard deviation of id across the matching connection */
-	id?: boolean | number;
-	/** Population standard deviation of userId across the matching connection */
-	userId?: boolean | number;
-	/** Population standard deviation of levelId across the matching connection */
-	levelId?: boolean | number;
-	/** Population standard deviation of value across the matching connection */
-	value?: boolean | number;
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-export interface VoteVarianceSampleAggregatesGenqlSelection {
-	/** Sample variance of id across the matching connection */
-	id?: boolean | number;
-	/** Sample variance of userId across the matching connection */
-	userId?: boolean | number;
-	/** Sample variance of levelId across the matching connection */
-	levelId?: boolean | number;
-	/** Sample variance of value across the matching connection */
-	value?: boolean | number;
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-export interface VoteVariancePopulationAggregatesGenqlSelection {
-	/** Population variance of id across the matching connection */
-	id?: boolean | number;
-	/** Population variance of userId across the matching connection */
-	userId?: boolean | number;
-	/** Population variance of levelId across the matching connection */
-	levelId?: boolean | number;
-	/** Population variance of value across the matching connection */
-	value?: boolean | number;
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-/** Conditions for `Vote` aggregates. */
-export interface VoteHavingInput {
-	AND?: VoteHavingInput[] | null;
-	OR?: VoteHavingInput[] | null;
-	sum?: VoteHavingSumInput | null;
-	distinctCount?: VoteHavingDistinctCountInput | null;
-	min?: VoteHavingMinInput | null;
-	max?: VoteHavingMaxInput | null;
-	average?: VoteHavingAverageInput | null;
-	stddevSample?: VoteHavingStddevSampleInput | null;
-	stddevPopulation?: VoteHavingStddevPopulationInput | null;
-	varianceSample?: VoteHavingVarianceSampleInput | null;
-	variancePopulation?: VoteHavingVariancePopulationInput | null;
-}
-
-export interface VoteHavingSumInput {
-	id?: HavingIntFilter | null;
-	userId?: HavingIntFilter | null;
-	levelId?: HavingIntFilter | null;
-	value?: HavingIntFilter | null;
-	dateCreated?: HavingDatetimeFilter | null;
-	dateUpdated?: HavingDatetimeFilter | null;
-}
-
-export interface VoteHavingDistinctCountInput {
-	id?: HavingIntFilter | null;
-	userId?: HavingIntFilter | null;
-	levelId?: HavingIntFilter | null;
-	value?: HavingIntFilter | null;
-	dateCreated?: HavingDatetimeFilter | null;
-	dateUpdated?: HavingDatetimeFilter | null;
-}
-
-export interface VoteHavingMinInput {
-	id?: HavingIntFilter | null;
-	userId?: HavingIntFilter | null;
-	levelId?: HavingIntFilter | null;
-	value?: HavingIntFilter | null;
-	dateCreated?: HavingDatetimeFilter | null;
-	dateUpdated?: HavingDatetimeFilter | null;
-}
-
-export interface VoteHavingMaxInput {
-	id?: HavingIntFilter | null;
-	userId?: HavingIntFilter | null;
-	levelId?: HavingIntFilter | null;
-	value?: HavingIntFilter | null;
-	dateCreated?: HavingDatetimeFilter | null;
-	dateUpdated?: HavingDatetimeFilter | null;
-}
-
-export interface VoteHavingAverageInput {
-	id?: HavingIntFilter | null;
-	userId?: HavingIntFilter | null;
-	levelId?: HavingIntFilter | null;
-	value?: HavingIntFilter | null;
-	dateCreated?: HavingDatetimeFilter | null;
-	dateUpdated?: HavingDatetimeFilter | null;
-}
-
-export interface VoteHavingStddevSampleInput {
-	id?: HavingIntFilter | null;
-	userId?: HavingIntFilter | null;
-	levelId?: HavingIntFilter | null;
-	value?: HavingIntFilter | null;
-	dateCreated?: HavingDatetimeFilter | null;
-	dateUpdated?: HavingDatetimeFilter | null;
-}
-
-export interface VoteHavingStddevPopulationInput {
-	id?: HavingIntFilter | null;
-	userId?: HavingIntFilter | null;
-	levelId?: HavingIntFilter | null;
-	value?: HavingIntFilter | null;
-	dateCreated?: HavingDatetimeFilter | null;
-	dateUpdated?: HavingDatetimeFilter | null;
-}
-
-export interface VoteHavingVarianceSampleInput {
-	id?: HavingIntFilter | null;
-	userId?: HavingIntFilter | null;
-	levelId?: HavingIntFilter | null;
-	value?: HavingIntFilter | null;
-	dateCreated?: HavingDatetimeFilter | null;
-	dateUpdated?: HavingDatetimeFilter | null;
-}
-
-export interface VoteHavingVariancePopulationInput {
-	id?: HavingIntFilter | null;
-	userId?: HavingIntFilter | null;
-	levelId?: HavingIntFilter | null;
-	value?: HavingIntFilter | null;
-	dateCreated?: HavingDatetimeFilter | null;
-	dateUpdated?: HavingDatetimeFilter | null;
-}
-
-/** A condition to be used against `Vote` object types. All fields are tested for equality and combined with a logical ‘and.’ */
-export interface VoteCondition {
-	/** Checks for equality with the object’s `id` field. */
-	id?: Scalars['Int'] | null;
-	/** Checks for equality with the object’s `userId` field. */
-	userId?: Scalars['Int'] | null;
-	/** Checks for equality with the object’s `levelId` field. */
-	levelId?: Scalars['Int'] | null;
-	/** Checks for equality with the object’s `value` field. */
-	value?: Scalars['Int'] | null;
-	/** Checks for equality with the object’s `dateCreated` field. */
-	dateCreated?: Scalars['Datetime'] | null;
-	/** Checks for equality with the object’s `dateUpdated` field. */
-	dateUpdated?: Scalars['Datetime'] | null;
-}
-
 /** A connection to a list of `LevelPointsHistory` values. */
 export interface LevelPointsHistoriesConnectionGenqlSelection {
 	/** A list of `LevelPointsHistory` objects. */
@@ -19421,6 +18471,956 @@ export interface LevelPointsHistoryCondition {
 	modifierPopularity?: Scalars['Float'] | null;
 	/** Checks for equality with the object’s `cutPenalty` field. */
 	cutPenalty?: Scalars['Float'] | null;
+}
+
+/**
+ * A condition to be used against `PersonalBestGlobal` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export interface PersonalBestGlobalCondition {
+	/** Checks for equality with the object’s `id` field. */
+	id?: Scalars['Int'] | null;
+	/** Checks for equality with the object’s `recordId` field. */
+	recordId?: Scalars['Int'] | null;
+	/** Checks for equality with the object’s `userId` field. */
+	userId?: Scalars['Int'] | null;
+	/** Checks for equality with the object’s `levelId` field. */
+	levelId?: Scalars['Int'] | null;
+	/** Checks for equality with the object’s `dateCreated` field. */
+	dateCreated?: Scalars['Datetime'] | null;
+	/** Checks for equality with the object’s `dateUpdated` field. */
+	dateUpdated?: Scalars['Datetime'] | null;
+}
+
+/** A connection to a list of `Record` values. */
+export interface RecordsConnectionGenqlSelection {
+	/** A list of `Record` objects. */
+	nodes?: RecordGenqlSelection;
+	/** A list of edges which contains the `Record` and cursor to aid in pagination. */
+	edges?: RecordsEdgeGenqlSelection;
+	/** Information to aid in pagination. */
+	pageInfo?: PageInfoGenqlSelection;
+	/** The count of *all* `Record` you could get from the connection. */
+	totalCount?: boolean | number;
+	/** Aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	aggregates?: RecordAggregatesGenqlSelection;
+	/** Grouped aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	groupedAggregates?: RecordAggregatesGenqlSelection & {
+		__args: {
+			/** The method to use when grouping `Record` for these aggregates. */
+			groupBy: RecordGroupBy[];
+			/** Conditions on the grouped aggregates. */
+			having?: RecordHavingInput | null;
+		};
+	};
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+/** A `Record` edge in the connection. */
+export interface RecordsEdgeGenqlSelection {
+	/** A cursor for use in pagination. */
+	cursor?: boolean | number;
+	/** The `Record` at the end of the edge. */
+	node?: RecordGenqlSelection;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+export interface RecordAggregatesGenqlSelection {
+	keys?: boolean | number;
+	/** Sum aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	sum?: RecordSumAggregatesGenqlSelection;
+	/** Distinct count aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	distinctCount?: RecordDistinctCountAggregatesGenqlSelection;
+	/** Minimum aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	min?: RecordMinAggregatesGenqlSelection;
+	/** Maximum aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	max?: RecordMaxAggregatesGenqlSelection;
+	/** Mean average aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	average?: RecordAverageAggregatesGenqlSelection;
+	/** Sample standard deviation aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	stddevSample?: RecordStddevSampleAggregatesGenqlSelection;
+	/** Population standard deviation aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	stddevPopulation?: RecordStddevPopulationAggregatesGenqlSelection;
+	/** Sample variance aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	varianceSample?: RecordVarianceSampleAggregatesGenqlSelection;
+	/** Population variance aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	variancePopulation?: RecordVariancePopulationAggregatesGenqlSelection;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+export interface RecordSumAggregatesGenqlSelection {
+	/** Sum of id across the matching connection */
+	id?: boolean | number;
+	/** Sum of userId across the matching connection */
+	userId?: boolean | number;
+	/** Sum of time across the matching connection */
+	time?: boolean | number;
+	/** Sum of levelId across the matching connection */
+	levelId?: boolean | number;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+export interface RecordDistinctCountAggregatesGenqlSelection {
+	/** Distinct count of id across the matching connection */
+	id?: boolean | number;
+	/** Distinct count of userId across the matching connection */
+	userId?: boolean | number;
+	/** Distinct count of time across the matching connection */
+	time?: boolean | number;
+	/** Distinct count of gameVersion across the matching connection */
+	gameVersion?: boolean | number;
+	/** Distinct count of levelId across the matching connection */
+	levelId?: boolean | number;
+	/** Distinct count of modVersion across the matching connection */
+	modVersion?: boolean | number;
+	/** Distinct count of dateCreated across the matching connection */
+	dateCreated?: boolean | number;
+	/** Distinct count of dateUpdated across the matching connection */
+	dateUpdated?: boolean | number;
+	/** Distinct count of splits across the matching connection */
+	splits?: boolean | number;
+	/** Distinct count of speeds across the matching connection */
+	speeds?: boolean | number;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+export interface RecordMinAggregatesGenqlSelection {
+	/** Minimum of id across the matching connection */
+	id?: boolean | number;
+	/** Minimum of userId across the matching connection */
+	userId?: boolean | number;
+	/** Minimum of time across the matching connection */
+	time?: boolean | number;
+	/** Minimum of levelId across the matching connection */
+	levelId?: boolean | number;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+export interface RecordMaxAggregatesGenqlSelection {
+	/** Maximum of id across the matching connection */
+	id?: boolean | number;
+	/** Maximum of userId across the matching connection */
+	userId?: boolean | number;
+	/** Maximum of time across the matching connection */
+	time?: boolean | number;
+	/** Maximum of levelId across the matching connection */
+	levelId?: boolean | number;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+export interface RecordAverageAggregatesGenqlSelection {
+	/** Mean average of id across the matching connection */
+	id?: boolean | number;
+	/** Mean average of userId across the matching connection */
+	userId?: boolean | number;
+	/** Mean average of time across the matching connection */
+	time?: boolean | number;
+	/** Mean average of levelId across the matching connection */
+	levelId?: boolean | number;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+export interface RecordStddevSampleAggregatesGenqlSelection {
+	/** Sample standard deviation of id across the matching connection */
+	id?: boolean | number;
+	/** Sample standard deviation of userId across the matching connection */
+	userId?: boolean | number;
+	/** Sample standard deviation of time across the matching connection */
+	time?: boolean | number;
+	/** Sample standard deviation of levelId across the matching connection */
+	levelId?: boolean | number;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+export interface RecordStddevPopulationAggregatesGenqlSelection {
+	/** Population standard deviation of id across the matching connection */
+	id?: boolean | number;
+	/** Population standard deviation of userId across the matching connection */
+	userId?: boolean | number;
+	/** Population standard deviation of time across the matching connection */
+	time?: boolean | number;
+	/** Population standard deviation of levelId across the matching connection */
+	levelId?: boolean | number;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+export interface RecordVarianceSampleAggregatesGenqlSelection {
+	/** Sample variance of id across the matching connection */
+	id?: boolean | number;
+	/** Sample variance of userId across the matching connection */
+	userId?: boolean | number;
+	/** Sample variance of time across the matching connection */
+	time?: boolean | number;
+	/** Sample variance of levelId across the matching connection */
+	levelId?: boolean | number;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+export interface RecordVariancePopulationAggregatesGenqlSelection {
+	/** Population variance of id across the matching connection */
+	id?: boolean | number;
+	/** Population variance of userId across the matching connection */
+	userId?: boolean | number;
+	/** Population variance of time across the matching connection */
+	time?: boolean | number;
+	/** Population variance of levelId across the matching connection */
+	levelId?: boolean | number;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+/** Conditions for `Record` aggregates. */
+export interface RecordHavingInput {
+	AND?: RecordHavingInput[] | null;
+	OR?: RecordHavingInput[] | null;
+	sum?: RecordHavingSumInput | null;
+	distinctCount?: RecordHavingDistinctCountInput | null;
+	min?: RecordHavingMinInput | null;
+	max?: RecordHavingMaxInput | null;
+	average?: RecordHavingAverageInput | null;
+	stddevSample?: RecordHavingStddevSampleInput | null;
+	stddevPopulation?: RecordHavingStddevPopulationInput | null;
+	varianceSample?: RecordHavingVarianceSampleInput | null;
+	variancePopulation?: RecordHavingVariancePopulationInput | null;
+}
+
+export interface RecordHavingSumInput {
+	id?: HavingIntFilter | null;
+	userId?: HavingIntFilter | null;
+	time?: HavingFloatFilter | null;
+	levelId?: HavingIntFilter | null;
+	dateCreated?: HavingDatetimeFilter | null;
+	dateUpdated?: HavingDatetimeFilter | null;
+}
+
+export interface RecordHavingDistinctCountInput {
+	id?: HavingIntFilter | null;
+	userId?: HavingIntFilter | null;
+	time?: HavingFloatFilter | null;
+	levelId?: HavingIntFilter | null;
+	dateCreated?: HavingDatetimeFilter | null;
+	dateUpdated?: HavingDatetimeFilter | null;
+}
+
+export interface RecordHavingMinInput {
+	id?: HavingIntFilter | null;
+	userId?: HavingIntFilter | null;
+	time?: HavingFloatFilter | null;
+	levelId?: HavingIntFilter | null;
+	dateCreated?: HavingDatetimeFilter | null;
+	dateUpdated?: HavingDatetimeFilter | null;
+}
+
+export interface RecordHavingMaxInput {
+	id?: HavingIntFilter | null;
+	userId?: HavingIntFilter | null;
+	time?: HavingFloatFilter | null;
+	levelId?: HavingIntFilter | null;
+	dateCreated?: HavingDatetimeFilter | null;
+	dateUpdated?: HavingDatetimeFilter | null;
+}
+
+export interface RecordHavingAverageInput {
+	id?: HavingIntFilter | null;
+	userId?: HavingIntFilter | null;
+	time?: HavingFloatFilter | null;
+	levelId?: HavingIntFilter | null;
+	dateCreated?: HavingDatetimeFilter | null;
+	dateUpdated?: HavingDatetimeFilter | null;
+}
+
+export interface RecordHavingStddevSampleInput {
+	id?: HavingIntFilter | null;
+	userId?: HavingIntFilter | null;
+	time?: HavingFloatFilter | null;
+	levelId?: HavingIntFilter | null;
+	dateCreated?: HavingDatetimeFilter | null;
+	dateUpdated?: HavingDatetimeFilter | null;
+}
+
+export interface RecordHavingStddevPopulationInput {
+	id?: HavingIntFilter | null;
+	userId?: HavingIntFilter | null;
+	time?: HavingFloatFilter | null;
+	levelId?: HavingIntFilter | null;
+	dateCreated?: HavingDatetimeFilter | null;
+	dateUpdated?: HavingDatetimeFilter | null;
+}
+
+export interface RecordHavingVarianceSampleInput {
+	id?: HavingIntFilter | null;
+	userId?: HavingIntFilter | null;
+	time?: HavingFloatFilter | null;
+	levelId?: HavingIntFilter | null;
+	dateCreated?: HavingDatetimeFilter | null;
+	dateUpdated?: HavingDatetimeFilter | null;
+}
+
+export interface RecordHavingVariancePopulationInput {
+	id?: HavingIntFilter | null;
+	userId?: HavingIntFilter | null;
+	time?: HavingFloatFilter | null;
+	levelId?: HavingIntFilter | null;
+	dateCreated?: HavingDatetimeFilter | null;
+	dateUpdated?: HavingDatetimeFilter | null;
+}
+
+/** A condition to be used against `Record` object types. All fields are tested for equality and combined with a logical ‘and.’ */
+export interface RecordCondition {
+	/** Checks for equality with the object’s `id` field. */
+	id?: Scalars['Int'] | null;
+	/** Checks for equality with the object’s `userId` field. */
+	userId?: Scalars['Int'] | null;
+	/** Checks for equality with the object’s `time` field. */
+	time?: Scalars['Float'] | null;
+	/** Checks for equality with the object’s `gameVersion` field. */
+	gameVersion?: Scalars['String'] | null;
+	/** Checks for equality with the object’s `levelId` field. */
+	levelId?: Scalars['Int'] | null;
+	/** Checks for equality with the object’s `modVersion` field. */
+	modVersion?: Scalars['String'] | null;
+	/** Checks for equality with the object’s `dateCreated` field. */
+	dateCreated?: Scalars['Datetime'] | null;
+	/** Checks for equality with the object’s `dateUpdated` field. */
+	dateUpdated?: Scalars['Datetime'] | null;
+	/** Checks for equality with the object’s `splits` field. */
+	splits?: (Scalars['Float'] | null)[] | null;
+	/** Checks for equality with the object’s `speeds` field. */
+	speeds?: (Scalars['Float'] | null)[] | null;
+}
+
+/** A connection to a list of `Vote` values. */
+export interface VotesConnectionGenqlSelection {
+	/** A list of `Vote` objects. */
+	nodes?: VoteGenqlSelection;
+	/** A list of edges which contains the `Vote` and cursor to aid in pagination. */
+	edges?: VotesEdgeGenqlSelection;
+	/** Information to aid in pagination. */
+	pageInfo?: PageInfoGenqlSelection;
+	/** The count of *all* `Vote` you could get from the connection. */
+	totalCount?: boolean | number;
+	/** Aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	aggregates?: VoteAggregatesGenqlSelection;
+	/** Grouped aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	groupedAggregates?: VoteAggregatesGenqlSelection & {
+		__args: {
+			/** The method to use when grouping `Vote` for these aggregates. */
+			groupBy: VoteGroupBy[];
+			/** Conditions on the grouped aggregates. */
+			having?: VoteHavingInput | null;
+		};
+	};
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+export interface VoteGenqlSelection {
+	/** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+	nodeId?: boolean | number;
+	id?: boolean | number;
+	userId?: boolean | number;
+	levelId?: boolean | number;
+	value?: boolean | number;
+	dateCreated?: boolean | number;
+	dateUpdated?: boolean | number;
+	/** Reads a single `User` that is related to this `Vote`. */
+	user?: UserGenqlSelection;
+	/** Reads a single `Level` that is related to this `Vote`. */
+	level?: LevelGenqlSelection;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+/** A `Vote` edge in the connection. */
+export interface VotesEdgeGenqlSelection {
+	/** A cursor for use in pagination. */
+	cursor?: boolean | number;
+	/** The `Vote` at the end of the edge. */
+	node?: VoteGenqlSelection;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+export interface VoteAggregatesGenqlSelection {
+	keys?: boolean | number;
+	/** Sum aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	sum?: VoteSumAggregatesGenqlSelection;
+	/** Distinct count aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	distinctCount?: VoteDistinctCountAggregatesGenqlSelection;
+	/** Minimum aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	min?: VoteMinAggregatesGenqlSelection;
+	/** Maximum aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	max?: VoteMaxAggregatesGenqlSelection;
+	/** Mean average aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	average?: VoteAverageAggregatesGenqlSelection;
+	/** Sample standard deviation aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	stddevSample?: VoteStddevSampleAggregatesGenqlSelection;
+	/** Population standard deviation aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	stddevPopulation?: VoteStddevPopulationAggregatesGenqlSelection;
+	/** Sample variance aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	varianceSample?: VoteVarianceSampleAggregatesGenqlSelection;
+	/** Population variance aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	variancePopulation?: VoteVariancePopulationAggregatesGenqlSelection;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+export interface VoteSumAggregatesGenqlSelection {
+	/** Sum of id across the matching connection */
+	id?: boolean | number;
+	/** Sum of userId across the matching connection */
+	userId?: boolean | number;
+	/** Sum of levelId across the matching connection */
+	levelId?: boolean | number;
+	/** Sum of value across the matching connection */
+	value?: boolean | number;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+export interface VoteDistinctCountAggregatesGenqlSelection {
+	/** Distinct count of id across the matching connection */
+	id?: boolean | number;
+	/** Distinct count of userId across the matching connection */
+	userId?: boolean | number;
+	/** Distinct count of levelId across the matching connection */
+	levelId?: boolean | number;
+	/** Distinct count of value across the matching connection */
+	value?: boolean | number;
+	/** Distinct count of dateCreated across the matching connection */
+	dateCreated?: boolean | number;
+	/** Distinct count of dateUpdated across the matching connection */
+	dateUpdated?: boolean | number;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+export interface VoteMinAggregatesGenqlSelection {
+	/** Minimum of id across the matching connection */
+	id?: boolean | number;
+	/** Minimum of userId across the matching connection */
+	userId?: boolean | number;
+	/** Minimum of levelId across the matching connection */
+	levelId?: boolean | number;
+	/** Minimum of value across the matching connection */
+	value?: boolean | number;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+export interface VoteMaxAggregatesGenqlSelection {
+	/** Maximum of id across the matching connection */
+	id?: boolean | number;
+	/** Maximum of userId across the matching connection */
+	userId?: boolean | number;
+	/** Maximum of levelId across the matching connection */
+	levelId?: boolean | number;
+	/** Maximum of value across the matching connection */
+	value?: boolean | number;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+export interface VoteAverageAggregatesGenqlSelection {
+	/** Mean average of id across the matching connection */
+	id?: boolean | number;
+	/** Mean average of userId across the matching connection */
+	userId?: boolean | number;
+	/** Mean average of levelId across the matching connection */
+	levelId?: boolean | number;
+	/** Mean average of value across the matching connection */
+	value?: boolean | number;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+export interface VoteStddevSampleAggregatesGenqlSelection {
+	/** Sample standard deviation of id across the matching connection */
+	id?: boolean | number;
+	/** Sample standard deviation of userId across the matching connection */
+	userId?: boolean | number;
+	/** Sample standard deviation of levelId across the matching connection */
+	levelId?: boolean | number;
+	/** Sample standard deviation of value across the matching connection */
+	value?: boolean | number;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+export interface VoteStddevPopulationAggregatesGenqlSelection {
+	/** Population standard deviation of id across the matching connection */
+	id?: boolean | number;
+	/** Population standard deviation of userId across the matching connection */
+	userId?: boolean | number;
+	/** Population standard deviation of levelId across the matching connection */
+	levelId?: boolean | number;
+	/** Population standard deviation of value across the matching connection */
+	value?: boolean | number;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+export interface VoteVarianceSampleAggregatesGenqlSelection {
+	/** Sample variance of id across the matching connection */
+	id?: boolean | number;
+	/** Sample variance of userId across the matching connection */
+	userId?: boolean | number;
+	/** Sample variance of levelId across the matching connection */
+	levelId?: boolean | number;
+	/** Sample variance of value across the matching connection */
+	value?: boolean | number;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+export interface VoteVariancePopulationAggregatesGenqlSelection {
+	/** Population variance of id across the matching connection */
+	id?: boolean | number;
+	/** Population variance of userId across the matching connection */
+	userId?: boolean | number;
+	/** Population variance of levelId across the matching connection */
+	levelId?: boolean | number;
+	/** Population variance of value across the matching connection */
+	value?: boolean | number;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+/** Conditions for `Vote` aggregates. */
+export interface VoteHavingInput {
+	AND?: VoteHavingInput[] | null;
+	OR?: VoteHavingInput[] | null;
+	sum?: VoteHavingSumInput | null;
+	distinctCount?: VoteHavingDistinctCountInput | null;
+	min?: VoteHavingMinInput | null;
+	max?: VoteHavingMaxInput | null;
+	average?: VoteHavingAverageInput | null;
+	stddevSample?: VoteHavingStddevSampleInput | null;
+	stddevPopulation?: VoteHavingStddevPopulationInput | null;
+	varianceSample?: VoteHavingVarianceSampleInput | null;
+	variancePopulation?: VoteHavingVariancePopulationInput | null;
+}
+
+export interface VoteHavingSumInput {
+	id?: HavingIntFilter | null;
+	userId?: HavingIntFilter | null;
+	levelId?: HavingIntFilter | null;
+	value?: HavingIntFilter | null;
+	dateCreated?: HavingDatetimeFilter | null;
+	dateUpdated?: HavingDatetimeFilter | null;
+}
+
+export interface VoteHavingDistinctCountInput {
+	id?: HavingIntFilter | null;
+	userId?: HavingIntFilter | null;
+	levelId?: HavingIntFilter | null;
+	value?: HavingIntFilter | null;
+	dateCreated?: HavingDatetimeFilter | null;
+	dateUpdated?: HavingDatetimeFilter | null;
+}
+
+export interface VoteHavingMinInput {
+	id?: HavingIntFilter | null;
+	userId?: HavingIntFilter | null;
+	levelId?: HavingIntFilter | null;
+	value?: HavingIntFilter | null;
+	dateCreated?: HavingDatetimeFilter | null;
+	dateUpdated?: HavingDatetimeFilter | null;
+}
+
+export interface VoteHavingMaxInput {
+	id?: HavingIntFilter | null;
+	userId?: HavingIntFilter | null;
+	levelId?: HavingIntFilter | null;
+	value?: HavingIntFilter | null;
+	dateCreated?: HavingDatetimeFilter | null;
+	dateUpdated?: HavingDatetimeFilter | null;
+}
+
+export interface VoteHavingAverageInput {
+	id?: HavingIntFilter | null;
+	userId?: HavingIntFilter | null;
+	levelId?: HavingIntFilter | null;
+	value?: HavingIntFilter | null;
+	dateCreated?: HavingDatetimeFilter | null;
+	dateUpdated?: HavingDatetimeFilter | null;
+}
+
+export interface VoteHavingStddevSampleInput {
+	id?: HavingIntFilter | null;
+	userId?: HavingIntFilter | null;
+	levelId?: HavingIntFilter | null;
+	value?: HavingIntFilter | null;
+	dateCreated?: HavingDatetimeFilter | null;
+	dateUpdated?: HavingDatetimeFilter | null;
+}
+
+export interface VoteHavingStddevPopulationInput {
+	id?: HavingIntFilter | null;
+	userId?: HavingIntFilter | null;
+	levelId?: HavingIntFilter | null;
+	value?: HavingIntFilter | null;
+	dateCreated?: HavingDatetimeFilter | null;
+	dateUpdated?: HavingDatetimeFilter | null;
+}
+
+export interface VoteHavingVarianceSampleInput {
+	id?: HavingIntFilter | null;
+	userId?: HavingIntFilter | null;
+	levelId?: HavingIntFilter | null;
+	value?: HavingIntFilter | null;
+	dateCreated?: HavingDatetimeFilter | null;
+	dateUpdated?: HavingDatetimeFilter | null;
+}
+
+export interface VoteHavingVariancePopulationInput {
+	id?: HavingIntFilter | null;
+	userId?: HavingIntFilter | null;
+	levelId?: HavingIntFilter | null;
+	value?: HavingIntFilter | null;
+	dateCreated?: HavingDatetimeFilter | null;
+	dateUpdated?: HavingDatetimeFilter | null;
+}
+
+/** A condition to be used against `Vote` object types. All fields are tested for equality and combined with a logical ‘and.’ */
+export interface VoteCondition {
+	/** Checks for equality with the object’s `id` field. */
+	id?: Scalars['Int'] | null;
+	/** Checks for equality with the object’s `userId` field. */
+	userId?: Scalars['Int'] | null;
+	/** Checks for equality with the object’s `levelId` field. */
+	levelId?: Scalars['Int'] | null;
+	/** Checks for equality with the object’s `value` field. */
+	value?: Scalars['Int'] | null;
+	/** Checks for equality with the object’s `dateCreated` field. */
+	dateCreated?: Scalars['Datetime'] | null;
+	/** Checks for equality with the object’s `dateUpdated` field. */
+	dateUpdated?: Scalars['Datetime'] | null;
+}
+
+export interface WorldRecordGlobalGenqlSelection {
+	/** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+	nodeId?: boolean | number;
+	id?: boolean | number;
+	recordId?: boolean | number;
+	levelId?: boolean | number;
+	dateCreated?: boolean | number;
+	dateUpdated?: boolean | number;
+	userId?: boolean | number;
+	/** Reads a single `Record` that is related to this `WorldRecordGlobal`. */
+	record?: RecordGenqlSelection;
+	/** Reads a single `Level` that is related to this `WorldRecordGlobal`. */
+	level?: LevelGenqlSelection;
+	/** Reads a single `User` that is related to this `WorldRecordGlobal`. */
+	user?: UserGenqlSelection;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+/** A connection to a list of `WorldRecordGlobal` values. */
+export interface WorldRecordGlobalsConnectionGenqlSelection {
+	/** A list of `WorldRecordGlobal` objects. */
+	nodes?: WorldRecordGlobalGenqlSelection;
+	/** A list of edges which contains the `WorldRecordGlobal` and cursor to aid in pagination. */
+	edges?: WorldRecordGlobalsEdgeGenqlSelection;
+	/** Information to aid in pagination. */
+	pageInfo?: PageInfoGenqlSelection;
+	/** The count of *all* `WorldRecordGlobal` you could get from the connection. */
+	totalCount?: boolean | number;
+	/** Aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	aggregates?: WorldRecordGlobalAggregatesGenqlSelection;
+	/** Grouped aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	groupedAggregates?: WorldRecordGlobalAggregatesGenqlSelection & {
+		__args: {
+			/** The method to use when grouping `WorldRecordGlobal` for these aggregates. */
+			groupBy: WorldRecordGlobalGroupBy[];
+			/** Conditions on the grouped aggregates. */
+			having?: WorldRecordGlobalHavingInput | null;
+		};
+	};
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+/** A `WorldRecordGlobal` edge in the connection. */
+export interface WorldRecordGlobalsEdgeGenqlSelection {
+	/** A cursor for use in pagination. */
+	cursor?: boolean | number;
+	/** The `WorldRecordGlobal` at the end of the edge. */
+	node?: WorldRecordGlobalGenqlSelection;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+export interface WorldRecordGlobalAggregatesGenqlSelection {
+	keys?: boolean | number;
+	/** Sum aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	sum?: WorldRecordGlobalSumAggregatesGenqlSelection;
+	/** Distinct count aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	distinctCount?: WorldRecordGlobalDistinctCountAggregatesGenqlSelection;
+	/** Minimum aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	min?: WorldRecordGlobalMinAggregatesGenqlSelection;
+	/** Maximum aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	max?: WorldRecordGlobalMaxAggregatesGenqlSelection;
+	/** Mean average aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	average?: WorldRecordGlobalAverageAggregatesGenqlSelection;
+	/** Sample standard deviation aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	stddevSample?: WorldRecordGlobalStddevSampleAggregatesGenqlSelection;
+	/** Population standard deviation aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	stddevPopulation?: WorldRecordGlobalStddevPopulationAggregatesGenqlSelection;
+	/** Sample variance aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	varianceSample?: WorldRecordGlobalVarianceSampleAggregatesGenqlSelection;
+	/** Population variance aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	variancePopulation?: WorldRecordGlobalVariancePopulationAggregatesGenqlSelection;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+export interface WorldRecordGlobalSumAggregatesGenqlSelection {
+	/** Sum of id across the matching connection */
+	id?: boolean | number;
+	/** Sum of recordId across the matching connection */
+	recordId?: boolean | number;
+	/** Sum of levelId across the matching connection */
+	levelId?: boolean | number;
+	/** Sum of userId across the matching connection */
+	userId?: boolean | number;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+export interface WorldRecordGlobalDistinctCountAggregatesGenqlSelection {
+	/** Distinct count of id across the matching connection */
+	id?: boolean | number;
+	/** Distinct count of recordId across the matching connection */
+	recordId?: boolean | number;
+	/** Distinct count of levelId across the matching connection */
+	levelId?: boolean | number;
+	/** Distinct count of dateCreated across the matching connection */
+	dateCreated?: boolean | number;
+	/** Distinct count of dateUpdated across the matching connection */
+	dateUpdated?: boolean | number;
+	/** Distinct count of userId across the matching connection */
+	userId?: boolean | number;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+export interface WorldRecordGlobalMinAggregatesGenqlSelection {
+	/** Minimum of id across the matching connection */
+	id?: boolean | number;
+	/** Minimum of recordId across the matching connection */
+	recordId?: boolean | number;
+	/** Minimum of levelId across the matching connection */
+	levelId?: boolean | number;
+	/** Minimum of userId across the matching connection */
+	userId?: boolean | number;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+export interface WorldRecordGlobalMaxAggregatesGenqlSelection {
+	/** Maximum of id across the matching connection */
+	id?: boolean | number;
+	/** Maximum of recordId across the matching connection */
+	recordId?: boolean | number;
+	/** Maximum of levelId across the matching connection */
+	levelId?: boolean | number;
+	/** Maximum of userId across the matching connection */
+	userId?: boolean | number;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+export interface WorldRecordGlobalAverageAggregatesGenqlSelection {
+	/** Mean average of id across the matching connection */
+	id?: boolean | number;
+	/** Mean average of recordId across the matching connection */
+	recordId?: boolean | number;
+	/** Mean average of levelId across the matching connection */
+	levelId?: boolean | number;
+	/** Mean average of userId across the matching connection */
+	userId?: boolean | number;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+export interface WorldRecordGlobalStddevSampleAggregatesGenqlSelection {
+	/** Sample standard deviation of id across the matching connection */
+	id?: boolean | number;
+	/** Sample standard deviation of recordId across the matching connection */
+	recordId?: boolean | number;
+	/** Sample standard deviation of levelId across the matching connection */
+	levelId?: boolean | number;
+	/** Sample standard deviation of userId across the matching connection */
+	userId?: boolean | number;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+export interface WorldRecordGlobalStddevPopulationAggregatesGenqlSelection {
+	/** Population standard deviation of id across the matching connection */
+	id?: boolean | number;
+	/** Population standard deviation of recordId across the matching connection */
+	recordId?: boolean | number;
+	/** Population standard deviation of levelId across the matching connection */
+	levelId?: boolean | number;
+	/** Population standard deviation of userId across the matching connection */
+	userId?: boolean | number;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+export interface WorldRecordGlobalVarianceSampleAggregatesGenqlSelection {
+	/** Sample variance of id across the matching connection */
+	id?: boolean | number;
+	/** Sample variance of recordId across the matching connection */
+	recordId?: boolean | number;
+	/** Sample variance of levelId across the matching connection */
+	levelId?: boolean | number;
+	/** Sample variance of userId across the matching connection */
+	userId?: boolean | number;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+export interface WorldRecordGlobalVariancePopulationAggregatesGenqlSelection {
+	/** Population variance of id across the matching connection */
+	id?: boolean | number;
+	/** Population variance of recordId across the matching connection */
+	recordId?: boolean | number;
+	/** Population variance of levelId across the matching connection */
+	levelId?: boolean | number;
+	/** Population variance of userId across the matching connection */
+	userId?: boolean | number;
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+/** Conditions for `WorldRecordGlobal` aggregates. */
+export interface WorldRecordGlobalHavingInput {
+	AND?: WorldRecordGlobalHavingInput[] | null;
+	OR?: WorldRecordGlobalHavingInput[] | null;
+	sum?: WorldRecordGlobalHavingSumInput | null;
+	distinctCount?: WorldRecordGlobalHavingDistinctCountInput | null;
+	min?: WorldRecordGlobalHavingMinInput | null;
+	max?: WorldRecordGlobalHavingMaxInput | null;
+	average?: WorldRecordGlobalHavingAverageInput | null;
+	stddevSample?: WorldRecordGlobalHavingStddevSampleInput | null;
+	stddevPopulation?: WorldRecordGlobalHavingStddevPopulationInput | null;
+	varianceSample?: WorldRecordGlobalHavingVarianceSampleInput | null;
+	variancePopulation?: WorldRecordGlobalHavingVariancePopulationInput | null;
+}
+
+export interface WorldRecordGlobalHavingSumInput {
+	id?: HavingIntFilter | null;
+	recordId?: HavingIntFilter | null;
+	levelId?: HavingIntFilter | null;
+	dateCreated?: HavingDatetimeFilter | null;
+	dateUpdated?: HavingDatetimeFilter | null;
+	userId?: HavingIntFilter | null;
+}
+
+export interface WorldRecordGlobalHavingDistinctCountInput {
+	id?: HavingIntFilter | null;
+	recordId?: HavingIntFilter | null;
+	levelId?: HavingIntFilter | null;
+	dateCreated?: HavingDatetimeFilter | null;
+	dateUpdated?: HavingDatetimeFilter | null;
+	userId?: HavingIntFilter | null;
+}
+
+export interface WorldRecordGlobalHavingMinInput {
+	id?: HavingIntFilter | null;
+	recordId?: HavingIntFilter | null;
+	levelId?: HavingIntFilter | null;
+	dateCreated?: HavingDatetimeFilter | null;
+	dateUpdated?: HavingDatetimeFilter | null;
+	userId?: HavingIntFilter | null;
+}
+
+export interface WorldRecordGlobalHavingMaxInput {
+	id?: HavingIntFilter | null;
+	recordId?: HavingIntFilter | null;
+	levelId?: HavingIntFilter | null;
+	dateCreated?: HavingDatetimeFilter | null;
+	dateUpdated?: HavingDatetimeFilter | null;
+	userId?: HavingIntFilter | null;
+}
+
+export interface WorldRecordGlobalHavingAverageInput {
+	id?: HavingIntFilter | null;
+	recordId?: HavingIntFilter | null;
+	levelId?: HavingIntFilter | null;
+	dateCreated?: HavingDatetimeFilter | null;
+	dateUpdated?: HavingDatetimeFilter | null;
+	userId?: HavingIntFilter | null;
+}
+
+export interface WorldRecordGlobalHavingStddevSampleInput {
+	id?: HavingIntFilter | null;
+	recordId?: HavingIntFilter | null;
+	levelId?: HavingIntFilter | null;
+	dateCreated?: HavingDatetimeFilter | null;
+	dateUpdated?: HavingDatetimeFilter | null;
+	userId?: HavingIntFilter | null;
+}
+
+export interface WorldRecordGlobalHavingStddevPopulationInput {
+	id?: HavingIntFilter | null;
+	recordId?: HavingIntFilter | null;
+	levelId?: HavingIntFilter | null;
+	dateCreated?: HavingDatetimeFilter | null;
+	dateUpdated?: HavingDatetimeFilter | null;
+	userId?: HavingIntFilter | null;
+}
+
+export interface WorldRecordGlobalHavingVarianceSampleInput {
+	id?: HavingIntFilter | null;
+	recordId?: HavingIntFilter | null;
+	levelId?: HavingIntFilter | null;
+	dateCreated?: HavingDatetimeFilter | null;
+	dateUpdated?: HavingDatetimeFilter | null;
+	userId?: HavingIntFilter | null;
+}
+
+export interface WorldRecordGlobalHavingVariancePopulationInput {
+	id?: HavingIntFilter | null;
+	recordId?: HavingIntFilter | null;
+	levelId?: HavingIntFilter | null;
+	dateCreated?: HavingDatetimeFilter | null;
+	dateUpdated?: HavingDatetimeFilter | null;
+	userId?: HavingIntFilter | null;
+}
+
+/**
+ * A condition to be used against `WorldRecordGlobal` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export interface WorldRecordGlobalCondition {
+	/** Checks for equality with the object’s `id` field. */
+	id?: Scalars['Int'] | null;
+	/** Checks for equality with the object’s `recordId` field. */
+	recordId?: Scalars['Int'] | null;
+	/** Checks for equality with the object’s `levelId` field. */
+	levelId?: Scalars['Int'] | null;
+	/** Checks for equality with the object’s `dateCreated` field. */
+	dateCreated?: Scalars['Datetime'] | null;
+	/** Checks for equality with the object’s `dateUpdated` field. */
+	dateUpdated?: Scalars['Datetime'] | null;
+	/** Checks for equality with the object’s `userId` field. */
+	userId?: Scalars['Int'] | null;
 }
 
 /** A connection to a list of `ZslLevel` values. */
@@ -24298,65 +24298,6 @@ export interface UserLevelsByRecordManyToManyEdgeGenqlSelection {
 	__scalar?: boolean | number;
 }
 
-/** A connection to a list of `Record` values, with data from `WorldRecordGlobal`. */
-export interface UserRecordsByWorldRecordGlobalManyToManyConnectionGenqlSelection {
-	/** A list of `Record` objects. */
-	nodes?: RecordGenqlSelection;
-	/** A list of edges which contains the `Record`, info from the `WorldRecordGlobal`, and the cursor to aid in pagination. */
-	edges?: UserRecordsByWorldRecordGlobalManyToManyEdgeGenqlSelection;
-	/** Information to aid in pagination. */
-	pageInfo?: PageInfoGenqlSelection;
-	/** The count of *all* `Record` you could get from the connection. */
-	totalCount?: boolean | number;
-	/** Aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	aggregates?: RecordAggregatesGenqlSelection;
-	/** Grouped aggregates across the matching connection (ignoring before/after/first/last/offset) */
-	groupedAggregates?: RecordAggregatesGenqlSelection & {
-		__args: {
-			/** The method to use when grouping `Record` for these aggregates. */
-			groupBy: RecordGroupBy[];
-			/** Conditions on the grouped aggregates. */
-			having?: RecordHavingInput | null;
-		};
-	};
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
-/** A `Record` edge in the connection, with data from `WorldRecordGlobal`. */
-export interface UserRecordsByWorldRecordGlobalManyToManyEdgeGenqlSelection {
-	/** A cursor for use in pagination. */
-	cursor?: boolean | number;
-	/** The `Record` at the end of the edge. */
-	node?: RecordGenqlSelection;
-	/** Reads and enables pagination through a set of `WorldRecordGlobal`. */
-	worldRecordGlobals?: WorldRecordGlobalsConnectionGenqlSelection & {
-		__args?: {
-			/** Only read the first `n` values of the set. */
-			first?: Scalars['Int'] | null;
-			/** Only read the last `n` values of the set. */
-			last?: Scalars['Int'] | null;
-			/**
-			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
-			 * based pagination. May not be used with `last`.
-			 */
-			offset?: Scalars['Int'] | null;
-			/** Read all values in the set before (above) this cursor. */
-			before?: Scalars['Cursor'] | null;
-			/** Read all values in the set after (below) this cursor. */
-			after?: Scalars['Cursor'] | null;
-			/** The method to use when ordering `WorldRecordGlobal`. */
-			orderBy?: WorldRecordGlobalsOrderBy[] | null;
-			/** A condition to be used in determining which values should be returned by the collection. */
-			condition?: WorldRecordGlobalCondition | null;
-			/** A filter to be used in determining which values should be returned by the collection. */
-			filter?: WorldRecordGlobalFilter | null;
-		};
-	};
-	__typename?: boolean | number;
-	__scalar?: boolean | number;
-}
-
 /** A connection to a list of `Level` values, with data from `Vote`. */
 export interface UserLevelsByVoteManyToManyConnectionGenqlSelection {
 	/** A list of `Level` objects. */
@@ -24410,6 +24351,65 @@ export interface UserLevelsByVoteManyToManyEdgeGenqlSelection {
 			condition?: VoteCondition | null;
 			/** A filter to be used in determining which values should be returned by the collection. */
 			filter?: VoteFilter | null;
+		};
+	};
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+/** A connection to a list of `Record` values, with data from `WorldRecordGlobal`. */
+export interface UserRecordsByWorldRecordGlobalManyToManyConnectionGenqlSelection {
+	/** A list of `Record` objects. */
+	nodes?: RecordGenqlSelection;
+	/** A list of edges which contains the `Record`, info from the `WorldRecordGlobal`, and the cursor to aid in pagination. */
+	edges?: UserRecordsByWorldRecordGlobalManyToManyEdgeGenqlSelection;
+	/** Information to aid in pagination. */
+	pageInfo?: PageInfoGenqlSelection;
+	/** The count of *all* `Record` you could get from the connection. */
+	totalCount?: boolean | number;
+	/** Aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	aggregates?: RecordAggregatesGenqlSelection;
+	/** Grouped aggregates across the matching connection (ignoring before/after/first/last/offset) */
+	groupedAggregates?: RecordAggregatesGenqlSelection & {
+		__args: {
+			/** The method to use when grouping `Record` for these aggregates. */
+			groupBy: RecordGroupBy[];
+			/** Conditions on the grouped aggregates. */
+			having?: RecordHavingInput | null;
+		};
+	};
+	__typename?: boolean | number;
+	__scalar?: boolean | number;
+}
+
+/** A `Record` edge in the connection, with data from `WorldRecordGlobal`. */
+export interface UserRecordsByWorldRecordGlobalManyToManyEdgeGenqlSelection {
+	/** A cursor for use in pagination. */
+	cursor?: boolean | number;
+	/** The `Record` at the end of the edge. */
+	node?: RecordGenqlSelection;
+	/** Reads and enables pagination through a set of `WorldRecordGlobal`. */
+	worldRecordGlobals?: WorldRecordGlobalsConnectionGenqlSelection & {
+		__args?: {
+			/** Only read the first `n` values of the set. */
+			first?: Scalars['Int'] | null;
+			/** Only read the last `n` values of the set. */
+			last?: Scalars['Int'] | null;
+			/**
+			 * Skip the first `n` values from our `after` cursor, an alternative to cursor
+			 * based pagination. May not be used with `last`.
+			 */
+			offset?: Scalars['Int'] | null;
+			/** Read all values in the set before (above) this cursor. */
+			before?: Scalars['Cursor'] | null;
+			/** Read all values in the set after (below) this cursor. */
+			after?: Scalars['Cursor'] | null;
+			/** The method to use when ordering `WorldRecordGlobal`. */
+			orderBy?: WorldRecordGlobalsOrderBy[] | null;
+			/** A condition to be used in determining which values should be returned by the collection. */
+			condition?: WorldRecordGlobalCondition | null;
+			/** A filter to be used in determining which values should be returned by the collection. */
+			filter?: WorldRecordGlobalFilter | null;
 		};
 	};
 	__typename?: boolean | number;
@@ -26518,9 +26518,9 @@ const Node_possibleTypes: string[] = [
 	'LevelItem',
 	'LevelMetadatum',
 	'LevelPoint',
-	'WorldRecordGlobal',
-	'Vote',
 	'LevelPointsHistory',
+	'Vote',
+	'WorldRecordGlobal',
 	'ZslLevel',
 	'ZslRound',
 	'ZslSeason',
@@ -27075,6 +27075,181 @@ export const isLevelPointVariancePopulationAggregates = (
 	);
 };
 
+const LevelPointsHistoriesConnection_possibleTypes: string[] = [
+	'LevelPointsHistoriesConnection',
+];
+export const isLevelPointsHistoriesConnection = (
+	obj?: { __typename?: any } | null,
+): obj is LevelPointsHistoriesConnection => {
+	if (!obj?.__typename)
+		throw new Error(
+			'__typename is missing in "isLevelPointsHistoriesConnection"',
+		);
+	return LevelPointsHistoriesConnection_possibleTypes.includes(obj.__typename);
+};
+
+const LevelPointsHistory_possibleTypes: string[] = ['LevelPointsHistory'];
+export const isLevelPointsHistory = (
+	obj?: { __typename?: any } | null,
+): obj is LevelPointsHistory => {
+	if (!obj?.__typename)
+		throw new Error('__typename is missing in "isLevelPointsHistory"');
+	return LevelPointsHistory_possibleTypes.includes(obj.__typename);
+};
+
+const LevelPointsHistoriesEdge_possibleTypes: string[] = [
+	'LevelPointsHistoriesEdge',
+];
+export const isLevelPointsHistoriesEdge = (
+	obj?: { __typename?: any } | null,
+): obj is LevelPointsHistoriesEdge => {
+	if (!obj?.__typename)
+		throw new Error('__typename is missing in "isLevelPointsHistoriesEdge"');
+	return LevelPointsHistoriesEdge_possibleTypes.includes(obj.__typename);
+};
+
+const LevelPointsHistoryAggregates_possibleTypes: string[] = [
+	'LevelPointsHistoryAggregates',
+];
+export const isLevelPointsHistoryAggregates = (
+	obj?: { __typename?: any } | null,
+): obj is LevelPointsHistoryAggregates => {
+	if (!obj?.__typename)
+		throw new Error(
+			'__typename is missing in "isLevelPointsHistoryAggregates"',
+		);
+	return LevelPointsHistoryAggregates_possibleTypes.includes(obj.__typename);
+};
+
+const LevelPointsHistorySumAggregates_possibleTypes: string[] = [
+	'LevelPointsHistorySumAggregates',
+];
+export const isLevelPointsHistorySumAggregates = (
+	obj?: { __typename?: any } | null,
+): obj is LevelPointsHistorySumAggregates => {
+	if (!obj?.__typename)
+		throw new Error(
+			'__typename is missing in "isLevelPointsHistorySumAggregates"',
+		);
+	return LevelPointsHistorySumAggregates_possibleTypes.includes(obj.__typename);
+};
+
+const LevelPointsHistoryDistinctCountAggregates_possibleTypes: string[] = [
+	'LevelPointsHistoryDistinctCountAggregates',
+];
+export const isLevelPointsHistoryDistinctCountAggregates = (
+	obj?: { __typename?: any } | null,
+): obj is LevelPointsHistoryDistinctCountAggregates => {
+	if (!obj?.__typename)
+		throw new Error(
+			'__typename is missing in "isLevelPointsHistoryDistinctCountAggregates"',
+		);
+	return LevelPointsHistoryDistinctCountAggregates_possibleTypes.includes(
+		obj.__typename,
+	);
+};
+
+const LevelPointsHistoryMinAggregates_possibleTypes: string[] = [
+	'LevelPointsHistoryMinAggregates',
+];
+export const isLevelPointsHistoryMinAggregates = (
+	obj?: { __typename?: any } | null,
+): obj is LevelPointsHistoryMinAggregates => {
+	if (!obj?.__typename)
+		throw new Error(
+			'__typename is missing in "isLevelPointsHistoryMinAggregates"',
+		);
+	return LevelPointsHistoryMinAggregates_possibleTypes.includes(obj.__typename);
+};
+
+const LevelPointsHistoryMaxAggregates_possibleTypes: string[] = [
+	'LevelPointsHistoryMaxAggregates',
+];
+export const isLevelPointsHistoryMaxAggregates = (
+	obj?: { __typename?: any } | null,
+): obj is LevelPointsHistoryMaxAggregates => {
+	if (!obj?.__typename)
+		throw new Error(
+			'__typename is missing in "isLevelPointsHistoryMaxAggregates"',
+		);
+	return LevelPointsHistoryMaxAggregates_possibleTypes.includes(obj.__typename);
+};
+
+const LevelPointsHistoryAverageAggregates_possibleTypes: string[] = [
+	'LevelPointsHistoryAverageAggregates',
+];
+export const isLevelPointsHistoryAverageAggregates = (
+	obj?: { __typename?: any } | null,
+): obj is LevelPointsHistoryAverageAggregates => {
+	if (!obj?.__typename)
+		throw new Error(
+			'__typename is missing in "isLevelPointsHistoryAverageAggregates"',
+		);
+	return LevelPointsHistoryAverageAggregates_possibleTypes.includes(
+		obj.__typename,
+	);
+};
+
+const LevelPointsHistoryStddevSampleAggregates_possibleTypes: string[] = [
+	'LevelPointsHistoryStddevSampleAggregates',
+];
+export const isLevelPointsHistoryStddevSampleAggregates = (
+	obj?: { __typename?: any } | null,
+): obj is LevelPointsHistoryStddevSampleAggregates => {
+	if (!obj?.__typename)
+		throw new Error(
+			'__typename is missing in "isLevelPointsHistoryStddevSampleAggregates"',
+		);
+	return LevelPointsHistoryStddevSampleAggregates_possibleTypes.includes(
+		obj.__typename,
+	);
+};
+
+const LevelPointsHistoryStddevPopulationAggregates_possibleTypes: string[] = [
+	'LevelPointsHistoryStddevPopulationAggregates',
+];
+export const isLevelPointsHistoryStddevPopulationAggregates = (
+	obj?: { __typename?: any } | null,
+): obj is LevelPointsHistoryStddevPopulationAggregates => {
+	if (!obj?.__typename)
+		throw new Error(
+			'__typename is missing in "isLevelPointsHistoryStddevPopulationAggregates"',
+		);
+	return LevelPointsHistoryStddevPopulationAggregates_possibleTypes.includes(
+		obj.__typename,
+	);
+};
+
+const LevelPointsHistoryVarianceSampleAggregates_possibleTypes: string[] = [
+	'LevelPointsHistoryVarianceSampleAggregates',
+];
+export const isLevelPointsHistoryVarianceSampleAggregates = (
+	obj?: { __typename?: any } | null,
+): obj is LevelPointsHistoryVarianceSampleAggregates => {
+	if (!obj?.__typename)
+		throw new Error(
+			'__typename is missing in "isLevelPointsHistoryVarianceSampleAggregates"',
+		);
+	return LevelPointsHistoryVarianceSampleAggregates_possibleTypes.includes(
+		obj.__typename,
+	);
+};
+
+const LevelPointsHistoryVariancePopulationAggregates_possibleTypes: string[] = [
+	'LevelPointsHistoryVariancePopulationAggregates',
+];
+export const isLevelPointsHistoryVariancePopulationAggregates = (
+	obj?: { __typename?: any } | null,
+): obj is LevelPointsHistoryVariancePopulationAggregates => {
+	if (!obj?.__typename)
+		throw new Error(
+			'__typename is missing in "isLevelPointsHistoryVariancePopulationAggregates"',
+		);
+	return LevelPointsHistoryVariancePopulationAggregates_possibleTypes.includes(
+		obj.__typename,
+	);
+};
+
 const RecordsConnection_possibleTypes: string[] = ['RecordsConnection'];
 export const isRecordsConnection = (
 	obj?: { __typename?: any } | null,
@@ -27205,6 +27380,138 @@ export const isRecordVariancePopulationAggregates = (
 			'__typename is missing in "isRecordVariancePopulationAggregates"',
 		);
 	return RecordVariancePopulationAggregates_possibleTypes.includes(
+		obj.__typename,
+	);
+};
+
+const VotesConnection_possibleTypes: string[] = ['VotesConnection'];
+export const isVotesConnection = (
+	obj?: { __typename?: any } | null,
+): obj is VotesConnection => {
+	if (!obj?.__typename)
+		throw new Error('__typename is missing in "isVotesConnection"');
+	return VotesConnection_possibleTypes.includes(obj.__typename);
+};
+
+const Vote_possibleTypes: string[] = ['Vote'];
+export const isVote = (obj?: { __typename?: any } | null): obj is Vote => {
+	if (!obj?.__typename) throw new Error('__typename is missing in "isVote"');
+	return Vote_possibleTypes.includes(obj.__typename);
+};
+
+const VotesEdge_possibleTypes: string[] = ['VotesEdge'];
+export const isVotesEdge = (
+	obj?: { __typename?: any } | null,
+): obj is VotesEdge => {
+	if (!obj?.__typename)
+		throw new Error('__typename is missing in "isVotesEdge"');
+	return VotesEdge_possibleTypes.includes(obj.__typename);
+};
+
+const VoteAggregates_possibleTypes: string[] = ['VoteAggregates'];
+export const isVoteAggregates = (
+	obj?: { __typename?: any } | null,
+): obj is VoteAggregates => {
+	if (!obj?.__typename)
+		throw new Error('__typename is missing in "isVoteAggregates"');
+	return VoteAggregates_possibleTypes.includes(obj.__typename);
+};
+
+const VoteSumAggregates_possibleTypes: string[] = ['VoteSumAggregates'];
+export const isVoteSumAggregates = (
+	obj?: { __typename?: any } | null,
+): obj is VoteSumAggregates => {
+	if (!obj?.__typename)
+		throw new Error('__typename is missing in "isVoteSumAggregates"');
+	return VoteSumAggregates_possibleTypes.includes(obj.__typename);
+};
+
+const VoteDistinctCountAggregates_possibleTypes: string[] = [
+	'VoteDistinctCountAggregates',
+];
+export const isVoteDistinctCountAggregates = (
+	obj?: { __typename?: any } | null,
+): obj is VoteDistinctCountAggregates => {
+	if (!obj?.__typename)
+		throw new Error('__typename is missing in "isVoteDistinctCountAggregates"');
+	return VoteDistinctCountAggregates_possibleTypes.includes(obj.__typename);
+};
+
+const VoteMinAggregates_possibleTypes: string[] = ['VoteMinAggregates'];
+export const isVoteMinAggregates = (
+	obj?: { __typename?: any } | null,
+): obj is VoteMinAggregates => {
+	if (!obj?.__typename)
+		throw new Error('__typename is missing in "isVoteMinAggregates"');
+	return VoteMinAggregates_possibleTypes.includes(obj.__typename);
+};
+
+const VoteMaxAggregates_possibleTypes: string[] = ['VoteMaxAggregates'];
+export const isVoteMaxAggregates = (
+	obj?: { __typename?: any } | null,
+): obj is VoteMaxAggregates => {
+	if (!obj?.__typename)
+		throw new Error('__typename is missing in "isVoteMaxAggregates"');
+	return VoteMaxAggregates_possibleTypes.includes(obj.__typename);
+};
+
+const VoteAverageAggregates_possibleTypes: string[] = ['VoteAverageAggregates'];
+export const isVoteAverageAggregates = (
+	obj?: { __typename?: any } | null,
+): obj is VoteAverageAggregates => {
+	if (!obj?.__typename)
+		throw new Error('__typename is missing in "isVoteAverageAggregates"');
+	return VoteAverageAggregates_possibleTypes.includes(obj.__typename);
+};
+
+const VoteStddevSampleAggregates_possibleTypes: string[] = [
+	'VoteStddevSampleAggregates',
+];
+export const isVoteStddevSampleAggregates = (
+	obj?: { __typename?: any } | null,
+): obj is VoteStddevSampleAggregates => {
+	if (!obj?.__typename)
+		throw new Error('__typename is missing in "isVoteStddevSampleAggregates"');
+	return VoteStddevSampleAggregates_possibleTypes.includes(obj.__typename);
+};
+
+const VoteStddevPopulationAggregates_possibleTypes: string[] = [
+	'VoteStddevPopulationAggregates',
+];
+export const isVoteStddevPopulationAggregates = (
+	obj?: { __typename?: any } | null,
+): obj is VoteStddevPopulationAggregates => {
+	if (!obj?.__typename)
+		throw new Error(
+			'__typename is missing in "isVoteStddevPopulationAggregates"',
+		);
+	return VoteStddevPopulationAggregates_possibleTypes.includes(obj.__typename);
+};
+
+const VoteVarianceSampleAggregates_possibleTypes: string[] = [
+	'VoteVarianceSampleAggregates',
+];
+export const isVoteVarianceSampleAggregates = (
+	obj?: { __typename?: any } | null,
+): obj is VoteVarianceSampleAggregates => {
+	if (!obj?.__typename)
+		throw new Error(
+			'__typename is missing in "isVoteVarianceSampleAggregates"',
+		);
+	return VoteVarianceSampleAggregates_possibleTypes.includes(obj.__typename);
+};
+
+const VoteVariancePopulationAggregates_possibleTypes: string[] = [
+	'VoteVariancePopulationAggregates',
+];
+export const isVoteVariancePopulationAggregates = (
+	obj?: { __typename?: any } | null,
+): obj is VoteVariancePopulationAggregates => {
+	if (!obj?.__typename)
+		throw new Error(
+			'__typename is missing in "isVoteVariancePopulationAggregates"',
+		);
+	return VoteVariancePopulationAggregates_possibleTypes.includes(
 		obj.__typename,
 	);
 };
@@ -27378,313 +27685,6 @@ export const isWorldRecordGlobalVariancePopulationAggregates = (
 			'__typename is missing in "isWorldRecordGlobalVariancePopulationAggregates"',
 		);
 	return WorldRecordGlobalVariancePopulationAggregates_possibleTypes.includes(
-		obj.__typename,
-	);
-};
-
-const VotesConnection_possibleTypes: string[] = ['VotesConnection'];
-export const isVotesConnection = (
-	obj?: { __typename?: any } | null,
-): obj is VotesConnection => {
-	if (!obj?.__typename)
-		throw new Error('__typename is missing in "isVotesConnection"');
-	return VotesConnection_possibleTypes.includes(obj.__typename);
-};
-
-const Vote_possibleTypes: string[] = ['Vote'];
-export const isVote = (obj?: { __typename?: any } | null): obj is Vote => {
-	if (!obj?.__typename) throw new Error('__typename is missing in "isVote"');
-	return Vote_possibleTypes.includes(obj.__typename);
-};
-
-const VotesEdge_possibleTypes: string[] = ['VotesEdge'];
-export const isVotesEdge = (
-	obj?: { __typename?: any } | null,
-): obj is VotesEdge => {
-	if (!obj?.__typename)
-		throw new Error('__typename is missing in "isVotesEdge"');
-	return VotesEdge_possibleTypes.includes(obj.__typename);
-};
-
-const VoteAggregates_possibleTypes: string[] = ['VoteAggregates'];
-export const isVoteAggregates = (
-	obj?: { __typename?: any } | null,
-): obj is VoteAggregates => {
-	if (!obj?.__typename)
-		throw new Error('__typename is missing in "isVoteAggregates"');
-	return VoteAggregates_possibleTypes.includes(obj.__typename);
-};
-
-const VoteSumAggregates_possibleTypes: string[] = ['VoteSumAggregates'];
-export const isVoteSumAggregates = (
-	obj?: { __typename?: any } | null,
-): obj is VoteSumAggregates => {
-	if (!obj?.__typename)
-		throw new Error('__typename is missing in "isVoteSumAggregates"');
-	return VoteSumAggregates_possibleTypes.includes(obj.__typename);
-};
-
-const VoteDistinctCountAggregates_possibleTypes: string[] = [
-	'VoteDistinctCountAggregates',
-];
-export const isVoteDistinctCountAggregates = (
-	obj?: { __typename?: any } | null,
-): obj is VoteDistinctCountAggregates => {
-	if (!obj?.__typename)
-		throw new Error('__typename is missing in "isVoteDistinctCountAggregates"');
-	return VoteDistinctCountAggregates_possibleTypes.includes(obj.__typename);
-};
-
-const VoteMinAggregates_possibleTypes: string[] = ['VoteMinAggregates'];
-export const isVoteMinAggregates = (
-	obj?: { __typename?: any } | null,
-): obj is VoteMinAggregates => {
-	if (!obj?.__typename)
-		throw new Error('__typename is missing in "isVoteMinAggregates"');
-	return VoteMinAggregates_possibleTypes.includes(obj.__typename);
-};
-
-const VoteMaxAggregates_possibleTypes: string[] = ['VoteMaxAggregates'];
-export const isVoteMaxAggregates = (
-	obj?: { __typename?: any } | null,
-): obj is VoteMaxAggregates => {
-	if (!obj?.__typename)
-		throw new Error('__typename is missing in "isVoteMaxAggregates"');
-	return VoteMaxAggregates_possibleTypes.includes(obj.__typename);
-};
-
-const VoteAverageAggregates_possibleTypes: string[] = ['VoteAverageAggregates'];
-export const isVoteAverageAggregates = (
-	obj?: { __typename?: any } | null,
-): obj is VoteAverageAggregates => {
-	if (!obj?.__typename)
-		throw new Error('__typename is missing in "isVoteAverageAggregates"');
-	return VoteAverageAggregates_possibleTypes.includes(obj.__typename);
-};
-
-const VoteStddevSampleAggregates_possibleTypes: string[] = [
-	'VoteStddevSampleAggregates',
-];
-export const isVoteStddevSampleAggregates = (
-	obj?: { __typename?: any } | null,
-): obj is VoteStddevSampleAggregates => {
-	if (!obj?.__typename)
-		throw new Error('__typename is missing in "isVoteStddevSampleAggregates"');
-	return VoteStddevSampleAggregates_possibleTypes.includes(obj.__typename);
-};
-
-const VoteStddevPopulationAggregates_possibleTypes: string[] = [
-	'VoteStddevPopulationAggregates',
-];
-export const isVoteStddevPopulationAggregates = (
-	obj?: { __typename?: any } | null,
-): obj is VoteStddevPopulationAggregates => {
-	if (!obj?.__typename)
-		throw new Error(
-			'__typename is missing in "isVoteStddevPopulationAggregates"',
-		);
-	return VoteStddevPopulationAggregates_possibleTypes.includes(obj.__typename);
-};
-
-const VoteVarianceSampleAggregates_possibleTypes: string[] = [
-	'VoteVarianceSampleAggregates',
-];
-export const isVoteVarianceSampleAggregates = (
-	obj?: { __typename?: any } | null,
-): obj is VoteVarianceSampleAggregates => {
-	if (!obj?.__typename)
-		throw new Error(
-			'__typename is missing in "isVoteVarianceSampleAggregates"',
-		);
-	return VoteVarianceSampleAggregates_possibleTypes.includes(obj.__typename);
-};
-
-const VoteVariancePopulationAggregates_possibleTypes: string[] = [
-	'VoteVariancePopulationAggregates',
-];
-export const isVoteVariancePopulationAggregates = (
-	obj?: { __typename?: any } | null,
-): obj is VoteVariancePopulationAggregates => {
-	if (!obj?.__typename)
-		throw new Error(
-			'__typename is missing in "isVoteVariancePopulationAggregates"',
-		);
-	return VoteVariancePopulationAggregates_possibleTypes.includes(
-		obj.__typename,
-	);
-};
-
-const LevelPointsHistoriesConnection_possibleTypes: string[] = [
-	'LevelPointsHistoriesConnection',
-];
-export const isLevelPointsHistoriesConnection = (
-	obj?: { __typename?: any } | null,
-): obj is LevelPointsHistoriesConnection => {
-	if (!obj?.__typename)
-		throw new Error(
-			'__typename is missing in "isLevelPointsHistoriesConnection"',
-		);
-	return LevelPointsHistoriesConnection_possibleTypes.includes(obj.__typename);
-};
-
-const LevelPointsHistory_possibleTypes: string[] = ['LevelPointsHistory'];
-export const isLevelPointsHistory = (
-	obj?: { __typename?: any } | null,
-): obj is LevelPointsHistory => {
-	if (!obj?.__typename)
-		throw new Error('__typename is missing in "isLevelPointsHistory"');
-	return LevelPointsHistory_possibleTypes.includes(obj.__typename);
-};
-
-const LevelPointsHistoriesEdge_possibleTypes: string[] = [
-	'LevelPointsHistoriesEdge',
-];
-export const isLevelPointsHistoriesEdge = (
-	obj?: { __typename?: any } | null,
-): obj is LevelPointsHistoriesEdge => {
-	if (!obj?.__typename)
-		throw new Error('__typename is missing in "isLevelPointsHistoriesEdge"');
-	return LevelPointsHistoriesEdge_possibleTypes.includes(obj.__typename);
-};
-
-const LevelPointsHistoryAggregates_possibleTypes: string[] = [
-	'LevelPointsHistoryAggregates',
-];
-export const isLevelPointsHistoryAggregates = (
-	obj?: { __typename?: any } | null,
-): obj is LevelPointsHistoryAggregates => {
-	if (!obj?.__typename)
-		throw new Error(
-			'__typename is missing in "isLevelPointsHistoryAggregates"',
-		);
-	return LevelPointsHistoryAggregates_possibleTypes.includes(obj.__typename);
-};
-
-const LevelPointsHistorySumAggregates_possibleTypes: string[] = [
-	'LevelPointsHistorySumAggregates',
-];
-export const isLevelPointsHistorySumAggregates = (
-	obj?: { __typename?: any } | null,
-): obj is LevelPointsHistorySumAggregates => {
-	if (!obj?.__typename)
-		throw new Error(
-			'__typename is missing in "isLevelPointsHistorySumAggregates"',
-		);
-	return LevelPointsHistorySumAggregates_possibleTypes.includes(obj.__typename);
-};
-
-const LevelPointsHistoryDistinctCountAggregates_possibleTypes: string[] = [
-	'LevelPointsHistoryDistinctCountAggregates',
-];
-export const isLevelPointsHistoryDistinctCountAggregates = (
-	obj?: { __typename?: any } | null,
-): obj is LevelPointsHistoryDistinctCountAggregates => {
-	if (!obj?.__typename)
-		throw new Error(
-			'__typename is missing in "isLevelPointsHistoryDistinctCountAggregates"',
-		);
-	return LevelPointsHistoryDistinctCountAggregates_possibleTypes.includes(
-		obj.__typename,
-	);
-};
-
-const LevelPointsHistoryMinAggregates_possibleTypes: string[] = [
-	'LevelPointsHistoryMinAggregates',
-];
-export const isLevelPointsHistoryMinAggregates = (
-	obj?: { __typename?: any } | null,
-): obj is LevelPointsHistoryMinAggregates => {
-	if (!obj?.__typename)
-		throw new Error(
-			'__typename is missing in "isLevelPointsHistoryMinAggregates"',
-		);
-	return LevelPointsHistoryMinAggregates_possibleTypes.includes(obj.__typename);
-};
-
-const LevelPointsHistoryMaxAggregates_possibleTypes: string[] = [
-	'LevelPointsHistoryMaxAggregates',
-];
-export const isLevelPointsHistoryMaxAggregates = (
-	obj?: { __typename?: any } | null,
-): obj is LevelPointsHistoryMaxAggregates => {
-	if (!obj?.__typename)
-		throw new Error(
-			'__typename is missing in "isLevelPointsHistoryMaxAggregates"',
-		);
-	return LevelPointsHistoryMaxAggregates_possibleTypes.includes(obj.__typename);
-};
-
-const LevelPointsHistoryAverageAggregates_possibleTypes: string[] = [
-	'LevelPointsHistoryAverageAggregates',
-];
-export const isLevelPointsHistoryAverageAggregates = (
-	obj?: { __typename?: any } | null,
-): obj is LevelPointsHistoryAverageAggregates => {
-	if (!obj?.__typename)
-		throw new Error(
-			'__typename is missing in "isLevelPointsHistoryAverageAggregates"',
-		);
-	return LevelPointsHistoryAverageAggregates_possibleTypes.includes(
-		obj.__typename,
-	);
-};
-
-const LevelPointsHistoryStddevSampleAggregates_possibleTypes: string[] = [
-	'LevelPointsHistoryStddevSampleAggregates',
-];
-export const isLevelPointsHistoryStddevSampleAggregates = (
-	obj?: { __typename?: any } | null,
-): obj is LevelPointsHistoryStddevSampleAggregates => {
-	if (!obj?.__typename)
-		throw new Error(
-			'__typename is missing in "isLevelPointsHistoryStddevSampleAggregates"',
-		);
-	return LevelPointsHistoryStddevSampleAggregates_possibleTypes.includes(
-		obj.__typename,
-	);
-};
-
-const LevelPointsHistoryStddevPopulationAggregates_possibleTypes: string[] = [
-	'LevelPointsHistoryStddevPopulationAggregates',
-];
-export const isLevelPointsHistoryStddevPopulationAggregates = (
-	obj?: { __typename?: any } | null,
-): obj is LevelPointsHistoryStddevPopulationAggregates => {
-	if (!obj?.__typename)
-		throw new Error(
-			'__typename is missing in "isLevelPointsHistoryStddevPopulationAggregates"',
-		);
-	return LevelPointsHistoryStddevPopulationAggregates_possibleTypes.includes(
-		obj.__typename,
-	);
-};
-
-const LevelPointsHistoryVarianceSampleAggregates_possibleTypes: string[] = [
-	'LevelPointsHistoryVarianceSampleAggregates',
-];
-export const isLevelPointsHistoryVarianceSampleAggregates = (
-	obj?: { __typename?: any } | null,
-): obj is LevelPointsHistoryVarianceSampleAggregates => {
-	if (!obj?.__typename)
-		throw new Error(
-			'__typename is missing in "isLevelPointsHistoryVarianceSampleAggregates"',
-		);
-	return LevelPointsHistoryVarianceSampleAggregates_possibleTypes.includes(
-		obj.__typename,
-	);
-};
-
-const LevelPointsHistoryVariancePopulationAggregates_possibleTypes: string[] = [
-	'LevelPointsHistoryVariancePopulationAggregates',
-];
-export const isLevelPointsHistoryVariancePopulationAggregates = (
-	obj?: { __typename?: any } | null,
-): obj is LevelPointsHistoryVariancePopulationAggregates => {
-	if (!obj?.__typename)
-		throw new Error(
-			'__typename is missing in "isLevelPointsHistoryVariancePopulationAggregates"',
-		);
-	return LevelPointsHistoryVariancePopulationAggregates_possibleTypes.includes(
 		obj.__typename,
 	);
 };
@@ -30073,6 +30073,34 @@ export const isUserLevelsByRecordManyToManyEdge = (
 	);
 };
 
+const UserLevelsByVoteManyToManyConnection_possibleTypes: string[] = [
+	'UserLevelsByVoteManyToManyConnection',
+];
+export const isUserLevelsByVoteManyToManyConnection = (
+	obj?: { __typename?: any } | null,
+): obj is UserLevelsByVoteManyToManyConnection => {
+	if (!obj?.__typename)
+		throw new Error(
+			'__typename is missing in "isUserLevelsByVoteManyToManyConnection"',
+		);
+	return UserLevelsByVoteManyToManyConnection_possibleTypes.includes(
+		obj.__typename,
+	);
+};
+
+const UserLevelsByVoteManyToManyEdge_possibleTypes: string[] = [
+	'UserLevelsByVoteManyToManyEdge',
+];
+export const isUserLevelsByVoteManyToManyEdge = (
+	obj?: { __typename?: any } | null,
+): obj is UserLevelsByVoteManyToManyEdge => {
+	if (!obj?.__typename)
+		throw new Error(
+			'__typename is missing in "isUserLevelsByVoteManyToManyEdge"',
+		);
+	return UserLevelsByVoteManyToManyEdge_possibleTypes.includes(obj.__typename);
+};
+
 const UserRecordsByWorldRecordGlobalManyToManyConnection_possibleTypes: string[] =
 	['UserRecordsByWorldRecordGlobalManyToManyConnection'];
 export const isUserRecordsByWorldRecordGlobalManyToManyConnection = (
@@ -30100,34 +30128,6 @@ export const isUserRecordsByWorldRecordGlobalManyToManyEdge = (
 	return UserRecordsByWorldRecordGlobalManyToManyEdge_possibleTypes.includes(
 		obj.__typename,
 	);
-};
-
-const UserLevelsByVoteManyToManyConnection_possibleTypes: string[] = [
-	'UserLevelsByVoteManyToManyConnection',
-];
-export const isUserLevelsByVoteManyToManyConnection = (
-	obj?: { __typename?: any } | null,
-): obj is UserLevelsByVoteManyToManyConnection => {
-	if (!obj?.__typename)
-		throw new Error(
-			'__typename is missing in "isUserLevelsByVoteManyToManyConnection"',
-		);
-	return UserLevelsByVoteManyToManyConnection_possibleTypes.includes(
-		obj.__typename,
-	);
-};
-
-const UserLevelsByVoteManyToManyEdge_possibleTypes: string[] = [
-	'UserLevelsByVoteManyToManyEdge',
-];
-export const isUserLevelsByVoteManyToManyEdge = (
-	obj?: { __typename?: any } | null,
-): obj is UserLevelsByVoteManyToManyEdge => {
-	if (!obj?.__typename)
-		throw new Error(
-			'__typename is missing in "isUserLevelsByVoteManyToManyEdge"',
-		);
-	return UserLevelsByVoteManyToManyEdge_possibleTypes.includes(obj.__typename);
 };
 
 const UserZslLevelsByZslLevelResultManyToManyConnection_possibleTypes: string[] =
@@ -31109,6 +31109,59 @@ export const enumLevelPointsOrderBy = {
 	POINTS_DESC: 'POINTS_DESC' as const,
 	ID_LEVEL_ASC: 'ID_LEVEL_ASC' as const,
 	ID_LEVEL_DESC: 'ID_LEVEL_DESC' as const,
+	DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+	DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+	DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+	DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
+	RATING_ASC: 'RATING_ASC' as const,
+	RATING_DESC: 'RATING_DESC' as const,
+	MODIFIER_LENGTH_ASC: 'MODIFIER_LENGTH_ASC' as const,
+	MODIFIER_LENGTH_DESC: 'MODIFIER_LENGTH_DESC' as const,
+	MODIFIER_COMPETITIVENESS_ASC: 'MODIFIER_COMPETITIVENESS_ASC' as const,
+	MODIFIER_COMPETITIVENESS_DESC: 'MODIFIER_COMPETITIVENESS_DESC' as const,
+	MODIFIER_RATING_ASC: 'MODIFIER_RATING_ASC' as const,
+	MODIFIER_RATING_DESC: 'MODIFIER_RATING_DESC' as const,
+	MODIFIER_POPULARITY_ASC: 'MODIFIER_POPULARITY_ASC' as const,
+	MODIFIER_POPULARITY_DESC: 'MODIFIER_POPULARITY_DESC' as const,
+	CUT_PENALTY_ASC: 'CUT_PENALTY_ASC' as const,
+	CUT_PENALTY_DESC: 'CUT_PENALTY_DESC' as const,
+	PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
+	PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const,
+	LEVEL_ID_ASC: 'LEVEL_ID_ASC' as const,
+	LEVEL_ID_DESC: 'LEVEL_ID_DESC' as const,
+	LEVEL_HASH_ASC: 'LEVEL_HASH_ASC' as const,
+	LEVEL_HASH_DESC: 'LEVEL_HASH_DESC' as const,
+	LEVEL_DATE_CREATED_ASC: 'LEVEL_DATE_CREATED_ASC' as const,
+	LEVEL_DATE_CREATED_DESC: 'LEVEL_DATE_CREATED_DESC' as const,
+	LEVEL_DATE_UPDATED_ASC: 'LEVEL_DATE_UPDATED_ASC' as const,
+	LEVEL_DATE_UPDATED_DESC: 'LEVEL_DATE_UPDATED_DESC' as const,
+};
+
+export const enumLevelPointsHistoryGroupBy = {
+	ID_LEVEL: 'ID_LEVEL' as const,
+	POINTS: 'POINTS' as const,
+	DATE_CREATED: 'DATE_CREATED' as const,
+	DATE_CREATED_TRUNCATED_TO_HOUR: 'DATE_CREATED_TRUNCATED_TO_HOUR' as const,
+	DATE_CREATED_TRUNCATED_TO_DAY: 'DATE_CREATED_TRUNCATED_TO_DAY' as const,
+	DATE_UPDATED: 'DATE_UPDATED' as const,
+	DATE_UPDATED_TRUNCATED_TO_HOUR: 'DATE_UPDATED_TRUNCATED_TO_HOUR' as const,
+	DATE_UPDATED_TRUNCATED_TO_DAY: 'DATE_UPDATED_TRUNCATED_TO_DAY' as const,
+	RATING: 'RATING' as const,
+	MODIFIER_LENGTH: 'MODIFIER_LENGTH' as const,
+	MODIFIER_COMPETITIVENESS: 'MODIFIER_COMPETITIVENESS' as const,
+	MODIFIER_RATING: 'MODIFIER_RATING' as const,
+	MODIFIER_POPULARITY: 'MODIFIER_POPULARITY' as const,
+	CUT_PENALTY: 'CUT_PENALTY' as const,
+};
+
+export const enumLevelPointsHistoriesOrderBy = {
+	NATURAL: 'NATURAL' as const,
+	ID_ASC: 'ID_ASC' as const,
+	ID_DESC: 'ID_DESC' as const,
+	ID_LEVEL_ASC: 'ID_LEVEL_ASC' as const,
+	ID_LEVEL_DESC: 'ID_LEVEL_DESC' as const,
+	POINTS_ASC: 'POINTS_ASC' as const,
+	POINTS_DESC: 'POINTS_DESC' as const,
 	DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
 	DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
 	DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
@@ -32127,6 +32180,58 @@ export const enumRecordsOrderBy = {
 		'ZSL_LEVEL_RESULTS_VARIANCE_POPULATION_DATE_UPDATED_DESC' as const,
 };
 
+export const enumVoteGroupBy = {
+	ID_USER: 'ID_USER' as const,
+	ID_LEVEL: 'ID_LEVEL' as const,
+	VALUE: 'VALUE' as const,
+	DATE_CREATED: 'DATE_CREATED' as const,
+	DATE_CREATED_TRUNCATED_TO_HOUR: 'DATE_CREATED_TRUNCATED_TO_HOUR' as const,
+	DATE_CREATED_TRUNCATED_TO_DAY: 'DATE_CREATED_TRUNCATED_TO_DAY' as const,
+	DATE_UPDATED: 'DATE_UPDATED' as const,
+	DATE_UPDATED_TRUNCATED_TO_HOUR: 'DATE_UPDATED_TRUNCATED_TO_HOUR' as const,
+	DATE_UPDATED_TRUNCATED_TO_DAY: 'DATE_UPDATED_TRUNCATED_TO_DAY' as const,
+};
+
+export const enumVotesOrderBy = {
+	NATURAL: 'NATURAL' as const,
+	ID_ASC: 'ID_ASC' as const,
+	ID_DESC: 'ID_DESC' as const,
+	ID_USER_ASC: 'ID_USER_ASC' as const,
+	ID_USER_DESC: 'ID_USER_DESC' as const,
+	ID_LEVEL_ASC: 'ID_LEVEL_ASC' as const,
+	ID_LEVEL_DESC: 'ID_LEVEL_DESC' as const,
+	VALUE_ASC: 'VALUE_ASC' as const,
+	VALUE_DESC: 'VALUE_DESC' as const,
+	DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+	DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+	DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+	DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
+	PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
+	PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const,
+	USER_ID_ASC: 'USER_ID_ASC' as const,
+	USER_ID_DESC: 'USER_ID_DESC' as const,
+	USER_STEAM_NAME_ASC: 'USER_STEAM_NAME_ASC' as const,
+	USER_STEAM_NAME_DESC: 'USER_STEAM_NAME_DESC' as const,
+	USER_BANNED_ASC: 'USER_BANNED_ASC' as const,
+	USER_BANNED_DESC: 'USER_BANNED_DESC' as const,
+	USER_DATE_CREATED_ASC: 'USER_DATE_CREATED_ASC' as const,
+	USER_DATE_CREATED_DESC: 'USER_DATE_CREATED_DESC' as const,
+	USER_DATE_UPDATED_ASC: 'USER_DATE_UPDATED_ASC' as const,
+	USER_DATE_UPDATED_DESC: 'USER_DATE_UPDATED_DESC' as const,
+	USER_STEAM_ID_ASC: 'USER_STEAM_ID_ASC' as const,
+	USER_STEAM_ID_DESC: 'USER_STEAM_ID_DESC' as const,
+	USER_DISCORD_ID_ASC: 'USER_DISCORD_ID_ASC' as const,
+	USER_DISCORD_ID_DESC: 'USER_DISCORD_ID_DESC' as const,
+	LEVEL_ID_ASC: 'LEVEL_ID_ASC' as const,
+	LEVEL_ID_DESC: 'LEVEL_ID_DESC' as const,
+	LEVEL_HASH_ASC: 'LEVEL_HASH_ASC' as const,
+	LEVEL_HASH_DESC: 'LEVEL_HASH_DESC' as const,
+	LEVEL_DATE_CREATED_ASC: 'LEVEL_DATE_CREATED_ASC' as const,
+	LEVEL_DATE_CREATED_DESC: 'LEVEL_DATE_CREATED_DESC' as const,
+	LEVEL_DATE_UPDATED_ASC: 'LEVEL_DATE_UPDATED_ASC' as const,
+	LEVEL_DATE_UPDATED_DESC: 'LEVEL_DATE_UPDATED_DESC' as const,
+};
+
 export const enumWorldRecordGlobalGroupBy = {
 	ID_RECORD: 'ID_RECORD' as const,
 	DATE_CREATED: 'DATE_CREATED' as const,
@@ -32196,111 +32301,6 @@ export const enumWorldRecordGlobalsOrderBy = {
 	USER_STEAM_ID_DESC: 'USER_STEAM_ID_DESC' as const,
 	USER_DISCORD_ID_ASC: 'USER_DISCORD_ID_ASC' as const,
 	USER_DISCORD_ID_DESC: 'USER_DISCORD_ID_DESC' as const,
-};
-
-export const enumVoteGroupBy = {
-	ID_USER: 'ID_USER' as const,
-	ID_LEVEL: 'ID_LEVEL' as const,
-	VALUE: 'VALUE' as const,
-	DATE_CREATED: 'DATE_CREATED' as const,
-	DATE_CREATED_TRUNCATED_TO_HOUR: 'DATE_CREATED_TRUNCATED_TO_HOUR' as const,
-	DATE_CREATED_TRUNCATED_TO_DAY: 'DATE_CREATED_TRUNCATED_TO_DAY' as const,
-	DATE_UPDATED: 'DATE_UPDATED' as const,
-	DATE_UPDATED_TRUNCATED_TO_HOUR: 'DATE_UPDATED_TRUNCATED_TO_HOUR' as const,
-	DATE_UPDATED_TRUNCATED_TO_DAY: 'DATE_UPDATED_TRUNCATED_TO_DAY' as const,
-};
-
-export const enumVotesOrderBy = {
-	NATURAL: 'NATURAL' as const,
-	ID_ASC: 'ID_ASC' as const,
-	ID_DESC: 'ID_DESC' as const,
-	ID_USER_ASC: 'ID_USER_ASC' as const,
-	ID_USER_DESC: 'ID_USER_DESC' as const,
-	ID_LEVEL_ASC: 'ID_LEVEL_ASC' as const,
-	ID_LEVEL_DESC: 'ID_LEVEL_DESC' as const,
-	VALUE_ASC: 'VALUE_ASC' as const,
-	VALUE_DESC: 'VALUE_DESC' as const,
-	DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
-	DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
-	DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
-	DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
-	PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
-	PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const,
-	USER_ID_ASC: 'USER_ID_ASC' as const,
-	USER_ID_DESC: 'USER_ID_DESC' as const,
-	USER_STEAM_NAME_ASC: 'USER_STEAM_NAME_ASC' as const,
-	USER_STEAM_NAME_DESC: 'USER_STEAM_NAME_DESC' as const,
-	USER_BANNED_ASC: 'USER_BANNED_ASC' as const,
-	USER_BANNED_DESC: 'USER_BANNED_DESC' as const,
-	USER_DATE_CREATED_ASC: 'USER_DATE_CREATED_ASC' as const,
-	USER_DATE_CREATED_DESC: 'USER_DATE_CREATED_DESC' as const,
-	USER_DATE_UPDATED_ASC: 'USER_DATE_UPDATED_ASC' as const,
-	USER_DATE_UPDATED_DESC: 'USER_DATE_UPDATED_DESC' as const,
-	USER_STEAM_ID_ASC: 'USER_STEAM_ID_ASC' as const,
-	USER_STEAM_ID_DESC: 'USER_STEAM_ID_DESC' as const,
-	USER_DISCORD_ID_ASC: 'USER_DISCORD_ID_ASC' as const,
-	USER_DISCORD_ID_DESC: 'USER_DISCORD_ID_DESC' as const,
-	LEVEL_ID_ASC: 'LEVEL_ID_ASC' as const,
-	LEVEL_ID_DESC: 'LEVEL_ID_DESC' as const,
-	LEVEL_HASH_ASC: 'LEVEL_HASH_ASC' as const,
-	LEVEL_HASH_DESC: 'LEVEL_HASH_DESC' as const,
-	LEVEL_DATE_CREATED_ASC: 'LEVEL_DATE_CREATED_ASC' as const,
-	LEVEL_DATE_CREATED_DESC: 'LEVEL_DATE_CREATED_DESC' as const,
-	LEVEL_DATE_UPDATED_ASC: 'LEVEL_DATE_UPDATED_ASC' as const,
-	LEVEL_DATE_UPDATED_DESC: 'LEVEL_DATE_UPDATED_DESC' as const,
-};
-
-export const enumLevelPointsHistoryGroupBy = {
-	ID_LEVEL: 'ID_LEVEL' as const,
-	POINTS: 'POINTS' as const,
-	DATE_CREATED: 'DATE_CREATED' as const,
-	DATE_CREATED_TRUNCATED_TO_HOUR: 'DATE_CREATED_TRUNCATED_TO_HOUR' as const,
-	DATE_CREATED_TRUNCATED_TO_DAY: 'DATE_CREATED_TRUNCATED_TO_DAY' as const,
-	DATE_UPDATED: 'DATE_UPDATED' as const,
-	DATE_UPDATED_TRUNCATED_TO_HOUR: 'DATE_UPDATED_TRUNCATED_TO_HOUR' as const,
-	DATE_UPDATED_TRUNCATED_TO_DAY: 'DATE_UPDATED_TRUNCATED_TO_DAY' as const,
-	RATING: 'RATING' as const,
-	MODIFIER_LENGTH: 'MODIFIER_LENGTH' as const,
-	MODIFIER_COMPETITIVENESS: 'MODIFIER_COMPETITIVENESS' as const,
-	MODIFIER_RATING: 'MODIFIER_RATING' as const,
-	MODIFIER_POPULARITY: 'MODIFIER_POPULARITY' as const,
-	CUT_PENALTY: 'CUT_PENALTY' as const,
-};
-
-export const enumLevelPointsHistoriesOrderBy = {
-	NATURAL: 'NATURAL' as const,
-	ID_ASC: 'ID_ASC' as const,
-	ID_DESC: 'ID_DESC' as const,
-	ID_LEVEL_ASC: 'ID_LEVEL_ASC' as const,
-	ID_LEVEL_DESC: 'ID_LEVEL_DESC' as const,
-	POINTS_ASC: 'POINTS_ASC' as const,
-	POINTS_DESC: 'POINTS_DESC' as const,
-	DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
-	DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
-	DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
-	DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
-	RATING_ASC: 'RATING_ASC' as const,
-	RATING_DESC: 'RATING_DESC' as const,
-	MODIFIER_LENGTH_ASC: 'MODIFIER_LENGTH_ASC' as const,
-	MODIFIER_LENGTH_DESC: 'MODIFIER_LENGTH_DESC' as const,
-	MODIFIER_COMPETITIVENESS_ASC: 'MODIFIER_COMPETITIVENESS_ASC' as const,
-	MODIFIER_COMPETITIVENESS_DESC: 'MODIFIER_COMPETITIVENESS_DESC' as const,
-	MODIFIER_RATING_ASC: 'MODIFIER_RATING_ASC' as const,
-	MODIFIER_RATING_DESC: 'MODIFIER_RATING_DESC' as const,
-	MODIFIER_POPULARITY_ASC: 'MODIFIER_POPULARITY_ASC' as const,
-	MODIFIER_POPULARITY_DESC: 'MODIFIER_POPULARITY_DESC' as const,
-	CUT_PENALTY_ASC: 'CUT_PENALTY_ASC' as const,
-	CUT_PENALTY_DESC: 'CUT_PENALTY_DESC' as const,
-	PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
-	PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const,
-	LEVEL_ID_ASC: 'LEVEL_ID_ASC' as const,
-	LEVEL_ID_DESC: 'LEVEL_ID_DESC' as const,
-	LEVEL_HASH_ASC: 'LEVEL_HASH_ASC' as const,
-	LEVEL_HASH_DESC: 'LEVEL_HASH_DESC' as const,
-	LEVEL_DATE_CREATED_ASC: 'LEVEL_DATE_CREATED_ASC' as const,
-	LEVEL_DATE_CREATED_DESC: 'LEVEL_DATE_CREATED_DESC' as const,
-	LEVEL_DATE_UPDATED_ASC: 'LEVEL_DATE_UPDATED_ASC' as const,
-	LEVEL_DATE_UPDATED_DESC: 'LEVEL_DATE_UPDATED_DESC' as const,
 };
 
 export const enumZslSeasonGroupBy = {
@@ -33609,78 +33609,6 @@ export const enumUsersOrderBy = {
 	RECORD_MAX_SPEEDS_DESC: 'RECORD_MAX_SPEEDS_DESC' as const,
 	RECORD_MIN_SPEEDS_ASC: 'RECORD_MIN_SPEEDS_ASC' as const,
 	RECORD_MIN_SPEEDS_DESC: 'RECORD_MIN_SPEEDS_DESC' as const,
-	WORLD_RECORD_GLOBAL_COUNT_ASC: 'WORLD_RECORD_GLOBAL_COUNT_ASC' as const,
-	WORLD_RECORD_GLOBAL_COUNT_DESC: 'WORLD_RECORD_GLOBAL_COUNT_DESC' as const,
-	WORLD_RECORD_GLOBAL_MAX_ID_ASC: 'WORLD_RECORD_GLOBAL_MAX_ID_ASC' as const,
-	WORLD_RECORD_GLOBAL_MAX_ID_DESC: 'WORLD_RECORD_GLOBAL_MAX_ID_DESC' as const,
-	WORLD_RECORD_GLOBAL_MIN_ID_ASC: 'WORLD_RECORD_GLOBAL_MIN_ID_ASC' as const,
-	WORLD_RECORD_GLOBAL_MIN_ID_DESC: 'WORLD_RECORD_GLOBAL_MIN_ID_DESC' as const,
-	WORLD_RECORD_GLOBAL_MAX_ID_RECORD_ASC:
-		'WORLD_RECORD_GLOBAL_MAX_ID_RECORD_ASC' as const,
-	WORLD_RECORD_GLOBAL_MAX_ID_RECORD_DESC:
-		'WORLD_RECORD_GLOBAL_MAX_ID_RECORD_DESC' as const,
-	WORLD_RECORD_GLOBAL_MIN_ID_RECORD_ASC:
-		'WORLD_RECORD_GLOBAL_MIN_ID_RECORD_ASC' as const,
-	WORLD_RECORD_GLOBAL_MIN_ID_RECORD_DESC:
-		'WORLD_RECORD_GLOBAL_MIN_ID_RECORD_DESC' as const,
-	WORLD_RECORD_GLOBAL_MAX_ID_LEVEL_ASC:
-		'WORLD_RECORD_GLOBAL_MAX_ID_LEVEL_ASC' as const,
-	WORLD_RECORD_GLOBAL_MAX_ID_LEVEL_DESC:
-		'WORLD_RECORD_GLOBAL_MAX_ID_LEVEL_DESC' as const,
-	WORLD_RECORD_GLOBAL_MIN_ID_LEVEL_ASC:
-		'WORLD_RECORD_GLOBAL_MIN_ID_LEVEL_ASC' as const,
-	WORLD_RECORD_GLOBAL_MIN_ID_LEVEL_DESC:
-		'WORLD_RECORD_GLOBAL_MIN_ID_LEVEL_DESC' as const,
-	WORLD_RECORD_GLOBAL_MAX_DATE_CREATED_ASC:
-		'WORLD_RECORD_GLOBAL_MAX_DATE_CREATED_ASC' as const,
-	WORLD_RECORD_GLOBAL_MAX_DATE_CREATED_DESC:
-		'WORLD_RECORD_GLOBAL_MAX_DATE_CREATED_DESC' as const,
-	WORLD_RECORD_GLOBAL_MIN_DATE_CREATED_ASC:
-		'WORLD_RECORD_GLOBAL_MIN_DATE_CREATED_ASC' as const,
-	WORLD_RECORD_GLOBAL_MIN_DATE_CREATED_DESC:
-		'WORLD_RECORD_GLOBAL_MIN_DATE_CREATED_DESC' as const,
-	WORLD_RECORD_GLOBAL_MAX_DATE_UPDATED_ASC:
-		'WORLD_RECORD_GLOBAL_MAX_DATE_UPDATED_ASC' as const,
-	WORLD_RECORD_GLOBAL_MAX_DATE_UPDATED_DESC:
-		'WORLD_RECORD_GLOBAL_MAX_DATE_UPDATED_DESC' as const,
-	WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_ASC:
-		'WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_ASC' as const,
-	WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_DESC:
-		'WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_DESC' as const,
-	WORLD_RECORD_GLOBAL_MAX_ID_USER_ASC:
-		'WORLD_RECORD_GLOBAL_MAX_ID_USER_ASC' as const,
-	WORLD_RECORD_GLOBAL_MAX_ID_USER_DESC:
-		'WORLD_RECORD_GLOBAL_MAX_ID_USER_DESC' as const,
-	WORLD_RECORD_GLOBAL_MIN_ID_USER_ASC:
-		'WORLD_RECORD_GLOBAL_MIN_ID_USER_ASC' as const,
-	WORLD_RECORD_GLOBAL_MIN_ID_USER_DESC:
-		'WORLD_RECORD_GLOBAL_MIN_ID_USER_DESC' as const,
-	VOTE_COUNT_ASC: 'VOTE_COUNT_ASC' as const,
-	VOTE_COUNT_DESC: 'VOTE_COUNT_DESC' as const,
-	VOTE_MAX_ID_ASC: 'VOTE_MAX_ID_ASC' as const,
-	VOTE_MAX_ID_DESC: 'VOTE_MAX_ID_DESC' as const,
-	VOTE_MIN_ID_ASC: 'VOTE_MIN_ID_ASC' as const,
-	VOTE_MIN_ID_DESC: 'VOTE_MIN_ID_DESC' as const,
-	VOTE_MAX_ID_USER_ASC: 'VOTE_MAX_ID_USER_ASC' as const,
-	VOTE_MAX_ID_USER_DESC: 'VOTE_MAX_ID_USER_DESC' as const,
-	VOTE_MIN_ID_USER_ASC: 'VOTE_MIN_ID_USER_ASC' as const,
-	VOTE_MIN_ID_USER_DESC: 'VOTE_MIN_ID_USER_DESC' as const,
-	VOTE_MAX_ID_LEVEL_ASC: 'VOTE_MAX_ID_LEVEL_ASC' as const,
-	VOTE_MAX_ID_LEVEL_DESC: 'VOTE_MAX_ID_LEVEL_DESC' as const,
-	VOTE_MIN_ID_LEVEL_ASC: 'VOTE_MIN_ID_LEVEL_ASC' as const,
-	VOTE_MIN_ID_LEVEL_DESC: 'VOTE_MIN_ID_LEVEL_DESC' as const,
-	VOTE_MAX_VALUE_ASC: 'VOTE_MAX_VALUE_ASC' as const,
-	VOTE_MAX_VALUE_DESC: 'VOTE_MAX_VALUE_DESC' as const,
-	VOTE_MIN_VALUE_ASC: 'VOTE_MIN_VALUE_ASC' as const,
-	VOTE_MIN_VALUE_DESC: 'VOTE_MIN_VALUE_DESC' as const,
-	VOTE_MAX_DATE_CREATED_ASC: 'VOTE_MAX_DATE_CREATED_ASC' as const,
-	VOTE_MAX_DATE_CREATED_DESC: 'VOTE_MAX_DATE_CREATED_DESC' as const,
-	VOTE_MIN_DATE_CREATED_ASC: 'VOTE_MIN_DATE_CREATED_ASC' as const,
-	VOTE_MIN_DATE_CREATED_DESC: 'VOTE_MIN_DATE_CREATED_DESC' as const,
-	VOTE_MAX_DATE_UPDATED_ASC: 'VOTE_MAX_DATE_UPDATED_ASC' as const,
-	VOTE_MAX_DATE_UPDATED_DESC: 'VOTE_MAX_DATE_UPDATED_DESC' as const,
-	VOTE_MIN_DATE_UPDATED_ASC: 'VOTE_MIN_DATE_UPDATED_ASC' as const,
-	VOTE_MIN_DATE_UPDATED_DESC: 'VOTE_MIN_DATE_UPDATED_DESC' as const,
 	USER_POINTS_HISTORY_COUNT_ASC: 'USER_POINTS_HISTORY_COUNT_ASC' as const,
 	USER_POINTS_HISTORY_COUNT_DESC: 'USER_POINTS_HISTORY_COUNT_DESC' as const,
 	USER_POINTS_HISTORY_MAX_ID_ASC: 'USER_POINTS_HISTORY_MAX_ID_ASC' as const,
@@ -33741,6 +33669,78 @@ export const enumUsersOrderBy = {
 		'USER_POINTS_HISTORY_MIN_DATE_UPDATED_ASC' as const,
 	USER_POINTS_HISTORY_MIN_DATE_UPDATED_DESC:
 		'USER_POINTS_HISTORY_MIN_DATE_UPDATED_DESC' as const,
+	VOTE_COUNT_ASC: 'VOTE_COUNT_ASC' as const,
+	VOTE_COUNT_DESC: 'VOTE_COUNT_DESC' as const,
+	VOTE_MAX_ID_ASC: 'VOTE_MAX_ID_ASC' as const,
+	VOTE_MAX_ID_DESC: 'VOTE_MAX_ID_DESC' as const,
+	VOTE_MIN_ID_ASC: 'VOTE_MIN_ID_ASC' as const,
+	VOTE_MIN_ID_DESC: 'VOTE_MIN_ID_DESC' as const,
+	VOTE_MAX_ID_USER_ASC: 'VOTE_MAX_ID_USER_ASC' as const,
+	VOTE_MAX_ID_USER_DESC: 'VOTE_MAX_ID_USER_DESC' as const,
+	VOTE_MIN_ID_USER_ASC: 'VOTE_MIN_ID_USER_ASC' as const,
+	VOTE_MIN_ID_USER_DESC: 'VOTE_MIN_ID_USER_DESC' as const,
+	VOTE_MAX_ID_LEVEL_ASC: 'VOTE_MAX_ID_LEVEL_ASC' as const,
+	VOTE_MAX_ID_LEVEL_DESC: 'VOTE_MAX_ID_LEVEL_DESC' as const,
+	VOTE_MIN_ID_LEVEL_ASC: 'VOTE_MIN_ID_LEVEL_ASC' as const,
+	VOTE_MIN_ID_LEVEL_DESC: 'VOTE_MIN_ID_LEVEL_DESC' as const,
+	VOTE_MAX_VALUE_ASC: 'VOTE_MAX_VALUE_ASC' as const,
+	VOTE_MAX_VALUE_DESC: 'VOTE_MAX_VALUE_DESC' as const,
+	VOTE_MIN_VALUE_ASC: 'VOTE_MIN_VALUE_ASC' as const,
+	VOTE_MIN_VALUE_DESC: 'VOTE_MIN_VALUE_DESC' as const,
+	VOTE_MAX_DATE_CREATED_ASC: 'VOTE_MAX_DATE_CREATED_ASC' as const,
+	VOTE_MAX_DATE_CREATED_DESC: 'VOTE_MAX_DATE_CREATED_DESC' as const,
+	VOTE_MIN_DATE_CREATED_ASC: 'VOTE_MIN_DATE_CREATED_ASC' as const,
+	VOTE_MIN_DATE_CREATED_DESC: 'VOTE_MIN_DATE_CREATED_DESC' as const,
+	VOTE_MAX_DATE_UPDATED_ASC: 'VOTE_MAX_DATE_UPDATED_ASC' as const,
+	VOTE_MAX_DATE_UPDATED_DESC: 'VOTE_MAX_DATE_UPDATED_DESC' as const,
+	VOTE_MIN_DATE_UPDATED_ASC: 'VOTE_MIN_DATE_UPDATED_ASC' as const,
+	VOTE_MIN_DATE_UPDATED_DESC: 'VOTE_MIN_DATE_UPDATED_DESC' as const,
+	WORLD_RECORD_GLOBAL_COUNT_ASC: 'WORLD_RECORD_GLOBAL_COUNT_ASC' as const,
+	WORLD_RECORD_GLOBAL_COUNT_DESC: 'WORLD_RECORD_GLOBAL_COUNT_DESC' as const,
+	WORLD_RECORD_GLOBAL_MAX_ID_ASC: 'WORLD_RECORD_GLOBAL_MAX_ID_ASC' as const,
+	WORLD_RECORD_GLOBAL_MAX_ID_DESC: 'WORLD_RECORD_GLOBAL_MAX_ID_DESC' as const,
+	WORLD_RECORD_GLOBAL_MIN_ID_ASC: 'WORLD_RECORD_GLOBAL_MIN_ID_ASC' as const,
+	WORLD_RECORD_GLOBAL_MIN_ID_DESC: 'WORLD_RECORD_GLOBAL_MIN_ID_DESC' as const,
+	WORLD_RECORD_GLOBAL_MAX_ID_RECORD_ASC:
+		'WORLD_RECORD_GLOBAL_MAX_ID_RECORD_ASC' as const,
+	WORLD_RECORD_GLOBAL_MAX_ID_RECORD_DESC:
+		'WORLD_RECORD_GLOBAL_MAX_ID_RECORD_DESC' as const,
+	WORLD_RECORD_GLOBAL_MIN_ID_RECORD_ASC:
+		'WORLD_RECORD_GLOBAL_MIN_ID_RECORD_ASC' as const,
+	WORLD_RECORD_GLOBAL_MIN_ID_RECORD_DESC:
+		'WORLD_RECORD_GLOBAL_MIN_ID_RECORD_DESC' as const,
+	WORLD_RECORD_GLOBAL_MAX_ID_LEVEL_ASC:
+		'WORLD_RECORD_GLOBAL_MAX_ID_LEVEL_ASC' as const,
+	WORLD_RECORD_GLOBAL_MAX_ID_LEVEL_DESC:
+		'WORLD_RECORD_GLOBAL_MAX_ID_LEVEL_DESC' as const,
+	WORLD_RECORD_GLOBAL_MIN_ID_LEVEL_ASC:
+		'WORLD_RECORD_GLOBAL_MIN_ID_LEVEL_ASC' as const,
+	WORLD_RECORD_GLOBAL_MIN_ID_LEVEL_DESC:
+		'WORLD_RECORD_GLOBAL_MIN_ID_LEVEL_DESC' as const,
+	WORLD_RECORD_GLOBAL_MAX_DATE_CREATED_ASC:
+		'WORLD_RECORD_GLOBAL_MAX_DATE_CREATED_ASC' as const,
+	WORLD_RECORD_GLOBAL_MAX_DATE_CREATED_DESC:
+		'WORLD_RECORD_GLOBAL_MAX_DATE_CREATED_DESC' as const,
+	WORLD_RECORD_GLOBAL_MIN_DATE_CREATED_ASC:
+		'WORLD_RECORD_GLOBAL_MIN_DATE_CREATED_ASC' as const,
+	WORLD_RECORD_GLOBAL_MIN_DATE_CREATED_DESC:
+		'WORLD_RECORD_GLOBAL_MIN_DATE_CREATED_DESC' as const,
+	WORLD_RECORD_GLOBAL_MAX_DATE_UPDATED_ASC:
+		'WORLD_RECORD_GLOBAL_MAX_DATE_UPDATED_ASC' as const,
+	WORLD_RECORD_GLOBAL_MAX_DATE_UPDATED_DESC:
+		'WORLD_RECORD_GLOBAL_MAX_DATE_UPDATED_DESC' as const,
+	WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_ASC:
+		'WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_ASC' as const,
+	WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_DESC:
+		'WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_DESC' as const,
+	WORLD_RECORD_GLOBAL_MAX_ID_USER_ASC:
+		'WORLD_RECORD_GLOBAL_MAX_ID_USER_ASC' as const,
+	WORLD_RECORD_GLOBAL_MAX_ID_USER_DESC:
+		'WORLD_RECORD_GLOBAL_MAX_ID_USER_DESC' as const,
+	WORLD_RECORD_GLOBAL_MIN_ID_USER_ASC:
+		'WORLD_RECORD_GLOBAL_MIN_ID_USER_ASC' as const,
+	WORLD_RECORD_GLOBAL_MIN_ID_USER_DESC:
+		'WORLD_RECORD_GLOBAL_MIN_ID_USER_DESC' as const,
 	ZSL_LEVEL_RESULT_COUNT_ASC: 'ZSL_LEVEL_RESULT_COUNT_ASC' as const,
 	ZSL_LEVEL_RESULT_COUNT_DESC: 'ZSL_LEVEL_RESULT_COUNT_DESC' as const,
 	ZSL_LEVEL_RESULT_MAX_ID_LEVEL_ASC:
@@ -35044,369 +35044,6 @@ export const enumUsersOrderBy = {
 		'RECORDS_VARIANCE_POPULATION_SPEEDS_ASC' as const,
 	RECORDS_VARIANCE_POPULATION_SPEEDS_DESC:
 		'RECORDS_VARIANCE_POPULATION_SPEEDS_DESC' as const,
-	WORLD_RECORD_GLOBALS_COUNT_ASC: 'WORLD_RECORD_GLOBALS_COUNT_ASC' as const,
-	WORLD_RECORD_GLOBALS_COUNT_DESC: 'WORLD_RECORD_GLOBALS_COUNT_DESC' as const,
-	WORLD_RECORD_GLOBALS_SUM_ID_ASC: 'WORLD_RECORD_GLOBALS_SUM_ID_ASC' as const,
-	WORLD_RECORD_GLOBALS_SUM_ID_DESC: 'WORLD_RECORD_GLOBALS_SUM_ID_DESC' as const,
-	WORLD_RECORD_GLOBALS_SUM_ID_RECORD_ASC:
-		'WORLD_RECORD_GLOBALS_SUM_ID_RECORD_ASC' as const,
-	WORLD_RECORD_GLOBALS_SUM_ID_RECORD_DESC:
-		'WORLD_RECORD_GLOBALS_SUM_ID_RECORD_DESC' as const,
-	WORLD_RECORD_GLOBALS_SUM_ID_LEVEL_ASC:
-		'WORLD_RECORD_GLOBALS_SUM_ID_LEVEL_ASC' as const,
-	WORLD_RECORD_GLOBALS_SUM_ID_LEVEL_DESC:
-		'WORLD_RECORD_GLOBALS_SUM_ID_LEVEL_DESC' as const,
-	WORLD_RECORD_GLOBALS_SUM_DATE_CREATED_ASC:
-		'WORLD_RECORD_GLOBALS_SUM_DATE_CREATED_ASC' as const,
-	WORLD_RECORD_GLOBALS_SUM_DATE_CREATED_DESC:
-		'WORLD_RECORD_GLOBALS_SUM_DATE_CREATED_DESC' as const,
-	WORLD_RECORD_GLOBALS_SUM_DATE_UPDATED_ASC:
-		'WORLD_RECORD_GLOBALS_SUM_DATE_UPDATED_ASC' as const,
-	WORLD_RECORD_GLOBALS_SUM_DATE_UPDATED_DESC:
-		'WORLD_RECORD_GLOBALS_SUM_DATE_UPDATED_DESC' as const,
-	WORLD_RECORD_GLOBALS_SUM_ID_USER_ASC:
-		'WORLD_RECORD_GLOBALS_SUM_ID_USER_ASC' as const,
-	WORLD_RECORD_GLOBALS_SUM_ID_USER_DESC:
-		'WORLD_RECORD_GLOBALS_SUM_ID_USER_DESC' as const,
-	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_ASC:
-		'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_ASC' as const,
-	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_DESC:
-		'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_DESC' as const,
-	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_RECORD_ASC:
-		'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_RECORD_ASC' as const,
-	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_RECORD_DESC:
-		'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_RECORD_DESC' as const,
-	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_LEVEL_ASC:
-		'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_LEVEL_ASC' as const,
-	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_LEVEL_DESC:
-		'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_LEVEL_DESC' as const,
-	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_DATE_CREATED_ASC:
-		'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_DATE_CREATED_ASC' as const,
-	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_DATE_CREATED_DESC:
-		'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_DATE_CREATED_DESC' as const,
-	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_DATE_UPDATED_ASC:
-		'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_DATE_UPDATED_ASC' as const,
-	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_DATE_UPDATED_DESC:
-		'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_DATE_UPDATED_DESC' as const,
-	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_USER_ASC:
-		'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_USER_ASC' as const,
-	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_USER_DESC:
-		'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_USER_DESC' as const,
-	WORLD_RECORD_GLOBALS_MIN_ID_ASC: 'WORLD_RECORD_GLOBALS_MIN_ID_ASC' as const,
-	WORLD_RECORD_GLOBALS_MIN_ID_DESC: 'WORLD_RECORD_GLOBALS_MIN_ID_DESC' as const,
-	WORLD_RECORD_GLOBALS_MIN_ID_RECORD_ASC:
-		'WORLD_RECORD_GLOBALS_MIN_ID_RECORD_ASC' as const,
-	WORLD_RECORD_GLOBALS_MIN_ID_RECORD_DESC:
-		'WORLD_RECORD_GLOBALS_MIN_ID_RECORD_DESC' as const,
-	WORLD_RECORD_GLOBALS_MIN_ID_LEVEL_ASC:
-		'WORLD_RECORD_GLOBALS_MIN_ID_LEVEL_ASC' as const,
-	WORLD_RECORD_GLOBALS_MIN_ID_LEVEL_DESC:
-		'WORLD_RECORD_GLOBALS_MIN_ID_LEVEL_DESC' as const,
-	WORLD_RECORD_GLOBALS_MIN_DATE_CREATED_ASC:
-		'WORLD_RECORD_GLOBALS_MIN_DATE_CREATED_ASC' as const,
-	WORLD_RECORD_GLOBALS_MIN_DATE_CREATED_DESC:
-		'WORLD_RECORD_GLOBALS_MIN_DATE_CREATED_DESC' as const,
-	WORLD_RECORD_GLOBALS_MIN_DATE_UPDATED_ASC:
-		'WORLD_RECORD_GLOBALS_MIN_DATE_UPDATED_ASC' as const,
-	WORLD_RECORD_GLOBALS_MIN_DATE_UPDATED_DESC:
-		'WORLD_RECORD_GLOBALS_MIN_DATE_UPDATED_DESC' as const,
-	WORLD_RECORD_GLOBALS_MIN_ID_USER_ASC:
-		'WORLD_RECORD_GLOBALS_MIN_ID_USER_ASC' as const,
-	WORLD_RECORD_GLOBALS_MIN_ID_USER_DESC:
-		'WORLD_RECORD_GLOBALS_MIN_ID_USER_DESC' as const,
-	WORLD_RECORD_GLOBALS_MAX_ID_ASC: 'WORLD_RECORD_GLOBALS_MAX_ID_ASC' as const,
-	WORLD_RECORD_GLOBALS_MAX_ID_DESC: 'WORLD_RECORD_GLOBALS_MAX_ID_DESC' as const,
-	WORLD_RECORD_GLOBALS_MAX_ID_RECORD_ASC:
-		'WORLD_RECORD_GLOBALS_MAX_ID_RECORD_ASC' as const,
-	WORLD_RECORD_GLOBALS_MAX_ID_RECORD_DESC:
-		'WORLD_RECORD_GLOBALS_MAX_ID_RECORD_DESC' as const,
-	WORLD_RECORD_GLOBALS_MAX_ID_LEVEL_ASC:
-		'WORLD_RECORD_GLOBALS_MAX_ID_LEVEL_ASC' as const,
-	WORLD_RECORD_GLOBALS_MAX_ID_LEVEL_DESC:
-		'WORLD_RECORD_GLOBALS_MAX_ID_LEVEL_DESC' as const,
-	WORLD_RECORD_GLOBALS_MAX_DATE_CREATED_ASC:
-		'WORLD_RECORD_GLOBALS_MAX_DATE_CREATED_ASC' as const,
-	WORLD_RECORD_GLOBALS_MAX_DATE_CREATED_DESC:
-		'WORLD_RECORD_GLOBALS_MAX_DATE_CREATED_DESC' as const,
-	WORLD_RECORD_GLOBALS_MAX_DATE_UPDATED_ASC:
-		'WORLD_RECORD_GLOBALS_MAX_DATE_UPDATED_ASC' as const,
-	WORLD_RECORD_GLOBALS_MAX_DATE_UPDATED_DESC:
-		'WORLD_RECORD_GLOBALS_MAX_DATE_UPDATED_DESC' as const,
-	WORLD_RECORD_GLOBALS_MAX_ID_USER_ASC:
-		'WORLD_RECORD_GLOBALS_MAX_ID_USER_ASC' as const,
-	WORLD_RECORD_GLOBALS_MAX_ID_USER_DESC:
-		'WORLD_RECORD_GLOBALS_MAX_ID_USER_DESC' as const,
-	WORLD_RECORD_GLOBALS_AVERAGE_ID_ASC:
-		'WORLD_RECORD_GLOBALS_AVERAGE_ID_ASC' as const,
-	WORLD_RECORD_GLOBALS_AVERAGE_ID_DESC:
-		'WORLD_RECORD_GLOBALS_AVERAGE_ID_DESC' as const,
-	WORLD_RECORD_GLOBALS_AVERAGE_ID_RECORD_ASC:
-		'WORLD_RECORD_GLOBALS_AVERAGE_ID_RECORD_ASC' as const,
-	WORLD_RECORD_GLOBALS_AVERAGE_ID_RECORD_DESC:
-		'WORLD_RECORD_GLOBALS_AVERAGE_ID_RECORD_DESC' as const,
-	WORLD_RECORD_GLOBALS_AVERAGE_ID_LEVEL_ASC:
-		'WORLD_RECORD_GLOBALS_AVERAGE_ID_LEVEL_ASC' as const,
-	WORLD_RECORD_GLOBALS_AVERAGE_ID_LEVEL_DESC:
-		'WORLD_RECORD_GLOBALS_AVERAGE_ID_LEVEL_DESC' as const,
-	WORLD_RECORD_GLOBALS_AVERAGE_DATE_CREATED_ASC:
-		'WORLD_RECORD_GLOBALS_AVERAGE_DATE_CREATED_ASC' as const,
-	WORLD_RECORD_GLOBALS_AVERAGE_DATE_CREATED_DESC:
-		'WORLD_RECORD_GLOBALS_AVERAGE_DATE_CREATED_DESC' as const,
-	WORLD_RECORD_GLOBALS_AVERAGE_DATE_UPDATED_ASC:
-		'WORLD_RECORD_GLOBALS_AVERAGE_DATE_UPDATED_ASC' as const,
-	WORLD_RECORD_GLOBALS_AVERAGE_DATE_UPDATED_DESC:
-		'WORLD_RECORD_GLOBALS_AVERAGE_DATE_UPDATED_DESC' as const,
-	WORLD_RECORD_GLOBALS_AVERAGE_ID_USER_ASC:
-		'WORLD_RECORD_GLOBALS_AVERAGE_ID_USER_ASC' as const,
-	WORLD_RECORD_GLOBALS_AVERAGE_ID_USER_DESC:
-		'WORLD_RECORD_GLOBALS_AVERAGE_ID_USER_DESC' as const,
-	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_ASC:
-		'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_ASC' as const,
-	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_DESC:
-		'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_DESC' as const,
-	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_RECORD_ASC:
-		'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_RECORD_ASC' as const,
-	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_RECORD_DESC:
-		'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_RECORD_DESC' as const,
-	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_LEVEL_ASC:
-		'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_LEVEL_ASC' as const,
-	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_LEVEL_DESC:
-		'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_LEVEL_DESC' as const,
-	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_DATE_CREATED_ASC:
-		'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_DATE_CREATED_ASC' as const,
-	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_DATE_CREATED_DESC:
-		'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_DATE_CREATED_DESC' as const,
-	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_DATE_UPDATED_ASC:
-		'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_DATE_UPDATED_ASC' as const,
-	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_DATE_UPDATED_DESC:
-		'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_DATE_UPDATED_DESC' as const,
-	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_USER_ASC:
-		'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_USER_ASC' as const,
-	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_USER_DESC:
-		'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_USER_DESC' as const,
-	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_ASC:
-		'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_ASC' as const,
-	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_DESC:
-		'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_DESC' as const,
-	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_RECORD_ASC:
-		'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_RECORD_ASC' as const,
-	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_RECORD_DESC:
-		'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_RECORD_DESC' as const,
-	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_LEVEL_ASC:
-		'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_LEVEL_ASC' as const,
-	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_LEVEL_DESC:
-		'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_LEVEL_DESC' as const,
-	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_DATE_CREATED_ASC:
-		'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_DATE_CREATED_ASC' as const,
-	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_DATE_CREATED_DESC:
-		'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_DATE_CREATED_DESC' as const,
-	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_DATE_UPDATED_ASC:
-		'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_DATE_UPDATED_ASC' as const,
-	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_DATE_UPDATED_DESC:
-		'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_DATE_UPDATED_DESC' as const,
-	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_USER_ASC:
-		'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_USER_ASC' as const,
-	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_USER_DESC:
-		'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_USER_DESC' as const,
-	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_ASC:
-		'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_ASC' as const,
-	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_DESC:
-		'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_DESC' as const,
-	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_RECORD_ASC:
-		'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_RECORD_ASC' as const,
-	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_RECORD_DESC:
-		'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_RECORD_DESC' as const,
-	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_LEVEL_ASC:
-		'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_LEVEL_ASC' as const,
-	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_LEVEL_DESC:
-		'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_LEVEL_DESC' as const,
-	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_DATE_CREATED_ASC:
-		'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_DATE_CREATED_ASC' as const,
-	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_DATE_CREATED_DESC:
-		'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_DATE_CREATED_DESC' as const,
-	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_DATE_UPDATED_ASC:
-		'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_DATE_UPDATED_ASC' as const,
-	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_DATE_UPDATED_DESC:
-		'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_DATE_UPDATED_DESC' as const,
-	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_USER_ASC:
-		'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_USER_ASC' as const,
-	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_USER_DESC:
-		'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_USER_DESC' as const,
-	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_ASC:
-		'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_ASC' as const,
-	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_DESC:
-		'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_DESC' as const,
-	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_RECORD_ASC:
-		'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_RECORD_ASC' as const,
-	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_RECORD_DESC:
-		'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_RECORD_DESC' as const,
-	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_LEVEL_ASC:
-		'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_LEVEL_ASC' as const,
-	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_LEVEL_DESC:
-		'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_LEVEL_DESC' as const,
-	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_DATE_CREATED_ASC:
-		'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_DATE_CREATED_ASC' as const,
-	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_DATE_CREATED_DESC:
-		'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_DATE_CREATED_DESC' as const,
-	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_DATE_UPDATED_ASC:
-		'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_DATE_UPDATED_ASC' as const,
-	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_DATE_UPDATED_DESC:
-		'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_DATE_UPDATED_DESC' as const,
-	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_USER_ASC:
-		'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_USER_ASC' as const,
-	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_USER_DESC:
-		'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_USER_DESC' as const,
-	VOTES_COUNT_ASC: 'VOTES_COUNT_ASC' as const,
-	VOTES_COUNT_DESC: 'VOTES_COUNT_DESC' as const,
-	VOTES_SUM_ID_ASC: 'VOTES_SUM_ID_ASC' as const,
-	VOTES_SUM_ID_DESC: 'VOTES_SUM_ID_DESC' as const,
-	VOTES_SUM_ID_USER_ASC: 'VOTES_SUM_ID_USER_ASC' as const,
-	VOTES_SUM_ID_USER_DESC: 'VOTES_SUM_ID_USER_DESC' as const,
-	VOTES_SUM_ID_LEVEL_ASC: 'VOTES_SUM_ID_LEVEL_ASC' as const,
-	VOTES_SUM_ID_LEVEL_DESC: 'VOTES_SUM_ID_LEVEL_DESC' as const,
-	VOTES_SUM_VALUE_ASC: 'VOTES_SUM_VALUE_ASC' as const,
-	VOTES_SUM_VALUE_DESC: 'VOTES_SUM_VALUE_DESC' as const,
-	VOTES_SUM_DATE_CREATED_ASC: 'VOTES_SUM_DATE_CREATED_ASC' as const,
-	VOTES_SUM_DATE_CREATED_DESC: 'VOTES_SUM_DATE_CREATED_DESC' as const,
-	VOTES_SUM_DATE_UPDATED_ASC: 'VOTES_SUM_DATE_UPDATED_ASC' as const,
-	VOTES_SUM_DATE_UPDATED_DESC: 'VOTES_SUM_DATE_UPDATED_DESC' as const,
-	VOTES_DISTINCT_COUNT_ID_ASC: 'VOTES_DISTINCT_COUNT_ID_ASC' as const,
-	VOTES_DISTINCT_COUNT_ID_DESC: 'VOTES_DISTINCT_COUNT_ID_DESC' as const,
-	VOTES_DISTINCT_COUNT_ID_USER_ASC: 'VOTES_DISTINCT_COUNT_ID_USER_ASC' as const,
-	VOTES_DISTINCT_COUNT_ID_USER_DESC:
-		'VOTES_DISTINCT_COUNT_ID_USER_DESC' as const,
-	VOTES_DISTINCT_COUNT_ID_LEVEL_ASC:
-		'VOTES_DISTINCT_COUNT_ID_LEVEL_ASC' as const,
-	VOTES_DISTINCT_COUNT_ID_LEVEL_DESC:
-		'VOTES_DISTINCT_COUNT_ID_LEVEL_DESC' as const,
-	VOTES_DISTINCT_COUNT_VALUE_ASC: 'VOTES_DISTINCT_COUNT_VALUE_ASC' as const,
-	VOTES_DISTINCT_COUNT_VALUE_DESC: 'VOTES_DISTINCT_COUNT_VALUE_DESC' as const,
-	VOTES_DISTINCT_COUNT_DATE_CREATED_ASC:
-		'VOTES_DISTINCT_COUNT_DATE_CREATED_ASC' as const,
-	VOTES_DISTINCT_COUNT_DATE_CREATED_DESC:
-		'VOTES_DISTINCT_COUNT_DATE_CREATED_DESC' as const,
-	VOTES_DISTINCT_COUNT_DATE_UPDATED_ASC:
-		'VOTES_DISTINCT_COUNT_DATE_UPDATED_ASC' as const,
-	VOTES_DISTINCT_COUNT_DATE_UPDATED_DESC:
-		'VOTES_DISTINCT_COUNT_DATE_UPDATED_DESC' as const,
-	VOTES_MIN_ID_ASC: 'VOTES_MIN_ID_ASC' as const,
-	VOTES_MIN_ID_DESC: 'VOTES_MIN_ID_DESC' as const,
-	VOTES_MIN_ID_USER_ASC: 'VOTES_MIN_ID_USER_ASC' as const,
-	VOTES_MIN_ID_USER_DESC: 'VOTES_MIN_ID_USER_DESC' as const,
-	VOTES_MIN_ID_LEVEL_ASC: 'VOTES_MIN_ID_LEVEL_ASC' as const,
-	VOTES_MIN_ID_LEVEL_DESC: 'VOTES_MIN_ID_LEVEL_DESC' as const,
-	VOTES_MIN_VALUE_ASC: 'VOTES_MIN_VALUE_ASC' as const,
-	VOTES_MIN_VALUE_DESC: 'VOTES_MIN_VALUE_DESC' as const,
-	VOTES_MIN_DATE_CREATED_ASC: 'VOTES_MIN_DATE_CREATED_ASC' as const,
-	VOTES_MIN_DATE_CREATED_DESC: 'VOTES_MIN_DATE_CREATED_DESC' as const,
-	VOTES_MIN_DATE_UPDATED_ASC: 'VOTES_MIN_DATE_UPDATED_ASC' as const,
-	VOTES_MIN_DATE_UPDATED_DESC: 'VOTES_MIN_DATE_UPDATED_DESC' as const,
-	VOTES_MAX_ID_ASC: 'VOTES_MAX_ID_ASC' as const,
-	VOTES_MAX_ID_DESC: 'VOTES_MAX_ID_DESC' as const,
-	VOTES_MAX_ID_USER_ASC: 'VOTES_MAX_ID_USER_ASC' as const,
-	VOTES_MAX_ID_USER_DESC: 'VOTES_MAX_ID_USER_DESC' as const,
-	VOTES_MAX_ID_LEVEL_ASC: 'VOTES_MAX_ID_LEVEL_ASC' as const,
-	VOTES_MAX_ID_LEVEL_DESC: 'VOTES_MAX_ID_LEVEL_DESC' as const,
-	VOTES_MAX_VALUE_ASC: 'VOTES_MAX_VALUE_ASC' as const,
-	VOTES_MAX_VALUE_DESC: 'VOTES_MAX_VALUE_DESC' as const,
-	VOTES_MAX_DATE_CREATED_ASC: 'VOTES_MAX_DATE_CREATED_ASC' as const,
-	VOTES_MAX_DATE_CREATED_DESC: 'VOTES_MAX_DATE_CREATED_DESC' as const,
-	VOTES_MAX_DATE_UPDATED_ASC: 'VOTES_MAX_DATE_UPDATED_ASC' as const,
-	VOTES_MAX_DATE_UPDATED_DESC: 'VOTES_MAX_DATE_UPDATED_DESC' as const,
-	VOTES_AVERAGE_ID_ASC: 'VOTES_AVERAGE_ID_ASC' as const,
-	VOTES_AVERAGE_ID_DESC: 'VOTES_AVERAGE_ID_DESC' as const,
-	VOTES_AVERAGE_ID_USER_ASC: 'VOTES_AVERAGE_ID_USER_ASC' as const,
-	VOTES_AVERAGE_ID_USER_DESC: 'VOTES_AVERAGE_ID_USER_DESC' as const,
-	VOTES_AVERAGE_ID_LEVEL_ASC: 'VOTES_AVERAGE_ID_LEVEL_ASC' as const,
-	VOTES_AVERAGE_ID_LEVEL_DESC: 'VOTES_AVERAGE_ID_LEVEL_DESC' as const,
-	VOTES_AVERAGE_VALUE_ASC: 'VOTES_AVERAGE_VALUE_ASC' as const,
-	VOTES_AVERAGE_VALUE_DESC: 'VOTES_AVERAGE_VALUE_DESC' as const,
-	VOTES_AVERAGE_DATE_CREATED_ASC: 'VOTES_AVERAGE_DATE_CREATED_ASC' as const,
-	VOTES_AVERAGE_DATE_CREATED_DESC: 'VOTES_AVERAGE_DATE_CREATED_DESC' as const,
-	VOTES_AVERAGE_DATE_UPDATED_ASC: 'VOTES_AVERAGE_DATE_UPDATED_ASC' as const,
-	VOTES_AVERAGE_DATE_UPDATED_DESC: 'VOTES_AVERAGE_DATE_UPDATED_DESC' as const,
-	VOTES_STDDEV_SAMPLE_ID_ASC: 'VOTES_STDDEV_SAMPLE_ID_ASC' as const,
-	VOTES_STDDEV_SAMPLE_ID_DESC: 'VOTES_STDDEV_SAMPLE_ID_DESC' as const,
-	VOTES_STDDEV_SAMPLE_ID_USER_ASC: 'VOTES_STDDEV_SAMPLE_ID_USER_ASC' as const,
-	VOTES_STDDEV_SAMPLE_ID_USER_DESC: 'VOTES_STDDEV_SAMPLE_ID_USER_DESC' as const,
-	VOTES_STDDEV_SAMPLE_ID_LEVEL_ASC: 'VOTES_STDDEV_SAMPLE_ID_LEVEL_ASC' as const,
-	VOTES_STDDEV_SAMPLE_ID_LEVEL_DESC:
-		'VOTES_STDDEV_SAMPLE_ID_LEVEL_DESC' as const,
-	VOTES_STDDEV_SAMPLE_VALUE_ASC: 'VOTES_STDDEV_SAMPLE_VALUE_ASC' as const,
-	VOTES_STDDEV_SAMPLE_VALUE_DESC: 'VOTES_STDDEV_SAMPLE_VALUE_DESC' as const,
-	VOTES_STDDEV_SAMPLE_DATE_CREATED_ASC:
-		'VOTES_STDDEV_SAMPLE_DATE_CREATED_ASC' as const,
-	VOTES_STDDEV_SAMPLE_DATE_CREATED_DESC:
-		'VOTES_STDDEV_SAMPLE_DATE_CREATED_DESC' as const,
-	VOTES_STDDEV_SAMPLE_DATE_UPDATED_ASC:
-		'VOTES_STDDEV_SAMPLE_DATE_UPDATED_ASC' as const,
-	VOTES_STDDEV_SAMPLE_DATE_UPDATED_DESC:
-		'VOTES_STDDEV_SAMPLE_DATE_UPDATED_DESC' as const,
-	VOTES_STDDEV_POPULATION_ID_ASC: 'VOTES_STDDEV_POPULATION_ID_ASC' as const,
-	VOTES_STDDEV_POPULATION_ID_DESC: 'VOTES_STDDEV_POPULATION_ID_DESC' as const,
-	VOTES_STDDEV_POPULATION_ID_USER_ASC:
-		'VOTES_STDDEV_POPULATION_ID_USER_ASC' as const,
-	VOTES_STDDEV_POPULATION_ID_USER_DESC:
-		'VOTES_STDDEV_POPULATION_ID_USER_DESC' as const,
-	VOTES_STDDEV_POPULATION_ID_LEVEL_ASC:
-		'VOTES_STDDEV_POPULATION_ID_LEVEL_ASC' as const,
-	VOTES_STDDEV_POPULATION_ID_LEVEL_DESC:
-		'VOTES_STDDEV_POPULATION_ID_LEVEL_DESC' as const,
-	VOTES_STDDEV_POPULATION_VALUE_ASC:
-		'VOTES_STDDEV_POPULATION_VALUE_ASC' as const,
-	VOTES_STDDEV_POPULATION_VALUE_DESC:
-		'VOTES_STDDEV_POPULATION_VALUE_DESC' as const,
-	VOTES_STDDEV_POPULATION_DATE_CREATED_ASC:
-		'VOTES_STDDEV_POPULATION_DATE_CREATED_ASC' as const,
-	VOTES_STDDEV_POPULATION_DATE_CREATED_DESC:
-		'VOTES_STDDEV_POPULATION_DATE_CREATED_DESC' as const,
-	VOTES_STDDEV_POPULATION_DATE_UPDATED_ASC:
-		'VOTES_STDDEV_POPULATION_DATE_UPDATED_ASC' as const,
-	VOTES_STDDEV_POPULATION_DATE_UPDATED_DESC:
-		'VOTES_STDDEV_POPULATION_DATE_UPDATED_DESC' as const,
-	VOTES_VARIANCE_SAMPLE_ID_ASC: 'VOTES_VARIANCE_SAMPLE_ID_ASC' as const,
-	VOTES_VARIANCE_SAMPLE_ID_DESC: 'VOTES_VARIANCE_SAMPLE_ID_DESC' as const,
-	VOTES_VARIANCE_SAMPLE_ID_USER_ASC:
-		'VOTES_VARIANCE_SAMPLE_ID_USER_ASC' as const,
-	VOTES_VARIANCE_SAMPLE_ID_USER_DESC:
-		'VOTES_VARIANCE_SAMPLE_ID_USER_DESC' as const,
-	VOTES_VARIANCE_SAMPLE_ID_LEVEL_ASC:
-		'VOTES_VARIANCE_SAMPLE_ID_LEVEL_ASC' as const,
-	VOTES_VARIANCE_SAMPLE_ID_LEVEL_DESC:
-		'VOTES_VARIANCE_SAMPLE_ID_LEVEL_DESC' as const,
-	VOTES_VARIANCE_SAMPLE_VALUE_ASC: 'VOTES_VARIANCE_SAMPLE_VALUE_ASC' as const,
-	VOTES_VARIANCE_SAMPLE_VALUE_DESC: 'VOTES_VARIANCE_SAMPLE_VALUE_DESC' as const,
-	VOTES_VARIANCE_SAMPLE_DATE_CREATED_ASC:
-		'VOTES_VARIANCE_SAMPLE_DATE_CREATED_ASC' as const,
-	VOTES_VARIANCE_SAMPLE_DATE_CREATED_DESC:
-		'VOTES_VARIANCE_SAMPLE_DATE_CREATED_DESC' as const,
-	VOTES_VARIANCE_SAMPLE_DATE_UPDATED_ASC:
-		'VOTES_VARIANCE_SAMPLE_DATE_UPDATED_ASC' as const,
-	VOTES_VARIANCE_SAMPLE_DATE_UPDATED_DESC:
-		'VOTES_VARIANCE_SAMPLE_DATE_UPDATED_DESC' as const,
-	VOTES_VARIANCE_POPULATION_ID_ASC: 'VOTES_VARIANCE_POPULATION_ID_ASC' as const,
-	VOTES_VARIANCE_POPULATION_ID_DESC:
-		'VOTES_VARIANCE_POPULATION_ID_DESC' as const,
-	VOTES_VARIANCE_POPULATION_ID_USER_ASC:
-		'VOTES_VARIANCE_POPULATION_ID_USER_ASC' as const,
-	VOTES_VARIANCE_POPULATION_ID_USER_DESC:
-		'VOTES_VARIANCE_POPULATION_ID_USER_DESC' as const,
-	VOTES_VARIANCE_POPULATION_ID_LEVEL_ASC:
-		'VOTES_VARIANCE_POPULATION_ID_LEVEL_ASC' as const,
-	VOTES_VARIANCE_POPULATION_ID_LEVEL_DESC:
-		'VOTES_VARIANCE_POPULATION_ID_LEVEL_DESC' as const,
-	VOTES_VARIANCE_POPULATION_VALUE_ASC:
-		'VOTES_VARIANCE_POPULATION_VALUE_ASC' as const,
-	VOTES_VARIANCE_POPULATION_VALUE_DESC:
-		'VOTES_VARIANCE_POPULATION_VALUE_DESC' as const,
-	VOTES_VARIANCE_POPULATION_DATE_CREATED_ASC:
-		'VOTES_VARIANCE_POPULATION_DATE_CREATED_ASC' as const,
-	VOTES_VARIANCE_POPULATION_DATE_CREATED_DESC:
-		'VOTES_VARIANCE_POPULATION_DATE_CREATED_DESC' as const,
-	VOTES_VARIANCE_POPULATION_DATE_UPDATED_ASC:
-		'VOTES_VARIANCE_POPULATION_DATE_UPDATED_ASC' as const,
-	VOTES_VARIANCE_POPULATION_DATE_UPDATED_DESC:
-		'VOTES_VARIANCE_POPULATION_DATE_UPDATED_DESC' as const,
 	USER_POINTS_HISTORIES_COUNT_ASC: 'USER_POINTS_HISTORIES_COUNT_ASC' as const,
 	USER_POINTS_HISTORIES_COUNT_DESC: 'USER_POINTS_HISTORIES_COUNT_DESC' as const,
 	USER_POINTS_HISTORIES_SUM_ID_ASC: 'USER_POINTS_HISTORIES_SUM_ID_ASC' as const,
@@ -35694,6 +35331,369 @@ export const enumUsersOrderBy = {
 		'USER_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_UPDATED_ASC' as const,
 	USER_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_UPDATED_DESC:
 		'USER_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_UPDATED_DESC' as const,
+	VOTES_COUNT_ASC: 'VOTES_COUNT_ASC' as const,
+	VOTES_COUNT_DESC: 'VOTES_COUNT_DESC' as const,
+	VOTES_SUM_ID_ASC: 'VOTES_SUM_ID_ASC' as const,
+	VOTES_SUM_ID_DESC: 'VOTES_SUM_ID_DESC' as const,
+	VOTES_SUM_ID_USER_ASC: 'VOTES_SUM_ID_USER_ASC' as const,
+	VOTES_SUM_ID_USER_DESC: 'VOTES_SUM_ID_USER_DESC' as const,
+	VOTES_SUM_ID_LEVEL_ASC: 'VOTES_SUM_ID_LEVEL_ASC' as const,
+	VOTES_SUM_ID_LEVEL_DESC: 'VOTES_SUM_ID_LEVEL_DESC' as const,
+	VOTES_SUM_VALUE_ASC: 'VOTES_SUM_VALUE_ASC' as const,
+	VOTES_SUM_VALUE_DESC: 'VOTES_SUM_VALUE_DESC' as const,
+	VOTES_SUM_DATE_CREATED_ASC: 'VOTES_SUM_DATE_CREATED_ASC' as const,
+	VOTES_SUM_DATE_CREATED_DESC: 'VOTES_SUM_DATE_CREATED_DESC' as const,
+	VOTES_SUM_DATE_UPDATED_ASC: 'VOTES_SUM_DATE_UPDATED_ASC' as const,
+	VOTES_SUM_DATE_UPDATED_DESC: 'VOTES_SUM_DATE_UPDATED_DESC' as const,
+	VOTES_DISTINCT_COUNT_ID_ASC: 'VOTES_DISTINCT_COUNT_ID_ASC' as const,
+	VOTES_DISTINCT_COUNT_ID_DESC: 'VOTES_DISTINCT_COUNT_ID_DESC' as const,
+	VOTES_DISTINCT_COUNT_ID_USER_ASC: 'VOTES_DISTINCT_COUNT_ID_USER_ASC' as const,
+	VOTES_DISTINCT_COUNT_ID_USER_DESC:
+		'VOTES_DISTINCT_COUNT_ID_USER_DESC' as const,
+	VOTES_DISTINCT_COUNT_ID_LEVEL_ASC:
+		'VOTES_DISTINCT_COUNT_ID_LEVEL_ASC' as const,
+	VOTES_DISTINCT_COUNT_ID_LEVEL_DESC:
+		'VOTES_DISTINCT_COUNT_ID_LEVEL_DESC' as const,
+	VOTES_DISTINCT_COUNT_VALUE_ASC: 'VOTES_DISTINCT_COUNT_VALUE_ASC' as const,
+	VOTES_DISTINCT_COUNT_VALUE_DESC: 'VOTES_DISTINCT_COUNT_VALUE_DESC' as const,
+	VOTES_DISTINCT_COUNT_DATE_CREATED_ASC:
+		'VOTES_DISTINCT_COUNT_DATE_CREATED_ASC' as const,
+	VOTES_DISTINCT_COUNT_DATE_CREATED_DESC:
+		'VOTES_DISTINCT_COUNT_DATE_CREATED_DESC' as const,
+	VOTES_DISTINCT_COUNT_DATE_UPDATED_ASC:
+		'VOTES_DISTINCT_COUNT_DATE_UPDATED_ASC' as const,
+	VOTES_DISTINCT_COUNT_DATE_UPDATED_DESC:
+		'VOTES_DISTINCT_COUNT_DATE_UPDATED_DESC' as const,
+	VOTES_MIN_ID_ASC: 'VOTES_MIN_ID_ASC' as const,
+	VOTES_MIN_ID_DESC: 'VOTES_MIN_ID_DESC' as const,
+	VOTES_MIN_ID_USER_ASC: 'VOTES_MIN_ID_USER_ASC' as const,
+	VOTES_MIN_ID_USER_DESC: 'VOTES_MIN_ID_USER_DESC' as const,
+	VOTES_MIN_ID_LEVEL_ASC: 'VOTES_MIN_ID_LEVEL_ASC' as const,
+	VOTES_MIN_ID_LEVEL_DESC: 'VOTES_MIN_ID_LEVEL_DESC' as const,
+	VOTES_MIN_VALUE_ASC: 'VOTES_MIN_VALUE_ASC' as const,
+	VOTES_MIN_VALUE_DESC: 'VOTES_MIN_VALUE_DESC' as const,
+	VOTES_MIN_DATE_CREATED_ASC: 'VOTES_MIN_DATE_CREATED_ASC' as const,
+	VOTES_MIN_DATE_CREATED_DESC: 'VOTES_MIN_DATE_CREATED_DESC' as const,
+	VOTES_MIN_DATE_UPDATED_ASC: 'VOTES_MIN_DATE_UPDATED_ASC' as const,
+	VOTES_MIN_DATE_UPDATED_DESC: 'VOTES_MIN_DATE_UPDATED_DESC' as const,
+	VOTES_MAX_ID_ASC: 'VOTES_MAX_ID_ASC' as const,
+	VOTES_MAX_ID_DESC: 'VOTES_MAX_ID_DESC' as const,
+	VOTES_MAX_ID_USER_ASC: 'VOTES_MAX_ID_USER_ASC' as const,
+	VOTES_MAX_ID_USER_DESC: 'VOTES_MAX_ID_USER_DESC' as const,
+	VOTES_MAX_ID_LEVEL_ASC: 'VOTES_MAX_ID_LEVEL_ASC' as const,
+	VOTES_MAX_ID_LEVEL_DESC: 'VOTES_MAX_ID_LEVEL_DESC' as const,
+	VOTES_MAX_VALUE_ASC: 'VOTES_MAX_VALUE_ASC' as const,
+	VOTES_MAX_VALUE_DESC: 'VOTES_MAX_VALUE_DESC' as const,
+	VOTES_MAX_DATE_CREATED_ASC: 'VOTES_MAX_DATE_CREATED_ASC' as const,
+	VOTES_MAX_DATE_CREATED_DESC: 'VOTES_MAX_DATE_CREATED_DESC' as const,
+	VOTES_MAX_DATE_UPDATED_ASC: 'VOTES_MAX_DATE_UPDATED_ASC' as const,
+	VOTES_MAX_DATE_UPDATED_DESC: 'VOTES_MAX_DATE_UPDATED_DESC' as const,
+	VOTES_AVERAGE_ID_ASC: 'VOTES_AVERAGE_ID_ASC' as const,
+	VOTES_AVERAGE_ID_DESC: 'VOTES_AVERAGE_ID_DESC' as const,
+	VOTES_AVERAGE_ID_USER_ASC: 'VOTES_AVERAGE_ID_USER_ASC' as const,
+	VOTES_AVERAGE_ID_USER_DESC: 'VOTES_AVERAGE_ID_USER_DESC' as const,
+	VOTES_AVERAGE_ID_LEVEL_ASC: 'VOTES_AVERAGE_ID_LEVEL_ASC' as const,
+	VOTES_AVERAGE_ID_LEVEL_DESC: 'VOTES_AVERAGE_ID_LEVEL_DESC' as const,
+	VOTES_AVERAGE_VALUE_ASC: 'VOTES_AVERAGE_VALUE_ASC' as const,
+	VOTES_AVERAGE_VALUE_DESC: 'VOTES_AVERAGE_VALUE_DESC' as const,
+	VOTES_AVERAGE_DATE_CREATED_ASC: 'VOTES_AVERAGE_DATE_CREATED_ASC' as const,
+	VOTES_AVERAGE_DATE_CREATED_DESC: 'VOTES_AVERAGE_DATE_CREATED_DESC' as const,
+	VOTES_AVERAGE_DATE_UPDATED_ASC: 'VOTES_AVERAGE_DATE_UPDATED_ASC' as const,
+	VOTES_AVERAGE_DATE_UPDATED_DESC: 'VOTES_AVERAGE_DATE_UPDATED_DESC' as const,
+	VOTES_STDDEV_SAMPLE_ID_ASC: 'VOTES_STDDEV_SAMPLE_ID_ASC' as const,
+	VOTES_STDDEV_SAMPLE_ID_DESC: 'VOTES_STDDEV_SAMPLE_ID_DESC' as const,
+	VOTES_STDDEV_SAMPLE_ID_USER_ASC: 'VOTES_STDDEV_SAMPLE_ID_USER_ASC' as const,
+	VOTES_STDDEV_SAMPLE_ID_USER_DESC: 'VOTES_STDDEV_SAMPLE_ID_USER_DESC' as const,
+	VOTES_STDDEV_SAMPLE_ID_LEVEL_ASC: 'VOTES_STDDEV_SAMPLE_ID_LEVEL_ASC' as const,
+	VOTES_STDDEV_SAMPLE_ID_LEVEL_DESC:
+		'VOTES_STDDEV_SAMPLE_ID_LEVEL_DESC' as const,
+	VOTES_STDDEV_SAMPLE_VALUE_ASC: 'VOTES_STDDEV_SAMPLE_VALUE_ASC' as const,
+	VOTES_STDDEV_SAMPLE_VALUE_DESC: 'VOTES_STDDEV_SAMPLE_VALUE_DESC' as const,
+	VOTES_STDDEV_SAMPLE_DATE_CREATED_ASC:
+		'VOTES_STDDEV_SAMPLE_DATE_CREATED_ASC' as const,
+	VOTES_STDDEV_SAMPLE_DATE_CREATED_DESC:
+		'VOTES_STDDEV_SAMPLE_DATE_CREATED_DESC' as const,
+	VOTES_STDDEV_SAMPLE_DATE_UPDATED_ASC:
+		'VOTES_STDDEV_SAMPLE_DATE_UPDATED_ASC' as const,
+	VOTES_STDDEV_SAMPLE_DATE_UPDATED_DESC:
+		'VOTES_STDDEV_SAMPLE_DATE_UPDATED_DESC' as const,
+	VOTES_STDDEV_POPULATION_ID_ASC: 'VOTES_STDDEV_POPULATION_ID_ASC' as const,
+	VOTES_STDDEV_POPULATION_ID_DESC: 'VOTES_STDDEV_POPULATION_ID_DESC' as const,
+	VOTES_STDDEV_POPULATION_ID_USER_ASC:
+		'VOTES_STDDEV_POPULATION_ID_USER_ASC' as const,
+	VOTES_STDDEV_POPULATION_ID_USER_DESC:
+		'VOTES_STDDEV_POPULATION_ID_USER_DESC' as const,
+	VOTES_STDDEV_POPULATION_ID_LEVEL_ASC:
+		'VOTES_STDDEV_POPULATION_ID_LEVEL_ASC' as const,
+	VOTES_STDDEV_POPULATION_ID_LEVEL_DESC:
+		'VOTES_STDDEV_POPULATION_ID_LEVEL_DESC' as const,
+	VOTES_STDDEV_POPULATION_VALUE_ASC:
+		'VOTES_STDDEV_POPULATION_VALUE_ASC' as const,
+	VOTES_STDDEV_POPULATION_VALUE_DESC:
+		'VOTES_STDDEV_POPULATION_VALUE_DESC' as const,
+	VOTES_STDDEV_POPULATION_DATE_CREATED_ASC:
+		'VOTES_STDDEV_POPULATION_DATE_CREATED_ASC' as const,
+	VOTES_STDDEV_POPULATION_DATE_CREATED_DESC:
+		'VOTES_STDDEV_POPULATION_DATE_CREATED_DESC' as const,
+	VOTES_STDDEV_POPULATION_DATE_UPDATED_ASC:
+		'VOTES_STDDEV_POPULATION_DATE_UPDATED_ASC' as const,
+	VOTES_STDDEV_POPULATION_DATE_UPDATED_DESC:
+		'VOTES_STDDEV_POPULATION_DATE_UPDATED_DESC' as const,
+	VOTES_VARIANCE_SAMPLE_ID_ASC: 'VOTES_VARIANCE_SAMPLE_ID_ASC' as const,
+	VOTES_VARIANCE_SAMPLE_ID_DESC: 'VOTES_VARIANCE_SAMPLE_ID_DESC' as const,
+	VOTES_VARIANCE_SAMPLE_ID_USER_ASC:
+		'VOTES_VARIANCE_SAMPLE_ID_USER_ASC' as const,
+	VOTES_VARIANCE_SAMPLE_ID_USER_DESC:
+		'VOTES_VARIANCE_SAMPLE_ID_USER_DESC' as const,
+	VOTES_VARIANCE_SAMPLE_ID_LEVEL_ASC:
+		'VOTES_VARIANCE_SAMPLE_ID_LEVEL_ASC' as const,
+	VOTES_VARIANCE_SAMPLE_ID_LEVEL_DESC:
+		'VOTES_VARIANCE_SAMPLE_ID_LEVEL_DESC' as const,
+	VOTES_VARIANCE_SAMPLE_VALUE_ASC: 'VOTES_VARIANCE_SAMPLE_VALUE_ASC' as const,
+	VOTES_VARIANCE_SAMPLE_VALUE_DESC: 'VOTES_VARIANCE_SAMPLE_VALUE_DESC' as const,
+	VOTES_VARIANCE_SAMPLE_DATE_CREATED_ASC:
+		'VOTES_VARIANCE_SAMPLE_DATE_CREATED_ASC' as const,
+	VOTES_VARIANCE_SAMPLE_DATE_CREATED_DESC:
+		'VOTES_VARIANCE_SAMPLE_DATE_CREATED_DESC' as const,
+	VOTES_VARIANCE_SAMPLE_DATE_UPDATED_ASC:
+		'VOTES_VARIANCE_SAMPLE_DATE_UPDATED_ASC' as const,
+	VOTES_VARIANCE_SAMPLE_DATE_UPDATED_DESC:
+		'VOTES_VARIANCE_SAMPLE_DATE_UPDATED_DESC' as const,
+	VOTES_VARIANCE_POPULATION_ID_ASC: 'VOTES_VARIANCE_POPULATION_ID_ASC' as const,
+	VOTES_VARIANCE_POPULATION_ID_DESC:
+		'VOTES_VARIANCE_POPULATION_ID_DESC' as const,
+	VOTES_VARIANCE_POPULATION_ID_USER_ASC:
+		'VOTES_VARIANCE_POPULATION_ID_USER_ASC' as const,
+	VOTES_VARIANCE_POPULATION_ID_USER_DESC:
+		'VOTES_VARIANCE_POPULATION_ID_USER_DESC' as const,
+	VOTES_VARIANCE_POPULATION_ID_LEVEL_ASC:
+		'VOTES_VARIANCE_POPULATION_ID_LEVEL_ASC' as const,
+	VOTES_VARIANCE_POPULATION_ID_LEVEL_DESC:
+		'VOTES_VARIANCE_POPULATION_ID_LEVEL_DESC' as const,
+	VOTES_VARIANCE_POPULATION_VALUE_ASC:
+		'VOTES_VARIANCE_POPULATION_VALUE_ASC' as const,
+	VOTES_VARIANCE_POPULATION_VALUE_DESC:
+		'VOTES_VARIANCE_POPULATION_VALUE_DESC' as const,
+	VOTES_VARIANCE_POPULATION_DATE_CREATED_ASC:
+		'VOTES_VARIANCE_POPULATION_DATE_CREATED_ASC' as const,
+	VOTES_VARIANCE_POPULATION_DATE_CREATED_DESC:
+		'VOTES_VARIANCE_POPULATION_DATE_CREATED_DESC' as const,
+	VOTES_VARIANCE_POPULATION_DATE_UPDATED_ASC:
+		'VOTES_VARIANCE_POPULATION_DATE_UPDATED_ASC' as const,
+	VOTES_VARIANCE_POPULATION_DATE_UPDATED_DESC:
+		'VOTES_VARIANCE_POPULATION_DATE_UPDATED_DESC' as const,
+	WORLD_RECORD_GLOBALS_COUNT_ASC: 'WORLD_RECORD_GLOBALS_COUNT_ASC' as const,
+	WORLD_RECORD_GLOBALS_COUNT_DESC: 'WORLD_RECORD_GLOBALS_COUNT_DESC' as const,
+	WORLD_RECORD_GLOBALS_SUM_ID_ASC: 'WORLD_RECORD_GLOBALS_SUM_ID_ASC' as const,
+	WORLD_RECORD_GLOBALS_SUM_ID_DESC: 'WORLD_RECORD_GLOBALS_SUM_ID_DESC' as const,
+	WORLD_RECORD_GLOBALS_SUM_ID_RECORD_ASC:
+		'WORLD_RECORD_GLOBALS_SUM_ID_RECORD_ASC' as const,
+	WORLD_RECORD_GLOBALS_SUM_ID_RECORD_DESC:
+		'WORLD_RECORD_GLOBALS_SUM_ID_RECORD_DESC' as const,
+	WORLD_RECORD_GLOBALS_SUM_ID_LEVEL_ASC:
+		'WORLD_RECORD_GLOBALS_SUM_ID_LEVEL_ASC' as const,
+	WORLD_RECORD_GLOBALS_SUM_ID_LEVEL_DESC:
+		'WORLD_RECORD_GLOBALS_SUM_ID_LEVEL_DESC' as const,
+	WORLD_RECORD_GLOBALS_SUM_DATE_CREATED_ASC:
+		'WORLD_RECORD_GLOBALS_SUM_DATE_CREATED_ASC' as const,
+	WORLD_RECORD_GLOBALS_SUM_DATE_CREATED_DESC:
+		'WORLD_RECORD_GLOBALS_SUM_DATE_CREATED_DESC' as const,
+	WORLD_RECORD_GLOBALS_SUM_DATE_UPDATED_ASC:
+		'WORLD_RECORD_GLOBALS_SUM_DATE_UPDATED_ASC' as const,
+	WORLD_RECORD_GLOBALS_SUM_DATE_UPDATED_DESC:
+		'WORLD_RECORD_GLOBALS_SUM_DATE_UPDATED_DESC' as const,
+	WORLD_RECORD_GLOBALS_SUM_ID_USER_ASC:
+		'WORLD_RECORD_GLOBALS_SUM_ID_USER_ASC' as const,
+	WORLD_RECORD_GLOBALS_SUM_ID_USER_DESC:
+		'WORLD_RECORD_GLOBALS_SUM_ID_USER_DESC' as const,
+	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_ASC:
+		'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_ASC' as const,
+	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_DESC:
+		'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_DESC' as const,
+	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_RECORD_ASC:
+		'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_RECORD_ASC' as const,
+	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_RECORD_DESC:
+		'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_RECORD_DESC' as const,
+	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_LEVEL_ASC:
+		'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_LEVEL_ASC' as const,
+	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_LEVEL_DESC:
+		'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_LEVEL_DESC' as const,
+	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_DATE_CREATED_ASC:
+		'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_DATE_CREATED_ASC' as const,
+	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_DATE_CREATED_DESC:
+		'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_DATE_CREATED_DESC' as const,
+	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_DATE_UPDATED_ASC:
+		'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_DATE_UPDATED_ASC' as const,
+	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_DATE_UPDATED_DESC:
+		'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_DATE_UPDATED_DESC' as const,
+	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_USER_ASC:
+		'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_USER_ASC' as const,
+	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_USER_DESC:
+		'WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_USER_DESC' as const,
+	WORLD_RECORD_GLOBALS_MIN_ID_ASC: 'WORLD_RECORD_GLOBALS_MIN_ID_ASC' as const,
+	WORLD_RECORD_GLOBALS_MIN_ID_DESC: 'WORLD_RECORD_GLOBALS_MIN_ID_DESC' as const,
+	WORLD_RECORD_GLOBALS_MIN_ID_RECORD_ASC:
+		'WORLD_RECORD_GLOBALS_MIN_ID_RECORD_ASC' as const,
+	WORLD_RECORD_GLOBALS_MIN_ID_RECORD_DESC:
+		'WORLD_RECORD_GLOBALS_MIN_ID_RECORD_DESC' as const,
+	WORLD_RECORD_GLOBALS_MIN_ID_LEVEL_ASC:
+		'WORLD_RECORD_GLOBALS_MIN_ID_LEVEL_ASC' as const,
+	WORLD_RECORD_GLOBALS_MIN_ID_LEVEL_DESC:
+		'WORLD_RECORD_GLOBALS_MIN_ID_LEVEL_DESC' as const,
+	WORLD_RECORD_GLOBALS_MIN_DATE_CREATED_ASC:
+		'WORLD_RECORD_GLOBALS_MIN_DATE_CREATED_ASC' as const,
+	WORLD_RECORD_GLOBALS_MIN_DATE_CREATED_DESC:
+		'WORLD_RECORD_GLOBALS_MIN_DATE_CREATED_DESC' as const,
+	WORLD_RECORD_GLOBALS_MIN_DATE_UPDATED_ASC:
+		'WORLD_RECORD_GLOBALS_MIN_DATE_UPDATED_ASC' as const,
+	WORLD_RECORD_GLOBALS_MIN_DATE_UPDATED_DESC:
+		'WORLD_RECORD_GLOBALS_MIN_DATE_UPDATED_DESC' as const,
+	WORLD_RECORD_GLOBALS_MIN_ID_USER_ASC:
+		'WORLD_RECORD_GLOBALS_MIN_ID_USER_ASC' as const,
+	WORLD_RECORD_GLOBALS_MIN_ID_USER_DESC:
+		'WORLD_RECORD_GLOBALS_MIN_ID_USER_DESC' as const,
+	WORLD_RECORD_GLOBALS_MAX_ID_ASC: 'WORLD_RECORD_GLOBALS_MAX_ID_ASC' as const,
+	WORLD_RECORD_GLOBALS_MAX_ID_DESC: 'WORLD_RECORD_GLOBALS_MAX_ID_DESC' as const,
+	WORLD_RECORD_GLOBALS_MAX_ID_RECORD_ASC:
+		'WORLD_RECORD_GLOBALS_MAX_ID_RECORD_ASC' as const,
+	WORLD_RECORD_GLOBALS_MAX_ID_RECORD_DESC:
+		'WORLD_RECORD_GLOBALS_MAX_ID_RECORD_DESC' as const,
+	WORLD_RECORD_GLOBALS_MAX_ID_LEVEL_ASC:
+		'WORLD_RECORD_GLOBALS_MAX_ID_LEVEL_ASC' as const,
+	WORLD_RECORD_GLOBALS_MAX_ID_LEVEL_DESC:
+		'WORLD_RECORD_GLOBALS_MAX_ID_LEVEL_DESC' as const,
+	WORLD_RECORD_GLOBALS_MAX_DATE_CREATED_ASC:
+		'WORLD_RECORD_GLOBALS_MAX_DATE_CREATED_ASC' as const,
+	WORLD_RECORD_GLOBALS_MAX_DATE_CREATED_DESC:
+		'WORLD_RECORD_GLOBALS_MAX_DATE_CREATED_DESC' as const,
+	WORLD_RECORD_GLOBALS_MAX_DATE_UPDATED_ASC:
+		'WORLD_RECORD_GLOBALS_MAX_DATE_UPDATED_ASC' as const,
+	WORLD_RECORD_GLOBALS_MAX_DATE_UPDATED_DESC:
+		'WORLD_RECORD_GLOBALS_MAX_DATE_UPDATED_DESC' as const,
+	WORLD_RECORD_GLOBALS_MAX_ID_USER_ASC:
+		'WORLD_RECORD_GLOBALS_MAX_ID_USER_ASC' as const,
+	WORLD_RECORD_GLOBALS_MAX_ID_USER_DESC:
+		'WORLD_RECORD_GLOBALS_MAX_ID_USER_DESC' as const,
+	WORLD_RECORD_GLOBALS_AVERAGE_ID_ASC:
+		'WORLD_RECORD_GLOBALS_AVERAGE_ID_ASC' as const,
+	WORLD_RECORD_GLOBALS_AVERAGE_ID_DESC:
+		'WORLD_RECORD_GLOBALS_AVERAGE_ID_DESC' as const,
+	WORLD_RECORD_GLOBALS_AVERAGE_ID_RECORD_ASC:
+		'WORLD_RECORD_GLOBALS_AVERAGE_ID_RECORD_ASC' as const,
+	WORLD_RECORD_GLOBALS_AVERAGE_ID_RECORD_DESC:
+		'WORLD_RECORD_GLOBALS_AVERAGE_ID_RECORD_DESC' as const,
+	WORLD_RECORD_GLOBALS_AVERAGE_ID_LEVEL_ASC:
+		'WORLD_RECORD_GLOBALS_AVERAGE_ID_LEVEL_ASC' as const,
+	WORLD_RECORD_GLOBALS_AVERAGE_ID_LEVEL_DESC:
+		'WORLD_RECORD_GLOBALS_AVERAGE_ID_LEVEL_DESC' as const,
+	WORLD_RECORD_GLOBALS_AVERAGE_DATE_CREATED_ASC:
+		'WORLD_RECORD_GLOBALS_AVERAGE_DATE_CREATED_ASC' as const,
+	WORLD_RECORD_GLOBALS_AVERAGE_DATE_CREATED_DESC:
+		'WORLD_RECORD_GLOBALS_AVERAGE_DATE_CREATED_DESC' as const,
+	WORLD_RECORD_GLOBALS_AVERAGE_DATE_UPDATED_ASC:
+		'WORLD_RECORD_GLOBALS_AVERAGE_DATE_UPDATED_ASC' as const,
+	WORLD_RECORD_GLOBALS_AVERAGE_DATE_UPDATED_DESC:
+		'WORLD_RECORD_GLOBALS_AVERAGE_DATE_UPDATED_DESC' as const,
+	WORLD_RECORD_GLOBALS_AVERAGE_ID_USER_ASC:
+		'WORLD_RECORD_GLOBALS_AVERAGE_ID_USER_ASC' as const,
+	WORLD_RECORD_GLOBALS_AVERAGE_ID_USER_DESC:
+		'WORLD_RECORD_GLOBALS_AVERAGE_ID_USER_DESC' as const,
+	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_ASC:
+		'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_ASC' as const,
+	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_DESC:
+		'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_DESC' as const,
+	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_RECORD_ASC:
+		'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_RECORD_ASC' as const,
+	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_RECORD_DESC:
+		'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_RECORD_DESC' as const,
+	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_LEVEL_ASC:
+		'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_LEVEL_ASC' as const,
+	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_LEVEL_DESC:
+		'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_LEVEL_DESC' as const,
+	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_DATE_CREATED_ASC:
+		'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_DATE_CREATED_ASC' as const,
+	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_DATE_CREATED_DESC:
+		'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_DATE_CREATED_DESC' as const,
+	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_DATE_UPDATED_ASC:
+		'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_DATE_UPDATED_ASC' as const,
+	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_DATE_UPDATED_DESC:
+		'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_DATE_UPDATED_DESC' as const,
+	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_USER_ASC:
+		'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_USER_ASC' as const,
+	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_USER_DESC:
+		'WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_USER_DESC' as const,
+	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_ASC:
+		'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_ASC' as const,
+	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_DESC:
+		'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_DESC' as const,
+	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_RECORD_ASC:
+		'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_RECORD_ASC' as const,
+	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_RECORD_DESC:
+		'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_RECORD_DESC' as const,
+	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_LEVEL_ASC:
+		'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_LEVEL_ASC' as const,
+	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_LEVEL_DESC:
+		'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_LEVEL_DESC' as const,
+	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_DATE_CREATED_ASC:
+		'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_DATE_CREATED_ASC' as const,
+	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_DATE_CREATED_DESC:
+		'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_DATE_CREATED_DESC' as const,
+	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_DATE_UPDATED_ASC:
+		'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_DATE_UPDATED_ASC' as const,
+	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_DATE_UPDATED_DESC:
+		'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_DATE_UPDATED_DESC' as const,
+	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_USER_ASC:
+		'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_USER_ASC' as const,
+	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_USER_DESC:
+		'WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_USER_DESC' as const,
+	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_ASC:
+		'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_ASC' as const,
+	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_DESC:
+		'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_DESC' as const,
+	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_RECORD_ASC:
+		'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_RECORD_ASC' as const,
+	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_RECORD_DESC:
+		'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_RECORD_DESC' as const,
+	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_LEVEL_ASC:
+		'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_LEVEL_ASC' as const,
+	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_LEVEL_DESC:
+		'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_LEVEL_DESC' as const,
+	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_DATE_CREATED_ASC:
+		'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_DATE_CREATED_ASC' as const,
+	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_DATE_CREATED_DESC:
+		'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_DATE_CREATED_DESC' as const,
+	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_DATE_UPDATED_ASC:
+		'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_DATE_UPDATED_ASC' as const,
+	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_DATE_UPDATED_DESC:
+		'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_DATE_UPDATED_DESC' as const,
+	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_USER_ASC:
+		'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_USER_ASC' as const,
+	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_USER_DESC:
+		'WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_USER_DESC' as const,
+	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_ASC:
+		'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_ASC' as const,
+	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_DESC:
+		'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_DESC' as const,
+	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_RECORD_ASC:
+		'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_RECORD_ASC' as const,
+	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_RECORD_DESC:
+		'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_RECORD_DESC' as const,
+	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_LEVEL_ASC:
+		'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_LEVEL_ASC' as const,
+	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_LEVEL_DESC:
+		'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_LEVEL_DESC' as const,
+	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_DATE_CREATED_ASC:
+		'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_DATE_CREATED_ASC' as const,
+	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_DATE_CREATED_DESC:
+		'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_DATE_CREATED_DESC' as const,
+	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_DATE_UPDATED_ASC:
+		'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_DATE_UPDATED_ASC' as const,
+	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_DATE_UPDATED_DESC:
+		'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_DATE_UPDATED_DESC' as const,
+	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_USER_ASC:
+		'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_USER_ASC' as const,
+	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_USER_DESC:
+		'WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_USER_DESC' as const,
 	ZSL_LEVEL_RESULTS_COUNT_ASC: 'ZSL_LEVEL_RESULTS_COUNT_ASC' as const,
 	ZSL_LEVEL_RESULTS_COUNT_DESC: 'ZSL_LEVEL_RESULTS_COUNT_DESC' as const,
 	ZSL_LEVEL_RESULTS_SUM_ID_LEVEL_ASC:
@@ -37115,6 +37115,92 @@ export const enumLevelsOrderBy = {
 	LEVEL_POINT_MAX_CUT_PENALTY_DESC: 'LEVEL_POINT_MAX_CUT_PENALTY_DESC' as const,
 	LEVEL_POINT_MIN_CUT_PENALTY_ASC: 'LEVEL_POINT_MIN_CUT_PENALTY_ASC' as const,
 	LEVEL_POINT_MIN_CUT_PENALTY_DESC: 'LEVEL_POINT_MIN_CUT_PENALTY_DESC' as const,
+	LEVEL_POINTS_HISTORY_COUNT_ASC: 'LEVEL_POINTS_HISTORY_COUNT_ASC' as const,
+	LEVEL_POINTS_HISTORY_COUNT_DESC: 'LEVEL_POINTS_HISTORY_COUNT_DESC' as const,
+	LEVEL_POINTS_HISTORY_MAX_ID_ASC: 'LEVEL_POINTS_HISTORY_MAX_ID_ASC' as const,
+	LEVEL_POINTS_HISTORY_MAX_ID_DESC: 'LEVEL_POINTS_HISTORY_MAX_ID_DESC' as const,
+	LEVEL_POINTS_HISTORY_MIN_ID_ASC: 'LEVEL_POINTS_HISTORY_MIN_ID_ASC' as const,
+	LEVEL_POINTS_HISTORY_MIN_ID_DESC: 'LEVEL_POINTS_HISTORY_MIN_ID_DESC' as const,
+	LEVEL_POINTS_HISTORY_MAX_ID_LEVEL_ASC:
+		'LEVEL_POINTS_HISTORY_MAX_ID_LEVEL_ASC' as const,
+	LEVEL_POINTS_HISTORY_MAX_ID_LEVEL_DESC:
+		'LEVEL_POINTS_HISTORY_MAX_ID_LEVEL_DESC' as const,
+	LEVEL_POINTS_HISTORY_MIN_ID_LEVEL_ASC:
+		'LEVEL_POINTS_HISTORY_MIN_ID_LEVEL_ASC' as const,
+	LEVEL_POINTS_HISTORY_MIN_ID_LEVEL_DESC:
+		'LEVEL_POINTS_HISTORY_MIN_ID_LEVEL_DESC' as const,
+	LEVEL_POINTS_HISTORY_MAX_POINTS_ASC:
+		'LEVEL_POINTS_HISTORY_MAX_POINTS_ASC' as const,
+	LEVEL_POINTS_HISTORY_MAX_POINTS_DESC:
+		'LEVEL_POINTS_HISTORY_MAX_POINTS_DESC' as const,
+	LEVEL_POINTS_HISTORY_MIN_POINTS_ASC:
+		'LEVEL_POINTS_HISTORY_MIN_POINTS_ASC' as const,
+	LEVEL_POINTS_HISTORY_MIN_POINTS_DESC:
+		'LEVEL_POINTS_HISTORY_MIN_POINTS_DESC' as const,
+	LEVEL_POINTS_HISTORY_MAX_DATE_CREATED_ASC:
+		'LEVEL_POINTS_HISTORY_MAX_DATE_CREATED_ASC' as const,
+	LEVEL_POINTS_HISTORY_MAX_DATE_CREATED_DESC:
+		'LEVEL_POINTS_HISTORY_MAX_DATE_CREATED_DESC' as const,
+	LEVEL_POINTS_HISTORY_MIN_DATE_CREATED_ASC:
+		'LEVEL_POINTS_HISTORY_MIN_DATE_CREATED_ASC' as const,
+	LEVEL_POINTS_HISTORY_MIN_DATE_CREATED_DESC:
+		'LEVEL_POINTS_HISTORY_MIN_DATE_CREATED_DESC' as const,
+	LEVEL_POINTS_HISTORY_MAX_DATE_UPDATED_ASC:
+		'LEVEL_POINTS_HISTORY_MAX_DATE_UPDATED_ASC' as const,
+	LEVEL_POINTS_HISTORY_MAX_DATE_UPDATED_DESC:
+		'LEVEL_POINTS_HISTORY_MAX_DATE_UPDATED_DESC' as const,
+	LEVEL_POINTS_HISTORY_MIN_DATE_UPDATED_ASC:
+		'LEVEL_POINTS_HISTORY_MIN_DATE_UPDATED_ASC' as const,
+	LEVEL_POINTS_HISTORY_MIN_DATE_UPDATED_DESC:
+		'LEVEL_POINTS_HISTORY_MIN_DATE_UPDATED_DESC' as const,
+	LEVEL_POINTS_HISTORY_MAX_RATING_ASC:
+		'LEVEL_POINTS_HISTORY_MAX_RATING_ASC' as const,
+	LEVEL_POINTS_HISTORY_MAX_RATING_DESC:
+		'LEVEL_POINTS_HISTORY_MAX_RATING_DESC' as const,
+	LEVEL_POINTS_HISTORY_MIN_RATING_ASC:
+		'LEVEL_POINTS_HISTORY_MIN_RATING_ASC' as const,
+	LEVEL_POINTS_HISTORY_MIN_RATING_DESC:
+		'LEVEL_POINTS_HISTORY_MIN_RATING_DESC' as const,
+	LEVEL_POINTS_HISTORY_MAX_MODIFIER_LENGTH_ASC:
+		'LEVEL_POINTS_HISTORY_MAX_MODIFIER_LENGTH_ASC' as const,
+	LEVEL_POINTS_HISTORY_MAX_MODIFIER_LENGTH_DESC:
+		'LEVEL_POINTS_HISTORY_MAX_MODIFIER_LENGTH_DESC' as const,
+	LEVEL_POINTS_HISTORY_MIN_MODIFIER_LENGTH_ASC:
+		'LEVEL_POINTS_HISTORY_MIN_MODIFIER_LENGTH_ASC' as const,
+	LEVEL_POINTS_HISTORY_MIN_MODIFIER_LENGTH_DESC:
+		'LEVEL_POINTS_HISTORY_MIN_MODIFIER_LENGTH_DESC' as const,
+	LEVEL_POINTS_HISTORY_MAX_MODIFIER_COMPETITIVENESS_ASC:
+		'LEVEL_POINTS_HISTORY_MAX_MODIFIER_COMPETITIVENESS_ASC' as const,
+	LEVEL_POINTS_HISTORY_MAX_MODIFIER_COMPETITIVENESS_DESC:
+		'LEVEL_POINTS_HISTORY_MAX_MODIFIER_COMPETITIVENESS_DESC' as const,
+	LEVEL_POINTS_HISTORY_MIN_MODIFIER_COMPETITIVENESS_ASC:
+		'LEVEL_POINTS_HISTORY_MIN_MODIFIER_COMPETITIVENESS_ASC' as const,
+	LEVEL_POINTS_HISTORY_MIN_MODIFIER_COMPETITIVENESS_DESC:
+		'LEVEL_POINTS_HISTORY_MIN_MODIFIER_COMPETITIVENESS_DESC' as const,
+	LEVEL_POINTS_HISTORY_MAX_MODIFIER_RATING_ASC:
+		'LEVEL_POINTS_HISTORY_MAX_MODIFIER_RATING_ASC' as const,
+	LEVEL_POINTS_HISTORY_MAX_MODIFIER_RATING_DESC:
+		'LEVEL_POINTS_HISTORY_MAX_MODIFIER_RATING_DESC' as const,
+	LEVEL_POINTS_HISTORY_MIN_MODIFIER_RATING_ASC:
+		'LEVEL_POINTS_HISTORY_MIN_MODIFIER_RATING_ASC' as const,
+	LEVEL_POINTS_HISTORY_MIN_MODIFIER_RATING_DESC:
+		'LEVEL_POINTS_HISTORY_MIN_MODIFIER_RATING_DESC' as const,
+	LEVEL_POINTS_HISTORY_MAX_MODIFIER_POPULARITY_ASC:
+		'LEVEL_POINTS_HISTORY_MAX_MODIFIER_POPULARITY_ASC' as const,
+	LEVEL_POINTS_HISTORY_MAX_MODIFIER_POPULARITY_DESC:
+		'LEVEL_POINTS_HISTORY_MAX_MODIFIER_POPULARITY_DESC' as const,
+	LEVEL_POINTS_HISTORY_MIN_MODIFIER_POPULARITY_ASC:
+		'LEVEL_POINTS_HISTORY_MIN_MODIFIER_POPULARITY_ASC' as const,
+	LEVEL_POINTS_HISTORY_MIN_MODIFIER_POPULARITY_DESC:
+		'LEVEL_POINTS_HISTORY_MIN_MODIFIER_POPULARITY_DESC' as const,
+	LEVEL_POINTS_HISTORY_MAX_CUT_PENALTY_ASC:
+		'LEVEL_POINTS_HISTORY_MAX_CUT_PENALTY_ASC' as const,
+	LEVEL_POINTS_HISTORY_MAX_CUT_PENALTY_DESC:
+		'LEVEL_POINTS_HISTORY_MAX_CUT_PENALTY_DESC' as const,
+	LEVEL_POINTS_HISTORY_MIN_CUT_PENALTY_ASC:
+		'LEVEL_POINTS_HISTORY_MIN_CUT_PENALTY_ASC' as const,
+	LEVEL_POINTS_HISTORY_MIN_CUT_PENALTY_DESC:
+		'LEVEL_POINTS_HISTORY_MIN_CUT_PENALTY_DESC' as const,
 	PERSONAL_BEST_GLOBAL_COUNT_ASC: 'PERSONAL_BEST_GLOBAL_COUNT_ASC' as const,
 	PERSONAL_BEST_GLOBAL_COUNT_DESC: 'PERSONAL_BEST_GLOBAL_COUNT_DESC' as const,
 	PERSONAL_BEST_GLOBAL_MAX_ID_ASC: 'PERSONAL_BEST_GLOBAL_MAX_ID_ASC' as const,
@@ -37203,25 +37289,6 @@ export const enumLevelsOrderBy = {
 	RECORD_MAX_SPEEDS_DESC: 'RECORD_MAX_SPEEDS_DESC' as const,
 	RECORD_MIN_SPEEDS_ASC: 'RECORD_MIN_SPEEDS_ASC' as const,
 	RECORD_MIN_SPEEDS_DESC: 'RECORD_MIN_SPEEDS_DESC' as const,
-	WORLD_RECORD_GLOBAL_ID_ASC: 'WORLD_RECORD_GLOBAL_ID_ASC' as const,
-	WORLD_RECORD_GLOBAL_ID_DESC: 'WORLD_RECORD_GLOBAL_ID_DESC' as const,
-	WORLD_RECORD_GLOBAL_ID_RECORD_ASC:
-		'WORLD_RECORD_GLOBAL_ID_RECORD_ASC' as const,
-	WORLD_RECORD_GLOBAL_ID_RECORD_DESC:
-		'WORLD_RECORD_GLOBAL_ID_RECORD_DESC' as const,
-	WORLD_RECORD_GLOBAL_ID_LEVEL_ASC: 'WORLD_RECORD_GLOBAL_ID_LEVEL_ASC' as const,
-	WORLD_RECORD_GLOBAL_ID_LEVEL_DESC:
-		'WORLD_RECORD_GLOBAL_ID_LEVEL_DESC' as const,
-	WORLD_RECORD_GLOBAL_DATE_CREATED_ASC:
-		'WORLD_RECORD_GLOBAL_DATE_CREATED_ASC' as const,
-	WORLD_RECORD_GLOBAL_DATE_CREATED_DESC:
-		'WORLD_RECORD_GLOBAL_DATE_CREATED_DESC' as const,
-	WORLD_RECORD_GLOBAL_DATE_UPDATED_ASC:
-		'WORLD_RECORD_GLOBAL_DATE_UPDATED_ASC' as const,
-	WORLD_RECORD_GLOBAL_DATE_UPDATED_DESC:
-		'WORLD_RECORD_GLOBAL_DATE_UPDATED_DESC' as const,
-	WORLD_RECORD_GLOBAL_ID_USER_ASC: 'WORLD_RECORD_GLOBAL_ID_USER_ASC' as const,
-	WORLD_RECORD_GLOBAL_ID_USER_DESC: 'WORLD_RECORD_GLOBAL_ID_USER_DESC' as const,
 	VOTE_COUNT_ASC: 'VOTE_COUNT_ASC' as const,
 	VOTE_COUNT_DESC: 'VOTE_COUNT_DESC' as const,
 	VOTE_MAX_ID_ASC: 'VOTE_MAX_ID_ASC' as const,
@@ -37248,92 +37315,25 @@ export const enumLevelsOrderBy = {
 	VOTE_MAX_DATE_UPDATED_DESC: 'VOTE_MAX_DATE_UPDATED_DESC' as const,
 	VOTE_MIN_DATE_UPDATED_ASC: 'VOTE_MIN_DATE_UPDATED_ASC' as const,
 	VOTE_MIN_DATE_UPDATED_DESC: 'VOTE_MIN_DATE_UPDATED_DESC' as const,
-	LEVEL_POINTS_HISTORY_COUNT_ASC: 'LEVEL_POINTS_HISTORY_COUNT_ASC' as const,
-	LEVEL_POINTS_HISTORY_COUNT_DESC: 'LEVEL_POINTS_HISTORY_COUNT_DESC' as const,
-	LEVEL_POINTS_HISTORY_MAX_ID_ASC: 'LEVEL_POINTS_HISTORY_MAX_ID_ASC' as const,
-	LEVEL_POINTS_HISTORY_MAX_ID_DESC: 'LEVEL_POINTS_HISTORY_MAX_ID_DESC' as const,
-	LEVEL_POINTS_HISTORY_MIN_ID_ASC: 'LEVEL_POINTS_HISTORY_MIN_ID_ASC' as const,
-	LEVEL_POINTS_HISTORY_MIN_ID_DESC: 'LEVEL_POINTS_HISTORY_MIN_ID_DESC' as const,
-	LEVEL_POINTS_HISTORY_MAX_ID_LEVEL_ASC:
-		'LEVEL_POINTS_HISTORY_MAX_ID_LEVEL_ASC' as const,
-	LEVEL_POINTS_HISTORY_MAX_ID_LEVEL_DESC:
-		'LEVEL_POINTS_HISTORY_MAX_ID_LEVEL_DESC' as const,
-	LEVEL_POINTS_HISTORY_MIN_ID_LEVEL_ASC:
-		'LEVEL_POINTS_HISTORY_MIN_ID_LEVEL_ASC' as const,
-	LEVEL_POINTS_HISTORY_MIN_ID_LEVEL_DESC:
-		'LEVEL_POINTS_HISTORY_MIN_ID_LEVEL_DESC' as const,
-	LEVEL_POINTS_HISTORY_MAX_POINTS_ASC:
-		'LEVEL_POINTS_HISTORY_MAX_POINTS_ASC' as const,
-	LEVEL_POINTS_HISTORY_MAX_POINTS_DESC:
-		'LEVEL_POINTS_HISTORY_MAX_POINTS_DESC' as const,
-	LEVEL_POINTS_HISTORY_MIN_POINTS_ASC:
-		'LEVEL_POINTS_HISTORY_MIN_POINTS_ASC' as const,
-	LEVEL_POINTS_HISTORY_MIN_POINTS_DESC:
-		'LEVEL_POINTS_HISTORY_MIN_POINTS_DESC' as const,
-	LEVEL_POINTS_HISTORY_MAX_DATE_CREATED_ASC:
-		'LEVEL_POINTS_HISTORY_MAX_DATE_CREATED_ASC' as const,
-	LEVEL_POINTS_HISTORY_MAX_DATE_CREATED_DESC:
-		'LEVEL_POINTS_HISTORY_MAX_DATE_CREATED_DESC' as const,
-	LEVEL_POINTS_HISTORY_MIN_DATE_CREATED_ASC:
-		'LEVEL_POINTS_HISTORY_MIN_DATE_CREATED_ASC' as const,
-	LEVEL_POINTS_HISTORY_MIN_DATE_CREATED_DESC:
-		'LEVEL_POINTS_HISTORY_MIN_DATE_CREATED_DESC' as const,
-	LEVEL_POINTS_HISTORY_MAX_DATE_UPDATED_ASC:
-		'LEVEL_POINTS_HISTORY_MAX_DATE_UPDATED_ASC' as const,
-	LEVEL_POINTS_HISTORY_MAX_DATE_UPDATED_DESC:
-		'LEVEL_POINTS_HISTORY_MAX_DATE_UPDATED_DESC' as const,
-	LEVEL_POINTS_HISTORY_MIN_DATE_UPDATED_ASC:
-		'LEVEL_POINTS_HISTORY_MIN_DATE_UPDATED_ASC' as const,
-	LEVEL_POINTS_HISTORY_MIN_DATE_UPDATED_DESC:
-		'LEVEL_POINTS_HISTORY_MIN_DATE_UPDATED_DESC' as const,
-	LEVEL_POINTS_HISTORY_MAX_RATING_ASC:
-		'LEVEL_POINTS_HISTORY_MAX_RATING_ASC' as const,
-	LEVEL_POINTS_HISTORY_MAX_RATING_DESC:
-		'LEVEL_POINTS_HISTORY_MAX_RATING_DESC' as const,
-	LEVEL_POINTS_HISTORY_MIN_RATING_ASC:
-		'LEVEL_POINTS_HISTORY_MIN_RATING_ASC' as const,
-	LEVEL_POINTS_HISTORY_MIN_RATING_DESC:
-		'LEVEL_POINTS_HISTORY_MIN_RATING_DESC' as const,
-	LEVEL_POINTS_HISTORY_MAX_MODIFIER_LENGTH_ASC:
-		'LEVEL_POINTS_HISTORY_MAX_MODIFIER_LENGTH_ASC' as const,
-	LEVEL_POINTS_HISTORY_MAX_MODIFIER_LENGTH_DESC:
-		'LEVEL_POINTS_HISTORY_MAX_MODIFIER_LENGTH_DESC' as const,
-	LEVEL_POINTS_HISTORY_MIN_MODIFIER_LENGTH_ASC:
-		'LEVEL_POINTS_HISTORY_MIN_MODIFIER_LENGTH_ASC' as const,
-	LEVEL_POINTS_HISTORY_MIN_MODIFIER_LENGTH_DESC:
-		'LEVEL_POINTS_HISTORY_MIN_MODIFIER_LENGTH_DESC' as const,
-	LEVEL_POINTS_HISTORY_MAX_MODIFIER_COMPETITIVENESS_ASC:
-		'LEVEL_POINTS_HISTORY_MAX_MODIFIER_COMPETITIVENESS_ASC' as const,
-	LEVEL_POINTS_HISTORY_MAX_MODIFIER_COMPETITIVENESS_DESC:
-		'LEVEL_POINTS_HISTORY_MAX_MODIFIER_COMPETITIVENESS_DESC' as const,
-	LEVEL_POINTS_HISTORY_MIN_MODIFIER_COMPETITIVENESS_ASC:
-		'LEVEL_POINTS_HISTORY_MIN_MODIFIER_COMPETITIVENESS_ASC' as const,
-	LEVEL_POINTS_HISTORY_MIN_MODIFIER_COMPETITIVENESS_DESC:
-		'LEVEL_POINTS_HISTORY_MIN_MODIFIER_COMPETITIVENESS_DESC' as const,
-	LEVEL_POINTS_HISTORY_MAX_MODIFIER_RATING_ASC:
-		'LEVEL_POINTS_HISTORY_MAX_MODIFIER_RATING_ASC' as const,
-	LEVEL_POINTS_HISTORY_MAX_MODIFIER_RATING_DESC:
-		'LEVEL_POINTS_HISTORY_MAX_MODIFIER_RATING_DESC' as const,
-	LEVEL_POINTS_HISTORY_MIN_MODIFIER_RATING_ASC:
-		'LEVEL_POINTS_HISTORY_MIN_MODIFIER_RATING_ASC' as const,
-	LEVEL_POINTS_HISTORY_MIN_MODIFIER_RATING_DESC:
-		'LEVEL_POINTS_HISTORY_MIN_MODIFIER_RATING_DESC' as const,
-	LEVEL_POINTS_HISTORY_MAX_MODIFIER_POPULARITY_ASC:
-		'LEVEL_POINTS_HISTORY_MAX_MODIFIER_POPULARITY_ASC' as const,
-	LEVEL_POINTS_HISTORY_MAX_MODIFIER_POPULARITY_DESC:
-		'LEVEL_POINTS_HISTORY_MAX_MODIFIER_POPULARITY_DESC' as const,
-	LEVEL_POINTS_HISTORY_MIN_MODIFIER_POPULARITY_ASC:
-		'LEVEL_POINTS_HISTORY_MIN_MODIFIER_POPULARITY_ASC' as const,
-	LEVEL_POINTS_HISTORY_MIN_MODIFIER_POPULARITY_DESC:
-		'LEVEL_POINTS_HISTORY_MIN_MODIFIER_POPULARITY_DESC' as const,
-	LEVEL_POINTS_HISTORY_MAX_CUT_PENALTY_ASC:
-		'LEVEL_POINTS_HISTORY_MAX_CUT_PENALTY_ASC' as const,
-	LEVEL_POINTS_HISTORY_MAX_CUT_PENALTY_DESC:
-		'LEVEL_POINTS_HISTORY_MAX_CUT_PENALTY_DESC' as const,
-	LEVEL_POINTS_HISTORY_MIN_CUT_PENALTY_ASC:
-		'LEVEL_POINTS_HISTORY_MIN_CUT_PENALTY_ASC' as const,
-	LEVEL_POINTS_HISTORY_MIN_CUT_PENALTY_DESC:
-		'LEVEL_POINTS_HISTORY_MIN_CUT_PENALTY_DESC' as const,
+	WORLD_RECORD_GLOBAL_ID_ASC: 'WORLD_RECORD_GLOBAL_ID_ASC' as const,
+	WORLD_RECORD_GLOBAL_ID_DESC: 'WORLD_RECORD_GLOBAL_ID_DESC' as const,
+	WORLD_RECORD_GLOBAL_ID_RECORD_ASC:
+		'WORLD_RECORD_GLOBAL_ID_RECORD_ASC' as const,
+	WORLD_RECORD_GLOBAL_ID_RECORD_DESC:
+		'WORLD_RECORD_GLOBAL_ID_RECORD_DESC' as const,
+	WORLD_RECORD_GLOBAL_ID_LEVEL_ASC: 'WORLD_RECORD_GLOBAL_ID_LEVEL_ASC' as const,
+	WORLD_RECORD_GLOBAL_ID_LEVEL_DESC:
+		'WORLD_RECORD_GLOBAL_ID_LEVEL_DESC' as const,
+	WORLD_RECORD_GLOBAL_DATE_CREATED_ASC:
+		'WORLD_RECORD_GLOBAL_DATE_CREATED_ASC' as const,
+	WORLD_RECORD_GLOBAL_DATE_CREATED_DESC:
+		'WORLD_RECORD_GLOBAL_DATE_CREATED_DESC' as const,
+	WORLD_RECORD_GLOBAL_DATE_UPDATED_ASC:
+		'WORLD_RECORD_GLOBAL_DATE_UPDATED_ASC' as const,
+	WORLD_RECORD_GLOBAL_DATE_UPDATED_DESC:
+		'WORLD_RECORD_GLOBAL_DATE_UPDATED_DESC' as const,
+	WORLD_RECORD_GLOBAL_ID_USER_ASC: 'WORLD_RECORD_GLOBAL_ID_USER_ASC' as const,
+	WORLD_RECORD_GLOBAL_ID_USER_DESC: 'WORLD_RECORD_GLOBAL_ID_USER_DESC' as const,
 	ZSL_LEVEL_COUNT_ASC: 'ZSL_LEVEL_COUNT_ASC' as const,
 	ZSL_LEVEL_COUNT_DESC: 'ZSL_LEVEL_COUNT_DESC' as const,
 	ZSL_LEVEL_MAX_ID_ASC: 'ZSL_LEVEL_MAX_ID_ASC' as const,
@@ -38739,6 +38739,405 @@ export const enumLevelsOrderBy = {
 		'LEVEL_POINTS_VARIANCE_POPULATION_CUT_PENALTY_ASC' as const,
 	LEVEL_POINTS_VARIANCE_POPULATION_CUT_PENALTY_DESC:
 		'LEVEL_POINTS_VARIANCE_POPULATION_CUT_PENALTY_DESC' as const,
+	LEVEL_POINTS_HISTORIES_COUNT_ASC: 'LEVEL_POINTS_HISTORIES_COUNT_ASC' as const,
+	LEVEL_POINTS_HISTORIES_COUNT_DESC:
+		'LEVEL_POINTS_HISTORIES_COUNT_DESC' as const,
+	LEVEL_POINTS_HISTORIES_SUM_ID_ASC:
+		'LEVEL_POINTS_HISTORIES_SUM_ID_ASC' as const,
+	LEVEL_POINTS_HISTORIES_SUM_ID_DESC:
+		'LEVEL_POINTS_HISTORIES_SUM_ID_DESC' as const,
+	LEVEL_POINTS_HISTORIES_SUM_ID_LEVEL_ASC:
+		'LEVEL_POINTS_HISTORIES_SUM_ID_LEVEL_ASC' as const,
+	LEVEL_POINTS_HISTORIES_SUM_ID_LEVEL_DESC:
+		'LEVEL_POINTS_HISTORIES_SUM_ID_LEVEL_DESC' as const,
+	LEVEL_POINTS_HISTORIES_SUM_POINTS_ASC:
+		'LEVEL_POINTS_HISTORIES_SUM_POINTS_ASC' as const,
+	LEVEL_POINTS_HISTORIES_SUM_POINTS_DESC:
+		'LEVEL_POINTS_HISTORIES_SUM_POINTS_DESC' as const,
+	LEVEL_POINTS_HISTORIES_SUM_DATE_CREATED_ASC:
+		'LEVEL_POINTS_HISTORIES_SUM_DATE_CREATED_ASC' as const,
+	LEVEL_POINTS_HISTORIES_SUM_DATE_CREATED_DESC:
+		'LEVEL_POINTS_HISTORIES_SUM_DATE_CREATED_DESC' as const,
+	LEVEL_POINTS_HISTORIES_SUM_DATE_UPDATED_ASC:
+		'LEVEL_POINTS_HISTORIES_SUM_DATE_UPDATED_ASC' as const,
+	LEVEL_POINTS_HISTORIES_SUM_DATE_UPDATED_DESC:
+		'LEVEL_POINTS_HISTORIES_SUM_DATE_UPDATED_DESC' as const,
+	LEVEL_POINTS_HISTORIES_SUM_RATING_ASC:
+		'LEVEL_POINTS_HISTORIES_SUM_RATING_ASC' as const,
+	LEVEL_POINTS_HISTORIES_SUM_RATING_DESC:
+		'LEVEL_POINTS_HISTORIES_SUM_RATING_DESC' as const,
+	LEVEL_POINTS_HISTORIES_SUM_MODIFIER_LENGTH_ASC:
+		'LEVEL_POINTS_HISTORIES_SUM_MODIFIER_LENGTH_ASC' as const,
+	LEVEL_POINTS_HISTORIES_SUM_MODIFIER_LENGTH_DESC:
+		'LEVEL_POINTS_HISTORIES_SUM_MODIFIER_LENGTH_DESC' as const,
+	LEVEL_POINTS_HISTORIES_SUM_MODIFIER_COMPETITIVENESS_ASC:
+		'LEVEL_POINTS_HISTORIES_SUM_MODIFIER_COMPETITIVENESS_ASC' as const,
+	LEVEL_POINTS_HISTORIES_SUM_MODIFIER_COMPETITIVENESS_DESC:
+		'LEVEL_POINTS_HISTORIES_SUM_MODIFIER_COMPETITIVENESS_DESC' as const,
+	LEVEL_POINTS_HISTORIES_SUM_MODIFIER_RATING_ASC:
+		'LEVEL_POINTS_HISTORIES_SUM_MODIFIER_RATING_ASC' as const,
+	LEVEL_POINTS_HISTORIES_SUM_MODIFIER_RATING_DESC:
+		'LEVEL_POINTS_HISTORIES_SUM_MODIFIER_RATING_DESC' as const,
+	LEVEL_POINTS_HISTORIES_SUM_MODIFIER_POPULARITY_ASC:
+		'LEVEL_POINTS_HISTORIES_SUM_MODIFIER_POPULARITY_ASC' as const,
+	LEVEL_POINTS_HISTORIES_SUM_MODIFIER_POPULARITY_DESC:
+		'LEVEL_POINTS_HISTORIES_SUM_MODIFIER_POPULARITY_DESC' as const,
+	LEVEL_POINTS_HISTORIES_SUM_CUT_PENALTY_ASC:
+		'LEVEL_POINTS_HISTORIES_SUM_CUT_PENALTY_ASC' as const,
+	LEVEL_POINTS_HISTORIES_SUM_CUT_PENALTY_DESC:
+		'LEVEL_POINTS_HISTORIES_SUM_CUT_PENALTY_DESC' as const,
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_ID_ASC:
+		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_ID_ASC' as const,
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_ID_DESC:
+		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_ID_DESC' as const,
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_ID_LEVEL_ASC:
+		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_ID_LEVEL_ASC' as const,
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_ID_LEVEL_DESC:
+		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_ID_LEVEL_DESC' as const,
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_POINTS_ASC:
+		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_POINTS_ASC' as const,
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_POINTS_DESC:
+		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_POINTS_DESC' as const,
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_DATE_CREATED_ASC:
+		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_DATE_CREATED_ASC' as const,
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_DATE_CREATED_DESC:
+		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_DATE_CREATED_DESC' as const,
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_DATE_UPDATED_ASC:
+		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_DATE_UPDATED_ASC' as const,
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_DATE_UPDATED_DESC:
+		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_DATE_UPDATED_DESC' as const,
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_RATING_ASC:
+		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_RATING_ASC' as const,
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_RATING_DESC:
+		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_RATING_DESC' as const,
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_LENGTH_ASC:
+		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_LENGTH_ASC' as const,
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_LENGTH_DESC:
+		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_LENGTH_DESC' as const,
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_COMPETITIVENESS_ASC:
+		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_COMPETITIVENESS_ASC' as const,
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_COMPETITIVENESS_DESC:
+		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_COMPETITIVENESS_DESC' as const,
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_RATING_ASC:
+		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_RATING_ASC' as const,
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_RATING_DESC:
+		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_RATING_DESC' as const,
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_POPULARITY_ASC:
+		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_POPULARITY_ASC' as const,
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_POPULARITY_DESC:
+		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_POPULARITY_DESC' as const,
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_CUT_PENALTY_ASC:
+		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_CUT_PENALTY_ASC' as const,
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_CUT_PENALTY_DESC:
+		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_CUT_PENALTY_DESC' as const,
+	LEVEL_POINTS_HISTORIES_MIN_ID_ASC:
+		'LEVEL_POINTS_HISTORIES_MIN_ID_ASC' as const,
+	LEVEL_POINTS_HISTORIES_MIN_ID_DESC:
+		'LEVEL_POINTS_HISTORIES_MIN_ID_DESC' as const,
+	LEVEL_POINTS_HISTORIES_MIN_ID_LEVEL_ASC:
+		'LEVEL_POINTS_HISTORIES_MIN_ID_LEVEL_ASC' as const,
+	LEVEL_POINTS_HISTORIES_MIN_ID_LEVEL_DESC:
+		'LEVEL_POINTS_HISTORIES_MIN_ID_LEVEL_DESC' as const,
+	LEVEL_POINTS_HISTORIES_MIN_POINTS_ASC:
+		'LEVEL_POINTS_HISTORIES_MIN_POINTS_ASC' as const,
+	LEVEL_POINTS_HISTORIES_MIN_POINTS_DESC:
+		'LEVEL_POINTS_HISTORIES_MIN_POINTS_DESC' as const,
+	LEVEL_POINTS_HISTORIES_MIN_DATE_CREATED_ASC:
+		'LEVEL_POINTS_HISTORIES_MIN_DATE_CREATED_ASC' as const,
+	LEVEL_POINTS_HISTORIES_MIN_DATE_CREATED_DESC:
+		'LEVEL_POINTS_HISTORIES_MIN_DATE_CREATED_DESC' as const,
+	LEVEL_POINTS_HISTORIES_MIN_DATE_UPDATED_ASC:
+		'LEVEL_POINTS_HISTORIES_MIN_DATE_UPDATED_ASC' as const,
+	LEVEL_POINTS_HISTORIES_MIN_DATE_UPDATED_DESC:
+		'LEVEL_POINTS_HISTORIES_MIN_DATE_UPDATED_DESC' as const,
+	LEVEL_POINTS_HISTORIES_MIN_RATING_ASC:
+		'LEVEL_POINTS_HISTORIES_MIN_RATING_ASC' as const,
+	LEVEL_POINTS_HISTORIES_MIN_RATING_DESC:
+		'LEVEL_POINTS_HISTORIES_MIN_RATING_DESC' as const,
+	LEVEL_POINTS_HISTORIES_MIN_MODIFIER_LENGTH_ASC:
+		'LEVEL_POINTS_HISTORIES_MIN_MODIFIER_LENGTH_ASC' as const,
+	LEVEL_POINTS_HISTORIES_MIN_MODIFIER_LENGTH_DESC:
+		'LEVEL_POINTS_HISTORIES_MIN_MODIFIER_LENGTH_DESC' as const,
+	LEVEL_POINTS_HISTORIES_MIN_MODIFIER_COMPETITIVENESS_ASC:
+		'LEVEL_POINTS_HISTORIES_MIN_MODIFIER_COMPETITIVENESS_ASC' as const,
+	LEVEL_POINTS_HISTORIES_MIN_MODIFIER_COMPETITIVENESS_DESC:
+		'LEVEL_POINTS_HISTORIES_MIN_MODIFIER_COMPETITIVENESS_DESC' as const,
+	LEVEL_POINTS_HISTORIES_MIN_MODIFIER_RATING_ASC:
+		'LEVEL_POINTS_HISTORIES_MIN_MODIFIER_RATING_ASC' as const,
+	LEVEL_POINTS_HISTORIES_MIN_MODIFIER_RATING_DESC:
+		'LEVEL_POINTS_HISTORIES_MIN_MODIFIER_RATING_DESC' as const,
+	LEVEL_POINTS_HISTORIES_MIN_MODIFIER_POPULARITY_ASC:
+		'LEVEL_POINTS_HISTORIES_MIN_MODIFIER_POPULARITY_ASC' as const,
+	LEVEL_POINTS_HISTORIES_MIN_MODIFIER_POPULARITY_DESC:
+		'LEVEL_POINTS_HISTORIES_MIN_MODIFIER_POPULARITY_DESC' as const,
+	LEVEL_POINTS_HISTORIES_MIN_CUT_PENALTY_ASC:
+		'LEVEL_POINTS_HISTORIES_MIN_CUT_PENALTY_ASC' as const,
+	LEVEL_POINTS_HISTORIES_MIN_CUT_PENALTY_DESC:
+		'LEVEL_POINTS_HISTORIES_MIN_CUT_PENALTY_DESC' as const,
+	LEVEL_POINTS_HISTORIES_MAX_ID_ASC:
+		'LEVEL_POINTS_HISTORIES_MAX_ID_ASC' as const,
+	LEVEL_POINTS_HISTORIES_MAX_ID_DESC:
+		'LEVEL_POINTS_HISTORIES_MAX_ID_DESC' as const,
+	LEVEL_POINTS_HISTORIES_MAX_ID_LEVEL_ASC:
+		'LEVEL_POINTS_HISTORIES_MAX_ID_LEVEL_ASC' as const,
+	LEVEL_POINTS_HISTORIES_MAX_ID_LEVEL_DESC:
+		'LEVEL_POINTS_HISTORIES_MAX_ID_LEVEL_DESC' as const,
+	LEVEL_POINTS_HISTORIES_MAX_POINTS_ASC:
+		'LEVEL_POINTS_HISTORIES_MAX_POINTS_ASC' as const,
+	LEVEL_POINTS_HISTORIES_MAX_POINTS_DESC:
+		'LEVEL_POINTS_HISTORIES_MAX_POINTS_DESC' as const,
+	LEVEL_POINTS_HISTORIES_MAX_DATE_CREATED_ASC:
+		'LEVEL_POINTS_HISTORIES_MAX_DATE_CREATED_ASC' as const,
+	LEVEL_POINTS_HISTORIES_MAX_DATE_CREATED_DESC:
+		'LEVEL_POINTS_HISTORIES_MAX_DATE_CREATED_DESC' as const,
+	LEVEL_POINTS_HISTORIES_MAX_DATE_UPDATED_ASC:
+		'LEVEL_POINTS_HISTORIES_MAX_DATE_UPDATED_ASC' as const,
+	LEVEL_POINTS_HISTORIES_MAX_DATE_UPDATED_DESC:
+		'LEVEL_POINTS_HISTORIES_MAX_DATE_UPDATED_DESC' as const,
+	LEVEL_POINTS_HISTORIES_MAX_RATING_ASC:
+		'LEVEL_POINTS_HISTORIES_MAX_RATING_ASC' as const,
+	LEVEL_POINTS_HISTORIES_MAX_RATING_DESC:
+		'LEVEL_POINTS_HISTORIES_MAX_RATING_DESC' as const,
+	LEVEL_POINTS_HISTORIES_MAX_MODIFIER_LENGTH_ASC:
+		'LEVEL_POINTS_HISTORIES_MAX_MODIFIER_LENGTH_ASC' as const,
+	LEVEL_POINTS_HISTORIES_MAX_MODIFIER_LENGTH_DESC:
+		'LEVEL_POINTS_HISTORIES_MAX_MODIFIER_LENGTH_DESC' as const,
+	LEVEL_POINTS_HISTORIES_MAX_MODIFIER_COMPETITIVENESS_ASC:
+		'LEVEL_POINTS_HISTORIES_MAX_MODIFIER_COMPETITIVENESS_ASC' as const,
+	LEVEL_POINTS_HISTORIES_MAX_MODIFIER_COMPETITIVENESS_DESC:
+		'LEVEL_POINTS_HISTORIES_MAX_MODIFIER_COMPETITIVENESS_DESC' as const,
+	LEVEL_POINTS_HISTORIES_MAX_MODIFIER_RATING_ASC:
+		'LEVEL_POINTS_HISTORIES_MAX_MODIFIER_RATING_ASC' as const,
+	LEVEL_POINTS_HISTORIES_MAX_MODIFIER_RATING_DESC:
+		'LEVEL_POINTS_HISTORIES_MAX_MODIFIER_RATING_DESC' as const,
+	LEVEL_POINTS_HISTORIES_MAX_MODIFIER_POPULARITY_ASC:
+		'LEVEL_POINTS_HISTORIES_MAX_MODIFIER_POPULARITY_ASC' as const,
+	LEVEL_POINTS_HISTORIES_MAX_MODIFIER_POPULARITY_DESC:
+		'LEVEL_POINTS_HISTORIES_MAX_MODIFIER_POPULARITY_DESC' as const,
+	LEVEL_POINTS_HISTORIES_MAX_CUT_PENALTY_ASC:
+		'LEVEL_POINTS_HISTORIES_MAX_CUT_PENALTY_ASC' as const,
+	LEVEL_POINTS_HISTORIES_MAX_CUT_PENALTY_DESC:
+		'LEVEL_POINTS_HISTORIES_MAX_CUT_PENALTY_DESC' as const,
+	LEVEL_POINTS_HISTORIES_AVERAGE_ID_ASC:
+		'LEVEL_POINTS_HISTORIES_AVERAGE_ID_ASC' as const,
+	LEVEL_POINTS_HISTORIES_AVERAGE_ID_DESC:
+		'LEVEL_POINTS_HISTORIES_AVERAGE_ID_DESC' as const,
+	LEVEL_POINTS_HISTORIES_AVERAGE_ID_LEVEL_ASC:
+		'LEVEL_POINTS_HISTORIES_AVERAGE_ID_LEVEL_ASC' as const,
+	LEVEL_POINTS_HISTORIES_AVERAGE_ID_LEVEL_DESC:
+		'LEVEL_POINTS_HISTORIES_AVERAGE_ID_LEVEL_DESC' as const,
+	LEVEL_POINTS_HISTORIES_AVERAGE_POINTS_ASC:
+		'LEVEL_POINTS_HISTORIES_AVERAGE_POINTS_ASC' as const,
+	LEVEL_POINTS_HISTORIES_AVERAGE_POINTS_DESC:
+		'LEVEL_POINTS_HISTORIES_AVERAGE_POINTS_DESC' as const,
+	LEVEL_POINTS_HISTORIES_AVERAGE_DATE_CREATED_ASC:
+		'LEVEL_POINTS_HISTORIES_AVERAGE_DATE_CREATED_ASC' as const,
+	LEVEL_POINTS_HISTORIES_AVERAGE_DATE_CREATED_DESC:
+		'LEVEL_POINTS_HISTORIES_AVERAGE_DATE_CREATED_DESC' as const,
+	LEVEL_POINTS_HISTORIES_AVERAGE_DATE_UPDATED_ASC:
+		'LEVEL_POINTS_HISTORIES_AVERAGE_DATE_UPDATED_ASC' as const,
+	LEVEL_POINTS_HISTORIES_AVERAGE_DATE_UPDATED_DESC:
+		'LEVEL_POINTS_HISTORIES_AVERAGE_DATE_UPDATED_DESC' as const,
+	LEVEL_POINTS_HISTORIES_AVERAGE_RATING_ASC:
+		'LEVEL_POINTS_HISTORIES_AVERAGE_RATING_ASC' as const,
+	LEVEL_POINTS_HISTORIES_AVERAGE_RATING_DESC:
+		'LEVEL_POINTS_HISTORIES_AVERAGE_RATING_DESC' as const,
+	LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_LENGTH_ASC:
+		'LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_LENGTH_ASC' as const,
+	LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_LENGTH_DESC:
+		'LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_LENGTH_DESC' as const,
+	LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_COMPETITIVENESS_ASC:
+		'LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_COMPETITIVENESS_ASC' as const,
+	LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_COMPETITIVENESS_DESC:
+		'LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_COMPETITIVENESS_DESC' as const,
+	LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_RATING_ASC:
+		'LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_RATING_ASC' as const,
+	LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_RATING_DESC:
+		'LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_RATING_DESC' as const,
+	LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_POPULARITY_ASC:
+		'LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_POPULARITY_ASC' as const,
+	LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_POPULARITY_DESC:
+		'LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_POPULARITY_DESC' as const,
+	LEVEL_POINTS_HISTORIES_AVERAGE_CUT_PENALTY_ASC:
+		'LEVEL_POINTS_HISTORIES_AVERAGE_CUT_PENALTY_ASC' as const,
+	LEVEL_POINTS_HISTORIES_AVERAGE_CUT_PENALTY_DESC:
+		'LEVEL_POINTS_HISTORIES_AVERAGE_CUT_PENALTY_DESC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_ID_ASC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_ID_ASC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_ID_DESC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_ID_DESC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_ID_LEVEL_ASC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_ID_LEVEL_ASC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_ID_LEVEL_DESC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_ID_LEVEL_DESC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_POINTS_ASC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_POINTS_ASC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_POINTS_DESC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_POINTS_DESC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_DATE_CREATED_ASC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_DATE_CREATED_ASC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_DATE_CREATED_DESC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_DATE_CREATED_DESC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_DATE_UPDATED_ASC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_DATE_UPDATED_ASC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_DATE_UPDATED_DESC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_DATE_UPDATED_DESC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_RATING_ASC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_RATING_ASC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_RATING_DESC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_RATING_DESC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_LENGTH_ASC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_LENGTH_ASC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_LENGTH_DESC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_LENGTH_DESC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_COMPETITIVENESS_ASC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_COMPETITIVENESS_ASC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_COMPETITIVENESS_DESC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_COMPETITIVENESS_DESC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_RATING_ASC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_RATING_ASC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_RATING_DESC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_RATING_DESC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_POPULARITY_ASC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_POPULARITY_ASC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_POPULARITY_DESC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_POPULARITY_DESC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_CUT_PENALTY_ASC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_CUT_PENALTY_ASC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_CUT_PENALTY_DESC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_CUT_PENALTY_DESC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_ID_ASC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_ID_ASC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_ID_DESC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_ID_DESC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_ID_LEVEL_ASC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_ID_LEVEL_ASC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_ID_LEVEL_DESC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_ID_LEVEL_DESC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_POINTS_ASC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_POINTS_ASC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_POINTS_DESC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_POINTS_DESC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_DATE_CREATED_ASC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_DATE_CREATED_ASC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_DATE_CREATED_DESC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_DATE_CREATED_DESC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_DATE_UPDATED_ASC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_DATE_UPDATED_ASC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_DATE_UPDATED_DESC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_DATE_UPDATED_DESC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_RATING_ASC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_RATING_ASC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_RATING_DESC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_RATING_DESC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_LENGTH_ASC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_LENGTH_ASC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_LENGTH_DESC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_LENGTH_DESC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_COMPETITIVENESS_ASC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_COMPETITIVENESS_ASC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_COMPETITIVENESS_DESC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_COMPETITIVENESS_DESC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_RATING_ASC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_RATING_ASC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_RATING_DESC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_RATING_DESC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_POPULARITY_ASC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_POPULARITY_ASC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_POPULARITY_DESC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_POPULARITY_DESC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_CUT_PENALTY_ASC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_CUT_PENALTY_ASC' as const,
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_CUT_PENALTY_DESC:
+		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_CUT_PENALTY_DESC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_ID_ASC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_ID_ASC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_ID_DESC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_ID_DESC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_ID_LEVEL_ASC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_ID_LEVEL_ASC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_ID_LEVEL_DESC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_ID_LEVEL_DESC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_POINTS_ASC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_POINTS_ASC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_POINTS_DESC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_POINTS_DESC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_DATE_CREATED_ASC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_DATE_CREATED_ASC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_DATE_CREATED_DESC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_DATE_CREATED_DESC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_DATE_UPDATED_ASC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_DATE_UPDATED_ASC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_DATE_UPDATED_DESC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_DATE_UPDATED_DESC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_RATING_ASC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_RATING_ASC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_RATING_DESC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_RATING_DESC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_LENGTH_ASC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_LENGTH_ASC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_LENGTH_DESC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_LENGTH_DESC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_COMPETITIVENESS_ASC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_COMPETITIVENESS_ASC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_COMPETITIVENESS_DESC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_COMPETITIVENESS_DESC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_RATING_ASC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_RATING_ASC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_RATING_DESC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_RATING_DESC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_POPULARITY_ASC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_POPULARITY_ASC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_POPULARITY_DESC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_POPULARITY_DESC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_CUT_PENALTY_ASC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_CUT_PENALTY_ASC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_CUT_PENALTY_DESC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_CUT_PENALTY_DESC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_ID_ASC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_ID_ASC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_ID_DESC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_ID_DESC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_ID_LEVEL_ASC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_ID_LEVEL_ASC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_ID_LEVEL_DESC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_ID_LEVEL_DESC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_POINTS_ASC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_POINTS_ASC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_POINTS_DESC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_POINTS_DESC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_CREATED_ASC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_CREATED_ASC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_CREATED_DESC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_CREATED_DESC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_UPDATED_ASC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_UPDATED_ASC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_UPDATED_DESC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_UPDATED_DESC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_RATING_ASC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_RATING_ASC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_RATING_DESC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_RATING_DESC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_LENGTH_ASC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_LENGTH_ASC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_LENGTH_DESC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_LENGTH_DESC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_COMPETITIVENESS_ASC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_COMPETITIVENESS_ASC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_COMPETITIVENESS_DESC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_COMPETITIVENESS_DESC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_RATING_ASC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_RATING_ASC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_RATING_DESC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_RATING_DESC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_POPULARITY_ASC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_POPULARITY_ASC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_POPULARITY_DESC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_POPULARITY_DESC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_CUT_PENALTY_ASC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_CUT_PENALTY_ASC' as const,
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_CUT_PENALTY_DESC:
+		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_CUT_PENALTY_DESC' as const,
 	PERSONAL_BEST_GLOBALS_COUNT_ASC: 'PERSONAL_BEST_GLOBALS_COUNT_ASC' as const,
 	PERSONAL_BEST_GLOBALS_COUNT_DESC: 'PERSONAL_BEST_GLOBALS_COUNT_DESC' as const,
 	PERSONAL_BEST_GLOBALS_SUM_ID_ASC: 'PERSONAL_BEST_GLOBALS_SUM_ID_ASC' as const,
@@ -39376,405 +39775,6 @@ export const enumLevelsOrderBy = {
 		'VOTES_VARIANCE_POPULATION_DATE_UPDATED_ASC' as const,
 	VOTES_VARIANCE_POPULATION_DATE_UPDATED_DESC:
 		'VOTES_VARIANCE_POPULATION_DATE_UPDATED_DESC' as const,
-	LEVEL_POINTS_HISTORIES_COUNT_ASC: 'LEVEL_POINTS_HISTORIES_COUNT_ASC' as const,
-	LEVEL_POINTS_HISTORIES_COUNT_DESC:
-		'LEVEL_POINTS_HISTORIES_COUNT_DESC' as const,
-	LEVEL_POINTS_HISTORIES_SUM_ID_ASC:
-		'LEVEL_POINTS_HISTORIES_SUM_ID_ASC' as const,
-	LEVEL_POINTS_HISTORIES_SUM_ID_DESC:
-		'LEVEL_POINTS_HISTORIES_SUM_ID_DESC' as const,
-	LEVEL_POINTS_HISTORIES_SUM_ID_LEVEL_ASC:
-		'LEVEL_POINTS_HISTORIES_SUM_ID_LEVEL_ASC' as const,
-	LEVEL_POINTS_HISTORIES_SUM_ID_LEVEL_DESC:
-		'LEVEL_POINTS_HISTORIES_SUM_ID_LEVEL_DESC' as const,
-	LEVEL_POINTS_HISTORIES_SUM_POINTS_ASC:
-		'LEVEL_POINTS_HISTORIES_SUM_POINTS_ASC' as const,
-	LEVEL_POINTS_HISTORIES_SUM_POINTS_DESC:
-		'LEVEL_POINTS_HISTORIES_SUM_POINTS_DESC' as const,
-	LEVEL_POINTS_HISTORIES_SUM_DATE_CREATED_ASC:
-		'LEVEL_POINTS_HISTORIES_SUM_DATE_CREATED_ASC' as const,
-	LEVEL_POINTS_HISTORIES_SUM_DATE_CREATED_DESC:
-		'LEVEL_POINTS_HISTORIES_SUM_DATE_CREATED_DESC' as const,
-	LEVEL_POINTS_HISTORIES_SUM_DATE_UPDATED_ASC:
-		'LEVEL_POINTS_HISTORIES_SUM_DATE_UPDATED_ASC' as const,
-	LEVEL_POINTS_HISTORIES_SUM_DATE_UPDATED_DESC:
-		'LEVEL_POINTS_HISTORIES_SUM_DATE_UPDATED_DESC' as const,
-	LEVEL_POINTS_HISTORIES_SUM_RATING_ASC:
-		'LEVEL_POINTS_HISTORIES_SUM_RATING_ASC' as const,
-	LEVEL_POINTS_HISTORIES_SUM_RATING_DESC:
-		'LEVEL_POINTS_HISTORIES_SUM_RATING_DESC' as const,
-	LEVEL_POINTS_HISTORIES_SUM_MODIFIER_LENGTH_ASC:
-		'LEVEL_POINTS_HISTORIES_SUM_MODIFIER_LENGTH_ASC' as const,
-	LEVEL_POINTS_HISTORIES_SUM_MODIFIER_LENGTH_DESC:
-		'LEVEL_POINTS_HISTORIES_SUM_MODIFIER_LENGTH_DESC' as const,
-	LEVEL_POINTS_HISTORIES_SUM_MODIFIER_COMPETITIVENESS_ASC:
-		'LEVEL_POINTS_HISTORIES_SUM_MODIFIER_COMPETITIVENESS_ASC' as const,
-	LEVEL_POINTS_HISTORIES_SUM_MODIFIER_COMPETITIVENESS_DESC:
-		'LEVEL_POINTS_HISTORIES_SUM_MODIFIER_COMPETITIVENESS_DESC' as const,
-	LEVEL_POINTS_HISTORIES_SUM_MODIFIER_RATING_ASC:
-		'LEVEL_POINTS_HISTORIES_SUM_MODIFIER_RATING_ASC' as const,
-	LEVEL_POINTS_HISTORIES_SUM_MODIFIER_RATING_DESC:
-		'LEVEL_POINTS_HISTORIES_SUM_MODIFIER_RATING_DESC' as const,
-	LEVEL_POINTS_HISTORIES_SUM_MODIFIER_POPULARITY_ASC:
-		'LEVEL_POINTS_HISTORIES_SUM_MODIFIER_POPULARITY_ASC' as const,
-	LEVEL_POINTS_HISTORIES_SUM_MODIFIER_POPULARITY_DESC:
-		'LEVEL_POINTS_HISTORIES_SUM_MODIFIER_POPULARITY_DESC' as const,
-	LEVEL_POINTS_HISTORIES_SUM_CUT_PENALTY_ASC:
-		'LEVEL_POINTS_HISTORIES_SUM_CUT_PENALTY_ASC' as const,
-	LEVEL_POINTS_HISTORIES_SUM_CUT_PENALTY_DESC:
-		'LEVEL_POINTS_HISTORIES_SUM_CUT_PENALTY_DESC' as const,
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_ID_ASC:
-		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_ID_ASC' as const,
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_ID_DESC:
-		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_ID_DESC' as const,
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_ID_LEVEL_ASC:
-		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_ID_LEVEL_ASC' as const,
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_ID_LEVEL_DESC:
-		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_ID_LEVEL_DESC' as const,
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_POINTS_ASC:
-		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_POINTS_ASC' as const,
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_POINTS_DESC:
-		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_POINTS_DESC' as const,
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_DATE_CREATED_ASC:
-		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_DATE_CREATED_ASC' as const,
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_DATE_CREATED_DESC:
-		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_DATE_CREATED_DESC' as const,
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_DATE_UPDATED_ASC:
-		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_DATE_UPDATED_ASC' as const,
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_DATE_UPDATED_DESC:
-		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_DATE_UPDATED_DESC' as const,
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_RATING_ASC:
-		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_RATING_ASC' as const,
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_RATING_DESC:
-		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_RATING_DESC' as const,
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_LENGTH_ASC:
-		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_LENGTH_ASC' as const,
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_LENGTH_DESC:
-		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_LENGTH_DESC' as const,
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_COMPETITIVENESS_ASC:
-		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_COMPETITIVENESS_ASC' as const,
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_COMPETITIVENESS_DESC:
-		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_COMPETITIVENESS_DESC' as const,
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_RATING_ASC:
-		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_RATING_ASC' as const,
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_RATING_DESC:
-		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_RATING_DESC' as const,
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_POPULARITY_ASC:
-		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_POPULARITY_ASC' as const,
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_POPULARITY_DESC:
-		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_POPULARITY_DESC' as const,
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_CUT_PENALTY_ASC:
-		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_CUT_PENALTY_ASC' as const,
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_CUT_PENALTY_DESC:
-		'LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_CUT_PENALTY_DESC' as const,
-	LEVEL_POINTS_HISTORIES_MIN_ID_ASC:
-		'LEVEL_POINTS_HISTORIES_MIN_ID_ASC' as const,
-	LEVEL_POINTS_HISTORIES_MIN_ID_DESC:
-		'LEVEL_POINTS_HISTORIES_MIN_ID_DESC' as const,
-	LEVEL_POINTS_HISTORIES_MIN_ID_LEVEL_ASC:
-		'LEVEL_POINTS_HISTORIES_MIN_ID_LEVEL_ASC' as const,
-	LEVEL_POINTS_HISTORIES_MIN_ID_LEVEL_DESC:
-		'LEVEL_POINTS_HISTORIES_MIN_ID_LEVEL_DESC' as const,
-	LEVEL_POINTS_HISTORIES_MIN_POINTS_ASC:
-		'LEVEL_POINTS_HISTORIES_MIN_POINTS_ASC' as const,
-	LEVEL_POINTS_HISTORIES_MIN_POINTS_DESC:
-		'LEVEL_POINTS_HISTORIES_MIN_POINTS_DESC' as const,
-	LEVEL_POINTS_HISTORIES_MIN_DATE_CREATED_ASC:
-		'LEVEL_POINTS_HISTORIES_MIN_DATE_CREATED_ASC' as const,
-	LEVEL_POINTS_HISTORIES_MIN_DATE_CREATED_DESC:
-		'LEVEL_POINTS_HISTORIES_MIN_DATE_CREATED_DESC' as const,
-	LEVEL_POINTS_HISTORIES_MIN_DATE_UPDATED_ASC:
-		'LEVEL_POINTS_HISTORIES_MIN_DATE_UPDATED_ASC' as const,
-	LEVEL_POINTS_HISTORIES_MIN_DATE_UPDATED_DESC:
-		'LEVEL_POINTS_HISTORIES_MIN_DATE_UPDATED_DESC' as const,
-	LEVEL_POINTS_HISTORIES_MIN_RATING_ASC:
-		'LEVEL_POINTS_HISTORIES_MIN_RATING_ASC' as const,
-	LEVEL_POINTS_HISTORIES_MIN_RATING_DESC:
-		'LEVEL_POINTS_HISTORIES_MIN_RATING_DESC' as const,
-	LEVEL_POINTS_HISTORIES_MIN_MODIFIER_LENGTH_ASC:
-		'LEVEL_POINTS_HISTORIES_MIN_MODIFIER_LENGTH_ASC' as const,
-	LEVEL_POINTS_HISTORIES_MIN_MODIFIER_LENGTH_DESC:
-		'LEVEL_POINTS_HISTORIES_MIN_MODIFIER_LENGTH_DESC' as const,
-	LEVEL_POINTS_HISTORIES_MIN_MODIFIER_COMPETITIVENESS_ASC:
-		'LEVEL_POINTS_HISTORIES_MIN_MODIFIER_COMPETITIVENESS_ASC' as const,
-	LEVEL_POINTS_HISTORIES_MIN_MODIFIER_COMPETITIVENESS_DESC:
-		'LEVEL_POINTS_HISTORIES_MIN_MODIFIER_COMPETITIVENESS_DESC' as const,
-	LEVEL_POINTS_HISTORIES_MIN_MODIFIER_RATING_ASC:
-		'LEVEL_POINTS_HISTORIES_MIN_MODIFIER_RATING_ASC' as const,
-	LEVEL_POINTS_HISTORIES_MIN_MODIFIER_RATING_DESC:
-		'LEVEL_POINTS_HISTORIES_MIN_MODIFIER_RATING_DESC' as const,
-	LEVEL_POINTS_HISTORIES_MIN_MODIFIER_POPULARITY_ASC:
-		'LEVEL_POINTS_HISTORIES_MIN_MODIFIER_POPULARITY_ASC' as const,
-	LEVEL_POINTS_HISTORIES_MIN_MODIFIER_POPULARITY_DESC:
-		'LEVEL_POINTS_HISTORIES_MIN_MODIFIER_POPULARITY_DESC' as const,
-	LEVEL_POINTS_HISTORIES_MIN_CUT_PENALTY_ASC:
-		'LEVEL_POINTS_HISTORIES_MIN_CUT_PENALTY_ASC' as const,
-	LEVEL_POINTS_HISTORIES_MIN_CUT_PENALTY_DESC:
-		'LEVEL_POINTS_HISTORIES_MIN_CUT_PENALTY_DESC' as const,
-	LEVEL_POINTS_HISTORIES_MAX_ID_ASC:
-		'LEVEL_POINTS_HISTORIES_MAX_ID_ASC' as const,
-	LEVEL_POINTS_HISTORIES_MAX_ID_DESC:
-		'LEVEL_POINTS_HISTORIES_MAX_ID_DESC' as const,
-	LEVEL_POINTS_HISTORIES_MAX_ID_LEVEL_ASC:
-		'LEVEL_POINTS_HISTORIES_MAX_ID_LEVEL_ASC' as const,
-	LEVEL_POINTS_HISTORIES_MAX_ID_LEVEL_DESC:
-		'LEVEL_POINTS_HISTORIES_MAX_ID_LEVEL_DESC' as const,
-	LEVEL_POINTS_HISTORIES_MAX_POINTS_ASC:
-		'LEVEL_POINTS_HISTORIES_MAX_POINTS_ASC' as const,
-	LEVEL_POINTS_HISTORIES_MAX_POINTS_DESC:
-		'LEVEL_POINTS_HISTORIES_MAX_POINTS_DESC' as const,
-	LEVEL_POINTS_HISTORIES_MAX_DATE_CREATED_ASC:
-		'LEVEL_POINTS_HISTORIES_MAX_DATE_CREATED_ASC' as const,
-	LEVEL_POINTS_HISTORIES_MAX_DATE_CREATED_DESC:
-		'LEVEL_POINTS_HISTORIES_MAX_DATE_CREATED_DESC' as const,
-	LEVEL_POINTS_HISTORIES_MAX_DATE_UPDATED_ASC:
-		'LEVEL_POINTS_HISTORIES_MAX_DATE_UPDATED_ASC' as const,
-	LEVEL_POINTS_HISTORIES_MAX_DATE_UPDATED_DESC:
-		'LEVEL_POINTS_HISTORIES_MAX_DATE_UPDATED_DESC' as const,
-	LEVEL_POINTS_HISTORIES_MAX_RATING_ASC:
-		'LEVEL_POINTS_HISTORIES_MAX_RATING_ASC' as const,
-	LEVEL_POINTS_HISTORIES_MAX_RATING_DESC:
-		'LEVEL_POINTS_HISTORIES_MAX_RATING_DESC' as const,
-	LEVEL_POINTS_HISTORIES_MAX_MODIFIER_LENGTH_ASC:
-		'LEVEL_POINTS_HISTORIES_MAX_MODIFIER_LENGTH_ASC' as const,
-	LEVEL_POINTS_HISTORIES_MAX_MODIFIER_LENGTH_DESC:
-		'LEVEL_POINTS_HISTORIES_MAX_MODIFIER_LENGTH_DESC' as const,
-	LEVEL_POINTS_HISTORIES_MAX_MODIFIER_COMPETITIVENESS_ASC:
-		'LEVEL_POINTS_HISTORIES_MAX_MODIFIER_COMPETITIVENESS_ASC' as const,
-	LEVEL_POINTS_HISTORIES_MAX_MODIFIER_COMPETITIVENESS_DESC:
-		'LEVEL_POINTS_HISTORIES_MAX_MODIFIER_COMPETITIVENESS_DESC' as const,
-	LEVEL_POINTS_HISTORIES_MAX_MODIFIER_RATING_ASC:
-		'LEVEL_POINTS_HISTORIES_MAX_MODIFIER_RATING_ASC' as const,
-	LEVEL_POINTS_HISTORIES_MAX_MODIFIER_RATING_DESC:
-		'LEVEL_POINTS_HISTORIES_MAX_MODIFIER_RATING_DESC' as const,
-	LEVEL_POINTS_HISTORIES_MAX_MODIFIER_POPULARITY_ASC:
-		'LEVEL_POINTS_HISTORIES_MAX_MODIFIER_POPULARITY_ASC' as const,
-	LEVEL_POINTS_HISTORIES_MAX_MODIFIER_POPULARITY_DESC:
-		'LEVEL_POINTS_HISTORIES_MAX_MODIFIER_POPULARITY_DESC' as const,
-	LEVEL_POINTS_HISTORIES_MAX_CUT_PENALTY_ASC:
-		'LEVEL_POINTS_HISTORIES_MAX_CUT_PENALTY_ASC' as const,
-	LEVEL_POINTS_HISTORIES_MAX_CUT_PENALTY_DESC:
-		'LEVEL_POINTS_HISTORIES_MAX_CUT_PENALTY_DESC' as const,
-	LEVEL_POINTS_HISTORIES_AVERAGE_ID_ASC:
-		'LEVEL_POINTS_HISTORIES_AVERAGE_ID_ASC' as const,
-	LEVEL_POINTS_HISTORIES_AVERAGE_ID_DESC:
-		'LEVEL_POINTS_HISTORIES_AVERAGE_ID_DESC' as const,
-	LEVEL_POINTS_HISTORIES_AVERAGE_ID_LEVEL_ASC:
-		'LEVEL_POINTS_HISTORIES_AVERAGE_ID_LEVEL_ASC' as const,
-	LEVEL_POINTS_HISTORIES_AVERAGE_ID_LEVEL_DESC:
-		'LEVEL_POINTS_HISTORIES_AVERAGE_ID_LEVEL_DESC' as const,
-	LEVEL_POINTS_HISTORIES_AVERAGE_POINTS_ASC:
-		'LEVEL_POINTS_HISTORIES_AVERAGE_POINTS_ASC' as const,
-	LEVEL_POINTS_HISTORIES_AVERAGE_POINTS_DESC:
-		'LEVEL_POINTS_HISTORIES_AVERAGE_POINTS_DESC' as const,
-	LEVEL_POINTS_HISTORIES_AVERAGE_DATE_CREATED_ASC:
-		'LEVEL_POINTS_HISTORIES_AVERAGE_DATE_CREATED_ASC' as const,
-	LEVEL_POINTS_HISTORIES_AVERAGE_DATE_CREATED_DESC:
-		'LEVEL_POINTS_HISTORIES_AVERAGE_DATE_CREATED_DESC' as const,
-	LEVEL_POINTS_HISTORIES_AVERAGE_DATE_UPDATED_ASC:
-		'LEVEL_POINTS_HISTORIES_AVERAGE_DATE_UPDATED_ASC' as const,
-	LEVEL_POINTS_HISTORIES_AVERAGE_DATE_UPDATED_DESC:
-		'LEVEL_POINTS_HISTORIES_AVERAGE_DATE_UPDATED_DESC' as const,
-	LEVEL_POINTS_HISTORIES_AVERAGE_RATING_ASC:
-		'LEVEL_POINTS_HISTORIES_AVERAGE_RATING_ASC' as const,
-	LEVEL_POINTS_HISTORIES_AVERAGE_RATING_DESC:
-		'LEVEL_POINTS_HISTORIES_AVERAGE_RATING_DESC' as const,
-	LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_LENGTH_ASC:
-		'LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_LENGTH_ASC' as const,
-	LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_LENGTH_DESC:
-		'LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_LENGTH_DESC' as const,
-	LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_COMPETITIVENESS_ASC:
-		'LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_COMPETITIVENESS_ASC' as const,
-	LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_COMPETITIVENESS_DESC:
-		'LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_COMPETITIVENESS_DESC' as const,
-	LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_RATING_ASC:
-		'LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_RATING_ASC' as const,
-	LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_RATING_DESC:
-		'LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_RATING_DESC' as const,
-	LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_POPULARITY_ASC:
-		'LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_POPULARITY_ASC' as const,
-	LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_POPULARITY_DESC:
-		'LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_POPULARITY_DESC' as const,
-	LEVEL_POINTS_HISTORIES_AVERAGE_CUT_PENALTY_ASC:
-		'LEVEL_POINTS_HISTORIES_AVERAGE_CUT_PENALTY_ASC' as const,
-	LEVEL_POINTS_HISTORIES_AVERAGE_CUT_PENALTY_DESC:
-		'LEVEL_POINTS_HISTORIES_AVERAGE_CUT_PENALTY_DESC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_ID_ASC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_ID_ASC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_ID_DESC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_ID_DESC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_ID_LEVEL_ASC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_ID_LEVEL_ASC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_ID_LEVEL_DESC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_ID_LEVEL_DESC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_POINTS_ASC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_POINTS_ASC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_POINTS_DESC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_POINTS_DESC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_DATE_CREATED_ASC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_DATE_CREATED_ASC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_DATE_CREATED_DESC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_DATE_CREATED_DESC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_DATE_UPDATED_ASC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_DATE_UPDATED_ASC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_DATE_UPDATED_DESC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_DATE_UPDATED_DESC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_RATING_ASC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_RATING_ASC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_RATING_DESC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_RATING_DESC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_LENGTH_ASC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_LENGTH_ASC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_LENGTH_DESC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_LENGTH_DESC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_COMPETITIVENESS_ASC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_COMPETITIVENESS_ASC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_COMPETITIVENESS_DESC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_COMPETITIVENESS_DESC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_RATING_ASC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_RATING_ASC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_RATING_DESC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_RATING_DESC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_POPULARITY_ASC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_POPULARITY_ASC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_POPULARITY_DESC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_POPULARITY_DESC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_CUT_PENALTY_ASC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_CUT_PENALTY_ASC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_CUT_PENALTY_DESC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_CUT_PENALTY_DESC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_ID_ASC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_ID_ASC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_ID_DESC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_ID_DESC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_ID_LEVEL_ASC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_ID_LEVEL_ASC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_ID_LEVEL_DESC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_ID_LEVEL_DESC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_POINTS_ASC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_POINTS_ASC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_POINTS_DESC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_POINTS_DESC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_DATE_CREATED_ASC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_DATE_CREATED_ASC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_DATE_CREATED_DESC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_DATE_CREATED_DESC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_DATE_UPDATED_ASC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_DATE_UPDATED_ASC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_DATE_UPDATED_DESC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_DATE_UPDATED_DESC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_RATING_ASC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_RATING_ASC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_RATING_DESC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_RATING_DESC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_LENGTH_ASC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_LENGTH_ASC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_LENGTH_DESC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_LENGTH_DESC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_COMPETITIVENESS_ASC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_COMPETITIVENESS_ASC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_COMPETITIVENESS_DESC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_COMPETITIVENESS_DESC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_RATING_ASC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_RATING_ASC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_RATING_DESC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_RATING_DESC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_POPULARITY_ASC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_POPULARITY_ASC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_POPULARITY_DESC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_POPULARITY_DESC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_CUT_PENALTY_ASC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_CUT_PENALTY_ASC' as const,
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_CUT_PENALTY_DESC:
-		'LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_CUT_PENALTY_DESC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_ID_ASC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_ID_ASC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_ID_DESC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_ID_DESC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_ID_LEVEL_ASC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_ID_LEVEL_ASC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_ID_LEVEL_DESC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_ID_LEVEL_DESC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_POINTS_ASC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_POINTS_ASC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_POINTS_DESC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_POINTS_DESC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_DATE_CREATED_ASC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_DATE_CREATED_ASC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_DATE_CREATED_DESC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_DATE_CREATED_DESC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_DATE_UPDATED_ASC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_DATE_UPDATED_ASC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_DATE_UPDATED_DESC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_DATE_UPDATED_DESC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_RATING_ASC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_RATING_ASC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_RATING_DESC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_RATING_DESC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_LENGTH_ASC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_LENGTH_ASC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_LENGTH_DESC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_LENGTH_DESC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_COMPETITIVENESS_ASC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_COMPETITIVENESS_ASC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_COMPETITIVENESS_DESC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_COMPETITIVENESS_DESC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_RATING_ASC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_RATING_ASC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_RATING_DESC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_RATING_DESC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_POPULARITY_ASC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_POPULARITY_ASC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_POPULARITY_DESC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_POPULARITY_DESC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_CUT_PENALTY_ASC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_CUT_PENALTY_ASC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_CUT_PENALTY_DESC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_CUT_PENALTY_DESC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_ID_ASC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_ID_ASC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_ID_DESC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_ID_DESC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_ID_LEVEL_ASC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_ID_LEVEL_ASC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_ID_LEVEL_DESC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_ID_LEVEL_DESC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_POINTS_ASC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_POINTS_ASC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_POINTS_DESC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_POINTS_DESC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_CREATED_ASC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_CREATED_ASC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_CREATED_DESC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_CREATED_DESC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_UPDATED_ASC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_UPDATED_ASC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_UPDATED_DESC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_UPDATED_DESC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_RATING_ASC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_RATING_ASC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_RATING_DESC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_RATING_DESC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_LENGTH_ASC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_LENGTH_ASC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_LENGTH_DESC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_LENGTH_DESC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_COMPETITIVENESS_ASC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_COMPETITIVENESS_ASC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_COMPETITIVENESS_DESC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_COMPETITIVENESS_DESC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_RATING_ASC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_RATING_ASC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_RATING_DESC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_RATING_DESC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_POPULARITY_ASC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_POPULARITY_ASC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_POPULARITY_DESC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_POPULARITY_DESC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_CUT_PENALTY_ASC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_CUT_PENALTY_ASC' as const,
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_CUT_PENALTY_DESC:
-		'LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_CUT_PENALTY_DESC' as const,
 	ZSL_LEVELS_COUNT_ASC: 'ZSL_LEVELS_COUNT_ASC' as const,
 	ZSL_LEVELS_COUNT_DESC: 'ZSL_LEVELS_COUNT_DESC' as const,
 	ZSL_LEVELS_SUM_ID_ASC: 'ZSL_LEVELS_SUM_ID_ASC' as const,

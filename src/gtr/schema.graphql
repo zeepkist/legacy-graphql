@@ -1445,9 +1445,9 @@ type User implements Node {
 	): RecordsConnection!
 
 	"""
-	Reads and enables pagination through a set of `WorldRecordGlobal`.
+	Reads and enables pagination through a set of `UserPointsHistory`.
 	"""
-	worldRecordGlobals(
+	userPointsHistories(
 		"""
 		Only read the first `n` values of the set.
 		"""
@@ -1475,20 +1475,20 @@ type User implements Node {
 		after: Cursor
 
 		"""
-		The method to use when ordering `WorldRecordGlobal`.
+		The method to use when ordering `UserPointsHistory`.
 		"""
-		orderBy: [WorldRecordGlobalsOrderBy!] = [PRIMARY_KEY_ASC]
+		orderBy: [UserPointsHistoriesOrderBy!] = [PRIMARY_KEY_ASC]
 
 		"""
 		A condition to be used in determining which values should be returned by the collection.
 		"""
-		condition: WorldRecordGlobalCondition
+		condition: UserPointsHistoryCondition
 
 		"""
 		A filter to be used in determining which values should be returned by the collection.
 		"""
-		filter: WorldRecordGlobalFilter
-	): WorldRecordGlobalsConnection!
+		filter: UserPointsHistoryFilter
+	): UserPointsHistoriesConnection!
 
 	"""
 	Reads and enables pagination through a set of `Vote`.
@@ -1537,9 +1537,9 @@ type User implements Node {
 	): VotesConnection!
 
 	"""
-	Reads and enables pagination through a set of `UserPointsHistory`.
+	Reads and enables pagination through a set of `WorldRecordGlobal`.
 	"""
-	userPointsHistories(
+	worldRecordGlobals(
 		"""
 		Only read the first `n` values of the set.
 		"""
@@ -1567,20 +1567,20 @@ type User implements Node {
 		after: Cursor
 
 		"""
-		The method to use when ordering `UserPointsHistory`.
+		The method to use when ordering `WorldRecordGlobal`.
 		"""
-		orderBy: [UserPointsHistoriesOrderBy!] = [PRIMARY_KEY_ASC]
+		orderBy: [WorldRecordGlobalsOrderBy!] = [PRIMARY_KEY_ASC]
 
 		"""
 		A condition to be used in determining which values should be returned by the collection.
 		"""
-		condition: UserPointsHistoryCondition
+		condition: WorldRecordGlobalCondition
 
 		"""
 		A filter to be used in determining which values should be returned by the collection.
 		"""
-		filter: UserPointsHistoryFilter
-	): UserPointsHistoriesConnection!
+		filter: WorldRecordGlobalFilter
+	): WorldRecordGlobalsConnection!
 
 	"""
 	Reads and enables pagination through a set of `ZslLevelResult`.
@@ -1905,52 +1905,6 @@ type User implements Node {
 	): UserLevelsByRecordManyToManyConnection!
 
 	"""
-	Reads and enables pagination through a set of `Record`.
-	"""
-	recordsByWorldRecordGlobal(
-		"""
-		Only read the first `n` values of the set.
-		"""
-		first: Int
-
-		"""
-		Only read the last `n` values of the set.
-		"""
-		last: Int
-
-		"""
-		Skip the first `n` values from our `after` cursor, an alternative to cursor
-		based pagination. May not be used with `last`.
-		"""
-		offset: Int
-
-		"""
-		Read all values in the set before (above) this cursor.
-		"""
-		before: Cursor
-
-		"""
-		Read all values in the set after (below) this cursor.
-		"""
-		after: Cursor
-
-		"""
-		The method to use when ordering `Record`.
-		"""
-		orderBy: [RecordsOrderBy!] = [PRIMARY_KEY_ASC]
-
-		"""
-		A condition to be used in determining which values should be returned by the collection.
-		"""
-		condition: RecordCondition
-
-		"""
-		A filter to be used in determining which values should be returned by the collection.
-		"""
-		filter: RecordFilter
-	): UserRecordsByWorldRecordGlobalManyToManyConnection!
-
-	"""
 	Reads and enables pagination through a set of `Level`.
 	"""
 	levelsByVote(
@@ -1995,6 +1949,52 @@ type User implements Node {
 		"""
 		filter: LevelFilter
 	): UserLevelsByVoteManyToManyConnection!
+
+	"""
+	Reads and enables pagination through a set of `Record`.
+	"""
+	recordsByWorldRecordGlobal(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `Record`.
+		"""
+		orderBy: [RecordsOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: RecordCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: RecordFilter
+	): UserRecordsByWorldRecordGlobalManyToManyConnection!
 
 	"""
 	Reads and enables pagination through a set of `ZslLevel`.
@@ -2520,14 +2520,14 @@ input UserFilter {
 	recordsExist: Boolean
 
 	"""
-	Filter by the object’s `worldRecordGlobals` relation.
+	Filter by the object’s `userPointsHistories` relation.
 	"""
-	worldRecordGlobals: UserToManyWorldRecordGlobalFilter
+	userPointsHistories: UserToManyUserPointsHistoryFilter
 
 	"""
-	Some related `worldRecordGlobals` exist.
+	Some related `userPointsHistories` exist.
 	"""
-	worldRecordGlobalsExist: Boolean
+	userPointsHistoriesExist: Boolean
 
 	"""
 	Filter by the object’s `votes` relation.
@@ -2540,14 +2540,14 @@ input UserFilter {
 	votesExist: Boolean
 
 	"""
-	Filter by the object’s `userPointsHistories` relation.
+	Filter by the object’s `worldRecordGlobals` relation.
 	"""
-	userPointsHistories: UserToManyUserPointsHistoryFilter
+	worldRecordGlobals: UserToManyWorldRecordGlobalFilter
 
 	"""
-	Some related `userPointsHistories` exist.
+	Some related `worldRecordGlobals` exist.
 	"""
-	userPointsHistoriesExist: Boolean
+	worldRecordGlobalsExist: Boolean
 
 	"""
 	Filter by the object’s `zslLevelResults` relation.
@@ -3821,6 +3821,16 @@ input LevelFilter {
 	levelPointsExist: Boolean
 
 	"""
+	Filter by the object’s `levelPointsHistories` relation.
+	"""
+	levelPointsHistories: LevelToManyLevelPointsHistoryFilter
+
+	"""
+	Some related `levelPointsHistories` exist.
+	"""
+	levelPointsHistoriesExist: Boolean
+
+	"""
 	Filter by the object’s `personalBestGlobals` relation.
 	"""
 	personalBestGlobals: LevelToManyPersonalBestGlobalFilter
@@ -3841,16 +3851,6 @@ input LevelFilter {
 	recordsExist: Boolean
 
 	"""
-	Filter by the object’s `worldRecordGlobal` relation.
-	"""
-	worldRecordGlobal: WorldRecordGlobalFilter
-
-	"""
-	A related `worldRecordGlobal` exists.
-	"""
-	worldRecordGlobalExists: Boolean
-
-	"""
 	Filter by the object’s `votes` relation.
 	"""
 	votes: LevelToManyVoteFilter
@@ -3861,14 +3861,14 @@ input LevelFilter {
 	votesExist: Boolean
 
 	"""
-	Filter by the object’s `levelPointsHistories` relation.
+	Filter by the object’s `worldRecordGlobal` relation.
 	"""
-	levelPointsHistories: LevelToManyLevelPointsHistoryFilter
+	worldRecordGlobal: WorldRecordGlobalFilter
 
 	"""
-	Some related `levelPointsHistories` exist.
+	A related `worldRecordGlobal` exists.
 	"""
-	levelPointsHistoriesExist: Boolean
+	worldRecordGlobalExists: Boolean
 
 	"""
 	Filter by the object’s `zslLevels` relation.
@@ -4828,6 +4828,276 @@ input LevelPointVariancePopulationAggregateFilter {
 }
 
 """
+A filter to be used against many `LevelPointsHistory` object types. All fields are combined with a logical ‘and.’
+"""
+input LevelToManyLevelPointsHistoryFilter {
+	"""
+	Every related `LevelPointsHistory` matches the filter criteria. All fields are combined with a logical ‘and.’
+	"""
+	every: LevelPointsHistoryFilter
+
+	"""
+	Some related `LevelPointsHistory` matches the filter criteria. All fields are combined with a logical ‘and.’
+	"""
+	some: LevelPointsHistoryFilter
+
+	"""
+	No related `LevelPointsHistory` matches the filter criteria. All fields are combined with a logical ‘and.’
+	"""
+	none: LevelPointsHistoryFilter
+
+	"""
+	Aggregates across related `LevelPointsHistory` match the filter criteria.
+	"""
+	aggregates: LevelPointsHistoryAggregatesFilter
+}
+
+"""
+A filter to be used against `LevelPointsHistory` object types. All fields are combined with a logical ‘and.’
+"""
+input LevelPointsHistoryFilter {
+	"""
+	Filter by the object’s `id` field.
+	"""
+	id: IntFilter
+
+	"""
+	Filter by the object’s `levelId` field.
+	"""
+	levelId: IntFilter
+
+	"""
+	Filter by the object’s `points` field.
+	"""
+	points: IntFilter
+
+	"""
+	Filter by the object’s `dateCreated` field.
+	"""
+	dateCreated: DatetimeFilter
+
+	"""
+	Filter by the object’s `dateUpdated` field.
+	"""
+	dateUpdated: DatetimeFilter
+
+	"""
+	Filter by the object’s `rating` field.
+	"""
+	rating: FloatFilter
+
+	"""
+	Filter by the object’s `modifierLength` field.
+	"""
+	modifierLength: FloatFilter
+
+	"""
+	Filter by the object’s `modifierCompetitiveness` field.
+	"""
+	modifierCompetitiveness: FloatFilter
+
+	"""
+	Filter by the object’s `modifierRating` field.
+	"""
+	modifierRating: FloatFilter
+
+	"""
+	Filter by the object’s `modifierPopularity` field.
+	"""
+	modifierPopularity: FloatFilter
+
+	"""
+	Filter by the object’s `cutPenalty` field.
+	"""
+	cutPenalty: FloatFilter
+
+	"""
+	Filter by the object’s `level` relation.
+	"""
+	level: LevelFilter
+
+	"""
+	Checks for all expressions in this list.
+	"""
+	and: [LevelPointsHistoryFilter!]
+
+	"""
+	Checks for any expressions in this list.
+	"""
+	or: [LevelPointsHistoryFilter!]
+
+	"""
+	Negates the expression.
+	"""
+	not: LevelPointsHistoryFilter
+}
+
+"""
+A filter to be used against aggregates of `LevelPointsHistory` object types.
+"""
+input LevelPointsHistoryAggregatesFilter {
+	"""
+	A filter that must pass for the relevant `LevelPointsHistory` object to be included within the aggregate.
+	"""
+	filter: LevelPointsHistoryFilter
+
+	"""
+	Sum aggregate over matching `LevelPointsHistory` objects.
+	"""
+	sum: LevelPointsHistorySumAggregateFilter
+
+	"""
+	Distinct count aggregate over matching `LevelPointsHistory` objects.
+	"""
+	distinctCount: LevelPointsHistoryDistinctCountAggregateFilter
+
+	"""
+	Minimum aggregate over matching `LevelPointsHistory` objects.
+	"""
+	min: LevelPointsHistoryMinAggregateFilter
+
+	"""
+	Maximum aggregate over matching `LevelPointsHistory` objects.
+	"""
+	max: LevelPointsHistoryMaxAggregateFilter
+
+	"""
+	Mean average aggregate over matching `LevelPointsHistory` objects.
+	"""
+	average: LevelPointsHistoryAverageAggregateFilter
+
+	"""
+	Sample standard deviation aggregate over matching `LevelPointsHistory` objects.
+	"""
+	stddevSample: LevelPointsHistoryStddevSampleAggregateFilter
+
+	"""
+	Population standard deviation aggregate over matching `LevelPointsHistory` objects.
+	"""
+	stddevPopulation: LevelPointsHistoryStddevPopulationAggregateFilter
+
+	"""
+	Sample variance aggregate over matching `LevelPointsHistory` objects.
+	"""
+	varianceSample: LevelPointsHistoryVarianceSampleAggregateFilter
+
+	"""
+	Population variance aggregate over matching `LevelPointsHistory` objects.
+	"""
+	variancePopulation: LevelPointsHistoryVariancePopulationAggregateFilter
+}
+
+input LevelPointsHistorySumAggregateFilter {
+	id: BigIntFilter
+	levelId: BigIntFilter
+	points: BigIntFilter
+	rating: FloatFilter
+	modifierLength: FloatFilter
+	modifierCompetitiveness: FloatFilter
+	modifierRating: FloatFilter
+	modifierPopularity: FloatFilter
+	cutPenalty: FloatFilter
+}
+
+input LevelPointsHistoryDistinctCountAggregateFilter {
+	id: BigIntFilter
+	levelId: BigIntFilter
+	points: BigIntFilter
+	dateCreated: BigIntFilter
+	dateUpdated: BigIntFilter
+	rating: BigIntFilter
+	modifierLength: BigIntFilter
+	modifierCompetitiveness: BigIntFilter
+	modifierRating: BigIntFilter
+	modifierPopularity: BigIntFilter
+	cutPenalty: BigIntFilter
+}
+
+input LevelPointsHistoryMinAggregateFilter {
+	id: IntFilter
+	levelId: IntFilter
+	points: IntFilter
+	rating: FloatFilter
+	modifierLength: FloatFilter
+	modifierCompetitiveness: FloatFilter
+	modifierRating: FloatFilter
+	modifierPopularity: FloatFilter
+	cutPenalty: FloatFilter
+}
+
+input LevelPointsHistoryMaxAggregateFilter {
+	id: IntFilter
+	levelId: IntFilter
+	points: IntFilter
+	rating: FloatFilter
+	modifierLength: FloatFilter
+	modifierCompetitiveness: FloatFilter
+	modifierRating: FloatFilter
+	modifierPopularity: FloatFilter
+	cutPenalty: FloatFilter
+}
+
+input LevelPointsHistoryAverageAggregateFilter {
+	id: BigFloatFilter
+	levelId: BigFloatFilter
+	points: BigFloatFilter
+	rating: FloatFilter
+	modifierLength: FloatFilter
+	modifierCompetitiveness: FloatFilter
+	modifierRating: FloatFilter
+	modifierPopularity: FloatFilter
+	cutPenalty: FloatFilter
+}
+
+input LevelPointsHistoryStddevSampleAggregateFilter {
+	id: BigFloatFilter
+	levelId: BigFloatFilter
+	points: BigFloatFilter
+	rating: FloatFilter
+	modifierLength: FloatFilter
+	modifierCompetitiveness: FloatFilter
+	modifierRating: FloatFilter
+	modifierPopularity: FloatFilter
+	cutPenalty: FloatFilter
+}
+
+input LevelPointsHistoryStddevPopulationAggregateFilter {
+	id: BigFloatFilter
+	levelId: BigFloatFilter
+	points: BigFloatFilter
+	rating: FloatFilter
+	modifierLength: FloatFilter
+	modifierCompetitiveness: FloatFilter
+	modifierRating: FloatFilter
+	modifierPopularity: FloatFilter
+	cutPenalty: FloatFilter
+}
+
+input LevelPointsHistoryVarianceSampleAggregateFilter {
+	id: BigFloatFilter
+	levelId: BigFloatFilter
+	points: BigFloatFilter
+	rating: FloatFilter
+	modifierLength: FloatFilter
+	modifierCompetitiveness: FloatFilter
+	modifierRating: FloatFilter
+	modifierPopularity: FloatFilter
+	cutPenalty: FloatFilter
+}
+
+input LevelPointsHistoryVariancePopulationAggregateFilter {
+	id: BigFloatFilter
+	levelId: BigFloatFilter
+	points: BigFloatFilter
+	rating: FloatFilter
+	modifierLength: FloatFilter
+	modifierCompetitiveness: FloatFilter
+	modifierRating: FloatFilter
+	modifierPopularity: FloatFilter
+	cutPenalty: FloatFilter
+}
+
+"""
 A filter to be used against many `PersonalBestGlobal` object types. All fields are combined with a logical ‘and.’
 """
 input LevelToManyPersonalBestGlobalFilter {
@@ -5204,276 +5474,6 @@ input VoteVariancePopulationAggregateFilter {
 	userId: BigFloatFilter
 	levelId: BigFloatFilter
 	value: BigFloatFilter
-}
-
-"""
-A filter to be used against many `LevelPointsHistory` object types. All fields are combined with a logical ‘and.’
-"""
-input LevelToManyLevelPointsHistoryFilter {
-	"""
-	Every related `LevelPointsHistory` matches the filter criteria. All fields are combined with a logical ‘and.’
-	"""
-	every: LevelPointsHistoryFilter
-
-	"""
-	Some related `LevelPointsHistory` matches the filter criteria. All fields are combined with a logical ‘and.’
-	"""
-	some: LevelPointsHistoryFilter
-
-	"""
-	No related `LevelPointsHistory` matches the filter criteria. All fields are combined with a logical ‘and.’
-	"""
-	none: LevelPointsHistoryFilter
-
-	"""
-	Aggregates across related `LevelPointsHistory` match the filter criteria.
-	"""
-	aggregates: LevelPointsHistoryAggregatesFilter
-}
-
-"""
-A filter to be used against `LevelPointsHistory` object types. All fields are combined with a logical ‘and.’
-"""
-input LevelPointsHistoryFilter {
-	"""
-	Filter by the object’s `id` field.
-	"""
-	id: IntFilter
-
-	"""
-	Filter by the object’s `levelId` field.
-	"""
-	levelId: IntFilter
-
-	"""
-	Filter by the object’s `points` field.
-	"""
-	points: IntFilter
-
-	"""
-	Filter by the object’s `dateCreated` field.
-	"""
-	dateCreated: DatetimeFilter
-
-	"""
-	Filter by the object’s `dateUpdated` field.
-	"""
-	dateUpdated: DatetimeFilter
-
-	"""
-	Filter by the object’s `rating` field.
-	"""
-	rating: FloatFilter
-
-	"""
-	Filter by the object’s `modifierLength` field.
-	"""
-	modifierLength: FloatFilter
-
-	"""
-	Filter by the object’s `modifierCompetitiveness` field.
-	"""
-	modifierCompetitiveness: FloatFilter
-
-	"""
-	Filter by the object’s `modifierRating` field.
-	"""
-	modifierRating: FloatFilter
-
-	"""
-	Filter by the object’s `modifierPopularity` field.
-	"""
-	modifierPopularity: FloatFilter
-
-	"""
-	Filter by the object’s `cutPenalty` field.
-	"""
-	cutPenalty: FloatFilter
-
-	"""
-	Filter by the object’s `level` relation.
-	"""
-	level: LevelFilter
-
-	"""
-	Checks for all expressions in this list.
-	"""
-	and: [LevelPointsHistoryFilter!]
-
-	"""
-	Checks for any expressions in this list.
-	"""
-	or: [LevelPointsHistoryFilter!]
-
-	"""
-	Negates the expression.
-	"""
-	not: LevelPointsHistoryFilter
-}
-
-"""
-A filter to be used against aggregates of `LevelPointsHistory` object types.
-"""
-input LevelPointsHistoryAggregatesFilter {
-	"""
-	A filter that must pass for the relevant `LevelPointsHistory` object to be included within the aggregate.
-	"""
-	filter: LevelPointsHistoryFilter
-
-	"""
-	Sum aggregate over matching `LevelPointsHistory` objects.
-	"""
-	sum: LevelPointsHistorySumAggregateFilter
-
-	"""
-	Distinct count aggregate over matching `LevelPointsHistory` objects.
-	"""
-	distinctCount: LevelPointsHistoryDistinctCountAggregateFilter
-
-	"""
-	Minimum aggregate over matching `LevelPointsHistory` objects.
-	"""
-	min: LevelPointsHistoryMinAggregateFilter
-
-	"""
-	Maximum aggregate over matching `LevelPointsHistory` objects.
-	"""
-	max: LevelPointsHistoryMaxAggregateFilter
-
-	"""
-	Mean average aggregate over matching `LevelPointsHistory` objects.
-	"""
-	average: LevelPointsHistoryAverageAggregateFilter
-
-	"""
-	Sample standard deviation aggregate over matching `LevelPointsHistory` objects.
-	"""
-	stddevSample: LevelPointsHistoryStddevSampleAggregateFilter
-
-	"""
-	Population standard deviation aggregate over matching `LevelPointsHistory` objects.
-	"""
-	stddevPopulation: LevelPointsHistoryStddevPopulationAggregateFilter
-
-	"""
-	Sample variance aggregate over matching `LevelPointsHistory` objects.
-	"""
-	varianceSample: LevelPointsHistoryVarianceSampleAggregateFilter
-
-	"""
-	Population variance aggregate over matching `LevelPointsHistory` objects.
-	"""
-	variancePopulation: LevelPointsHistoryVariancePopulationAggregateFilter
-}
-
-input LevelPointsHistorySumAggregateFilter {
-	id: BigIntFilter
-	levelId: BigIntFilter
-	points: BigIntFilter
-	rating: FloatFilter
-	modifierLength: FloatFilter
-	modifierCompetitiveness: FloatFilter
-	modifierRating: FloatFilter
-	modifierPopularity: FloatFilter
-	cutPenalty: FloatFilter
-}
-
-input LevelPointsHistoryDistinctCountAggregateFilter {
-	id: BigIntFilter
-	levelId: BigIntFilter
-	points: BigIntFilter
-	dateCreated: BigIntFilter
-	dateUpdated: BigIntFilter
-	rating: BigIntFilter
-	modifierLength: BigIntFilter
-	modifierCompetitiveness: BigIntFilter
-	modifierRating: BigIntFilter
-	modifierPopularity: BigIntFilter
-	cutPenalty: BigIntFilter
-}
-
-input LevelPointsHistoryMinAggregateFilter {
-	id: IntFilter
-	levelId: IntFilter
-	points: IntFilter
-	rating: FloatFilter
-	modifierLength: FloatFilter
-	modifierCompetitiveness: FloatFilter
-	modifierRating: FloatFilter
-	modifierPopularity: FloatFilter
-	cutPenalty: FloatFilter
-}
-
-input LevelPointsHistoryMaxAggregateFilter {
-	id: IntFilter
-	levelId: IntFilter
-	points: IntFilter
-	rating: FloatFilter
-	modifierLength: FloatFilter
-	modifierCompetitiveness: FloatFilter
-	modifierRating: FloatFilter
-	modifierPopularity: FloatFilter
-	cutPenalty: FloatFilter
-}
-
-input LevelPointsHistoryAverageAggregateFilter {
-	id: BigFloatFilter
-	levelId: BigFloatFilter
-	points: BigFloatFilter
-	rating: FloatFilter
-	modifierLength: FloatFilter
-	modifierCompetitiveness: FloatFilter
-	modifierRating: FloatFilter
-	modifierPopularity: FloatFilter
-	cutPenalty: FloatFilter
-}
-
-input LevelPointsHistoryStddevSampleAggregateFilter {
-	id: BigFloatFilter
-	levelId: BigFloatFilter
-	points: BigFloatFilter
-	rating: FloatFilter
-	modifierLength: FloatFilter
-	modifierCompetitiveness: FloatFilter
-	modifierRating: FloatFilter
-	modifierPopularity: FloatFilter
-	cutPenalty: FloatFilter
-}
-
-input LevelPointsHistoryStddevPopulationAggregateFilter {
-	id: BigFloatFilter
-	levelId: BigFloatFilter
-	points: BigFloatFilter
-	rating: FloatFilter
-	modifierLength: FloatFilter
-	modifierCompetitiveness: FloatFilter
-	modifierRating: FloatFilter
-	modifierPopularity: FloatFilter
-	cutPenalty: FloatFilter
-}
-
-input LevelPointsHistoryVarianceSampleAggregateFilter {
-	id: BigFloatFilter
-	levelId: BigFloatFilter
-	points: BigFloatFilter
-	rating: FloatFilter
-	modifierLength: FloatFilter
-	modifierCompetitiveness: FloatFilter
-	modifierRating: FloatFilter
-	modifierPopularity: FloatFilter
-	cutPenalty: FloatFilter
-}
-
-input LevelPointsHistoryVariancePopulationAggregateFilter {
-	id: BigFloatFilter
-	levelId: BigFloatFilter
-	points: BigFloatFilter
-	rating: FloatFilter
-	modifierLength: FloatFilter
-	modifierCompetitiveness: FloatFilter
-	modifierRating: FloatFilter
-	modifierPopularity: FloatFilter
-	cutPenalty: FloatFilter
 }
 
 """
@@ -7356,56 +7356,6 @@ input UserToManyRecordFilter {
 }
 
 """
-A filter to be used against many `WorldRecordGlobal` object types. All fields are combined with a logical ‘and.’
-"""
-input UserToManyWorldRecordGlobalFilter {
-	"""
-	Every related `WorldRecordGlobal` matches the filter criteria. All fields are combined with a logical ‘and.’
-	"""
-	every: WorldRecordGlobalFilter
-
-	"""
-	Some related `WorldRecordGlobal` matches the filter criteria. All fields are combined with a logical ‘and.’
-	"""
-	some: WorldRecordGlobalFilter
-
-	"""
-	No related `WorldRecordGlobal` matches the filter criteria. All fields are combined with a logical ‘and.’
-	"""
-	none: WorldRecordGlobalFilter
-
-	"""
-	Aggregates across related `WorldRecordGlobal` match the filter criteria.
-	"""
-	aggregates: WorldRecordGlobalAggregatesFilter
-}
-
-"""
-A filter to be used against many `Vote` object types. All fields are combined with a logical ‘and.’
-"""
-input UserToManyVoteFilter {
-	"""
-	Every related `Vote` matches the filter criteria. All fields are combined with a logical ‘and.’
-	"""
-	every: VoteFilter
-
-	"""
-	Some related `Vote` matches the filter criteria. All fields are combined with a logical ‘and.’
-	"""
-	some: VoteFilter
-
-	"""
-	No related `Vote` matches the filter criteria. All fields are combined with a logical ‘and.’
-	"""
-	none: VoteFilter
-
-	"""
-	Aggregates across related `Vote` match the filter criteria.
-	"""
-	aggregates: VoteAggregatesFilter
-}
-
-"""
 A filter to be used against many `UserPointsHistory` object types. All fields are combined with a logical ‘and.’
 """
 input UserToManyUserPointsHistoryFilter {
@@ -7631,6 +7581,56 @@ input UserPointsHistoryVariancePopulationAggregateFilter {
 	totalPoints: BigFloatFilter
 	rank: BigFloatFilter
 	worldRecords: BigFloatFilter
+}
+
+"""
+A filter to be used against many `Vote` object types. All fields are combined with a logical ‘and.’
+"""
+input UserToManyVoteFilter {
+	"""
+	Every related `Vote` matches the filter criteria. All fields are combined with a logical ‘and.’
+	"""
+	every: VoteFilter
+
+	"""
+	Some related `Vote` matches the filter criteria. All fields are combined with a logical ‘and.’
+	"""
+	some: VoteFilter
+
+	"""
+	No related `Vote` matches the filter criteria. All fields are combined with a logical ‘and.’
+	"""
+	none: VoteFilter
+
+	"""
+	Aggregates across related `Vote` match the filter criteria.
+	"""
+	aggregates: VoteAggregatesFilter
+}
+
+"""
+A filter to be used against many `WorldRecordGlobal` object types. All fields are combined with a logical ‘and.’
+"""
+input UserToManyWorldRecordGlobalFilter {
+	"""
+	Every related `WorldRecordGlobal` matches the filter criteria. All fields are combined with a logical ‘and.’
+	"""
+	every: WorldRecordGlobalFilter
+
+	"""
+	Some related `WorldRecordGlobal` matches the filter criteria. All fields are combined with a logical ‘and.’
+	"""
+	some: WorldRecordGlobalFilter
+
+	"""
+	No related `WorldRecordGlobal` matches the filter criteria. All fields are combined with a logical ‘and.’
+	"""
+	none: WorldRecordGlobalFilter
+
+	"""
+	Aggregates across related `WorldRecordGlobal` match the filter criteria.
+	"""
+	aggregates: WorldRecordGlobalAggregatesFilter
 }
 
 """
@@ -8423,6 +8423,52 @@ type Level implements Node {
 	): LevelPointsConnection!
 
 	"""
+	Reads and enables pagination through a set of `LevelPointsHistory`.
+	"""
+	levelPointsHistories(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `LevelPointsHistory`.
+		"""
+		orderBy: [LevelPointsHistoriesOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: LevelPointsHistoryCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: LevelPointsHistoryFilter
+	): LevelPointsHistoriesConnection!
+
+	"""
 	Reads and enables pagination through a set of `PersonalBestGlobal`.
 	"""
 	personalBestGlobals(
@@ -8515,6 +8561,52 @@ type Level implements Node {
 	): RecordsConnection!
 
 	"""
+	Reads and enables pagination through a set of `Vote`.
+	"""
+	votes(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `Vote`.
+		"""
+		orderBy: [VotesOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: VoteCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: VoteFilter
+	): VotesConnection!
+
+	"""
 	Reads a single `WorldRecordGlobal` that is related to this `Level`.
 	"""
 	worldRecordGlobal: WorldRecordGlobal
@@ -8565,98 +8657,6 @@ type Level implements Node {
 		filter: WorldRecordGlobalFilter
 	): WorldRecordGlobalsConnection!
 		@deprecated(reason: "Please use worldRecordGlobal instead")
-
-	"""
-	Reads and enables pagination through a set of `Vote`.
-	"""
-	votes(
-		"""
-		Only read the first `n` values of the set.
-		"""
-		first: Int
-
-		"""
-		Only read the last `n` values of the set.
-		"""
-		last: Int
-
-		"""
-		Skip the first `n` values from our `after` cursor, an alternative to cursor
-		based pagination. May not be used with `last`.
-		"""
-		offset: Int
-
-		"""
-		Read all values in the set before (above) this cursor.
-		"""
-		before: Cursor
-
-		"""
-		Read all values in the set after (below) this cursor.
-		"""
-		after: Cursor
-
-		"""
-		The method to use when ordering `Vote`.
-		"""
-		orderBy: [VotesOrderBy!] = [PRIMARY_KEY_ASC]
-
-		"""
-		A condition to be used in determining which values should be returned by the collection.
-		"""
-		condition: VoteCondition
-
-		"""
-		A filter to be used in determining which values should be returned by the collection.
-		"""
-		filter: VoteFilter
-	): VotesConnection!
-
-	"""
-	Reads and enables pagination through a set of `LevelPointsHistory`.
-	"""
-	levelPointsHistories(
-		"""
-		Only read the first `n` values of the set.
-		"""
-		first: Int
-
-		"""
-		Only read the last `n` values of the set.
-		"""
-		last: Int
-
-		"""
-		Skip the first `n` values from our `after` cursor, an alternative to cursor
-		based pagination. May not be used with `last`.
-		"""
-		offset: Int
-
-		"""
-		Read all values in the set before (above) this cursor.
-		"""
-		before: Cursor
-
-		"""
-		Read all values in the set after (below) this cursor.
-		"""
-		after: Cursor
-
-		"""
-		The method to use when ordering `LevelPointsHistory`.
-		"""
-		orderBy: [LevelPointsHistoriesOrderBy!] = [PRIMARY_KEY_ASC]
-
-		"""
-		A condition to be used in determining which values should be returned by the collection.
-		"""
-		condition: LevelPointsHistoryCondition
-
-		"""
-		A filter to be used in determining which values should be returned by the collection.
-		"""
-		filter: LevelPointsHistoryFilter
-	): LevelPointsHistoriesConnection!
 
 	"""
 	Reads and enables pagination through a set of `ZslLevel`.
@@ -11471,6 +11471,834 @@ input LevelPointCondition {
 }
 
 """
+A connection to a list of `LevelPointsHistory` values.
+"""
+type LevelPointsHistoriesConnection {
+	"""
+	A list of `LevelPointsHistory` objects.
+	"""
+	nodes: [LevelPointsHistory!]!
+
+	"""
+	A list of edges which contains the `LevelPointsHistory` and cursor to aid in pagination.
+	"""
+	edges: [LevelPointsHistoriesEdge!]!
+
+	"""
+	Information to aid in pagination.
+	"""
+	pageInfo: PageInfo!
+
+	"""
+	The count of *all* `LevelPointsHistory` you could get from the connection.
+	"""
+	totalCount: Int!
+
+	"""
+	Aggregates across the matching connection (ignoring before/after/first/last/offset)
+	"""
+	aggregates: LevelPointsHistoryAggregates
+
+	"""
+	Grouped aggregates across the matching connection (ignoring before/after/first/last/offset)
+	"""
+	groupedAggregates(
+		"""
+		The method to use when grouping `LevelPointsHistory` for these aggregates.
+		"""
+		groupBy: [LevelPointsHistoryGroupBy!]!
+
+		"""
+		Conditions on the grouped aggregates.
+		"""
+		having: LevelPointsHistoryHavingInput
+	): [LevelPointsHistoryAggregates!]
+}
+
+type LevelPointsHistory implements Node {
+	"""
+	A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+	"""
+	nodeId: ID!
+	id: Int!
+	levelId: Int!
+	points: Int!
+	dateCreated: Datetime!
+	dateUpdated: Datetime
+	rating: Float!
+	modifierLength: Float!
+	modifierCompetitiveness: Float!
+	modifierRating: Float!
+	modifierPopularity: Float!
+	cutPenalty: Float!
+
+	"""
+	Reads a single `Level` that is related to this `LevelPointsHistory`.
+	"""
+	level: Level
+}
+
+"""
+A `LevelPointsHistory` edge in the connection.
+"""
+type LevelPointsHistoriesEdge {
+	"""
+	A cursor for use in pagination.
+	"""
+	cursor: Cursor
+
+	"""
+	The `LevelPointsHistory` at the end of the edge.
+	"""
+	node: LevelPointsHistory!
+}
+
+type LevelPointsHistoryAggregates {
+	keys: [String!]
+
+	"""
+	Sum aggregates across the matching connection (ignoring before/after/first/last/offset)
+	"""
+	sum: LevelPointsHistorySumAggregates
+
+	"""
+	Distinct count aggregates across the matching connection (ignoring before/after/first/last/offset)
+	"""
+	distinctCount: LevelPointsHistoryDistinctCountAggregates
+
+	"""
+	Minimum aggregates across the matching connection (ignoring before/after/first/last/offset)
+	"""
+	min: LevelPointsHistoryMinAggregates
+
+	"""
+	Maximum aggregates across the matching connection (ignoring before/after/first/last/offset)
+	"""
+	max: LevelPointsHistoryMaxAggregates
+
+	"""
+	Mean average aggregates across the matching connection (ignoring before/after/first/last/offset)
+	"""
+	average: LevelPointsHistoryAverageAggregates
+
+	"""
+	Sample standard deviation aggregates across the matching connection (ignoring before/after/first/last/offset)
+	"""
+	stddevSample: LevelPointsHistoryStddevSampleAggregates
+
+	"""
+	Population standard deviation aggregates across the matching connection (ignoring before/after/first/last/offset)
+	"""
+	stddevPopulation: LevelPointsHistoryStddevPopulationAggregates
+
+	"""
+	Sample variance aggregates across the matching connection (ignoring before/after/first/last/offset)
+	"""
+	varianceSample: LevelPointsHistoryVarianceSampleAggregates
+
+	"""
+	Population variance aggregates across the matching connection (ignoring before/after/first/last/offset)
+	"""
+	variancePopulation: LevelPointsHistoryVariancePopulationAggregates
+}
+
+type LevelPointsHistorySumAggregates {
+	"""
+	Sum of id across the matching connection
+	"""
+	id: BigInt!
+
+	"""
+	Sum of levelId across the matching connection
+	"""
+	levelId: BigInt!
+
+	"""
+	Sum of points across the matching connection
+	"""
+	points: BigInt!
+
+	"""
+	Sum of rating across the matching connection
+	"""
+	rating: Float!
+
+	"""
+	Sum of modifierLength across the matching connection
+	"""
+	modifierLength: Float!
+
+	"""
+	Sum of modifierCompetitiveness across the matching connection
+	"""
+	modifierCompetitiveness: Float!
+
+	"""
+	Sum of modifierRating across the matching connection
+	"""
+	modifierRating: Float!
+
+	"""
+	Sum of modifierPopularity across the matching connection
+	"""
+	modifierPopularity: Float!
+
+	"""
+	Sum of cutPenalty across the matching connection
+	"""
+	cutPenalty: Float!
+}
+
+type LevelPointsHistoryDistinctCountAggregates {
+	"""
+	Distinct count of id across the matching connection
+	"""
+	id: BigInt
+
+	"""
+	Distinct count of levelId across the matching connection
+	"""
+	levelId: BigInt
+
+	"""
+	Distinct count of points across the matching connection
+	"""
+	points: BigInt
+
+	"""
+	Distinct count of dateCreated across the matching connection
+	"""
+	dateCreated: BigInt
+
+	"""
+	Distinct count of dateUpdated across the matching connection
+	"""
+	dateUpdated: BigInt
+
+	"""
+	Distinct count of rating across the matching connection
+	"""
+	rating: BigInt
+
+	"""
+	Distinct count of modifierLength across the matching connection
+	"""
+	modifierLength: BigInt
+
+	"""
+	Distinct count of modifierCompetitiveness across the matching connection
+	"""
+	modifierCompetitiveness: BigInt
+
+	"""
+	Distinct count of modifierRating across the matching connection
+	"""
+	modifierRating: BigInt
+
+	"""
+	Distinct count of modifierPopularity across the matching connection
+	"""
+	modifierPopularity: BigInt
+
+	"""
+	Distinct count of cutPenalty across the matching connection
+	"""
+	cutPenalty: BigInt
+}
+
+type LevelPointsHistoryMinAggregates {
+	"""
+	Minimum of id across the matching connection
+	"""
+	id: Int
+
+	"""
+	Minimum of levelId across the matching connection
+	"""
+	levelId: Int
+
+	"""
+	Minimum of points across the matching connection
+	"""
+	points: Int
+
+	"""
+	Minimum of rating across the matching connection
+	"""
+	rating: Float
+
+	"""
+	Minimum of modifierLength across the matching connection
+	"""
+	modifierLength: Float
+
+	"""
+	Minimum of modifierCompetitiveness across the matching connection
+	"""
+	modifierCompetitiveness: Float
+
+	"""
+	Minimum of modifierRating across the matching connection
+	"""
+	modifierRating: Float
+
+	"""
+	Minimum of modifierPopularity across the matching connection
+	"""
+	modifierPopularity: Float
+
+	"""
+	Minimum of cutPenalty across the matching connection
+	"""
+	cutPenalty: Float
+}
+
+type LevelPointsHistoryMaxAggregates {
+	"""
+	Maximum of id across the matching connection
+	"""
+	id: Int
+
+	"""
+	Maximum of levelId across the matching connection
+	"""
+	levelId: Int
+
+	"""
+	Maximum of points across the matching connection
+	"""
+	points: Int
+
+	"""
+	Maximum of rating across the matching connection
+	"""
+	rating: Float
+
+	"""
+	Maximum of modifierLength across the matching connection
+	"""
+	modifierLength: Float
+
+	"""
+	Maximum of modifierCompetitiveness across the matching connection
+	"""
+	modifierCompetitiveness: Float
+
+	"""
+	Maximum of modifierRating across the matching connection
+	"""
+	modifierRating: Float
+
+	"""
+	Maximum of modifierPopularity across the matching connection
+	"""
+	modifierPopularity: Float
+
+	"""
+	Maximum of cutPenalty across the matching connection
+	"""
+	cutPenalty: Float
+}
+
+type LevelPointsHistoryAverageAggregates {
+	"""
+	Mean average of id across the matching connection
+	"""
+	id: BigFloat
+
+	"""
+	Mean average of levelId across the matching connection
+	"""
+	levelId: BigFloat
+
+	"""
+	Mean average of points across the matching connection
+	"""
+	points: BigFloat
+
+	"""
+	Mean average of rating across the matching connection
+	"""
+	rating: Float
+
+	"""
+	Mean average of modifierLength across the matching connection
+	"""
+	modifierLength: Float
+
+	"""
+	Mean average of modifierCompetitiveness across the matching connection
+	"""
+	modifierCompetitiveness: Float
+
+	"""
+	Mean average of modifierRating across the matching connection
+	"""
+	modifierRating: Float
+
+	"""
+	Mean average of modifierPopularity across the matching connection
+	"""
+	modifierPopularity: Float
+
+	"""
+	Mean average of cutPenalty across the matching connection
+	"""
+	cutPenalty: Float
+}
+
+type LevelPointsHistoryStddevSampleAggregates {
+	"""
+	Sample standard deviation of id across the matching connection
+	"""
+	id: BigFloat
+
+	"""
+	Sample standard deviation of levelId across the matching connection
+	"""
+	levelId: BigFloat
+
+	"""
+	Sample standard deviation of points across the matching connection
+	"""
+	points: BigFloat
+
+	"""
+	Sample standard deviation of rating across the matching connection
+	"""
+	rating: Float
+
+	"""
+	Sample standard deviation of modifierLength across the matching connection
+	"""
+	modifierLength: Float
+
+	"""
+	Sample standard deviation of modifierCompetitiveness across the matching connection
+	"""
+	modifierCompetitiveness: Float
+
+	"""
+	Sample standard deviation of modifierRating across the matching connection
+	"""
+	modifierRating: Float
+
+	"""
+	Sample standard deviation of modifierPopularity across the matching connection
+	"""
+	modifierPopularity: Float
+
+	"""
+	Sample standard deviation of cutPenalty across the matching connection
+	"""
+	cutPenalty: Float
+}
+
+type LevelPointsHistoryStddevPopulationAggregates {
+	"""
+	Population standard deviation of id across the matching connection
+	"""
+	id: BigFloat
+
+	"""
+	Population standard deviation of levelId across the matching connection
+	"""
+	levelId: BigFloat
+
+	"""
+	Population standard deviation of points across the matching connection
+	"""
+	points: BigFloat
+
+	"""
+	Population standard deviation of rating across the matching connection
+	"""
+	rating: Float
+
+	"""
+	Population standard deviation of modifierLength across the matching connection
+	"""
+	modifierLength: Float
+
+	"""
+	Population standard deviation of modifierCompetitiveness across the matching connection
+	"""
+	modifierCompetitiveness: Float
+
+	"""
+	Population standard deviation of modifierRating across the matching connection
+	"""
+	modifierRating: Float
+
+	"""
+	Population standard deviation of modifierPopularity across the matching connection
+	"""
+	modifierPopularity: Float
+
+	"""
+	Population standard deviation of cutPenalty across the matching connection
+	"""
+	cutPenalty: Float
+}
+
+type LevelPointsHistoryVarianceSampleAggregates {
+	"""
+	Sample variance of id across the matching connection
+	"""
+	id: BigFloat
+
+	"""
+	Sample variance of levelId across the matching connection
+	"""
+	levelId: BigFloat
+
+	"""
+	Sample variance of points across the matching connection
+	"""
+	points: BigFloat
+
+	"""
+	Sample variance of rating across the matching connection
+	"""
+	rating: Float
+
+	"""
+	Sample variance of modifierLength across the matching connection
+	"""
+	modifierLength: Float
+
+	"""
+	Sample variance of modifierCompetitiveness across the matching connection
+	"""
+	modifierCompetitiveness: Float
+
+	"""
+	Sample variance of modifierRating across the matching connection
+	"""
+	modifierRating: Float
+
+	"""
+	Sample variance of modifierPopularity across the matching connection
+	"""
+	modifierPopularity: Float
+
+	"""
+	Sample variance of cutPenalty across the matching connection
+	"""
+	cutPenalty: Float
+}
+
+type LevelPointsHistoryVariancePopulationAggregates {
+	"""
+	Population variance of id across the matching connection
+	"""
+	id: BigFloat
+
+	"""
+	Population variance of levelId across the matching connection
+	"""
+	levelId: BigFloat
+
+	"""
+	Population variance of points across the matching connection
+	"""
+	points: BigFloat
+
+	"""
+	Population variance of rating across the matching connection
+	"""
+	rating: Float
+
+	"""
+	Population variance of modifierLength across the matching connection
+	"""
+	modifierLength: Float
+
+	"""
+	Population variance of modifierCompetitiveness across the matching connection
+	"""
+	modifierCompetitiveness: Float
+
+	"""
+	Population variance of modifierRating across the matching connection
+	"""
+	modifierRating: Float
+
+	"""
+	Population variance of modifierPopularity across the matching connection
+	"""
+	modifierPopularity: Float
+
+	"""
+	Population variance of cutPenalty across the matching connection
+	"""
+	cutPenalty: Float
+}
+
+"""
+Grouping methods for `LevelPointsHistory` for usage during aggregation.
+"""
+enum LevelPointsHistoryGroupBy {
+	ID_LEVEL
+	POINTS
+	DATE_CREATED
+	DATE_CREATED_TRUNCATED_TO_HOUR
+	DATE_CREATED_TRUNCATED_TO_DAY
+	DATE_UPDATED
+	DATE_UPDATED_TRUNCATED_TO_HOUR
+	DATE_UPDATED_TRUNCATED_TO_DAY
+	RATING
+	MODIFIER_LENGTH
+	MODIFIER_COMPETITIVENESS
+	MODIFIER_RATING
+	MODIFIER_POPULARITY
+	CUT_PENALTY
+}
+
+"""
+Conditions for `LevelPointsHistory` aggregates.
+"""
+input LevelPointsHistoryHavingInput {
+	AND: [LevelPointsHistoryHavingInput!]
+	OR: [LevelPointsHistoryHavingInput!]
+	sum: LevelPointsHistoryHavingSumInput
+	distinctCount: LevelPointsHistoryHavingDistinctCountInput
+	min: LevelPointsHistoryHavingMinInput
+	max: LevelPointsHistoryHavingMaxInput
+	average: LevelPointsHistoryHavingAverageInput
+	stddevSample: LevelPointsHistoryHavingStddevSampleInput
+	stddevPopulation: LevelPointsHistoryHavingStddevPopulationInput
+	varianceSample: LevelPointsHistoryHavingVarianceSampleInput
+	variancePopulation: LevelPointsHistoryHavingVariancePopulationInput
+}
+
+input LevelPointsHistoryHavingSumInput {
+	id: HavingIntFilter
+	levelId: HavingIntFilter
+	points: HavingIntFilter
+	dateCreated: HavingDatetimeFilter
+	dateUpdated: HavingDatetimeFilter
+	rating: HavingFloatFilter
+	modifierLength: HavingFloatFilter
+	modifierCompetitiveness: HavingFloatFilter
+	modifierRating: HavingFloatFilter
+	modifierPopularity: HavingFloatFilter
+	cutPenalty: HavingFloatFilter
+}
+
+input LevelPointsHistoryHavingDistinctCountInput {
+	id: HavingIntFilter
+	levelId: HavingIntFilter
+	points: HavingIntFilter
+	dateCreated: HavingDatetimeFilter
+	dateUpdated: HavingDatetimeFilter
+	rating: HavingFloatFilter
+	modifierLength: HavingFloatFilter
+	modifierCompetitiveness: HavingFloatFilter
+	modifierRating: HavingFloatFilter
+	modifierPopularity: HavingFloatFilter
+	cutPenalty: HavingFloatFilter
+}
+
+input LevelPointsHistoryHavingMinInput {
+	id: HavingIntFilter
+	levelId: HavingIntFilter
+	points: HavingIntFilter
+	dateCreated: HavingDatetimeFilter
+	dateUpdated: HavingDatetimeFilter
+	rating: HavingFloatFilter
+	modifierLength: HavingFloatFilter
+	modifierCompetitiveness: HavingFloatFilter
+	modifierRating: HavingFloatFilter
+	modifierPopularity: HavingFloatFilter
+	cutPenalty: HavingFloatFilter
+}
+
+input LevelPointsHistoryHavingMaxInput {
+	id: HavingIntFilter
+	levelId: HavingIntFilter
+	points: HavingIntFilter
+	dateCreated: HavingDatetimeFilter
+	dateUpdated: HavingDatetimeFilter
+	rating: HavingFloatFilter
+	modifierLength: HavingFloatFilter
+	modifierCompetitiveness: HavingFloatFilter
+	modifierRating: HavingFloatFilter
+	modifierPopularity: HavingFloatFilter
+	cutPenalty: HavingFloatFilter
+}
+
+input LevelPointsHistoryHavingAverageInput {
+	id: HavingIntFilter
+	levelId: HavingIntFilter
+	points: HavingIntFilter
+	dateCreated: HavingDatetimeFilter
+	dateUpdated: HavingDatetimeFilter
+	rating: HavingFloatFilter
+	modifierLength: HavingFloatFilter
+	modifierCompetitiveness: HavingFloatFilter
+	modifierRating: HavingFloatFilter
+	modifierPopularity: HavingFloatFilter
+	cutPenalty: HavingFloatFilter
+}
+
+input LevelPointsHistoryHavingStddevSampleInput {
+	id: HavingIntFilter
+	levelId: HavingIntFilter
+	points: HavingIntFilter
+	dateCreated: HavingDatetimeFilter
+	dateUpdated: HavingDatetimeFilter
+	rating: HavingFloatFilter
+	modifierLength: HavingFloatFilter
+	modifierCompetitiveness: HavingFloatFilter
+	modifierRating: HavingFloatFilter
+	modifierPopularity: HavingFloatFilter
+	cutPenalty: HavingFloatFilter
+}
+
+input LevelPointsHistoryHavingStddevPopulationInput {
+	id: HavingIntFilter
+	levelId: HavingIntFilter
+	points: HavingIntFilter
+	dateCreated: HavingDatetimeFilter
+	dateUpdated: HavingDatetimeFilter
+	rating: HavingFloatFilter
+	modifierLength: HavingFloatFilter
+	modifierCompetitiveness: HavingFloatFilter
+	modifierRating: HavingFloatFilter
+	modifierPopularity: HavingFloatFilter
+	cutPenalty: HavingFloatFilter
+}
+
+input LevelPointsHistoryHavingVarianceSampleInput {
+	id: HavingIntFilter
+	levelId: HavingIntFilter
+	points: HavingIntFilter
+	dateCreated: HavingDatetimeFilter
+	dateUpdated: HavingDatetimeFilter
+	rating: HavingFloatFilter
+	modifierLength: HavingFloatFilter
+	modifierCompetitiveness: HavingFloatFilter
+	modifierRating: HavingFloatFilter
+	modifierPopularity: HavingFloatFilter
+	cutPenalty: HavingFloatFilter
+}
+
+input LevelPointsHistoryHavingVariancePopulationInput {
+	id: HavingIntFilter
+	levelId: HavingIntFilter
+	points: HavingIntFilter
+	dateCreated: HavingDatetimeFilter
+	dateUpdated: HavingDatetimeFilter
+	rating: HavingFloatFilter
+	modifierLength: HavingFloatFilter
+	modifierCompetitiveness: HavingFloatFilter
+	modifierRating: HavingFloatFilter
+	modifierPopularity: HavingFloatFilter
+	cutPenalty: HavingFloatFilter
+}
+
+"""
+Methods to use when ordering `LevelPointsHistory`.
+"""
+enum LevelPointsHistoriesOrderBy {
+	NATURAL
+	ID_ASC
+	ID_DESC
+	ID_LEVEL_ASC
+	ID_LEVEL_DESC
+	POINTS_ASC
+	POINTS_DESC
+	DATE_CREATED_ASC
+	DATE_CREATED_DESC
+	DATE_UPDATED_ASC
+	DATE_UPDATED_DESC
+	RATING_ASC
+	RATING_DESC
+	MODIFIER_LENGTH_ASC
+	MODIFIER_LENGTH_DESC
+	MODIFIER_COMPETITIVENESS_ASC
+	MODIFIER_COMPETITIVENESS_DESC
+	MODIFIER_RATING_ASC
+	MODIFIER_RATING_DESC
+	MODIFIER_POPULARITY_ASC
+	MODIFIER_POPULARITY_DESC
+	CUT_PENALTY_ASC
+	CUT_PENALTY_DESC
+	PRIMARY_KEY_ASC
+	PRIMARY_KEY_DESC
+	LEVEL_ID_ASC
+	LEVEL_ID_DESC
+	LEVEL_HASH_ASC
+	LEVEL_HASH_DESC
+	LEVEL_DATE_CREATED_ASC
+	LEVEL_DATE_CREATED_DESC
+	LEVEL_DATE_UPDATED_ASC
+	LEVEL_DATE_UPDATED_DESC
+}
+
+"""
+A condition to be used against `LevelPointsHistory` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input LevelPointsHistoryCondition {
+	"""
+	Checks for equality with the object’s `id` field.
+	"""
+	id: Int
+
+	"""
+	Checks for equality with the object’s `levelId` field.
+	"""
+	levelId: Int
+
+	"""
+	Checks for equality with the object’s `points` field.
+	"""
+	points: Int
+
+	"""
+	Checks for equality with the object’s `dateCreated` field.
+	"""
+	dateCreated: Datetime
+
+	"""
+	Checks for equality with the object’s `dateUpdated` field.
+	"""
+	dateUpdated: Datetime
+
+	"""
+	Checks for equality with the object’s `rating` field.
+	"""
+	rating: Float
+
+	"""
+	Checks for equality with the object’s `modifierLength` field.
+	"""
+	modifierLength: Float
+
+	"""
+	Checks for equality with the object’s `modifierCompetitiveness` field.
+	"""
+	modifierCompetitiveness: Float
+
+	"""
+	Checks for equality with the object’s `modifierRating` field.
+	"""
+	modifierRating: Float
+
+	"""
+	Checks for equality with the object’s `modifierPopularity` field.
+	"""
+	modifierPopularity: Float
+
+	"""
+	Checks for equality with the object’s `cutPenalty` field.
+	"""
+	cutPenalty: Float
+}
+
+"""
 Methods to use when ordering `PersonalBestGlobal`.
 """
 enum PersonalBestGlobalsOrderBy {
@@ -12591,6 +13419,537 @@ input RecordCondition {
 	speeds: [Float]
 }
 
+"""
+A connection to a list of `Vote` values.
+"""
+type VotesConnection {
+	"""
+	A list of `Vote` objects.
+	"""
+	nodes: [Vote!]!
+
+	"""
+	A list of edges which contains the `Vote` and cursor to aid in pagination.
+	"""
+	edges: [VotesEdge!]!
+
+	"""
+	Information to aid in pagination.
+	"""
+	pageInfo: PageInfo!
+
+	"""
+	The count of *all* `Vote` you could get from the connection.
+	"""
+	totalCount: Int!
+
+	"""
+	Aggregates across the matching connection (ignoring before/after/first/last/offset)
+	"""
+	aggregates: VoteAggregates
+
+	"""
+	Grouped aggregates across the matching connection (ignoring before/after/first/last/offset)
+	"""
+	groupedAggregates(
+		"""
+		The method to use when grouping `Vote` for these aggregates.
+		"""
+		groupBy: [VoteGroupBy!]!
+
+		"""
+		Conditions on the grouped aggregates.
+		"""
+		having: VoteHavingInput
+	): [VoteAggregates!]
+}
+
+type Vote implements Node {
+	"""
+	A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+	"""
+	nodeId: ID!
+	id: Int!
+	userId: Int!
+	levelId: Int!
+	value: Int!
+	dateCreated: Datetime!
+	dateUpdated: Datetime
+
+	"""
+	Reads a single `User` that is related to this `Vote`.
+	"""
+	user: User
+
+	"""
+	Reads a single `Level` that is related to this `Vote`.
+	"""
+	level: Level
+}
+
+"""
+A `Vote` edge in the connection.
+"""
+type VotesEdge {
+	"""
+	A cursor for use in pagination.
+	"""
+	cursor: Cursor
+
+	"""
+	The `Vote` at the end of the edge.
+	"""
+	node: Vote!
+}
+
+type VoteAggregates {
+	keys: [String!]
+
+	"""
+	Sum aggregates across the matching connection (ignoring before/after/first/last/offset)
+	"""
+	sum: VoteSumAggregates
+
+	"""
+	Distinct count aggregates across the matching connection (ignoring before/after/first/last/offset)
+	"""
+	distinctCount: VoteDistinctCountAggregates
+
+	"""
+	Minimum aggregates across the matching connection (ignoring before/after/first/last/offset)
+	"""
+	min: VoteMinAggregates
+
+	"""
+	Maximum aggregates across the matching connection (ignoring before/after/first/last/offset)
+	"""
+	max: VoteMaxAggregates
+
+	"""
+	Mean average aggregates across the matching connection (ignoring before/after/first/last/offset)
+	"""
+	average: VoteAverageAggregates
+
+	"""
+	Sample standard deviation aggregates across the matching connection (ignoring before/after/first/last/offset)
+	"""
+	stddevSample: VoteStddevSampleAggregates
+
+	"""
+	Population standard deviation aggregates across the matching connection (ignoring before/after/first/last/offset)
+	"""
+	stddevPopulation: VoteStddevPopulationAggregates
+
+	"""
+	Sample variance aggregates across the matching connection (ignoring before/after/first/last/offset)
+	"""
+	varianceSample: VoteVarianceSampleAggregates
+
+	"""
+	Population variance aggregates across the matching connection (ignoring before/after/first/last/offset)
+	"""
+	variancePopulation: VoteVariancePopulationAggregates
+}
+
+type VoteSumAggregates {
+	"""
+	Sum of id across the matching connection
+	"""
+	id: BigInt!
+
+	"""
+	Sum of userId across the matching connection
+	"""
+	userId: BigInt!
+
+	"""
+	Sum of levelId across the matching connection
+	"""
+	levelId: BigInt!
+
+	"""
+	Sum of value across the matching connection
+	"""
+	value: BigInt!
+}
+
+type VoteDistinctCountAggregates {
+	"""
+	Distinct count of id across the matching connection
+	"""
+	id: BigInt
+
+	"""
+	Distinct count of userId across the matching connection
+	"""
+	userId: BigInt
+
+	"""
+	Distinct count of levelId across the matching connection
+	"""
+	levelId: BigInt
+
+	"""
+	Distinct count of value across the matching connection
+	"""
+	value: BigInt
+
+	"""
+	Distinct count of dateCreated across the matching connection
+	"""
+	dateCreated: BigInt
+
+	"""
+	Distinct count of dateUpdated across the matching connection
+	"""
+	dateUpdated: BigInt
+}
+
+type VoteMinAggregates {
+	"""
+	Minimum of id across the matching connection
+	"""
+	id: Int
+
+	"""
+	Minimum of userId across the matching connection
+	"""
+	userId: Int
+
+	"""
+	Minimum of levelId across the matching connection
+	"""
+	levelId: Int
+
+	"""
+	Minimum of value across the matching connection
+	"""
+	value: Int
+}
+
+type VoteMaxAggregates {
+	"""
+	Maximum of id across the matching connection
+	"""
+	id: Int
+
+	"""
+	Maximum of userId across the matching connection
+	"""
+	userId: Int
+
+	"""
+	Maximum of levelId across the matching connection
+	"""
+	levelId: Int
+
+	"""
+	Maximum of value across the matching connection
+	"""
+	value: Int
+}
+
+type VoteAverageAggregates {
+	"""
+	Mean average of id across the matching connection
+	"""
+	id: BigFloat
+
+	"""
+	Mean average of userId across the matching connection
+	"""
+	userId: BigFloat
+
+	"""
+	Mean average of levelId across the matching connection
+	"""
+	levelId: BigFloat
+
+	"""
+	Mean average of value across the matching connection
+	"""
+	value: BigFloat
+}
+
+type VoteStddevSampleAggregates {
+	"""
+	Sample standard deviation of id across the matching connection
+	"""
+	id: BigFloat
+
+	"""
+	Sample standard deviation of userId across the matching connection
+	"""
+	userId: BigFloat
+
+	"""
+	Sample standard deviation of levelId across the matching connection
+	"""
+	levelId: BigFloat
+
+	"""
+	Sample standard deviation of value across the matching connection
+	"""
+	value: BigFloat
+}
+
+type VoteStddevPopulationAggregates {
+	"""
+	Population standard deviation of id across the matching connection
+	"""
+	id: BigFloat
+
+	"""
+	Population standard deviation of userId across the matching connection
+	"""
+	userId: BigFloat
+
+	"""
+	Population standard deviation of levelId across the matching connection
+	"""
+	levelId: BigFloat
+
+	"""
+	Population standard deviation of value across the matching connection
+	"""
+	value: BigFloat
+}
+
+type VoteVarianceSampleAggregates {
+	"""
+	Sample variance of id across the matching connection
+	"""
+	id: BigFloat
+
+	"""
+	Sample variance of userId across the matching connection
+	"""
+	userId: BigFloat
+
+	"""
+	Sample variance of levelId across the matching connection
+	"""
+	levelId: BigFloat
+
+	"""
+	Sample variance of value across the matching connection
+	"""
+	value: BigFloat
+}
+
+type VoteVariancePopulationAggregates {
+	"""
+	Population variance of id across the matching connection
+	"""
+	id: BigFloat
+
+	"""
+	Population variance of userId across the matching connection
+	"""
+	userId: BigFloat
+
+	"""
+	Population variance of levelId across the matching connection
+	"""
+	levelId: BigFloat
+
+	"""
+	Population variance of value across the matching connection
+	"""
+	value: BigFloat
+}
+
+"""
+Grouping methods for `Vote` for usage during aggregation.
+"""
+enum VoteGroupBy {
+	ID_USER
+	ID_LEVEL
+	VALUE
+	DATE_CREATED
+	DATE_CREATED_TRUNCATED_TO_HOUR
+	DATE_CREATED_TRUNCATED_TO_DAY
+	DATE_UPDATED
+	DATE_UPDATED_TRUNCATED_TO_HOUR
+	DATE_UPDATED_TRUNCATED_TO_DAY
+}
+
+"""
+Conditions for `Vote` aggregates.
+"""
+input VoteHavingInput {
+	AND: [VoteHavingInput!]
+	OR: [VoteHavingInput!]
+	sum: VoteHavingSumInput
+	distinctCount: VoteHavingDistinctCountInput
+	min: VoteHavingMinInput
+	max: VoteHavingMaxInput
+	average: VoteHavingAverageInput
+	stddevSample: VoteHavingStddevSampleInput
+	stddevPopulation: VoteHavingStddevPopulationInput
+	varianceSample: VoteHavingVarianceSampleInput
+	variancePopulation: VoteHavingVariancePopulationInput
+}
+
+input VoteHavingSumInput {
+	id: HavingIntFilter
+	userId: HavingIntFilter
+	levelId: HavingIntFilter
+	value: HavingIntFilter
+	dateCreated: HavingDatetimeFilter
+	dateUpdated: HavingDatetimeFilter
+}
+
+input VoteHavingDistinctCountInput {
+	id: HavingIntFilter
+	userId: HavingIntFilter
+	levelId: HavingIntFilter
+	value: HavingIntFilter
+	dateCreated: HavingDatetimeFilter
+	dateUpdated: HavingDatetimeFilter
+}
+
+input VoteHavingMinInput {
+	id: HavingIntFilter
+	userId: HavingIntFilter
+	levelId: HavingIntFilter
+	value: HavingIntFilter
+	dateCreated: HavingDatetimeFilter
+	dateUpdated: HavingDatetimeFilter
+}
+
+input VoteHavingMaxInput {
+	id: HavingIntFilter
+	userId: HavingIntFilter
+	levelId: HavingIntFilter
+	value: HavingIntFilter
+	dateCreated: HavingDatetimeFilter
+	dateUpdated: HavingDatetimeFilter
+}
+
+input VoteHavingAverageInput {
+	id: HavingIntFilter
+	userId: HavingIntFilter
+	levelId: HavingIntFilter
+	value: HavingIntFilter
+	dateCreated: HavingDatetimeFilter
+	dateUpdated: HavingDatetimeFilter
+}
+
+input VoteHavingStddevSampleInput {
+	id: HavingIntFilter
+	userId: HavingIntFilter
+	levelId: HavingIntFilter
+	value: HavingIntFilter
+	dateCreated: HavingDatetimeFilter
+	dateUpdated: HavingDatetimeFilter
+}
+
+input VoteHavingStddevPopulationInput {
+	id: HavingIntFilter
+	userId: HavingIntFilter
+	levelId: HavingIntFilter
+	value: HavingIntFilter
+	dateCreated: HavingDatetimeFilter
+	dateUpdated: HavingDatetimeFilter
+}
+
+input VoteHavingVarianceSampleInput {
+	id: HavingIntFilter
+	userId: HavingIntFilter
+	levelId: HavingIntFilter
+	value: HavingIntFilter
+	dateCreated: HavingDatetimeFilter
+	dateUpdated: HavingDatetimeFilter
+}
+
+input VoteHavingVariancePopulationInput {
+	id: HavingIntFilter
+	userId: HavingIntFilter
+	levelId: HavingIntFilter
+	value: HavingIntFilter
+	dateCreated: HavingDatetimeFilter
+	dateUpdated: HavingDatetimeFilter
+}
+
+"""
+Methods to use when ordering `Vote`.
+"""
+enum VotesOrderBy {
+	NATURAL
+	ID_ASC
+	ID_DESC
+	ID_USER_ASC
+	ID_USER_DESC
+	ID_LEVEL_ASC
+	ID_LEVEL_DESC
+	VALUE_ASC
+	VALUE_DESC
+	DATE_CREATED_ASC
+	DATE_CREATED_DESC
+	DATE_UPDATED_ASC
+	DATE_UPDATED_DESC
+	PRIMARY_KEY_ASC
+	PRIMARY_KEY_DESC
+	USER_ID_ASC
+	USER_ID_DESC
+	USER_STEAM_NAME_ASC
+	USER_STEAM_NAME_DESC
+	USER_BANNED_ASC
+	USER_BANNED_DESC
+	USER_DATE_CREATED_ASC
+	USER_DATE_CREATED_DESC
+	USER_DATE_UPDATED_ASC
+	USER_DATE_UPDATED_DESC
+	USER_STEAM_ID_ASC
+	USER_STEAM_ID_DESC
+	USER_DISCORD_ID_ASC
+	USER_DISCORD_ID_DESC
+	LEVEL_ID_ASC
+	LEVEL_ID_DESC
+	LEVEL_HASH_ASC
+	LEVEL_HASH_DESC
+	LEVEL_DATE_CREATED_ASC
+	LEVEL_DATE_CREATED_DESC
+	LEVEL_DATE_UPDATED_ASC
+	LEVEL_DATE_UPDATED_DESC
+}
+
+"""
+A condition to be used against `Vote` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input VoteCondition {
+	"""
+	Checks for equality with the object’s `id` field.
+	"""
+	id: Int
+
+	"""
+	Checks for equality with the object’s `userId` field.
+	"""
+	userId: Int
+
+	"""
+	Checks for equality with the object’s `levelId` field.
+	"""
+	levelId: Int
+
+	"""
+	Checks for equality with the object’s `value` field.
+	"""
+	value: Int
+
+	"""
+	Checks for equality with the object’s `dateCreated` field.
+	"""
+	dateCreated: Datetime
+
+	"""
+	Checks for equality with the object’s `dateUpdated` field.
+	"""
+	dateUpdated: Datetime
+}
+
 type WorldRecordGlobal implements Node {
 	"""
 	A globally unique identifier. Can be used in various places throughout the system to identify this single value.
@@ -13145,1365 +14504,6 @@ input WorldRecordGlobalCondition {
 	Checks for equality with the object’s `userId` field.
 	"""
 	userId: Int
-}
-
-"""
-A connection to a list of `Vote` values.
-"""
-type VotesConnection {
-	"""
-	A list of `Vote` objects.
-	"""
-	nodes: [Vote!]!
-
-	"""
-	A list of edges which contains the `Vote` and cursor to aid in pagination.
-	"""
-	edges: [VotesEdge!]!
-
-	"""
-	Information to aid in pagination.
-	"""
-	pageInfo: PageInfo!
-
-	"""
-	The count of *all* `Vote` you could get from the connection.
-	"""
-	totalCount: Int!
-
-	"""
-	Aggregates across the matching connection (ignoring before/after/first/last/offset)
-	"""
-	aggregates: VoteAggregates
-
-	"""
-	Grouped aggregates across the matching connection (ignoring before/after/first/last/offset)
-	"""
-	groupedAggregates(
-		"""
-		The method to use when grouping `Vote` for these aggregates.
-		"""
-		groupBy: [VoteGroupBy!]!
-
-		"""
-		Conditions on the grouped aggregates.
-		"""
-		having: VoteHavingInput
-	): [VoteAggregates!]
-}
-
-type Vote implements Node {
-	"""
-	A globally unique identifier. Can be used in various places throughout the system to identify this single value.
-	"""
-	nodeId: ID!
-	id: Int!
-	userId: Int!
-	levelId: Int!
-	value: Int!
-	dateCreated: Datetime!
-	dateUpdated: Datetime
-
-	"""
-	Reads a single `User` that is related to this `Vote`.
-	"""
-	user: User
-
-	"""
-	Reads a single `Level` that is related to this `Vote`.
-	"""
-	level: Level
-}
-
-"""
-A `Vote` edge in the connection.
-"""
-type VotesEdge {
-	"""
-	A cursor for use in pagination.
-	"""
-	cursor: Cursor
-
-	"""
-	The `Vote` at the end of the edge.
-	"""
-	node: Vote!
-}
-
-type VoteAggregates {
-	keys: [String!]
-
-	"""
-	Sum aggregates across the matching connection (ignoring before/after/first/last/offset)
-	"""
-	sum: VoteSumAggregates
-
-	"""
-	Distinct count aggregates across the matching connection (ignoring before/after/first/last/offset)
-	"""
-	distinctCount: VoteDistinctCountAggregates
-
-	"""
-	Minimum aggregates across the matching connection (ignoring before/after/first/last/offset)
-	"""
-	min: VoteMinAggregates
-
-	"""
-	Maximum aggregates across the matching connection (ignoring before/after/first/last/offset)
-	"""
-	max: VoteMaxAggregates
-
-	"""
-	Mean average aggregates across the matching connection (ignoring before/after/first/last/offset)
-	"""
-	average: VoteAverageAggregates
-
-	"""
-	Sample standard deviation aggregates across the matching connection (ignoring before/after/first/last/offset)
-	"""
-	stddevSample: VoteStddevSampleAggregates
-
-	"""
-	Population standard deviation aggregates across the matching connection (ignoring before/after/first/last/offset)
-	"""
-	stddevPopulation: VoteStddevPopulationAggregates
-
-	"""
-	Sample variance aggregates across the matching connection (ignoring before/after/first/last/offset)
-	"""
-	varianceSample: VoteVarianceSampleAggregates
-
-	"""
-	Population variance aggregates across the matching connection (ignoring before/after/first/last/offset)
-	"""
-	variancePopulation: VoteVariancePopulationAggregates
-}
-
-type VoteSumAggregates {
-	"""
-	Sum of id across the matching connection
-	"""
-	id: BigInt!
-
-	"""
-	Sum of userId across the matching connection
-	"""
-	userId: BigInt!
-
-	"""
-	Sum of levelId across the matching connection
-	"""
-	levelId: BigInt!
-
-	"""
-	Sum of value across the matching connection
-	"""
-	value: BigInt!
-}
-
-type VoteDistinctCountAggregates {
-	"""
-	Distinct count of id across the matching connection
-	"""
-	id: BigInt
-
-	"""
-	Distinct count of userId across the matching connection
-	"""
-	userId: BigInt
-
-	"""
-	Distinct count of levelId across the matching connection
-	"""
-	levelId: BigInt
-
-	"""
-	Distinct count of value across the matching connection
-	"""
-	value: BigInt
-
-	"""
-	Distinct count of dateCreated across the matching connection
-	"""
-	dateCreated: BigInt
-
-	"""
-	Distinct count of dateUpdated across the matching connection
-	"""
-	dateUpdated: BigInt
-}
-
-type VoteMinAggregates {
-	"""
-	Minimum of id across the matching connection
-	"""
-	id: Int
-
-	"""
-	Minimum of userId across the matching connection
-	"""
-	userId: Int
-
-	"""
-	Minimum of levelId across the matching connection
-	"""
-	levelId: Int
-
-	"""
-	Minimum of value across the matching connection
-	"""
-	value: Int
-}
-
-type VoteMaxAggregates {
-	"""
-	Maximum of id across the matching connection
-	"""
-	id: Int
-
-	"""
-	Maximum of userId across the matching connection
-	"""
-	userId: Int
-
-	"""
-	Maximum of levelId across the matching connection
-	"""
-	levelId: Int
-
-	"""
-	Maximum of value across the matching connection
-	"""
-	value: Int
-}
-
-type VoteAverageAggregates {
-	"""
-	Mean average of id across the matching connection
-	"""
-	id: BigFloat
-
-	"""
-	Mean average of userId across the matching connection
-	"""
-	userId: BigFloat
-
-	"""
-	Mean average of levelId across the matching connection
-	"""
-	levelId: BigFloat
-
-	"""
-	Mean average of value across the matching connection
-	"""
-	value: BigFloat
-}
-
-type VoteStddevSampleAggregates {
-	"""
-	Sample standard deviation of id across the matching connection
-	"""
-	id: BigFloat
-
-	"""
-	Sample standard deviation of userId across the matching connection
-	"""
-	userId: BigFloat
-
-	"""
-	Sample standard deviation of levelId across the matching connection
-	"""
-	levelId: BigFloat
-
-	"""
-	Sample standard deviation of value across the matching connection
-	"""
-	value: BigFloat
-}
-
-type VoteStddevPopulationAggregates {
-	"""
-	Population standard deviation of id across the matching connection
-	"""
-	id: BigFloat
-
-	"""
-	Population standard deviation of userId across the matching connection
-	"""
-	userId: BigFloat
-
-	"""
-	Population standard deviation of levelId across the matching connection
-	"""
-	levelId: BigFloat
-
-	"""
-	Population standard deviation of value across the matching connection
-	"""
-	value: BigFloat
-}
-
-type VoteVarianceSampleAggregates {
-	"""
-	Sample variance of id across the matching connection
-	"""
-	id: BigFloat
-
-	"""
-	Sample variance of userId across the matching connection
-	"""
-	userId: BigFloat
-
-	"""
-	Sample variance of levelId across the matching connection
-	"""
-	levelId: BigFloat
-
-	"""
-	Sample variance of value across the matching connection
-	"""
-	value: BigFloat
-}
-
-type VoteVariancePopulationAggregates {
-	"""
-	Population variance of id across the matching connection
-	"""
-	id: BigFloat
-
-	"""
-	Population variance of userId across the matching connection
-	"""
-	userId: BigFloat
-
-	"""
-	Population variance of levelId across the matching connection
-	"""
-	levelId: BigFloat
-
-	"""
-	Population variance of value across the matching connection
-	"""
-	value: BigFloat
-}
-
-"""
-Grouping methods for `Vote` for usage during aggregation.
-"""
-enum VoteGroupBy {
-	ID_USER
-	ID_LEVEL
-	VALUE
-	DATE_CREATED
-	DATE_CREATED_TRUNCATED_TO_HOUR
-	DATE_CREATED_TRUNCATED_TO_DAY
-	DATE_UPDATED
-	DATE_UPDATED_TRUNCATED_TO_HOUR
-	DATE_UPDATED_TRUNCATED_TO_DAY
-}
-
-"""
-Conditions for `Vote` aggregates.
-"""
-input VoteHavingInput {
-	AND: [VoteHavingInput!]
-	OR: [VoteHavingInput!]
-	sum: VoteHavingSumInput
-	distinctCount: VoteHavingDistinctCountInput
-	min: VoteHavingMinInput
-	max: VoteHavingMaxInput
-	average: VoteHavingAverageInput
-	stddevSample: VoteHavingStddevSampleInput
-	stddevPopulation: VoteHavingStddevPopulationInput
-	varianceSample: VoteHavingVarianceSampleInput
-	variancePopulation: VoteHavingVariancePopulationInput
-}
-
-input VoteHavingSumInput {
-	id: HavingIntFilter
-	userId: HavingIntFilter
-	levelId: HavingIntFilter
-	value: HavingIntFilter
-	dateCreated: HavingDatetimeFilter
-	dateUpdated: HavingDatetimeFilter
-}
-
-input VoteHavingDistinctCountInput {
-	id: HavingIntFilter
-	userId: HavingIntFilter
-	levelId: HavingIntFilter
-	value: HavingIntFilter
-	dateCreated: HavingDatetimeFilter
-	dateUpdated: HavingDatetimeFilter
-}
-
-input VoteHavingMinInput {
-	id: HavingIntFilter
-	userId: HavingIntFilter
-	levelId: HavingIntFilter
-	value: HavingIntFilter
-	dateCreated: HavingDatetimeFilter
-	dateUpdated: HavingDatetimeFilter
-}
-
-input VoteHavingMaxInput {
-	id: HavingIntFilter
-	userId: HavingIntFilter
-	levelId: HavingIntFilter
-	value: HavingIntFilter
-	dateCreated: HavingDatetimeFilter
-	dateUpdated: HavingDatetimeFilter
-}
-
-input VoteHavingAverageInput {
-	id: HavingIntFilter
-	userId: HavingIntFilter
-	levelId: HavingIntFilter
-	value: HavingIntFilter
-	dateCreated: HavingDatetimeFilter
-	dateUpdated: HavingDatetimeFilter
-}
-
-input VoteHavingStddevSampleInput {
-	id: HavingIntFilter
-	userId: HavingIntFilter
-	levelId: HavingIntFilter
-	value: HavingIntFilter
-	dateCreated: HavingDatetimeFilter
-	dateUpdated: HavingDatetimeFilter
-}
-
-input VoteHavingStddevPopulationInput {
-	id: HavingIntFilter
-	userId: HavingIntFilter
-	levelId: HavingIntFilter
-	value: HavingIntFilter
-	dateCreated: HavingDatetimeFilter
-	dateUpdated: HavingDatetimeFilter
-}
-
-input VoteHavingVarianceSampleInput {
-	id: HavingIntFilter
-	userId: HavingIntFilter
-	levelId: HavingIntFilter
-	value: HavingIntFilter
-	dateCreated: HavingDatetimeFilter
-	dateUpdated: HavingDatetimeFilter
-}
-
-input VoteHavingVariancePopulationInput {
-	id: HavingIntFilter
-	userId: HavingIntFilter
-	levelId: HavingIntFilter
-	value: HavingIntFilter
-	dateCreated: HavingDatetimeFilter
-	dateUpdated: HavingDatetimeFilter
-}
-
-"""
-Methods to use when ordering `Vote`.
-"""
-enum VotesOrderBy {
-	NATURAL
-	ID_ASC
-	ID_DESC
-	ID_USER_ASC
-	ID_USER_DESC
-	ID_LEVEL_ASC
-	ID_LEVEL_DESC
-	VALUE_ASC
-	VALUE_DESC
-	DATE_CREATED_ASC
-	DATE_CREATED_DESC
-	DATE_UPDATED_ASC
-	DATE_UPDATED_DESC
-	PRIMARY_KEY_ASC
-	PRIMARY_KEY_DESC
-	USER_ID_ASC
-	USER_ID_DESC
-	USER_STEAM_NAME_ASC
-	USER_STEAM_NAME_DESC
-	USER_BANNED_ASC
-	USER_BANNED_DESC
-	USER_DATE_CREATED_ASC
-	USER_DATE_CREATED_DESC
-	USER_DATE_UPDATED_ASC
-	USER_DATE_UPDATED_DESC
-	USER_STEAM_ID_ASC
-	USER_STEAM_ID_DESC
-	USER_DISCORD_ID_ASC
-	USER_DISCORD_ID_DESC
-	LEVEL_ID_ASC
-	LEVEL_ID_DESC
-	LEVEL_HASH_ASC
-	LEVEL_HASH_DESC
-	LEVEL_DATE_CREATED_ASC
-	LEVEL_DATE_CREATED_DESC
-	LEVEL_DATE_UPDATED_ASC
-	LEVEL_DATE_UPDATED_DESC
-}
-
-"""
-A condition to be used against `Vote` object types. All fields are tested for equality and combined with a logical ‘and.’
-"""
-input VoteCondition {
-	"""
-	Checks for equality with the object’s `id` field.
-	"""
-	id: Int
-
-	"""
-	Checks for equality with the object’s `userId` field.
-	"""
-	userId: Int
-
-	"""
-	Checks for equality with the object’s `levelId` field.
-	"""
-	levelId: Int
-
-	"""
-	Checks for equality with the object’s `value` field.
-	"""
-	value: Int
-
-	"""
-	Checks for equality with the object’s `dateCreated` field.
-	"""
-	dateCreated: Datetime
-
-	"""
-	Checks for equality with the object’s `dateUpdated` field.
-	"""
-	dateUpdated: Datetime
-}
-
-"""
-A connection to a list of `LevelPointsHistory` values.
-"""
-type LevelPointsHistoriesConnection {
-	"""
-	A list of `LevelPointsHistory` objects.
-	"""
-	nodes: [LevelPointsHistory!]!
-
-	"""
-	A list of edges which contains the `LevelPointsHistory` and cursor to aid in pagination.
-	"""
-	edges: [LevelPointsHistoriesEdge!]!
-
-	"""
-	Information to aid in pagination.
-	"""
-	pageInfo: PageInfo!
-
-	"""
-	The count of *all* `LevelPointsHistory` you could get from the connection.
-	"""
-	totalCount: Int!
-
-	"""
-	Aggregates across the matching connection (ignoring before/after/first/last/offset)
-	"""
-	aggregates: LevelPointsHistoryAggregates
-
-	"""
-	Grouped aggregates across the matching connection (ignoring before/after/first/last/offset)
-	"""
-	groupedAggregates(
-		"""
-		The method to use when grouping `LevelPointsHistory` for these aggregates.
-		"""
-		groupBy: [LevelPointsHistoryGroupBy!]!
-
-		"""
-		Conditions on the grouped aggregates.
-		"""
-		having: LevelPointsHistoryHavingInput
-	): [LevelPointsHistoryAggregates!]
-}
-
-type LevelPointsHistory implements Node {
-	"""
-	A globally unique identifier. Can be used in various places throughout the system to identify this single value.
-	"""
-	nodeId: ID!
-	id: Int!
-	levelId: Int!
-	points: Int!
-	dateCreated: Datetime!
-	dateUpdated: Datetime
-	rating: Float!
-	modifierLength: Float!
-	modifierCompetitiveness: Float!
-	modifierRating: Float!
-	modifierPopularity: Float!
-	cutPenalty: Float!
-
-	"""
-	Reads a single `Level` that is related to this `LevelPointsHistory`.
-	"""
-	level: Level
-}
-
-"""
-A `LevelPointsHistory` edge in the connection.
-"""
-type LevelPointsHistoriesEdge {
-	"""
-	A cursor for use in pagination.
-	"""
-	cursor: Cursor
-
-	"""
-	The `LevelPointsHistory` at the end of the edge.
-	"""
-	node: LevelPointsHistory!
-}
-
-type LevelPointsHistoryAggregates {
-	keys: [String!]
-
-	"""
-	Sum aggregates across the matching connection (ignoring before/after/first/last/offset)
-	"""
-	sum: LevelPointsHistorySumAggregates
-
-	"""
-	Distinct count aggregates across the matching connection (ignoring before/after/first/last/offset)
-	"""
-	distinctCount: LevelPointsHistoryDistinctCountAggregates
-
-	"""
-	Minimum aggregates across the matching connection (ignoring before/after/first/last/offset)
-	"""
-	min: LevelPointsHistoryMinAggregates
-
-	"""
-	Maximum aggregates across the matching connection (ignoring before/after/first/last/offset)
-	"""
-	max: LevelPointsHistoryMaxAggregates
-
-	"""
-	Mean average aggregates across the matching connection (ignoring before/after/first/last/offset)
-	"""
-	average: LevelPointsHistoryAverageAggregates
-
-	"""
-	Sample standard deviation aggregates across the matching connection (ignoring before/after/first/last/offset)
-	"""
-	stddevSample: LevelPointsHistoryStddevSampleAggregates
-
-	"""
-	Population standard deviation aggregates across the matching connection (ignoring before/after/first/last/offset)
-	"""
-	stddevPopulation: LevelPointsHistoryStddevPopulationAggregates
-
-	"""
-	Sample variance aggregates across the matching connection (ignoring before/after/first/last/offset)
-	"""
-	varianceSample: LevelPointsHistoryVarianceSampleAggregates
-
-	"""
-	Population variance aggregates across the matching connection (ignoring before/after/first/last/offset)
-	"""
-	variancePopulation: LevelPointsHistoryVariancePopulationAggregates
-}
-
-type LevelPointsHistorySumAggregates {
-	"""
-	Sum of id across the matching connection
-	"""
-	id: BigInt!
-
-	"""
-	Sum of levelId across the matching connection
-	"""
-	levelId: BigInt!
-
-	"""
-	Sum of points across the matching connection
-	"""
-	points: BigInt!
-
-	"""
-	Sum of rating across the matching connection
-	"""
-	rating: Float!
-
-	"""
-	Sum of modifierLength across the matching connection
-	"""
-	modifierLength: Float!
-
-	"""
-	Sum of modifierCompetitiveness across the matching connection
-	"""
-	modifierCompetitiveness: Float!
-
-	"""
-	Sum of modifierRating across the matching connection
-	"""
-	modifierRating: Float!
-
-	"""
-	Sum of modifierPopularity across the matching connection
-	"""
-	modifierPopularity: Float!
-
-	"""
-	Sum of cutPenalty across the matching connection
-	"""
-	cutPenalty: Float!
-}
-
-type LevelPointsHistoryDistinctCountAggregates {
-	"""
-	Distinct count of id across the matching connection
-	"""
-	id: BigInt
-
-	"""
-	Distinct count of levelId across the matching connection
-	"""
-	levelId: BigInt
-
-	"""
-	Distinct count of points across the matching connection
-	"""
-	points: BigInt
-
-	"""
-	Distinct count of dateCreated across the matching connection
-	"""
-	dateCreated: BigInt
-
-	"""
-	Distinct count of dateUpdated across the matching connection
-	"""
-	dateUpdated: BigInt
-
-	"""
-	Distinct count of rating across the matching connection
-	"""
-	rating: BigInt
-
-	"""
-	Distinct count of modifierLength across the matching connection
-	"""
-	modifierLength: BigInt
-
-	"""
-	Distinct count of modifierCompetitiveness across the matching connection
-	"""
-	modifierCompetitiveness: BigInt
-
-	"""
-	Distinct count of modifierRating across the matching connection
-	"""
-	modifierRating: BigInt
-
-	"""
-	Distinct count of modifierPopularity across the matching connection
-	"""
-	modifierPopularity: BigInt
-
-	"""
-	Distinct count of cutPenalty across the matching connection
-	"""
-	cutPenalty: BigInt
-}
-
-type LevelPointsHistoryMinAggregates {
-	"""
-	Minimum of id across the matching connection
-	"""
-	id: Int
-
-	"""
-	Minimum of levelId across the matching connection
-	"""
-	levelId: Int
-
-	"""
-	Minimum of points across the matching connection
-	"""
-	points: Int
-
-	"""
-	Minimum of rating across the matching connection
-	"""
-	rating: Float
-
-	"""
-	Minimum of modifierLength across the matching connection
-	"""
-	modifierLength: Float
-
-	"""
-	Minimum of modifierCompetitiveness across the matching connection
-	"""
-	modifierCompetitiveness: Float
-
-	"""
-	Minimum of modifierRating across the matching connection
-	"""
-	modifierRating: Float
-
-	"""
-	Minimum of modifierPopularity across the matching connection
-	"""
-	modifierPopularity: Float
-
-	"""
-	Minimum of cutPenalty across the matching connection
-	"""
-	cutPenalty: Float
-}
-
-type LevelPointsHistoryMaxAggregates {
-	"""
-	Maximum of id across the matching connection
-	"""
-	id: Int
-
-	"""
-	Maximum of levelId across the matching connection
-	"""
-	levelId: Int
-
-	"""
-	Maximum of points across the matching connection
-	"""
-	points: Int
-
-	"""
-	Maximum of rating across the matching connection
-	"""
-	rating: Float
-
-	"""
-	Maximum of modifierLength across the matching connection
-	"""
-	modifierLength: Float
-
-	"""
-	Maximum of modifierCompetitiveness across the matching connection
-	"""
-	modifierCompetitiveness: Float
-
-	"""
-	Maximum of modifierRating across the matching connection
-	"""
-	modifierRating: Float
-
-	"""
-	Maximum of modifierPopularity across the matching connection
-	"""
-	modifierPopularity: Float
-
-	"""
-	Maximum of cutPenalty across the matching connection
-	"""
-	cutPenalty: Float
-}
-
-type LevelPointsHistoryAverageAggregates {
-	"""
-	Mean average of id across the matching connection
-	"""
-	id: BigFloat
-
-	"""
-	Mean average of levelId across the matching connection
-	"""
-	levelId: BigFloat
-
-	"""
-	Mean average of points across the matching connection
-	"""
-	points: BigFloat
-
-	"""
-	Mean average of rating across the matching connection
-	"""
-	rating: Float
-
-	"""
-	Mean average of modifierLength across the matching connection
-	"""
-	modifierLength: Float
-
-	"""
-	Mean average of modifierCompetitiveness across the matching connection
-	"""
-	modifierCompetitiveness: Float
-
-	"""
-	Mean average of modifierRating across the matching connection
-	"""
-	modifierRating: Float
-
-	"""
-	Mean average of modifierPopularity across the matching connection
-	"""
-	modifierPopularity: Float
-
-	"""
-	Mean average of cutPenalty across the matching connection
-	"""
-	cutPenalty: Float
-}
-
-type LevelPointsHistoryStddevSampleAggregates {
-	"""
-	Sample standard deviation of id across the matching connection
-	"""
-	id: BigFloat
-
-	"""
-	Sample standard deviation of levelId across the matching connection
-	"""
-	levelId: BigFloat
-
-	"""
-	Sample standard deviation of points across the matching connection
-	"""
-	points: BigFloat
-
-	"""
-	Sample standard deviation of rating across the matching connection
-	"""
-	rating: Float
-
-	"""
-	Sample standard deviation of modifierLength across the matching connection
-	"""
-	modifierLength: Float
-
-	"""
-	Sample standard deviation of modifierCompetitiveness across the matching connection
-	"""
-	modifierCompetitiveness: Float
-
-	"""
-	Sample standard deviation of modifierRating across the matching connection
-	"""
-	modifierRating: Float
-
-	"""
-	Sample standard deviation of modifierPopularity across the matching connection
-	"""
-	modifierPopularity: Float
-
-	"""
-	Sample standard deviation of cutPenalty across the matching connection
-	"""
-	cutPenalty: Float
-}
-
-type LevelPointsHistoryStddevPopulationAggregates {
-	"""
-	Population standard deviation of id across the matching connection
-	"""
-	id: BigFloat
-
-	"""
-	Population standard deviation of levelId across the matching connection
-	"""
-	levelId: BigFloat
-
-	"""
-	Population standard deviation of points across the matching connection
-	"""
-	points: BigFloat
-
-	"""
-	Population standard deviation of rating across the matching connection
-	"""
-	rating: Float
-
-	"""
-	Population standard deviation of modifierLength across the matching connection
-	"""
-	modifierLength: Float
-
-	"""
-	Population standard deviation of modifierCompetitiveness across the matching connection
-	"""
-	modifierCompetitiveness: Float
-
-	"""
-	Population standard deviation of modifierRating across the matching connection
-	"""
-	modifierRating: Float
-
-	"""
-	Population standard deviation of modifierPopularity across the matching connection
-	"""
-	modifierPopularity: Float
-
-	"""
-	Population standard deviation of cutPenalty across the matching connection
-	"""
-	cutPenalty: Float
-}
-
-type LevelPointsHistoryVarianceSampleAggregates {
-	"""
-	Sample variance of id across the matching connection
-	"""
-	id: BigFloat
-
-	"""
-	Sample variance of levelId across the matching connection
-	"""
-	levelId: BigFloat
-
-	"""
-	Sample variance of points across the matching connection
-	"""
-	points: BigFloat
-
-	"""
-	Sample variance of rating across the matching connection
-	"""
-	rating: Float
-
-	"""
-	Sample variance of modifierLength across the matching connection
-	"""
-	modifierLength: Float
-
-	"""
-	Sample variance of modifierCompetitiveness across the matching connection
-	"""
-	modifierCompetitiveness: Float
-
-	"""
-	Sample variance of modifierRating across the matching connection
-	"""
-	modifierRating: Float
-
-	"""
-	Sample variance of modifierPopularity across the matching connection
-	"""
-	modifierPopularity: Float
-
-	"""
-	Sample variance of cutPenalty across the matching connection
-	"""
-	cutPenalty: Float
-}
-
-type LevelPointsHistoryVariancePopulationAggregates {
-	"""
-	Population variance of id across the matching connection
-	"""
-	id: BigFloat
-
-	"""
-	Population variance of levelId across the matching connection
-	"""
-	levelId: BigFloat
-
-	"""
-	Population variance of points across the matching connection
-	"""
-	points: BigFloat
-
-	"""
-	Population variance of rating across the matching connection
-	"""
-	rating: Float
-
-	"""
-	Population variance of modifierLength across the matching connection
-	"""
-	modifierLength: Float
-
-	"""
-	Population variance of modifierCompetitiveness across the matching connection
-	"""
-	modifierCompetitiveness: Float
-
-	"""
-	Population variance of modifierRating across the matching connection
-	"""
-	modifierRating: Float
-
-	"""
-	Population variance of modifierPopularity across the matching connection
-	"""
-	modifierPopularity: Float
-
-	"""
-	Population variance of cutPenalty across the matching connection
-	"""
-	cutPenalty: Float
-}
-
-"""
-Grouping methods for `LevelPointsHistory` for usage during aggregation.
-"""
-enum LevelPointsHistoryGroupBy {
-	ID_LEVEL
-	POINTS
-	DATE_CREATED
-	DATE_CREATED_TRUNCATED_TO_HOUR
-	DATE_CREATED_TRUNCATED_TO_DAY
-	DATE_UPDATED
-	DATE_UPDATED_TRUNCATED_TO_HOUR
-	DATE_UPDATED_TRUNCATED_TO_DAY
-	RATING
-	MODIFIER_LENGTH
-	MODIFIER_COMPETITIVENESS
-	MODIFIER_RATING
-	MODIFIER_POPULARITY
-	CUT_PENALTY
-}
-
-"""
-Conditions for `LevelPointsHistory` aggregates.
-"""
-input LevelPointsHistoryHavingInput {
-	AND: [LevelPointsHistoryHavingInput!]
-	OR: [LevelPointsHistoryHavingInput!]
-	sum: LevelPointsHistoryHavingSumInput
-	distinctCount: LevelPointsHistoryHavingDistinctCountInput
-	min: LevelPointsHistoryHavingMinInput
-	max: LevelPointsHistoryHavingMaxInput
-	average: LevelPointsHistoryHavingAverageInput
-	stddevSample: LevelPointsHistoryHavingStddevSampleInput
-	stddevPopulation: LevelPointsHistoryHavingStddevPopulationInput
-	varianceSample: LevelPointsHistoryHavingVarianceSampleInput
-	variancePopulation: LevelPointsHistoryHavingVariancePopulationInput
-}
-
-input LevelPointsHistoryHavingSumInput {
-	id: HavingIntFilter
-	levelId: HavingIntFilter
-	points: HavingIntFilter
-	dateCreated: HavingDatetimeFilter
-	dateUpdated: HavingDatetimeFilter
-	rating: HavingFloatFilter
-	modifierLength: HavingFloatFilter
-	modifierCompetitiveness: HavingFloatFilter
-	modifierRating: HavingFloatFilter
-	modifierPopularity: HavingFloatFilter
-	cutPenalty: HavingFloatFilter
-}
-
-input LevelPointsHistoryHavingDistinctCountInput {
-	id: HavingIntFilter
-	levelId: HavingIntFilter
-	points: HavingIntFilter
-	dateCreated: HavingDatetimeFilter
-	dateUpdated: HavingDatetimeFilter
-	rating: HavingFloatFilter
-	modifierLength: HavingFloatFilter
-	modifierCompetitiveness: HavingFloatFilter
-	modifierRating: HavingFloatFilter
-	modifierPopularity: HavingFloatFilter
-	cutPenalty: HavingFloatFilter
-}
-
-input LevelPointsHistoryHavingMinInput {
-	id: HavingIntFilter
-	levelId: HavingIntFilter
-	points: HavingIntFilter
-	dateCreated: HavingDatetimeFilter
-	dateUpdated: HavingDatetimeFilter
-	rating: HavingFloatFilter
-	modifierLength: HavingFloatFilter
-	modifierCompetitiveness: HavingFloatFilter
-	modifierRating: HavingFloatFilter
-	modifierPopularity: HavingFloatFilter
-	cutPenalty: HavingFloatFilter
-}
-
-input LevelPointsHistoryHavingMaxInput {
-	id: HavingIntFilter
-	levelId: HavingIntFilter
-	points: HavingIntFilter
-	dateCreated: HavingDatetimeFilter
-	dateUpdated: HavingDatetimeFilter
-	rating: HavingFloatFilter
-	modifierLength: HavingFloatFilter
-	modifierCompetitiveness: HavingFloatFilter
-	modifierRating: HavingFloatFilter
-	modifierPopularity: HavingFloatFilter
-	cutPenalty: HavingFloatFilter
-}
-
-input LevelPointsHistoryHavingAverageInput {
-	id: HavingIntFilter
-	levelId: HavingIntFilter
-	points: HavingIntFilter
-	dateCreated: HavingDatetimeFilter
-	dateUpdated: HavingDatetimeFilter
-	rating: HavingFloatFilter
-	modifierLength: HavingFloatFilter
-	modifierCompetitiveness: HavingFloatFilter
-	modifierRating: HavingFloatFilter
-	modifierPopularity: HavingFloatFilter
-	cutPenalty: HavingFloatFilter
-}
-
-input LevelPointsHistoryHavingStddevSampleInput {
-	id: HavingIntFilter
-	levelId: HavingIntFilter
-	points: HavingIntFilter
-	dateCreated: HavingDatetimeFilter
-	dateUpdated: HavingDatetimeFilter
-	rating: HavingFloatFilter
-	modifierLength: HavingFloatFilter
-	modifierCompetitiveness: HavingFloatFilter
-	modifierRating: HavingFloatFilter
-	modifierPopularity: HavingFloatFilter
-	cutPenalty: HavingFloatFilter
-}
-
-input LevelPointsHistoryHavingStddevPopulationInput {
-	id: HavingIntFilter
-	levelId: HavingIntFilter
-	points: HavingIntFilter
-	dateCreated: HavingDatetimeFilter
-	dateUpdated: HavingDatetimeFilter
-	rating: HavingFloatFilter
-	modifierLength: HavingFloatFilter
-	modifierCompetitiveness: HavingFloatFilter
-	modifierRating: HavingFloatFilter
-	modifierPopularity: HavingFloatFilter
-	cutPenalty: HavingFloatFilter
-}
-
-input LevelPointsHistoryHavingVarianceSampleInput {
-	id: HavingIntFilter
-	levelId: HavingIntFilter
-	points: HavingIntFilter
-	dateCreated: HavingDatetimeFilter
-	dateUpdated: HavingDatetimeFilter
-	rating: HavingFloatFilter
-	modifierLength: HavingFloatFilter
-	modifierCompetitiveness: HavingFloatFilter
-	modifierRating: HavingFloatFilter
-	modifierPopularity: HavingFloatFilter
-	cutPenalty: HavingFloatFilter
-}
-
-input LevelPointsHistoryHavingVariancePopulationInput {
-	id: HavingIntFilter
-	levelId: HavingIntFilter
-	points: HavingIntFilter
-	dateCreated: HavingDatetimeFilter
-	dateUpdated: HavingDatetimeFilter
-	rating: HavingFloatFilter
-	modifierLength: HavingFloatFilter
-	modifierCompetitiveness: HavingFloatFilter
-	modifierRating: HavingFloatFilter
-	modifierPopularity: HavingFloatFilter
-	cutPenalty: HavingFloatFilter
-}
-
-"""
-Methods to use when ordering `LevelPointsHistory`.
-"""
-enum LevelPointsHistoriesOrderBy {
-	NATURAL
-	ID_ASC
-	ID_DESC
-	ID_LEVEL_ASC
-	ID_LEVEL_DESC
-	POINTS_ASC
-	POINTS_DESC
-	DATE_CREATED_ASC
-	DATE_CREATED_DESC
-	DATE_UPDATED_ASC
-	DATE_UPDATED_DESC
-	RATING_ASC
-	RATING_DESC
-	MODIFIER_LENGTH_ASC
-	MODIFIER_LENGTH_DESC
-	MODIFIER_COMPETITIVENESS_ASC
-	MODIFIER_COMPETITIVENESS_DESC
-	MODIFIER_RATING_ASC
-	MODIFIER_RATING_DESC
-	MODIFIER_POPULARITY_ASC
-	MODIFIER_POPULARITY_DESC
-	CUT_PENALTY_ASC
-	CUT_PENALTY_DESC
-	PRIMARY_KEY_ASC
-	PRIMARY_KEY_DESC
-	LEVEL_ID_ASC
-	LEVEL_ID_DESC
-	LEVEL_HASH_ASC
-	LEVEL_HASH_DESC
-	LEVEL_DATE_CREATED_ASC
-	LEVEL_DATE_CREATED_DESC
-	LEVEL_DATE_UPDATED_ASC
-	LEVEL_DATE_UPDATED_DESC
-}
-
-"""
-A condition to be used against `LevelPointsHistory` object types. All fields are
-tested for equality and combined with a logical ‘and.’
-"""
-input LevelPointsHistoryCondition {
-	"""
-	Checks for equality with the object’s `id` field.
-	"""
-	id: Int
-
-	"""
-	Checks for equality with the object’s `levelId` field.
-	"""
-	levelId: Int
-
-	"""
-	Checks for equality with the object’s `points` field.
-	"""
-	points: Int
-
-	"""
-	Checks for equality with the object’s `dateCreated` field.
-	"""
-	dateCreated: Datetime
-
-	"""
-	Checks for equality with the object’s `dateUpdated` field.
-	"""
-	dateUpdated: Datetime
-
-	"""
-	Checks for equality with the object’s `rating` field.
-	"""
-	rating: Float
-
-	"""
-	Checks for equality with the object’s `modifierLength` field.
-	"""
-	modifierLength: Float
-
-	"""
-	Checks for equality with the object’s `modifierCompetitiveness` field.
-	"""
-	modifierCompetitiveness: Float
-
-	"""
-	Checks for equality with the object’s `modifierRating` field.
-	"""
-	modifierRating: Float
-
-	"""
-	Checks for equality with the object’s `modifierPopularity` field.
-	"""
-	modifierPopularity: Float
-
-	"""
-	Checks for equality with the object’s `cutPenalty` field.
-	"""
-	cutPenalty: Float
 }
 
 """
@@ -17758,58 +17758,6 @@ enum UsersOrderBy {
 	RECORD_MAX_SPEEDS_DESC
 	RECORD_MIN_SPEEDS_ASC
 	RECORD_MIN_SPEEDS_DESC
-	WORLD_RECORD_GLOBAL_COUNT_ASC
-	WORLD_RECORD_GLOBAL_COUNT_DESC
-	WORLD_RECORD_GLOBAL_MAX_ID_ASC
-	WORLD_RECORD_GLOBAL_MAX_ID_DESC
-	WORLD_RECORD_GLOBAL_MIN_ID_ASC
-	WORLD_RECORD_GLOBAL_MIN_ID_DESC
-	WORLD_RECORD_GLOBAL_MAX_ID_RECORD_ASC
-	WORLD_RECORD_GLOBAL_MAX_ID_RECORD_DESC
-	WORLD_RECORD_GLOBAL_MIN_ID_RECORD_ASC
-	WORLD_RECORD_GLOBAL_MIN_ID_RECORD_DESC
-	WORLD_RECORD_GLOBAL_MAX_ID_LEVEL_ASC
-	WORLD_RECORD_GLOBAL_MAX_ID_LEVEL_DESC
-	WORLD_RECORD_GLOBAL_MIN_ID_LEVEL_ASC
-	WORLD_RECORD_GLOBAL_MIN_ID_LEVEL_DESC
-	WORLD_RECORD_GLOBAL_MAX_DATE_CREATED_ASC
-	WORLD_RECORD_GLOBAL_MAX_DATE_CREATED_DESC
-	WORLD_RECORD_GLOBAL_MIN_DATE_CREATED_ASC
-	WORLD_RECORD_GLOBAL_MIN_DATE_CREATED_DESC
-	WORLD_RECORD_GLOBAL_MAX_DATE_UPDATED_ASC
-	WORLD_RECORD_GLOBAL_MAX_DATE_UPDATED_DESC
-	WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_ASC
-	WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_DESC
-	WORLD_RECORD_GLOBAL_MAX_ID_USER_ASC
-	WORLD_RECORD_GLOBAL_MAX_ID_USER_DESC
-	WORLD_RECORD_GLOBAL_MIN_ID_USER_ASC
-	WORLD_RECORD_GLOBAL_MIN_ID_USER_DESC
-	VOTE_COUNT_ASC
-	VOTE_COUNT_DESC
-	VOTE_MAX_ID_ASC
-	VOTE_MAX_ID_DESC
-	VOTE_MIN_ID_ASC
-	VOTE_MIN_ID_DESC
-	VOTE_MAX_ID_USER_ASC
-	VOTE_MAX_ID_USER_DESC
-	VOTE_MIN_ID_USER_ASC
-	VOTE_MIN_ID_USER_DESC
-	VOTE_MAX_ID_LEVEL_ASC
-	VOTE_MAX_ID_LEVEL_DESC
-	VOTE_MIN_ID_LEVEL_ASC
-	VOTE_MIN_ID_LEVEL_DESC
-	VOTE_MAX_VALUE_ASC
-	VOTE_MAX_VALUE_DESC
-	VOTE_MIN_VALUE_ASC
-	VOTE_MIN_VALUE_DESC
-	VOTE_MAX_DATE_CREATED_ASC
-	VOTE_MAX_DATE_CREATED_DESC
-	VOTE_MIN_DATE_CREATED_ASC
-	VOTE_MIN_DATE_CREATED_DESC
-	VOTE_MAX_DATE_UPDATED_ASC
-	VOTE_MAX_DATE_UPDATED_DESC
-	VOTE_MIN_DATE_UPDATED_ASC
-	VOTE_MIN_DATE_UPDATED_DESC
 	USER_POINTS_HISTORY_COUNT_ASC
 	USER_POINTS_HISTORY_COUNT_DESC
 	USER_POINTS_HISTORY_MAX_ID_ASC
@@ -17844,6 +17792,58 @@ enum UsersOrderBy {
 	USER_POINTS_HISTORY_MAX_DATE_UPDATED_DESC
 	USER_POINTS_HISTORY_MIN_DATE_UPDATED_ASC
 	USER_POINTS_HISTORY_MIN_DATE_UPDATED_DESC
+	VOTE_COUNT_ASC
+	VOTE_COUNT_DESC
+	VOTE_MAX_ID_ASC
+	VOTE_MAX_ID_DESC
+	VOTE_MIN_ID_ASC
+	VOTE_MIN_ID_DESC
+	VOTE_MAX_ID_USER_ASC
+	VOTE_MAX_ID_USER_DESC
+	VOTE_MIN_ID_USER_ASC
+	VOTE_MIN_ID_USER_DESC
+	VOTE_MAX_ID_LEVEL_ASC
+	VOTE_MAX_ID_LEVEL_DESC
+	VOTE_MIN_ID_LEVEL_ASC
+	VOTE_MIN_ID_LEVEL_DESC
+	VOTE_MAX_VALUE_ASC
+	VOTE_MAX_VALUE_DESC
+	VOTE_MIN_VALUE_ASC
+	VOTE_MIN_VALUE_DESC
+	VOTE_MAX_DATE_CREATED_ASC
+	VOTE_MAX_DATE_CREATED_DESC
+	VOTE_MIN_DATE_CREATED_ASC
+	VOTE_MIN_DATE_CREATED_DESC
+	VOTE_MAX_DATE_UPDATED_ASC
+	VOTE_MAX_DATE_UPDATED_DESC
+	VOTE_MIN_DATE_UPDATED_ASC
+	VOTE_MIN_DATE_UPDATED_DESC
+	WORLD_RECORD_GLOBAL_COUNT_ASC
+	WORLD_RECORD_GLOBAL_COUNT_DESC
+	WORLD_RECORD_GLOBAL_MAX_ID_ASC
+	WORLD_RECORD_GLOBAL_MAX_ID_DESC
+	WORLD_RECORD_GLOBAL_MIN_ID_ASC
+	WORLD_RECORD_GLOBAL_MIN_ID_DESC
+	WORLD_RECORD_GLOBAL_MAX_ID_RECORD_ASC
+	WORLD_RECORD_GLOBAL_MAX_ID_RECORD_DESC
+	WORLD_RECORD_GLOBAL_MIN_ID_RECORD_ASC
+	WORLD_RECORD_GLOBAL_MIN_ID_RECORD_DESC
+	WORLD_RECORD_GLOBAL_MAX_ID_LEVEL_ASC
+	WORLD_RECORD_GLOBAL_MAX_ID_LEVEL_DESC
+	WORLD_RECORD_GLOBAL_MIN_ID_LEVEL_ASC
+	WORLD_RECORD_GLOBAL_MIN_ID_LEVEL_DESC
+	WORLD_RECORD_GLOBAL_MAX_DATE_CREATED_ASC
+	WORLD_RECORD_GLOBAL_MAX_DATE_CREATED_DESC
+	WORLD_RECORD_GLOBAL_MIN_DATE_CREATED_ASC
+	WORLD_RECORD_GLOBAL_MIN_DATE_CREATED_DESC
+	WORLD_RECORD_GLOBAL_MAX_DATE_UPDATED_ASC
+	WORLD_RECORD_GLOBAL_MAX_DATE_UPDATED_DESC
+	WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_ASC
+	WORLD_RECORD_GLOBAL_MIN_DATE_UPDATED_DESC
+	WORLD_RECORD_GLOBAL_MAX_ID_USER_ASC
+	WORLD_RECORD_GLOBAL_MAX_ID_USER_DESC
+	WORLD_RECORD_GLOBAL_MIN_ID_USER_ASC
+	WORLD_RECORD_GLOBAL_MIN_ID_USER_DESC
 	ZSL_LEVEL_RESULT_COUNT_ASC
 	ZSL_LEVEL_RESULT_COUNT_DESC
 	ZSL_LEVEL_RESULT_MAX_ID_LEVEL_ASC
@@ -18642,226 +18642,6 @@ enum UsersOrderBy {
 	RECORDS_VARIANCE_POPULATION_SPLITS_DESC
 	RECORDS_VARIANCE_POPULATION_SPEEDS_ASC
 	RECORDS_VARIANCE_POPULATION_SPEEDS_DESC
-	WORLD_RECORD_GLOBALS_COUNT_ASC
-	WORLD_RECORD_GLOBALS_COUNT_DESC
-	WORLD_RECORD_GLOBALS_SUM_ID_ASC
-	WORLD_RECORD_GLOBALS_SUM_ID_DESC
-	WORLD_RECORD_GLOBALS_SUM_ID_RECORD_ASC
-	WORLD_RECORD_GLOBALS_SUM_ID_RECORD_DESC
-	WORLD_RECORD_GLOBALS_SUM_ID_LEVEL_ASC
-	WORLD_RECORD_GLOBALS_SUM_ID_LEVEL_DESC
-	WORLD_RECORD_GLOBALS_SUM_DATE_CREATED_ASC
-	WORLD_RECORD_GLOBALS_SUM_DATE_CREATED_DESC
-	WORLD_RECORD_GLOBALS_SUM_DATE_UPDATED_ASC
-	WORLD_RECORD_GLOBALS_SUM_DATE_UPDATED_DESC
-	WORLD_RECORD_GLOBALS_SUM_ID_USER_ASC
-	WORLD_RECORD_GLOBALS_SUM_ID_USER_DESC
-	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_ASC
-	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_DESC
-	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_RECORD_ASC
-	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_RECORD_DESC
-	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_LEVEL_ASC
-	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_LEVEL_DESC
-	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_DATE_CREATED_ASC
-	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_DATE_CREATED_DESC
-	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_DATE_UPDATED_ASC
-	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_DATE_UPDATED_DESC
-	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_USER_ASC
-	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_USER_DESC
-	WORLD_RECORD_GLOBALS_MIN_ID_ASC
-	WORLD_RECORD_GLOBALS_MIN_ID_DESC
-	WORLD_RECORD_GLOBALS_MIN_ID_RECORD_ASC
-	WORLD_RECORD_GLOBALS_MIN_ID_RECORD_DESC
-	WORLD_RECORD_GLOBALS_MIN_ID_LEVEL_ASC
-	WORLD_RECORD_GLOBALS_MIN_ID_LEVEL_DESC
-	WORLD_RECORD_GLOBALS_MIN_DATE_CREATED_ASC
-	WORLD_RECORD_GLOBALS_MIN_DATE_CREATED_DESC
-	WORLD_RECORD_GLOBALS_MIN_DATE_UPDATED_ASC
-	WORLD_RECORD_GLOBALS_MIN_DATE_UPDATED_DESC
-	WORLD_RECORD_GLOBALS_MIN_ID_USER_ASC
-	WORLD_RECORD_GLOBALS_MIN_ID_USER_DESC
-	WORLD_RECORD_GLOBALS_MAX_ID_ASC
-	WORLD_RECORD_GLOBALS_MAX_ID_DESC
-	WORLD_RECORD_GLOBALS_MAX_ID_RECORD_ASC
-	WORLD_RECORD_GLOBALS_MAX_ID_RECORD_DESC
-	WORLD_RECORD_GLOBALS_MAX_ID_LEVEL_ASC
-	WORLD_RECORD_GLOBALS_MAX_ID_LEVEL_DESC
-	WORLD_RECORD_GLOBALS_MAX_DATE_CREATED_ASC
-	WORLD_RECORD_GLOBALS_MAX_DATE_CREATED_DESC
-	WORLD_RECORD_GLOBALS_MAX_DATE_UPDATED_ASC
-	WORLD_RECORD_GLOBALS_MAX_DATE_UPDATED_DESC
-	WORLD_RECORD_GLOBALS_MAX_ID_USER_ASC
-	WORLD_RECORD_GLOBALS_MAX_ID_USER_DESC
-	WORLD_RECORD_GLOBALS_AVERAGE_ID_ASC
-	WORLD_RECORD_GLOBALS_AVERAGE_ID_DESC
-	WORLD_RECORD_GLOBALS_AVERAGE_ID_RECORD_ASC
-	WORLD_RECORD_GLOBALS_AVERAGE_ID_RECORD_DESC
-	WORLD_RECORD_GLOBALS_AVERAGE_ID_LEVEL_ASC
-	WORLD_RECORD_GLOBALS_AVERAGE_ID_LEVEL_DESC
-	WORLD_RECORD_GLOBALS_AVERAGE_DATE_CREATED_ASC
-	WORLD_RECORD_GLOBALS_AVERAGE_DATE_CREATED_DESC
-	WORLD_RECORD_GLOBALS_AVERAGE_DATE_UPDATED_ASC
-	WORLD_RECORD_GLOBALS_AVERAGE_DATE_UPDATED_DESC
-	WORLD_RECORD_GLOBALS_AVERAGE_ID_USER_ASC
-	WORLD_RECORD_GLOBALS_AVERAGE_ID_USER_DESC
-	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_ASC
-	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_DESC
-	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_RECORD_ASC
-	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_RECORD_DESC
-	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_LEVEL_ASC
-	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_LEVEL_DESC
-	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_DATE_CREATED_ASC
-	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_DATE_CREATED_DESC
-	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_DATE_UPDATED_ASC
-	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_DATE_UPDATED_DESC
-	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_USER_ASC
-	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_USER_DESC
-	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_ASC
-	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_DESC
-	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_RECORD_ASC
-	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_RECORD_DESC
-	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_LEVEL_ASC
-	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_LEVEL_DESC
-	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_DATE_CREATED_ASC
-	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_DATE_CREATED_DESC
-	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_DATE_UPDATED_ASC
-	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_DATE_UPDATED_DESC
-	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_USER_ASC
-	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_USER_DESC
-	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_ASC
-	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_DESC
-	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_RECORD_ASC
-	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_RECORD_DESC
-	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_LEVEL_ASC
-	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_LEVEL_DESC
-	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_DATE_CREATED_ASC
-	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_DATE_CREATED_DESC
-	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_DATE_UPDATED_ASC
-	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_DATE_UPDATED_DESC
-	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_USER_ASC
-	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_USER_DESC
-	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_ASC
-	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_DESC
-	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_RECORD_ASC
-	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_RECORD_DESC
-	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_LEVEL_ASC
-	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_LEVEL_DESC
-	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_DATE_CREATED_ASC
-	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_DATE_CREATED_DESC
-	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_DATE_UPDATED_ASC
-	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_DATE_UPDATED_DESC
-	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_USER_ASC
-	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_USER_DESC
-	VOTES_COUNT_ASC
-	VOTES_COUNT_DESC
-	VOTES_SUM_ID_ASC
-	VOTES_SUM_ID_DESC
-	VOTES_SUM_ID_USER_ASC
-	VOTES_SUM_ID_USER_DESC
-	VOTES_SUM_ID_LEVEL_ASC
-	VOTES_SUM_ID_LEVEL_DESC
-	VOTES_SUM_VALUE_ASC
-	VOTES_SUM_VALUE_DESC
-	VOTES_SUM_DATE_CREATED_ASC
-	VOTES_SUM_DATE_CREATED_DESC
-	VOTES_SUM_DATE_UPDATED_ASC
-	VOTES_SUM_DATE_UPDATED_DESC
-	VOTES_DISTINCT_COUNT_ID_ASC
-	VOTES_DISTINCT_COUNT_ID_DESC
-	VOTES_DISTINCT_COUNT_ID_USER_ASC
-	VOTES_DISTINCT_COUNT_ID_USER_DESC
-	VOTES_DISTINCT_COUNT_ID_LEVEL_ASC
-	VOTES_DISTINCT_COUNT_ID_LEVEL_DESC
-	VOTES_DISTINCT_COUNT_VALUE_ASC
-	VOTES_DISTINCT_COUNT_VALUE_DESC
-	VOTES_DISTINCT_COUNT_DATE_CREATED_ASC
-	VOTES_DISTINCT_COUNT_DATE_CREATED_DESC
-	VOTES_DISTINCT_COUNT_DATE_UPDATED_ASC
-	VOTES_DISTINCT_COUNT_DATE_UPDATED_DESC
-	VOTES_MIN_ID_ASC
-	VOTES_MIN_ID_DESC
-	VOTES_MIN_ID_USER_ASC
-	VOTES_MIN_ID_USER_DESC
-	VOTES_MIN_ID_LEVEL_ASC
-	VOTES_MIN_ID_LEVEL_DESC
-	VOTES_MIN_VALUE_ASC
-	VOTES_MIN_VALUE_DESC
-	VOTES_MIN_DATE_CREATED_ASC
-	VOTES_MIN_DATE_CREATED_DESC
-	VOTES_MIN_DATE_UPDATED_ASC
-	VOTES_MIN_DATE_UPDATED_DESC
-	VOTES_MAX_ID_ASC
-	VOTES_MAX_ID_DESC
-	VOTES_MAX_ID_USER_ASC
-	VOTES_MAX_ID_USER_DESC
-	VOTES_MAX_ID_LEVEL_ASC
-	VOTES_MAX_ID_LEVEL_DESC
-	VOTES_MAX_VALUE_ASC
-	VOTES_MAX_VALUE_DESC
-	VOTES_MAX_DATE_CREATED_ASC
-	VOTES_MAX_DATE_CREATED_DESC
-	VOTES_MAX_DATE_UPDATED_ASC
-	VOTES_MAX_DATE_UPDATED_DESC
-	VOTES_AVERAGE_ID_ASC
-	VOTES_AVERAGE_ID_DESC
-	VOTES_AVERAGE_ID_USER_ASC
-	VOTES_AVERAGE_ID_USER_DESC
-	VOTES_AVERAGE_ID_LEVEL_ASC
-	VOTES_AVERAGE_ID_LEVEL_DESC
-	VOTES_AVERAGE_VALUE_ASC
-	VOTES_AVERAGE_VALUE_DESC
-	VOTES_AVERAGE_DATE_CREATED_ASC
-	VOTES_AVERAGE_DATE_CREATED_DESC
-	VOTES_AVERAGE_DATE_UPDATED_ASC
-	VOTES_AVERAGE_DATE_UPDATED_DESC
-	VOTES_STDDEV_SAMPLE_ID_ASC
-	VOTES_STDDEV_SAMPLE_ID_DESC
-	VOTES_STDDEV_SAMPLE_ID_USER_ASC
-	VOTES_STDDEV_SAMPLE_ID_USER_DESC
-	VOTES_STDDEV_SAMPLE_ID_LEVEL_ASC
-	VOTES_STDDEV_SAMPLE_ID_LEVEL_DESC
-	VOTES_STDDEV_SAMPLE_VALUE_ASC
-	VOTES_STDDEV_SAMPLE_VALUE_DESC
-	VOTES_STDDEV_SAMPLE_DATE_CREATED_ASC
-	VOTES_STDDEV_SAMPLE_DATE_CREATED_DESC
-	VOTES_STDDEV_SAMPLE_DATE_UPDATED_ASC
-	VOTES_STDDEV_SAMPLE_DATE_UPDATED_DESC
-	VOTES_STDDEV_POPULATION_ID_ASC
-	VOTES_STDDEV_POPULATION_ID_DESC
-	VOTES_STDDEV_POPULATION_ID_USER_ASC
-	VOTES_STDDEV_POPULATION_ID_USER_DESC
-	VOTES_STDDEV_POPULATION_ID_LEVEL_ASC
-	VOTES_STDDEV_POPULATION_ID_LEVEL_DESC
-	VOTES_STDDEV_POPULATION_VALUE_ASC
-	VOTES_STDDEV_POPULATION_VALUE_DESC
-	VOTES_STDDEV_POPULATION_DATE_CREATED_ASC
-	VOTES_STDDEV_POPULATION_DATE_CREATED_DESC
-	VOTES_STDDEV_POPULATION_DATE_UPDATED_ASC
-	VOTES_STDDEV_POPULATION_DATE_UPDATED_DESC
-	VOTES_VARIANCE_SAMPLE_ID_ASC
-	VOTES_VARIANCE_SAMPLE_ID_DESC
-	VOTES_VARIANCE_SAMPLE_ID_USER_ASC
-	VOTES_VARIANCE_SAMPLE_ID_USER_DESC
-	VOTES_VARIANCE_SAMPLE_ID_LEVEL_ASC
-	VOTES_VARIANCE_SAMPLE_ID_LEVEL_DESC
-	VOTES_VARIANCE_SAMPLE_VALUE_ASC
-	VOTES_VARIANCE_SAMPLE_VALUE_DESC
-	VOTES_VARIANCE_SAMPLE_DATE_CREATED_ASC
-	VOTES_VARIANCE_SAMPLE_DATE_CREATED_DESC
-	VOTES_VARIANCE_SAMPLE_DATE_UPDATED_ASC
-	VOTES_VARIANCE_SAMPLE_DATE_UPDATED_DESC
-	VOTES_VARIANCE_POPULATION_ID_ASC
-	VOTES_VARIANCE_POPULATION_ID_DESC
-	VOTES_VARIANCE_POPULATION_ID_USER_ASC
-	VOTES_VARIANCE_POPULATION_ID_USER_DESC
-	VOTES_VARIANCE_POPULATION_ID_LEVEL_ASC
-	VOTES_VARIANCE_POPULATION_ID_LEVEL_DESC
-	VOTES_VARIANCE_POPULATION_VALUE_ASC
-	VOTES_VARIANCE_POPULATION_VALUE_DESC
-	VOTES_VARIANCE_POPULATION_DATE_CREATED_ASC
-	VOTES_VARIANCE_POPULATION_DATE_CREATED_DESC
-	VOTES_VARIANCE_POPULATION_DATE_UPDATED_ASC
-	VOTES_VARIANCE_POPULATION_DATE_UPDATED_DESC
 	USER_POINTS_HISTORIES_COUNT_ASC
 	USER_POINTS_HISTORIES_COUNT_DESC
 	USER_POINTS_HISTORIES_SUM_ID_ASC
@@ -19008,6 +18788,226 @@ enum UsersOrderBy {
 	USER_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_CREATED_DESC
 	USER_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_UPDATED_ASC
 	USER_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_UPDATED_DESC
+	VOTES_COUNT_ASC
+	VOTES_COUNT_DESC
+	VOTES_SUM_ID_ASC
+	VOTES_SUM_ID_DESC
+	VOTES_SUM_ID_USER_ASC
+	VOTES_SUM_ID_USER_DESC
+	VOTES_SUM_ID_LEVEL_ASC
+	VOTES_SUM_ID_LEVEL_DESC
+	VOTES_SUM_VALUE_ASC
+	VOTES_SUM_VALUE_DESC
+	VOTES_SUM_DATE_CREATED_ASC
+	VOTES_SUM_DATE_CREATED_DESC
+	VOTES_SUM_DATE_UPDATED_ASC
+	VOTES_SUM_DATE_UPDATED_DESC
+	VOTES_DISTINCT_COUNT_ID_ASC
+	VOTES_DISTINCT_COUNT_ID_DESC
+	VOTES_DISTINCT_COUNT_ID_USER_ASC
+	VOTES_DISTINCT_COUNT_ID_USER_DESC
+	VOTES_DISTINCT_COUNT_ID_LEVEL_ASC
+	VOTES_DISTINCT_COUNT_ID_LEVEL_DESC
+	VOTES_DISTINCT_COUNT_VALUE_ASC
+	VOTES_DISTINCT_COUNT_VALUE_DESC
+	VOTES_DISTINCT_COUNT_DATE_CREATED_ASC
+	VOTES_DISTINCT_COUNT_DATE_CREATED_DESC
+	VOTES_DISTINCT_COUNT_DATE_UPDATED_ASC
+	VOTES_DISTINCT_COUNT_DATE_UPDATED_DESC
+	VOTES_MIN_ID_ASC
+	VOTES_MIN_ID_DESC
+	VOTES_MIN_ID_USER_ASC
+	VOTES_MIN_ID_USER_DESC
+	VOTES_MIN_ID_LEVEL_ASC
+	VOTES_MIN_ID_LEVEL_DESC
+	VOTES_MIN_VALUE_ASC
+	VOTES_MIN_VALUE_DESC
+	VOTES_MIN_DATE_CREATED_ASC
+	VOTES_MIN_DATE_CREATED_DESC
+	VOTES_MIN_DATE_UPDATED_ASC
+	VOTES_MIN_DATE_UPDATED_DESC
+	VOTES_MAX_ID_ASC
+	VOTES_MAX_ID_DESC
+	VOTES_MAX_ID_USER_ASC
+	VOTES_MAX_ID_USER_DESC
+	VOTES_MAX_ID_LEVEL_ASC
+	VOTES_MAX_ID_LEVEL_DESC
+	VOTES_MAX_VALUE_ASC
+	VOTES_MAX_VALUE_DESC
+	VOTES_MAX_DATE_CREATED_ASC
+	VOTES_MAX_DATE_CREATED_DESC
+	VOTES_MAX_DATE_UPDATED_ASC
+	VOTES_MAX_DATE_UPDATED_DESC
+	VOTES_AVERAGE_ID_ASC
+	VOTES_AVERAGE_ID_DESC
+	VOTES_AVERAGE_ID_USER_ASC
+	VOTES_AVERAGE_ID_USER_DESC
+	VOTES_AVERAGE_ID_LEVEL_ASC
+	VOTES_AVERAGE_ID_LEVEL_DESC
+	VOTES_AVERAGE_VALUE_ASC
+	VOTES_AVERAGE_VALUE_DESC
+	VOTES_AVERAGE_DATE_CREATED_ASC
+	VOTES_AVERAGE_DATE_CREATED_DESC
+	VOTES_AVERAGE_DATE_UPDATED_ASC
+	VOTES_AVERAGE_DATE_UPDATED_DESC
+	VOTES_STDDEV_SAMPLE_ID_ASC
+	VOTES_STDDEV_SAMPLE_ID_DESC
+	VOTES_STDDEV_SAMPLE_ID_USER_ASC
+	VOTES_STDDEV_SAMPLE_ID_USER_DESC
+	VOTES_STDDEV_SAMPLE_ID_LEVEL_ASC
+	VOTES_STDDEV_SAMPLE_ID_LEVEL_DESC
+	VOTES_STDDEV_SAMPLE_VALUE_ASC
+	VOTES_STDDEV_SAMPLE_VALUE_DESC
+	VOTES_STDDEV_SAMPLE_DATE_CREATED_ASC
+	VOTES_STDDEV_SAMPLE_DATE_CREATED_DESC
+	VOTES_STDDEV_SAMPLE_DATE_UPDATED_ASC
+	VOTES_STDDEV_SAMPLE_DATE_UPDATED_DESC
+	VOTES_STDDEV_POPULATION_ID_ASC
+	VOTES_STDDEV_POPULATION_ID_DESC
+	VOTES_STDDEV_POPULATION_ID_USER_ASC
+	VOTES_STDDEV_POPULATION_ID_USER_DESC
+	VOTES_STDDEV_POPULATION_ID_LEVEL_ASC
+	VOTES_STDDEV_POPULATION_ID_LEVEL_DESC
+	VOTES_STDDEV_POPULATION_VALUE_ASC
+	VOTES_STDDEV_POPULATION_VALUE_DESC
+	VOTES_STDDEV_POPULATION_DATE_CREATED_ASC
+	VOTES_STDDEV_POPULATION_DATE_CREATED_DESC
+	VOTES_STDDEV_POPULATION_DATE_UPDATED_ASC
+	VOTES_STDDEV_POPULATION_DATE_UPDATED_DESC
+	VOTES_VARIANCE_SAMPLE_ID_ASC
+	VOTES_VARIANCE_SAMPLE_ID_DESC
+	VOTES_VARIANCE_SAMPLE_ID_USER_ASC
+	VOTES_VARIANCE_SAMPLE_ID_USER_DESC
+	VOTES_VARIANCE_SAMPLE_ID_LEVEL_ASC
+	VOTES_VARIANCE_SAMPLE_ID_LEVEL_DESC
+	VOTES_VARIANCE_SAMPLE_VALUE_ASC
+	VOTES_VARIANCE_SAMPLE_VALUE_DESC
+	VOTES_VARIANCE_SAMPLE_DATE_CREATED_ASC
+	VOTES_VARIANCE_SAMPLE_DATE_CREATED_DESC
+	VOTES_VARIANCE_SAMPLE_DATE_UPDATED_ASC
+	VOTES_VARIANCE_SAMPLE_DATE_UPDATED_DESC
+	VOTES_VARIANCE_POPULATION_ID_ASC
+	VOTES_VARIANCE_POPULATION_ID_DESC
+	VOTES_VARIANCE_POPULATION_ID_USER_ASC
+	VOTES_VARIANCE_POPULATION_ID_USER_DESC
+	VOTES_VARIANCE_POPULATION_ID_LEVEL_ASC
+	VOTES_VARIANCE_POPULATION_ID_LEVEL_DESC
+	VOTES_VARIANCE_POPULATION_VALUE_ASC
+	VOTES_VARIANCE_POPULATION_VALUE_DESC
+	VOTES_VARIANCE_POPULATION_DATE_CREATED_ASC
+	VOTES_VARIANCE_POPULATION_DATE_CREATED_DESC
+	VOTES_VARIANCE_POPULATION_DATE_UPDATED_ASC
+	VOTES_VARIANCE_POPULATION_DATE_UPDATED_DESC
+	WORLD_RECORD_GLOBALS_COUNT_ASC
+	WORLD_RECORD_GLOBALS_COUNT_DESC
+	WORLD_RECORD_GLOBALS_SUM_ID_ASC
+	WORLD_RECORD_GLOBALS_SUM_ID_DESC
+	WORLD_RECORD_GLOBALS_SUM_ID_RECORD_ASC
+	WORLD_RECORD_GLOBALS_SUM_ID_RECORD_DESC
+	WORLD_RECORD_GLOBALS_SUM_ID_LEVEL_ASC
+	WORLD_RECORD_GLOBALS_SUM_ID_LEVEL_DESC
+	WORLD_RECORD_GLOBALS_SUM_DATE_CREATED_ASC
+	WORLD_RECORD_GLOBALS_SUM_DATE_CREATED_DESC
+	WORLD_RECORD_GLOBALS_SUM_DATE_UPDATED_ASC
+	WORLD_RECORD_GLOBALS_SUM_DATE_UPDATED_DESC
+	WORLD_RECORD_GLOBALS_SUM_ID_USER_ASC
+	WORLD_RECORD_GLOBALS_SUM_ID_USER_DESC
+	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_ASC
+	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_DESC
+	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_RECORD_ASC
+	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_RECORD_DESC
+	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_LEVEL_ASC
+	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_LEVEL_DESC
+	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_DATE_CREATED_ASC
+	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_DATE_CREATED_DESC
+	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_DATE_UPDATED_ASC
+	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_DATE_UPDATED_DESC
+	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_USER_ASC
+	WORLD_RECORD_GLOBALS_DISTINCT_COUNT_ID_USER_DESC
+	WORLD_RECORD_GLOBALS_MIN_ID_ASC
+	WORLD_RECORD_GLOBALS_MIN_ID_DESC
+	WORLD_RECORD_GLOBALS_MIN_ID_RECORD_ASC
+	WORLD_RECORD_GLOBALS_MIN_ID_RECORD_DESC
+	WORLD_RECORD_GLOBALS_MIN_ID_LEVEL_ASC
+	WORLD_RECORD_GLOBALS_MIN_ID_LEVEL_DESC
+	WORLD_RECORD_GLOBALS_MIN_DATE_CREATED_ASC
+	WORLD_RECORD_GLOBALS_MIN_DATE_CREATED_DESC
+	WORLD_RECORD_GLOBALS_MIN_DATE_UPDATED_ASC
+	WORLD_RECORD_GLOBALS_MIN_DATE_UPDATED_DESC
+	WORLD_RECORD_GLOBALS_MIN_ID_USER_ASC
+	WORLD_RECORD_GLOBALS_MIN_ID_USER_DESC
+	WORLD_RECORD_GLOBALS_MAX_ID_ASC
+	WORLD_RECORD_GLOBALS_MAX_ID_DESC
+	WORLD_RECORD_GLOBALS_MAX_ID_RECORD_ASC
+	WORLD_RECORD_GLOBALS_MAX_ID_RECORD_DESC
+	WORLD_RECORD_GLOBALS_MAX_ID_LEVEL_ASC
+	WORLD_RECORD_GLOBALS_MAX_ID_LEVEL_DESC
+	WORLD_RECORD_GLOBALS_MAX_DATE_CREATED_ASC
+	WORLD_RECORD_GLOBALS_MAX_DATE_CREATED_DESC
+	WORLD_RECORD_GLOBALS_MAX_DATE_UPDATED_ASC
+	WORLD_RECORD_GLOBALS_MAX_DATE_UPDATED_DESC
+	WORLD_RECORD_GLOBALS_MAX_ID_USER_ASC
+	WORLD_RECORD_GLOBALS_MAX_ID_USER_DESC
+	WORLD_RECORD_GLOBALS_AVERAGE_ID_ASC
+	WORLD_RECORD_GLOBALS_AVERAGE_ID_DESC
+	WORLD_RECORD_GLOBALS_AVERAGE_ID_RECORD_ASC
+	WORLD_RECORD_GLOBALS_AVERAGE_ID_RECORD_DESC
+	WORLD_RECORD_GLOBALS_AVERAGE_ID_LEVEL_ASC
+	WORLD_RECORD_GLOBALS_AVERAGE_ID_LEVEL_DESC
+	WORLD_RECORD_GLOBALS_AVERAGE_DATE_CREATED_ASC
+	WORLD_RECORD_GLOBALS_AVERAGE_DATE_CREATED_DESC
+	WORLD_RECORD_GLOBALS_AVERAGE_DATE_UPDATED_ASC
+	WORLD_RECORD_GLOBALS_AVERAGE_DATE_UPDATED_DESC
+	WORLD_RECORD_GLOBALS_AVERAGE_ID_USER_ASC
+	WORLD_RECORD_GLOBALS_AVERAGE_ID_USER_DESC
+	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_ASC
+	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_DESC
+	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_RECORD_ASC
+	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_RECORD_DESC
+	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_LEVEL_ASC
+	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_LEVEL_DESC
+	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_DATE_CREATED_ASC
+	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_DATE_CREATED_DESC
+	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_DATE_UPDATED_ASC
+	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_DATE_UPDATED_DESC
+	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_USER_ASC
+	WORLD_RECORD_GLOBALS_STDDEV_SAMPLE_ID_USER_DESC
+	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_ASC
+	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_DESC
+	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_RECORD_ASC
+	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_RECORD_DESC
+	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_LEVEL_ASC
+	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_LEVEL_DESC
+	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_DATE_CREATED_ASC
+	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_DATE_CREATED_DESC
+	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_DATE_UPDATED_ASC
+	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_DATE_UPDATED_DESC
+	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_USER_ASC
+	WORLD_RECORD_GLOBALS_STDDEV_POPULATION_ID_USER_DESC
+	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_ASC
+	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_DESC
+	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_RECORD_ASC
+	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_RECORD_DESC
+	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_LEVEL_ASC
+	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_LEVEL_DESC
+	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_DATE_CREATED_ASC
+	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_DATE_CREATED_DESC
+	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_DATE_UPDATED_ASC
+	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_DATE_UPDATED_DESC
+	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_USER_ASC
+	WORLD_RECORD_GLOBALS_VARIANCE_SAMPLE_ID_USER_DESC
+	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_ASC
+	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_DESC
+	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_RECORD_ASC
+	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_RECORD_DESC
+	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_LEVEL_ASC
+	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_LEVEL_DESC
+	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_DATE_CREATED_ASC
+	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_DATE_CREATED_DESC
+	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_DATE_UPDATED_ASC
+	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_DATE_UPDATED_DESC
+	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_USER_ASC
+	WORLD_RECORD_GLOBALS_VARIANCE_POPULATION_ID_USER_DESC
 	ZSL_LEVEL_RESULTS_COUNT_ASC
 	ZSL_LEVEL_RESULTS_COUNT_DESC
 	ZSL_LEVEL_RESULTS_SUM_ID_LEVEL_ASC
@@ -20722,6 +20722,52 @@ enum LevelsOrderBy {
 	LEVEL_POINT_MAX_CUT_PENALTY_DESC
 	LEVEL_POINT_MIN_CUT_PENALTY_ASC
 	LEVEL_POINT_MIN_CUT_PENALTY_DESC
+	LEVEL_POINTS_HISTORY_COUNT_ASC
+	LEVEL_POINTS_HISTORY_COUNT_DESC
+	LEVEL_POINTS_HISTORY_MAX_ID_ASC
+	LEVEL_POINTS_HISTORY_MAX_ID_DESC
+	LEVEL_POINTS_HISTORY_MIN_ID_ASC
+	LEVEL_POINTS_HISTORY_MIN_ID_DESC
+	LEVEL_POINTS_HISTORY_MAX_ID_LEVEL_ASC
+	LEVEL_POINTS_HISTORY_MAX_ID_LEVEL_DESC
+	LEVEL_POINTS_HISTORY_MIN_ID_LEVEL_ASC
+	LEVEL_POINTS_HISTORY_MIN_ID_LEVEL_DESC
+	LEVEL_POINTS_HISTORY_MAX_POINTS_ASC
+	LEVEL_POINTS_HISTORY_MAX_POINTS_DESC
+	LEVEL_POINTS_HISTORY_MIN_POINTS_ASC
+	LEVEL_POINTS_HISTORY_MIN_POINTS_DESC
+	LEVEL_POINTS_HISTORY_MAX_DATE_CREATED_ASC
+	LEVEL_POINTS_HISTORY_MAX_DATE_CREATED_DESC
+	LEVEL_POINTS_HISTORY_MIN_DATE_CREATED_ASC
+	LEVEL_POINTS_HISTORY_MIN_DATE_CREATED_DESC
+	LEVEL_POINTS_HISTORY_MAX_DATE_UPDATED_ASC
+	LEVEL_POINTS_HISTORY_MAX_DATE_UPDATED_DESC
+	LEVEL_POINTS_HISTORY_MIN_DATE_UPDATED_ASC
+	LEVEL_POINTS_HISTORY_MIN_DATE_UPDATED_DESC
+	LEVEL_POINTS_HISTORY_MAX_RATING_ASC
+	LEVEL_POINTS_HISTORY_MAX_RATING_DESC
+	LEVEL_POINTS_HISTORY_MIN_RATING_ASC
+	LEVEL_POINTS_HISTORY_MIN_RATING_DESC
+	LEVEL_POINTS_HISTORY_MAX_MODIFIER_LENGTH_ASC
+	LEVEL_POINTS_HISTORY_MAX_MODIFIER_LENGTH_DESC
+	LEVEL_POINTS_HISTORY_MIN_MODIFIER_LENGTH_ASC
+	LEVEL_POINTS_HISTORY_MIN_MODIFIER_LENGTH_DESC
+	LEVEL_POINTS_HISTORY_MAX_MODIFIER_COMPETITIVENESS_ASC
+	LEVEL_POINTS_HISTORY_MAX_MODIFIER_COMPETITIVENESS_DESC
+	LEVEL_POINTS_HISTORY_MIN_MODIFIER_COMPETITIVENESS_ASC
+	LEVEL_POINTS_HISTORY_MIN_MODIFIER_COMPETITIVENESS_DESC
+	LEVEL_POINTS_HISTORY_MAX_MODIFIER_RATING_ASC
+	LEVEL_POINTS_HISTORY_MAX_MODIFIER_RATING_DESC
+	LEVEL_POINTS_HISTORY_MIN_MODIFIER_RATING_ASC
+	LEVEL_POINTS_HISTORY_MIN_MODIFIER_RATING_DESC
+	LEVEL_POINTS_HISTORY_MAX_MODIFIER_POPULARITY_ASC
+	LEVEL_POINTS_HISTORY_MAX_MODIFIER_POPULARITY_DESC
+	LEVEL_POINTS_HISTORY_MIN_MODIFIER_POPULARITY_ASC
+	LEVEL_POINTS_HISTORY_MIN_MODIFIER_POPULARITY_DESC
+	LEVEL_POINTS_HISTORY_MAX_CUT_PENALTY_ASC
+	LEVEL_POINTS_HISTORY_MAX_CUT_PENALTY_DESC
+	LEVEL_POINTS_HISTORY_MIN_CUT_PENALTY_ASC
+	LEVEL_POINTS_HISTORY_MIN_CUT_PENALTY_DESC
 	PERSONAL_BEST_GLOBAL_COUNT_ASC
 	PERSONAL_BEST_GLOBAL_COUNT_DESC
 	PERSONAL_BEST_GLOBAL_MAX_ID_ASC
@@ -20790,18 +20836,6 @@ enum LevelsOrderBy {
 	RECORD_MAX_SPEEDS_DESC
 	RECORD_MIN_SPEEDS_ASC
 	RECORD_MIN_SPEEDS_DESC
-	WORLD_RECORD_GLOBAL_ID_ASC
-	WORLD_RECORD_GLOBAL_ID_DESC
-	WORLD_RECORD_GLOBAL_ID_RECORD_ASC
-	WORLD_RECORD_GLOBAL_ID_RECORD_DESC
-	WORLD_RECORD_GLOBAL_ID_LEVEL_ASC
-	WORLD_RECORD_GLOBAL_ID_LEVEL_DESC
-	WORLD_RECORD_GLOBAL_DATE_CREATED_ASC
-	WORLD_RECORD_GLOBAL_DATE_CREATED_DESC
-	WORLD_RECORD_GLOBAL_DATE_UPDATED_ASC
-	WORLD_RECORD_GLOBAL_DATE_UPDATED_DESC
-	WORLD_RECORD_GLOBAL_ID_USER_ASC
-	WORLD_RECORD_GLOBAL_ID_USER_DESC
 	VOTE_COUNT_ASC
 	VOTE_COUNT_DESC
 	VOTE_MAX_ID_ASC
@@ -20828,52 +20862,18 @@ enum LevelsOrderBy {
 	VOTE_MAX_DATE_UPDATED_DESC
 	VOTE_MIN_DATE_UPDATED_ASC
 	VOTE_MIN_DATE_UPDATED_DESC
-	LEVEL_POINTS_HISTORY_COUNT_ASC
-	LEVEL_POINTS_HISTORY_COUNT_DESC
-	LEVEL_POINTS_HISTORY_MAX_ID_ASC
-	LEVEL_POINTS_HISTORY_MAX_ID_DESC
-	LEVEL_POINTS_HISTORY_MIN_ID_ASC
-	LEVEL_POINTS_HISTORY_MIN_ID_DESC
-	LEVEL_POINTS_HISTORY_MAX_ID_LEVEL_ASC
-	LEVEL_POINTS_HISTORY_MAX_ID_LEVEL_DESC
-	LEVEL_POINTS_HISTORY_MIN_ID_LEVEL_ASC
-	LEVEL_POINTS_HISTORY_MIN_ID_LEVEL_DESC
-	LEVEL_POINTS_HISTORY_MAX_POINTS_ASC
-	LEVEL_POINTS_HISTORY_MAX_POINTS_DESC
-	LEVEL_POINTS_HISTORY_MIN_POINTS_ASC
-	LEVEL_POINTS_HISTORY_MIN_POINTS_DESC
-	LEVEL_POINTS_HISTORY_MAX_DATE_CREATED_ASC
-	LEVEL_POINTS_HISTORY_MAX_DATE_CREATED_DESC
-	LEVEL_POINTS_HISTORY_MIN_DATE_CREATED_ASC
-	LEVEL_POINTS_HISTORY_MIN_DATE_CREATED_DESC
-	LEVEL_POINTS_HISTORY_MAX_DATE_UPDATED_ASC
-	LEVEL_POINTS_HISTORY_MAX_DATE_UPDATED_DESC
-	LEVEL_POINTS_HISTORY_MIN_DATE_UPDATED_ASC
-	LEVEL_POINTS_HISTORY_MIN_DATE_UPDATED_DESC
-	LEVEL_POINTS_HISTORY_MAX_RATING_ASC
-	LEVEL_POINTS_HISTORY_MAX_RATING_DESC
-	LEVEL_POINTS_HISTORY_MIN_RATING_ASC
-	LEVEL_POINTS_HISTORY_MIN_RATING_DESC
-	LEVEL_POINTS_HISTORY_MAX_MODIFIER_LENGTH_ASC
-	LEVEL_POINTS_HISTORY_MAX_MODIFIER_LENGTH_DESC
-	LEVEL_POINTS_HISTORY_MIN_MODIFIER_LENGTH_ASC
-	LEVEL_POINTS_HISTORY_MIN_MODIFIER_LENGTH_DESC
-	LEVEL_POINTS_HISTORY_MAX_MODIFIER_COMPETITIVENESS_ASC
-	LEVEL_POINTS_HISTORY_MAX_MODIFIER_COMPETITIVENESS_DESC
-	LEVEL_POINTS_HISTORY_MIN_MODIFIER_COMPETITIVENESS_ASC
-	LEVEL_POINTS_HISTORY_MIN_MODIFIER_COMPETITIVENESS_DESC
-	LEVEL_POINTS_HISTORY_MAX_MODIFIER_RATING_ASC
-	LEVEL_POINTS_HISTORY_MAX_MODIFIER_RATING_DESC
-	LEVEL_POINTS_HISTORY_MIN_MODIFIER_RATING_ASC
-	LEVEL_POINTS_HISTORY_MIN_MODIFIER_RATING_DESC
-	LEVEL_POINTS_HISTORY_MAX_MODIFIER_POPULARITY_ASC
-	LEVEL_POINTS_HISTORY_MAX_MODIFIER_POPULARITY_DESC
-	LEVEL_POINTS_HISTORY_MIN_MODIFIER_POPULARITY_ASC
-	LEVEL_POINTS_HISTORY_MIN_MODIFIER_POPULARITY_DESC
-	LEVEL_POINTS_HISTORY_MAX_CUT_PENALTY_ASC
-	LEVEL_POINTS_HISTORY_MAX_CUT_PENALTY_DESC
-	LEVEL_POINTS_HISTORY_MIN_CUT_PENALTY_ASC
-	LEVEL_POINTS_HISTORY_MIN_CUT_PENALTY_DESC
+	WORLD_RECORD_GLOBAL_ID_ASC
+	WORLD_RECORD_GLOBAL_ID_DESC
+	WORLD_RECORD_GLOBAL_ID_RECORD_ASC
+	WORLD_RECORD_GLOBAL_ID_RECORD_DESC
+	WORLD_RECORD_GLOBAL_ID_LEVEL_ASC
+	WORLD_RECORD_GLOBAL_ID_LEVEL_DESC
+	WORLD_RECORD_GLOBAL_DATE_CREATED_ASC
+	WORLD_RECORD_GLOBAL_DATE_CREATED_DESC
+	WORLD_RECORD_GLOBAL_DATE_UPDATED_ASC
+	WORLD_RECORD_GLOBAL_DATE_UPDATED_DESC
+	WORLD_RECORD_GLOBAL_ID_USER_ASC
+	WORLD_RECORD_GLOBAL_ID_USER_DESC
 	ZSL_LEVEL_COUNT_ASC
 	ZSL_LEVEL_COUNT_DESC
 	ZSL_LEVEL_MAX_ID_ASC
@@ -21678,6 +21678,206 @@ enum LevelsOrderBy {
 	LEVEL_POINTS_VARIANCE_POPULATION_MODIFIER_POPULARITY_DESC
 	LEVEL_POINTS_VARIANCE_POPULATION_CUT_PENALTY_ASC
 	LEVEL_POINTS_VARIANCE_POPULATION_CUT_PENALTY_DESC
+	LEVEL_POINTS_HISTORIES_COUNT_ASC
+	LEVEL_POINTS_HISTORIES_COUNT_DESC
+	LEVEL_POINTS_HISTORIES_SUM_ID_ASC
+	LEVEL_POINTS_HISTORIES_SUM_ID_DESC
+	LEVEL_POINTS_HISTORIES_SUM_ID_LEVEL_ASC
+	LEVEL_POINTS_HISTORIES_SUM_ID_LEVEL_DESC
+	LEVEL_POINTS_HISTORIES_SUM_POINTS_ASC
+	LEVEL_POINTS_HISTORIES_SUM_POINTS_DESC
+	LEVEL_POINTS_HISTORIES_SUM_DATE_CREATED_ASC
+	LEVEL_POINTS_HISTORIES_SUM_DATE_CREATED_DESC
+	LEVEL_POINTS_HISTORIES_SUM_DATE_UPDATED_ASC
+	LEVEL_POINTS_HISTORIES_SUM_DATE_UPDATED_DESC
+	LEVEL_POINTS_HISTORIES_SUM_RATING_ASC
+	LEVEL_POINTS_HISTORIES_SUM_RATING_DESC
+	LEVEL_POINTS_HISTORIES_SUM_MODIFIER_LENGTH_ASC
+	LEVEL_POINTS_HISTORIES_SUM_MODIFIER_LENGTH_DESC
+	LEVEL_POINTS_HISTORIES_SUM_MODIFIER_COMPETITIVENESS_ASC
+	LEVEL_POINTS_HISTORIES_SUM_MODIFIER_COMPETITIVENESS_DESC
+	LEVEL_POINTS_HISTORIES_SUM_MODIFIER_RATING_ASC
+	LEVEL_POINTS_HISTORIES_SUM_MODIFIER_RATING_DESC
+	LEVEL_POINTS_HISTORIES_SUM_MODIFIER_POPULARITY_ASC
+	LEVEL_POINTS_HISTORIES_SUM_MODIFIER_POPULARITY_DESC
+	LEVEL_POINTS_HISTORIES_SUM_CUT_PENALTY_ASC
+	LEVEL_POINTS_HISTORIES_SUM_CUT_PENALTY_DESC
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_ID_ASC
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_ID_DESC
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_ID_LEVEL_ASC
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_ID_LEVEL_DESC
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_POINTS_ASC
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_POINTS_DESC
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_DATE_CREATED_ASC
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_DATE_CREATED_DESC
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_DATE_UPDATED_ASC
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_DATE_UPDATED_DESC
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_RATING_ASC
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_RATING_DESC
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_LENGTH_ASC
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_LENGTH_DESC
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_COMPETITIVENESS_ASC
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_COMPETITIVENESS_DESC
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_RATING_ASC
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_RATING_DESC
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_POPULARITY_ASC
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_POPULARITY_DESC
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_CUT_PENALTY_ASC
+	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_CUT_PENALTY_DESC
+	LEVEL_POINTS_HISTORIES_MIN_ID_ASC
+	LEVEL_POINTS_HISTORIES_MIN_ID_DESC
+	LEVEL_POINTS_HISTORIES_MIN_ID_LEVEL_ASC
+	LEVEL_POINTS_HISTORIES_MIN_ID_LEVEL_DESC
+	LEVEL_POINTS_HISTORIES_MIN_POINTS_ASC
+	LEVEL_POINTS_HISTORIES_MIN_POINTS_DESC
+	LEVEL_POINTS_HISTORIES_MIN_DATE_CREATED_ASC
+	LEVEL_POINTS_HISTORIES_MIN_DATE_CREATED_DESC
+	LEVEL_POINTS_HISTORIES_MIN_DATE_UPDATED_ASC
+	LEVEL_POINTS_HISTORIES_MIN_DATE_UPDATED_DESC
+	LEVEL_POINTS_HISTORIES_MIN_RATING_ASC
+	LEVEL_POINTS_HISTORIES_MIN_RATING_DESC
+	LEVEL_POINTS_HISTORIES_MIN_MODIFIER_LENGTH_ASC
+	LEVEL_POINTS_HISTORIES_MIN_MODIFIER_LENGTH_DESC
+	LEVEL_POINTS_HISTORIES_MIN_MODIFIER_COMPETITIVENESS_ASC
+	LEVEL_POINTS_HISTORIES_MIN_MODIFIER_COMPETITIVENESS_DESC
+	LEVEL_POINTS_HISTORIES_MIN_MODIFIER_RATING_ASC
+	LEVEL_POINTS_HISTORIES_MIN_MODIFIER_RATING_DESC
+	LEVEL_POINTS_HISTORIES_MIN_MODIFIER_POPULARITY_ASC
+	LEVEL_POINTS_HISTORIES_MIN_MODIFIER_POPULARITY_DESC
+	LEVEL_POINTS_HISTORIES_MIN_CUT_PENALTY_ASC
+	LEVEL_POINTS_HISTORIES_MIN_CUT_PENALTY_DESC
+	LEVEL_POINTS_HISTORIES_MAX_ID_ASC
+	LEVEL_POINTS_HISTORIES_MAX_ID_DESC
+	LEVEL_POINTS_HISTORIES_MAX_ID_LEVEL_ASC
+	LEVEL_POINTS_HISTORIES_MAX_ID_LEVEL_DESC
+	LEVEL_POINTS_HISTORIES_MAX_POINTS_ASC
+	LEVEL_POINTS_HISTORIES_MAX_POINTS_DESC
+	LEVEL_POINTS_HISTORIES_MAX_DATE_CREATED_ASC
+	LEVEL_POINTS_HISTORIES_MAX_DATE_CREATED_DESC
+	LEVEL_POINTS_HISTORIES_MAX_DATE_UPDATED_ASC
+	LEVEL_POINTS_HISTORIES_MAX_DATE_UPDATED_DESC
+	LEVEL_POINTS_HISTORIES_MAX_RATING_ASC
+	LEVEL_POINTS_HISTORIES_MAX_RATING_DESC
+	LEVEL_POINTS_HISTORIES_MAX_MODIFIER_LENGTH_ASC
+	LEVEL_POINTS_HISTORIES_MAX_MODIFIER_LENGTH_DESC
+	LEVEL_POINTS_HISTORIES_MAX_MODIFIER_COMPETITIVENESS_ASC
+	LEVEL_POINTS_HISTORIES_MAX_MODIFIER_COMPETITIVENESS_DESC
+	LEVEL_POINTS_HISTORIES_MAX_MODIFIER_RATING_ASC
+	LEVEL_POINTS_HISTORIES_MAX_MODIFIER_RATING_DESC
+	LEVEL_POINTS_HISTORIES_MAX_MODIFIER_POPULARITY_ASC
+	LEVEL_POINTS_HISTORIES_MAX_MODIFIER_POPULARITY_DESC
+	LEVEL_POINTS_HISTORIES_MAX_CUT_PENALTY_ASC
+	LEVEL_POINTS_HISTORIES_MAX_CUT_PENALTY_DESC
+	LEVEL_POINTS_HISTORIES_AVERAGE_ID_ASC
+	LEVEL_POINTS_HISTORIES_AVERAGE_ID_DESC
+	LEVEL_POINTS_HISTORIES_AVERAGE_ID_LEVEL_ASC
+	LEVEL_POINTS_HISTORIES_AVERAGE_ID_LEVEL_DESC
+	LEVEL_POINTS_HISTORIES_AVERAGE_POINTS_ASC
+	LEVEL_POINTS_HISTORIES_AVERAGE_POINTS_DESC
+	LEVEL_POINTS_HISTORIES_AVERAGE_DATE_CREATED_ASC
+	LEVEL_POINTS_HISTORIES_AVERAGE_DATE_CREATED_DESC
+	LEVEL_POINTS_HISTORIES_AVERAGE_DATE_UPDATED_ASC
+	LEVEL_POINTS_HISTORIES_AVERAGE_DATE_UPDATED_DESC
+	LEVEL_POINTS_HISTORIES_AVERAGE_RATING_ASC
+	LEVEL_POINTS_HISTORIES_AVERAGE_RATING_DESC
+	LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_LENGTH_ASC
+	LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_LENGTH_DESC
+	LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_COMPETITIVENESS_ASC
+	LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_COMPETITIVENESS_DESC
+	LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_RATING_ASC
+	LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_RATING_DESC
+	LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_POPULARITY_ASC
+	LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_POPULARITY_DESC
+	LEVEL_POINTS_HISTORIES_AVERAGE_CUT_PENALTY_ASC
+	LEVEL_POINTS_HISTORIES_AVERAGE_CUT_PENALTY_DESC
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_ID_ASC
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_ID_DESC
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_ID_LEVEL_ASC
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_ID_LEVEL_DESC
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_POINTS_ASC
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_POINTS_DESC
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_DATE_CREATED_ASC
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_DATE_CREATED_DESC
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_DATE_UPDATED_ASC
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_DATE_UPDATED_DESC
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_RATING_ASC
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_RATING_DESC
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_LENGTH_ASC
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_LENGTH_DESC
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_COMPETITIVENESS_ASC
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_COMPETITIVENESS_DESC
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_RATING_ASC
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_RATING_DESC
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_POPULARITY_ASC
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_POPULARITY_DESC
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_CUT_PENALTY_ASC
+	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_CUT_PENALTY_DESC
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_ID_ASC
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_ID_DESC
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_ID_LEVEL_ASC
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_ID_LEVEL_DESC
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_POINTS_ASC
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_POINTS_DESC
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_DATE_CREATED_ASC
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_DATE_CREATED_DESC
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_DATE_UPDATED_ASC
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_DATE_UPDATED_DESC
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_RATING_ASC
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_RATING_DESC
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_LENGTH_ASC
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_LENGTH_DESC
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_COMPETITIVENESS_ASC
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_COMPETITIVENESS_DESC
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_RATING_ASC
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_RATING_DESC
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_POPULARITY_ASC
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_POPULARITY_DESC
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_CUT_PENALTY_ASC
+	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_CUT_PENALTY_DESC
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_ID_ASC
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_ID_DESC
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_ID_LEVEL_ASC
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_ID_LEVEL_DESC
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_POINTS_ASC
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_POINTS_DESC
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_DATE_CREATED_ASC
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_DATE_CREATED_DESC
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_DATE_UPDATED_ASC
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_DATE_UPDATED_DESC
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_RATING_ASC
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_RATING_DESC
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_LENGTH_ASC
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_LENGTH_DESC
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_COMPETITIVENESS_ASC
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_COMPETITIVENESS_DESC
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_RATING_ASC
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_RATING_DESC
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_POPULARITY_ASC
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_POPULARITY_DESC
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_CUT_PENALTY_ASC
+	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_CUT_PENALTY_DESC
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_ID_ASC
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_ID_DESC
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_ID_LEVEL_ASC
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_ID_LEVEL_DESC
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_POINTS_ASC
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_POINTS_DESC
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_CREATED_ASC
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_CREATED_DESC
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_UPDATED_ASC
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_UPDATED_DESC
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_RATING_ASC
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_RATING_DESC
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_LENGTH_ASC
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_LENGTH_DESC
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_COMPETITIVENESS_ASC
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_COMPETITIVENESS_DESC
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_RATING_ASC
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_RATING_DESC
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_POPULARITY_ASC
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_POPULARITY_DESC
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_CUT_PENALTY_ASC
+	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_CUT_PENALTY_DESC
 	PERSONAL_BEST_GLOBALS_COUNT_ASC
 	PERSONAL_BEST_GLOBALS_COUNT_DESC
 	PERSONAL_BEST_GLOBALS_SUM_ID_ASC
@@ -22080,206 +22280,6 @@ enum LevelsOrderBy {
 	VOTES_VARIANCE_POPULATION_DATE_CREATED_DESC
 	VOTES_VARIANCE_POPULATION_DATE_UPDATED_ASC
 	VOTES_VARIANCE_POPULATION_DATE_UPDATED_DESC
-	LEVEL_POINTS_HISTORIES_COUNT_ASC
-	LEVEL_POINTS_HISTORIES_COUNT_DESC
-	LEVEL_POINTS_HISTORIES_SUM_ID_ASC
-	LEVEL_POINTS_HISTORIES_SUM_ID_DESC
-	LEVEL_POINTS_HISTORIES_SUM_ID_LEVEL_ASC
-	LEVEL_POINTS_HISTORIES_SUM_ID_LEVEL_DESC
-	LEVEL_POINTS_HISTORIES_SUM_POINTS_ASC
-	LEVEL_POINTS_HISTORIES_SUM_POINTS_DESC
-	LEVEL_POINTS_HISTORIES_SUM_DATE_CREATED_ASC
-	LEVEL_POINTS_HISTORIES_SUM_DATE_CREATED_DESC
-	LEVEL_POINTS_HISTORIES_SUM_DATE_UPDATED_ASC
-	LEVEL_POINTS_HISTORIES_SUM_DATE_UPDATED_DESC
-	LEVEL_POINTS_HISTORIES_SUM_RATING_ASC
-	LEVEL_POINTS_HISTORIES_SUM_RATING_DESC
-	LEVEL_POINTS_HISTORIES_SUM_MODIFIER_LENGTH_ASC
-	LEVEL_POINTS_HISTORIES_SUM_MODIFIER_LENGTH_DESC
-	LEVEL_POINTS_HISTORIES_SUM_MODIFIER_COMPETITIVENESS_ASC
-	LEVEL_POINTS_HISTORIES_SUM_MODIFIER_COMPETITIVENESS_DESC
-	LEVEL_POINTS_HISTORIES_SUM_MODIFIER_RATING_ASC
-	LEVEL_POINTS_HISTORIES_SUM_MODIFIER_RATING_DESC
-	LEVEL_POINTS_HISTORIES_SUM_MODIFIER_POPULARITY_ASC
-	LEVEL_POINTS_HISTORIES_SUM_MODIFIER_POPULARITY_DESC
-	LEVEL_POINTS_HISTORIES_SUM_CUT_PENALTY_ASC
-	LEVEL_POINTS_HISTORIES_SUM_CUT_PENALTY_DESC
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_ID_ASC
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_ID_DESC
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_ID_LEVEL_ASC
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_ID_LEVEL_DESC
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_POINTS_ASC
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_POINTS_DESC
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_DATE_CREATED_ASC
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_DATE_CREATED_DESC
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_DATE_UPDATED_ASC
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_DATE_UPDATED_DESC
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_RATING_ASC
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_RATING_DESC
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_LENGTH_ASC
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_LENGTH_DESC
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_COMPETITIVENESS_ASC
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_COMPETITIVENESS_DESC
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_RATING_ASC
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_RATING_DESC
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_POPULARITY_ASC
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_MODIFIER_POPULARITY_DESC
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_CUT_PENALTY_ASC
-	LEVEL_POINTS_HISTORIES_DISTINCT_COUNT_CUT_PENALTY_DESC
-	LEVEL_POINTS_HISTORIES_MIN_ID_ASC
-	LEVEL_POINTS_HISTORIES_MIN_ID_DESC
-	LEVEL_POINTS_HISTORIES_MIN_ID_LEVEL_ASC
-	LEVEL_POINTS_HISTORIES_MIN_ID_LEVEL_DESC
-	LEVEL_POINTS_HISTORIES_MIN_POINTS_ASC
-	LEVEL_POINTS_HISTORIES_MIN_POINTS_DESC
-	LEVEL_POINTS_HISTORIES_MIN_DATE_CREATED_ASC
-	LEVEL_POINTS_HISTORIES_MIN_DATE_CREATED_DESC
-	LEVEL_POINTS_HISTORIES_MIN_DATE_UPDATED_ASC
-	LEVEL_POINTS_HISTORIES_MIN_DATE_UPDATED_DESC
-	LEVEL_POINTS_HISTORIES_MIN_RATING_ASC
-	LEVEL_POINTS_HISTORIES_MIN_RATING_DESC
-	LEVEL_POINTS_HISTORIES_MIN_MODIFIER_LENGTH_ASC
-	LEVEL_POINTS_HISTORIES_MIN_MODIFIER_LENGTH_DESC
-	LEVEL_POINTS_HISTORIES_MIN_MODIFIER_COMPETITIVENESS_ASC
-	LEVEL_POINTS_HISTORIES_MIN_MODIFIER_COMPETITIVENESS_DESC
-	LEVEL_POINTS_HISTORIES_MIN_MODIFIER_RATING_ASC
-	LEVEL_POINTS_HISTORIES_MIN_MODIFIER_RATING_DESC
-	LEVEL_POINTS_HISTORIES_MIN_MODIFIER_POPULARITY_ASC
-	LEVEL_POINTS_HISTORIES_MIN_MODIFIER_POPULARITY_DESC
-	LEVEL_POINTS_HISTORIES_MIN_CUT_PENALTY_ASC
-	LEVEL_POINTS_HISTORIES_MIN_CUT_PENALTY_DESC
-	LEVEL_POINTS_HISTORIES_MAX_ID_ASC
-	LEVEL_POINTS_HISTORIES_MAX_ID_DESC
-	LEVEL_POINTS_HISTORIES_MAX_ID_LEVEL_ASC
-	LEVEL_POINTS_HISTORIES_MAX_ID_LEVEL_DESC
-	LEVEL_POINTS_HISTORIES_MAX_POINTS_ASC
-	LEVEL_POINTS_HISTORIES_MAX_POINTS_DESC
-	LEVEL_POINTS_HISTORIES_MAX_DATE_CREATED_ASC
-	LEVEL_POINTS_HISTORIES_MAX_DATE_CREATED_DESC
-	LEVEL_POINTS_HISTORIES_MAX_DATE_UPDATED_ASC
-	LEVEL_POINTS_HISTORIES_MAX_DATE_UPDATED_DESC
-	LEVEL_POINTS_HISTORIES_MAX_RATING_ASC
-	LEVEL_POINTS_HISTORIES_MAX_RATING_DESC
-	LEVEL_POINTS_HISTORIES_MAX_MODIFIER_LENGTH_ASC
-	LEVEL_POINTS_HISTORIES_MAX_MODIFIER_LENGTH_DESC
-	LEVEL_POINTS_HISTORIES_MAX_MODIFIER_COMPETITIVENESS_ASC
-	LEVEL_POINTS_HISTORIES_MAX_MODIFIER_COMPETITIVENESS_DESC
-	LEVEL_POINTS_HISTORIES_MAX_MODIFIER_RATING_ASC
-	LEVEL_POINTS_HISTORIES_MAX_MODIFIER_RATING_DESC
-	LEVEL_POINTS_HISTORIES_MAX_MODIFIER_POPULARITY_ASC
-	LEVEL_POINTS_HISTORIES_MAX_MODIFIER_POPULARITY_DESC
-	LEVEL_POINTS_HISTORIES_MAX_CUT_PENALTY_ASC
-	LEVEL_POINTS_HISTORIES_MAX_CUT_PENALTY_DESC
-	LEVEL_POINTS_HISTORIES_AVERAGE_ID_ASC
-	LEVEL_POINTS_HISTORIES_AVERAGE_ID_DESC
-	LEVEL_POINTS_HISTORIES_AVERAGE_ID_LEVEL_ASC
-	LEVEL_POINTS_HISTORIES_AVERAGE_ID_LEVEL_DESC
-	LEVEL_POINTS_HISTORIES_AVERAGE_POINTS_ASC
-	LEVEL_POINTS_HISTORIES_AVERAGE_POINTS_DESC
-	LEVEL_POINTS_HISTORIES_AVERAGE_DATE_CREATED_ASC
-	LEVEL_POINTS_HISTORIES_AVERAGE_DATE_CREATED_DESC
-	LEVEL_POINTS_HISTORIES_AVERAGE_DATE_UPDATED_ASC
-	LEVEL_POINTS_HISTORIES_AVERAGE_DATE_UPDATED_DESC
-	LEVEL_POINTS_HISTORIES_AVERAGE_RATING_ASC
-	LEVEL_POINTS_HISTORIES_AVERAGE_RATING_DESC
-	LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_LENGTH_ASC
-	LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_LENGTH_DESC
-	LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_COMPETITIVENESS_ASC
-	LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_COMPETITIVENESS_DESC
-	LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_RATING_ASC
-	LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_RATING_DESC
-	LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_POPULARITY_ASC
-	LEVEL_POINTS_HISTORIES_AVERAGE_MODIFIER_POPULARITY_DESC
-	LEVEL_POINTS_HISTORIES_AVERAGE_CUT_PENALTY_ASC
-	LEVEL_POINTS_HISTORIES_AVERAGE_CUT_PENALTY_DESC
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_ID_ASC
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_ID_DESC
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_ID_LEVEL_ASC
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_ID_LEVEL_DESC
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_POINTS_ASC
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_POINTS_DESC
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_DATE_CREATED_ASC
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_DATE_CREATED_DESC
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_DATE_UPDATED_ASC
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_DATE_UPDATED_DESC
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_RATING_ASC
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_RATING_DESC
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_LENGTH_ASC
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_LENGTH_DESC
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_COMPETITIVENESS_ASC
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_COMPETITIVENESS_DESC
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_RATING_ASC
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_RATING_DESC
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_POPULARITY_ASC
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_MODIFIER_POPULARITY_DESC
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_CUT_PENALTY_ASC
-	LEVEL_POINTS_HISTORIES_STDDEV_SAMPLE_CUT_PENALTY_DESC
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_ID_ASC
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_ID_DESC
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_ID_LEVEL_ASC
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_ID_LEVEL_DESC
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_POINTS_ASC
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_POINTS_DESC
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_DATE_CREATED_ASC
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_DATE_CREATED_DESC
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_DATE_UPDATED_ASC
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_DATE_UPDATED_DESC
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_RATING_ASC
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_RATING_DESC
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_LENGTH_ASC
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_LENGTH_DESC
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_COMPETITIVENESS_ASC
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_COMPETITIVENESS_DESC
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_RATING_ASC
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_RATING_DESC
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_POPULARITY_ASC
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_MODIFIER_POPULARITY_DESC
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_CUT_PENALTY_ASC
-	LEVEL_POINTS_HISTORIES_STDDEV_POPULATION_CUT_PENALTY_DESC
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_ID_ASC
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_ID_DESC
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_ID_LEVEL_ASC
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_ID_LEVEL_DESC
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_POINTS_ASC
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_POINTS_DESC
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_DATE_CREATED_ASC
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_DATE_CREATED_DESC
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_DATE_UPDATED_ASC
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_DATE_UPDATED_DESC
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_RATING_ASC
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_RATING_DESC
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_LENGTH_ASC
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_LENGTH_DESC
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_COMPETITIVENESS_ASC
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_COMPETITIVENESS_DESC
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_RATING_ASC
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_RATING_DESC
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_POPULARITY_ASC
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_MODIFIER_POPULARITY_DESC
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_CUT_PENALTY_ASC
-	LEVEL_POINTS_HISTORIES_VARIANCE_SAMPLE_CUT_PENALTY_DESC
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_ID_ASC
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_ID_DESC
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_ID_LEVEL_ASC
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_ID_LEVEL_DESC
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_POINTS_ASC
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_POINTS_DESC
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_CREATED_ASC
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_CREATED_DESC
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_UPDATED_ASC
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_DATE_UPDATED_DESC
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_RATING_ASC
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_RATING_DESC
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_LENGTH_ASC
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_LENGTH_DESC
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_COMPETITIVENESS_ASC
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_COMPETITIVENESS_DESC
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_RATING_ASC
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_RATING_DESC
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_POPULARITY_ASC
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_MODIFIER_POPULARITY_DESC
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_CUT_PENALTY_ASC
-	LEVEL_POINTS_HISTORIES_VARIANCE_POPULATION_CUT_PENALTY_DESC
 	ZSL_LEVELS_COUNT_ASC
 	ZSL_LEVELS_COUNT_DESC
 	ZSL_LEVELS_SUM_ID_ASC
@@ -27158,112 +27158,6 @@ type UserLevelsByRecordManyToManyEdge {
 }
 
 """
-A connection to a list of `Record` values, with data from `WorldRecordGlobal`.
-"""
-type UserRecordsByWorldRecordGlobalManyToManyConnection {
-	"""
-	A list of `Record` objects.
-	"""
-	nodes: [Record!]!
-
-	"""
-	A list of edges which contains the `Record`, info from the `WorldRecordGlobal`, and the cursor to aid in pagination.
-	"""
-	edges: [UserRecordsByWorldRecordGlobalManyToManyEdge!]!
-
-	"""
-	Information to aid in pagination.
-	"""
-	pageInfo: PageInfo!
-
-	"""
-	The count of *all* `Record` you could get from the connection.
-	"""
-	totalCount: Int!
-
-	"""
-	Aggregates across the matching connection (ignoring before/after/first/last/offset)
-	"""
-	aggregates: RecordAggregates
-
-	"""
-	Grouped aggregates across the matching connection (ignoring before/after/first/last/offset)
-	"""
-	groupedAggregates(
-		"""
-		The method to use when grouping `Record` for these aggregates.
-		"""
-		groupBy: [RecordGroupBy!]!
-
-		"""
-		Conditions on the grouped aggregates.
-		"""
-		having: RecordHavingInput
-	): [RecordAggregates!]
-}
-
-"""
-A `Record` edge in the connection, with data from `WorldRecordGlobal`.
-"""
-type UserRecordsByWorldRecordGlobalManyToManyEdge {
-	"""
-	A cursor for use in pagination.
-	"""
-	cursor: Cursor
-
-	"""
-	The `Record` at the end of the edge.
-	"""
-	node: Record!
-
-	"""
-	Reads and enables pagination through a set of `WorldRecordGlobal`.
-	"""
-	worldRecordGlobals(
-		"""
-		Only read the first `n` values of the set.
-		"""
-		first: Int
-
-		"""
-		Only read the last `n` values of the set.
-		"""
-		last: Int
-
-		"""
-		Skip the first `n` values from our `after` cursor, an alternative to cursor
-		based pagination. May not be used with `last`.
-		"""
-		offset: Int
-
-		"""
-		Read all values in the set before (above) this cursor.
-		"""
-		before: Cursor
-
-		"""
-		Read all values in the set after (below) this cursor.
-		"""
-		after: Cursor
-
-		"""
-		The method to use when ordering `WorldRecordGlobal`.
-		"""
-		orderBy: [WorldRecordGlobalsOrderBy!] = [PRIMARY_KEY_ASC]
-
-		"""
-		A condition to be used in determining which values should be returned by the collection.
-		"""
-		condition: WorldRecordGlobalCondition
-
-		"""
-		A filter to be used in determining which values should be returned by the collection.
-		"""
-		filter: WorldRecordGlobalFilter
-	): WorldRecordGlobalsConnection!
-}
-
-"""
 A connection to a list of `Level` values, with data from `Vote`.
 """
 type UserLevelsByVoteManyToManyConnection {
@@ -27367,6 +27261,112 @@ type UserLevelsByVoteManyToManyEdge {
 		"""
 		filter: VoteFilter
 	): VotesConnection!
+}
+
+"""
+A connection to a list of `Record` values, with data from `WorldRecordGlobal`.
+"""
+type UserRecordsByWorldRecordGlobalManyToManyConnection {
+	"""
+	A list of `Record` objects.
+	"""
+	nodes: [Record!]!
+
+	"""
+	A list of edges which contains the `Record`, info from the `WorldRecordGlobal`, and the cursor to aid in pagination.
+	"""
+	edges: [UserRecordsByWorldRecordGlobalManyToManyEdge!]!
+
+	"""
+	Information to aid in pagination.
+	"""
+	pageInfo: PageInfo!
+
+	"""
+	The count of *all* `Record` you could get from the connection.
+	"""
+	totalCount: Int!
+
+	"""
+	Aggregates across the matching connection (ignoring before/after/first/last/offset)
+	"""
+	aggregates: RecordAggregates
+
+	"""
+	Grouped aggregates across the matching connection (ignoring before/after/first/last/offset)
+	"""
+	groupedAggregates(
+		"""
+		The method to use when grouping `Record` for these aggregates.
+		"""
+		groupBy: [RecordGroupBy!]!
+
+		"""
+		Conditions on the grouped aggregates.
+		"""
+		having: RecordHavingInput
+	): [RecordAggregates!]
+}
+
+"""
+A `Record` edge in the connection, with data from `WorldRecordGlobal`.
+"""
+type UserRecordsByWorldRecordGlobalManyToManyEdge {
+	"""
+	A cursor for use in pagination.
+	"""
+	cursor: Cursor
+
+	"""
+	The `Record` at the end of the edge.
+	"""
+	node: Record!
+
+	"""
+	Reads and enables pagination through a set of `WorldRecordGlobal`.
+	"""
+	worldRecordGlobals(
+		"""
+		Only read the first `n` values of the set.
+		"""
+		first: Int
+
+		"""
+		Only read the last `n` values of the set.
+		"""
+		last: Int
+
+		"""
+		Skip the first `n` values from our `after` cursor, an alternative to cursor
+		based pagination. May not be used with `last`.
+		"""
+		offset: Int
+
+		"""
+		Read all values in the set before (above) this cursor.
+		"""
+		before: Cursor
+
+		"""
+		Read all values in the set after (below) this cursor.
+		"""
+		after: Cursor
+
+		"""
+		The method to use when ordering `WorldRecordGlobal`.
+		"""
+		orderBy: [WorldRecordGlobalsOrderBy!] = [PRIMARY_KEY_ASC]
+
+		"""
+		A condition to be used in determining which values should be returned by the collection.
+		"""
+		condition: WorldRecordGlobalCondition
+
+		"""
+		A filter to be used in determining which values should be returned by the collection.
+		"""
+		filter: WorldRecordGlobalFilter
+	): WorldRecordGlobalsConnection!
 }
 
 """
