@@ -52,7 +52,7 @@
 		"start": "pnpm generate && pnpm document && pnpm lint"
 	},
 	"devDependencies": {
-		"@apollo/rover": "^0.36.0",
+		"@apollo/rover": "^0.37.0",
 		"@ava/typescript": "^6.0.0",
 		"@biomejs/biome": "^1.9.4",
 		"@genql/cli": "^6.3.3",
